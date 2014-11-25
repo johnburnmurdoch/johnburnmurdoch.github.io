@@ -482,14 +482,14 @@
     d3.select("svg").append("g")
     .attr("class", "axis")
     .attr("id", "xaxis")
-    .attr("transform", "translate(0,820)")
+    .attr("transform", "translate(2000,820)")
     .call(xAxis);
 
     // // And here is the same for the y axis
     d3.select("svg").append("g")
     .attr("class", "axis")
     .attr("id", "yaxis")
-    .attr("transform", "translate(350,0)")
+    .attr("transform", "translate(2350,0)")
     .call(yAxis);
 
     // d3.select("svg").append("g")
@@ -648,9 +648,12 @@
     }
 
     function toslide3() {
+      d3.select("#xaxis").transition().delay(1000).duration(500).attr("transform","0,820")
+      d3.select("#yaxis").transition().delay(1000).duration(500).attr("transform","350,0")
+
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Typology chart goes here")
+      .transition().delay(750).duration(250).attr("x","2000").text("Presenting the <clever acronym>")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".hed.num1")
