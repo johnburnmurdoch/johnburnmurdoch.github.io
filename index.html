@@ -648,8 +648,8 @@
     }
 
     function toslide3() {
-      d3.select("#xaxis").transition().delay(1000).duration(500).attr("transform","0,820")
-      d3.select("#yaxis").transition().delay(1000).duration(500).attr("transform","350,0")
+      d3.select("#xaxis").transition().delay(1000).duration(500).attr("transform","translate(0,820)")
+      d3.select("#yaxis").transition().delay(1000).duration(500).attr("transform","translate(350,0)")
 
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
