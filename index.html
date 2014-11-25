@@ -689,6 +689,9 @@
     }
 
     function toslide4() {
+      d3.select("#xaxis").transition().duration(250).attr("transform","translate(-1700,820)")
+      d3.select("#yaxis").transition().duration(250).attr("transform","translate(-1350,0)")
+
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("How are they produced?")
