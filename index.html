@@ -133,6 +133,7 @@
     .keypoint.sub{fill:#434234;font-size:22px;}
     .keypoint.sub2{fill:#434234;font-size:22px;}
     #chart{width:1572px;}
+    .tick text{opacity:0;}
     </style>
   </head>
   <body>
@@ -444,12 +445,12 @@
     // This defines the domain (data values) and range (potion of SVG) that the x scale refers to
     var xScale = d3.scale.linear()
      .domain([0,100])
-     .range([400, 1172]);
+     .range([350, 1222]);
 
     // // And this does the same for the y scale
     var yScale = d3.scale.linear()
      .domain([0,100])
-     .range([800, 300]);
+     .range([820, 320]);
 
     // var yScalegpg = d3.scale.linear()
     //  .domain([0,8.5])
@@ -481,14 +482,14 @@
     d3.select("svg").append("g")
     .attr("class", "axis")
     .attr("id", "xaxis")
-    .attr("transform", "translate(0,800)")
+    .attr("transform", "translate(0,820)")
     .call(xAxis);
 
     // // And here is the same for the y axis
     d3.select("svg").append("g")
     .attr("class", "axis")
     .attr("id", "yaxis")
-    .attr("transform", "translate(400,0)")
+    .attr("transform", "translate(350,0)")
     .call(yAxis);
 
     // d3.select("svg").append("g")
