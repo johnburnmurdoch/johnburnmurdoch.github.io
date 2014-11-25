@@ -442,33 +442,33 @@
       .style("opacity","0")
 
     // This defines the domain (data values) and range (potion of SVG) that the x scale refers to
-    // var xScale = d3.scale.linear()
-    //  .domain([1955,2015])
-    //  .range([23, 870]);
+    var xScale = d3.scale.linear()
+     .domain([0,100])
+     .range([400, 1172]);
 
     // // And this does the same for the y scale
-    // var yScale = d3.scale.linear()
-    //  .domain([0,75])
-    //  .range([480, 50]);
+    var yScale = d3.scale.linear()
+     .domain([0,100])
+     .range([800, 300]);
 
     // var yScalegpg = d3.scale.linear()
     //  .domain([0,8.5])
     //  .range([480, 50]);
 
     // // This then defins an axis based on the x scale, and where to draw ticks along the axis 
-    // var xAxis = d3.svg.axis()
-    //   .scale(xScale)
-    //   .orient("bottom")
-    //   .tickFormat(d3.format("d"))
-    //   // .tickValues([5null,57,60,63,66])
-    //   ;
+    var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .tickFormat(d3.format("d"))
+      // .tickValues([5null,57,60,63,66])
+      ;
 
     // // And this does the same for the y axis based on the y scale
-    // var yAxis = d3.svg.axis()
-    //   .scale(yScale)
-    //   .orient("left")
-    //   // .tickValues([41,4null,47,50])
-    //   ;
+    var yAxis = d3.svg.axis()
+      .scale(yScale)
+      .orient("left")
+      // .tickValues([41,4null,47,50])
+      ;
 
     // var yAxisgpg = d3.svg.axis()
     //   .scale(yScalegpg)
@@ -478,18 +478,18 @@
     //   ;
 
     //This then draws the x axis on our SVG
-    // d3.select("svg").append("g")
-    // .attr("class", "axis")
-    // .attr("id", "xaxis")
-    // .attr("transform", "translate(0,480)")
-    // .call(xAxis);
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "xaxis")
+    .attr("transform", "translate(0,480)")
+    .call(xAxis);
 
     // // And here is the same for the y axis
-    // d3.select("svg").append("g")
-    // .attr("class", "axis")
-    // .attr("id", "yaxis")
-    // .attr("transform", "translate(23,0)")
-    // .call(yAxis);
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "yaxis")
+    .attr("transform", "translate(23,0)")
+    .call(yAxis);
 
     // d3.select("svg").append("g")
     // .attr("class", "axis")
@@ -1053,48 +1053,7 @@
       }}}}}}}}}}}}}}}}}}}
       });
 
-    // addEventListener("keydown", function(event) {
-    //     if (event.keyCode == 33)
-    // transitionback()
-    //   });
-
-
     bgchange();
-
-
-
-    
-
-
-    // Here I'm telling d3 what to do when I click "next"
-    // d3.select('#page2').on('click',function() {
-
-    // After a short delay I'm changing the caption text from what it was to what follows here
-    // d3.select("#caption")
-    // .transition()
-    // .delay(600)
-    // .text("New caption text")
-
-    // And I'm changing the ID of the "Next" button so it will do something different on the next click
-    // d3.select("#page2")
-    // .attr("id","page3")
-
-    // I'm also making our "Restart" button visible and clickable. Replacing the "#" with the URL to this graphic would give it the "reload frame" function
-    // d3.select("#restart")
-    //                 .transition()
-    //                 .delay(1005)
-    //                 .style("z-index","10000")
-    //                 .style("opacity","1")
-    //                 .style("pointer-events","all")                    
-    //                 .attr("href","#")
-
-    // Simultaneously, I'm hiding the "Next" button and making it unclickable
-    // d3.select("#page3")
-    //                         .style("pointer-events","none")
-    //                         .style("opacity","0")
-    //                         .style("z-index","0")
-
-    // })
     </script>
     
   </body>
