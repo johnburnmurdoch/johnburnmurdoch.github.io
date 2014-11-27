@@ -141,6 +141,10 @@
     .videos{fill:#76acb8;}
     .Statistical{fill:#d7706c;}
     .projecttext{fill:#74736c;opacity:0;}
+    .newcircle{opacity:0;}
+    .newcircle.inner{fill:#d7706c;}
+    .newcircle.mid{fill:#76acb8;}
+    .newcircle.outer{fill:#9e2f50;}
     </style>
   </head>
   <body>
@@ -281,7 +285,7 @@
         "width":"260",
         "height":"200",
         "class":"promo2",
-        "xlink:href":"lifts.png"
+        "xlink:href":"https://raw.githubusercontent.com/johnburnmurdoch/new_image/master/lifts.png"
       })
 
     svg.append("svg:image")
@@ -597,6 +601,30 @@
       })
       .text(function(d,i){return d;})
 
+      svg.append("circle")
+      .attr({
+        "class":"newcircle  outer",
+        "cx":"2000",
+        "cy":"-400",
+        "r":"10px"
+      })
+
+      svg.append("circle")
+      .attr({
+        "class":"newcircle mid",
+        "cx":"2000",
+        "cy":"-400",
+        "r":"7px"
+      })
+
+      svg.append("circle")
+      .attr({
+        "class":"newcircle inner",
+        "cx":"2000",
+        "cy":"-400",
+        "r":"4px"
+      })
+
     // var path = d3.svg.line()
     //   .defined(function(d) { return d != null; })
     //   .interpolate("linear")
@@ -830,18 +858,35 @@
 
 
     function toslide6() {
+      d3.select(".slideheader")
+      .transition().duration(250).attr("x","-1000").style("opacity","0")
+      .transition().delay(750).duration(250).attr("x","2000").text("Templating and skill-sharing")
+      .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
+
       d3.selectAll(".projecttext").transition().duration(1000).style("opacity","0")
 
-      d3.selectAll(".projectcircle").transition().duration(1000)
+      d3.selectAll(".projectcircle").transition().duration(1750)
       .attr("cx",function(d,i){return getxcoords(circlenames[i].split(" ")[0])*0.8;})
       .attr("cy",function(d,i){return (getycoords(circlenames[i].split(" ")[0])*1.1);})
 
       slidenum = 6
     }
 
+    function toslide7() {
+      d3.select(".slideheader")
+      .transition().duration(250).attr("x","-1000").style("opacity","0")
+      .transition().delay(750).duration(250).attr("x","2000").text("Which means capacity for new challenges!")
+      .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
+
+      d3.selectAll(".newcircle")
+      .transition().duration(1750).attr("cx","1180").attr("cy","360").style("opacity","1")
+
+      slidenum = 7
+    }
+
     
 
-    function toslide7() {
+    function toslide8() {
 
       d3.selectAll(".verticalGrid").transition().duration(250).attr("transform","translate(-2000,0)")
       d3.selectAll(".horizontalGrid").transition().duration(250).attr("transform","translate(-2000,0)")
@@ -853,6 +898,8 @@
 
       d3.select("#xaxis").transition().duration(250).attr("transform","translate(-1700,820)")
       d3.select("#yaxis").transition().duration(250).attr("transform","translate(-1350,0)")
+
+      d3.selectAll(".newcircle").transition().duration(250).attr("transform","translate(-2000,0)")
 
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
@@ -888,10 +935,10 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Underpinning everything is the desire, ability and scope to learn new skills on the job")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 7
+      slidenum = 8
     }
 
-    function toslide8() {
+    function toslide9() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Goals and guidelines")
@@ -944,10 +991,10 @@
 
       d3.select(".promo5").transition().duration(1500).attr({"x":"0","y":"360","width":"315","height":"400"})
       d3.select(".promo6").transition().duration(1500).attr({"x":"1215","y":"360","width":"370","height":"400"})
-      slidenum = 8
+      slidenum = 9
     }
 
-    function toslide9() {
+    function toslide10() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("The story remains front and centre")
@@ -1001,10 +1048,10 @@
       d3.select(".promo5").transition().duration(1500).attr({"x":"-200","y":"970","width":"150"})
       d3.select(".promo6").transition().duration(1500).attr({"x":"1600","y":"970","width":"200"})
 
-      slidenum = 9
+      slidenum = 10
     }
 
-    function toslide10() {
+    function toslide11() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Maps")
@@ -1022,7 +1069,7 @@
 
       d3.select(".hed.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Team effort")
+      .transition().delay(750).duration(250).attr("x","2000").text("Collaborative effort")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub.num2")
@@ -1032,22 +1079,22 @@
 
       d3.select(".hed.num3")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Entertaining as well as informing")
+      .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub.num3")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Giving the reader an unexpected bonus, without sacrificing the breadth or depth of ")
+      .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub2.num3")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("information conveyed")
+      .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 10
+      slidenum = 11
     }
 
-    function toslide11() {
+    function toslide12() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("How do we know if it's working?")
@@ -1087,10 +1134,10 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 11
+      slidenum = 12
     }
 
-    function toslide12() {
+    function toslide13() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Unique value of interactive graphics")
@@ -1130,51 +1177,46 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 12
+      slidenum = 13
     }
 
-    function toslide13() {
+    function toslide14() {
       d3.select(".slidetitle").transition().delay(700).duration(800).attr("y","200").style("font-weight","bold")
       d3.select(".mydetails").transition().delay(700).duration(800).style("font-size","24px").attr("y","300")
       d3.select(".mydetails2").transition().delay(700).duration(800).style("font-size","18px").attr("y","340")
       d3.select(".slideheader").transition().delay(700).duration(800).attr("y","-100")
       d3.selectAll(".keypoint").transition().delay(700).duration(800).style("opacity","0")
       d3.select(".anyqs").transition().delay(700).duration(800).attr("y","450")
-      slidenum = 13
-    }
-
-    function toslide14() {
-      bgchange()
       slidenum = 14
     }
 
     function toslide15() {
-      d3.select(".slidetitle").text("Slide 15")
+      bgchange()
       slidenum = 15
     }
 
     function toslide16() {
-      d3.select(".slidetitle").text("Slide 16")
+      d3.select(".mydetails2").style("opacity","1")
       slidenum = 16
     }
 
     function toslide17() {
-      d3.select(".slidetitle").text("Slide 17")
+      d3.select(".mydetails2").style("opacity","1")
       slidenum = 17
     }
 
     function toslide18() {
-      d3.select(".slidetitle").text("Slide 18")
+      d3.select(".mydetails2").style("opacity","1")
       slidenum = 18
     }
 
     function toslide19() {
-      d3.select(".slidetitle").text("Slide 19")
+      d3.select(".mydetails2").style("opacity","1")
       slidenum = 19
     }
 
     function toslide20() {
-      d3.select(".slidetitle").text("Slide 20")
+      d3.select(".mydetails2").style("opacity","1")
       slidenum = 20
     }
 
