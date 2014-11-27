@@ -134,6 +134,13 @@
     .keypoint.sub2{fill:#434234;font-size:22px;}
     #chart{width:1572px;}
     .tick text{opacity:0;}
+    .projectcircle{opacity:0;}
+    .projects{fill:#b8b1a9;}
+    .Maps,.Animated,.Placemarkers,.Interactive{fill:#3C5F5E;}
+    .Charts,.Calculators,.Dashboards,.Narrative,.Nonstandard{fill:#9e2f50;}
+    .videos{fill:#76acb8;}
+    .Statistical{fill:#d7706c;}
+    .projecttext{fill:#74736c;opacity:0;}
     </style>
   </head>
   <body>
@@ -269,9 +276,9 @@
 
     svg.append("svg:image")
       .attr({
-        "x":"650",
-        "y":"430",
-        "width":"300",
+        "x":"670",
+        "y":"420",
+        "width":"260",
         "height":"200",
         "class":"promo2",
         "xlink:href":"lifts.png"
@@ -499,25 +506,96 @@
     // .call(yAxisgpg);
 
     // Now we're adding a title at the top of our y axis, anchored to the left hand edge of the SVG
-    // d3.select("svg").append("text")
-    //     .attr("class","yscattertitle")
-    //     .text("Cumulative goals scored")
-    //     .attr("x","0")
-    //     .attr("y","35")
-    //     .style("font-size","12")
-    //     .style("fill-opacity","1")
-    //     .style("fill","#43423e");
+    d3.select("svg").append("text")
+        .attr("class","yscattertitle")
+        .text("Specialist skills required")
+        .attr("x","350")
+        .attr("y","305")
+        .attr("transform","translate(2000,0)")
+        .style("font-size","18")
+        .style("font-weight","bold")
+        .style("fill-opacity","1")
+        .style("fill","#43423e");
 
     // // And here's one for the x axis, anchored to the middle of our SVG
-    // d3.select("svg").append("text")
-    //     .attr("class","xscattertitle")
-    //     .text("Season ending in year shown")
-    //     .attr("x","486")
-    //     .attr("y","520")
-    //     .attr("text-anchor","middle")
-    //     .style("font-size","12")
-    //     .style("fill-opacity","1")
-    //     .style("fill","#43423e");
+    d3.select("svg").append("text")
+        .attr("class","xscattertitle")
+        .text("Time/personnel required")
+        .attr("x","786")
+        .attr("y","845")
+        .attr("text-anchor","middle")
+        .attr("transform","translate(2000,0)")
+        .style("font-size","18")
+        .style("font-weight","bold")
+        .style("fill-opacity","1")
+        .style("fill","#43423e");
+
+    var xticks = [10,20,30,40,50,60,70,80,90,100];
+    var yticks = [10,20,30,40,50,60,70,80,90,100];
+
+    svg.selectAll("line.horizontalGrid").data(yticks).enter()
+    .append("line")
+        .attr(
+        {
+            "class":"horizontalGrid",
+            "x1" : 350,
+            "x2" : 1222,
+            "y1" : function(d){ return yScale(d);},
+            "y2" : function(d){ return yScale(d);},
+            "fill" : "none",
+            "shape-rendering" : "crispEdges",
+            "stroke" : "#cec6b9",
+            "stroke-width" : "1px",
+            "stroke-dasharray" : "1 1",
+            "transform":"translate(2000,0)"
+        });
+
+    svg.selectAll("line.verticalGrid").data(xticks).enter()
+    .append("line")
+        .attr(
+        {
+            "class":"verticalGrid",
+            "y1" : 320,
+            "y2" : 820,
+            "x1" : function(d){ return xScale(d);},
+            "x2" : function(d){ return xScale(d);},
+            "fill" : "none",
+            "shape-rendering" : "crispEdges",
+            "stroke" : "#cec6b9",
+            "stroke-width" : "1px",
+            "stroke-dasharray" : "1 1",
+            "transform":"translate(2000,0)"
+        });
+
+    var circlenames = ["All projects","Maps","Charts","Graphics videos","Statistical analyses","Animated maps","Placemarkers","Interactive maps","Calculators","Dashboards","Narrative or animated graphics","Nonstandard charts"];
+
+    function getxcoords(str)
+    {
+      return d3.select(".projectcircle." + str).attr("cx")
+    };
+
+    function getycoords(str)
+    {
+      return d3.select(".projectcircle." + str).attr("cy")
+    };
+
+    svg.selectAll("projectcircles").data(circlenames).enter()
+      .append("circle")
+      .attr({
+        "class":function(d,i){return "projectcircle " + d;},
+        "cx":"786",
+        "cy":"570",
+        "r":"40px"
+      })
+
+    svg.selectAll("projecttext").data(circlenames).enter()
+      .append("text")
+      .attr({
+        "class":function(d,i){return "projecttext " + d;},
+        "x":"826",
+        "y":"610"
+      })
+      .text(function(d,i){return d;})
 
     // var path = d3.svg.line()
     //   .defined(function(d) { return d != null; })
@@ -637,7 +715,7 @@
 
       d3.select(".hed.num3")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("What resources does each require in terms of time and personnel?")
+      .transition().delay(750).duration(250).attr("x","2000").text("What resources does each require in terms of time and skills?")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub.num3")
@@ -651,9 +729,17 @@
       d3.select("#xaxis").transition().delay(1000).duration(500).attr("transform","translate(0,820)")
       d3.select("#yaxis").transition().delay(1000).duration(500).attr("transform","translate(350,0)")
 
+      d3.selectAll(".verticalGrid").transition().delay(1000).duration(500).attr("transform","translate(0,0)")
+      d3.selectAll(".horizontalGrid").transition().delay(1000).duration(500).attr("transform","translate(0,0)")
+
+      d3.select(".xscattertitle").transition().delay(1000).duration(500).attr("transform","translate(0,0)")
+      d3.select(".yscattertitle").transition().delay(1000).duration(500).attr("transform","translate(0,0)")
+
+      d3.selectAll(".All").transition().delay(1250).duration(500).style("opacity","1")
+
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Presenting the <clever acronym>")
+      .transition().delay(750).duration(250).attr("x","2000").text("A graphic about graphics")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".hed.num1")
@@ -689,6 +775,82 @@
     }
 
     function toslide4() {
+      d3.selectAll(".All").transition().duration(1000).style("opacity","0")
+
+      d3.select(".projectcircle.Maps").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","850").attr("cy","550")
+      d3.select(".projecttext.Maps").style("opacity","1").transition().duration(1000).attr("x","860").attr("y","570")
+
+      d3.select(".projectcircle.Charts").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","770").attr("cy","560")
+      d3.select(".projecttext.Charts").style("opacity","1").transition().duration(1000).attr("x","780").attr("y","580")
+
+      d3.select(".projectcircle.videos").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","880").attr("cy","490")
+      d3.select(".projecttext.videos").style("opacity","1").transition().duration(1000).attr("x","890").attr("y","510")
+
+      d3.select(".projectcircle.Statistical").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","950").attr("cy","445")
+      d3.select(".projecttext.Statistical").style("opacity","1").transition().duration(1000).attr("x","960").attr("y","465")
+
+      slidenum = 4
+    }
+
+    function toslide5() {
+
+      d3.select(".projectcircle.Maps").style("opacity","1").transition().duration(1000).style("opacity","0")
+      d3.select(".projecttext.Maps").style("opacity","1").transition().duration(1000).style("opacity","0")
+
+      d3.select(".projectcircle.Charts").style("opacity","1").transition().duration(1000).style("opacity","0")
+      d3.select(".projecttext.Charts").style("opacity","1").transition().duration(1000).style("opacity","0")
+
+      // d3.select(".projectcircle.videos").style("opacity","1").transition().duration(1000).style("opacity","0")
+      // d3.select(".projecttext.videos").style("opacity","1").transition().duration(1000).style("opacity","0")
+
+      // d3.select(".projectcircle.Statistical").style("opacity","1").transition().duration(1000).style("opacity","0")
+      // d3.select(".projecttext.Statistical").style("opacity","1").transition().duration(1000).style("opacity","0")
+
+
+
+      d3.select(".projectcircle.Animated").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","500").attr("cy","700")
+      d3.select(".projecttext.Animated").style("opacity","1").transition().duration(1000).attr("x","505").attr("y","720")
+      d3.select(".projectcircle.Placemarkers").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","570").attr("cy","550")
+      d3.select(".projecttext.Placemarkers").style("opacity","1").transition().duration(1000).attr("x","575").attr("y","570")
+      d3.select(".projectcircle.Interactive").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","960").attr("cy","460")
+      d3.select(".projecttext.Interactive").style("opacity","1").transition().duration(1000).attr("x","965").attr("y","480")
+      
+      d3.select(".projectcircle.Calculators").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","850").attr("cy","450")
+      d3.select(".projecttext.Calculators").style("opacity","1").transition().duration(1000).attr("x","855").attr("y","470")
+      d3.select(".projectcircle.Dashboards").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","750").attr("cy","650")
+      d3.select(".projecttext.Dashboards").style("opacity","1").transition().duration(1000).attr("x","755").attr("y","670")
+      d3.select(".projectcircle.Nonstandard").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","950").attr("cy","550")
+      d3.select(".projecttext.Nonstandard").style("opacity","1").transition().duration(1000).attr("x","955").attr("y","570")
+      d3.select(".projectcircle.Narrative").style("opacity","1").transition().duration(1000).attr("r","10px").attr("cx","800").attr("cy","480")
+      d3.select(".projecttext.Narrative").style("opacity","1").transition().duration(1000).attr("x","805").attr("y","500")      
+
+      slidenum = 5
+    }
+
+
+
+    function toslide6() {
+      d3.selectAll(".projecttext").transition().duration(1000).style("opacity","0")
+
+      d3.selectAll(".projectcircle").transition().duration(1000)
+      .attr("cx",function(d,i){return getxcoords(circlenames[i].split(" ")[0])*0.8;})
+      .attr("cy",function(d,i){return (getycoords(circlenames[i].split(" ")[0])*1.1);})
+
+      slidenum = 6
+    }
+
+    
+
+    function toslide7() {
+
+      d3.selectAll(".verticalGrid").transition().duration(250).attr("transform","translate(-2000,0)")
+      d3.selectAll(".horizontalGrid").transition().duration(250).attr("transform","translate(-2000,0)")
+
+      d3.selectAll(".projectcircle").transition().duration(250).attr("transform","translate(-2000,0)")
+
+      d3.select(".xscattertitle").transition().duration(250).attr("transform","translate(-2000,0)")
+      d3.select(".yscattertitle").transition().duration(250).attr("transform","translate(-2000,0)")
+
       d3.select("#xaxis").transition().duration(250).attr("transform","translate(-1700,820)")
       d3.select("#yaxis").transition().duration(250).attr("transform","translate(-1350,0)")
 
@@ -726,10 +888,10 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Underpinning everything is the desire, ability and scope to learn new skills on the job")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 4
+      slidenum = 7
     }
 
-    function toslide5() {
+    function toslide8() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Goals and guidelines")
@@ -782,10 +944,10 @@
 
       d3.select(".promo5").transition().duration(1500).attr({"x":"0","y":"360","width":"315","height":"400"})
       d3.select(".promo6").transition().duration(1500).attr({"x":"1215","y":"360","width":"370","height":"400"})
-      slidenum = 5
+      slidenum = 8
     }
 
-    function toslide6() {
+    function toslide9() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("The story remains front and centre")
@@ -808,12 +970,12 @@
 
       d3.select(".hed.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Exhibit A: sport")
+      .transition().delay(750).duration(250).attr("x","2000").text("Example: sport")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Our challenge is to write up a statistical analysis without them realising that's what it is")
+      .transition().delay(750).duration(250).attr("x","2000").text("Our challenge is to write up a statistical analysis that reads like it was written by a fan, not a mathematician")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub2.num2")
@@ -839,33 +1001,33 @@
       d3.select(".promo5").transition().duration(1500).attr({"x":"-200","y":"970","width":"150"})
       d3.select(".promo6").transition().duration(1500).attr({"x":"1600","y":"970","width":"200"})
 
-      slidenum = 6
+      slidenum = 9
     }
 
-    function toslide7() {
+    function toslide10() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Exhibits A, B and C")
+      .transition().delay(750).duration(250).attr("x","2000").text("Maps")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".hed.num1")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Narrative graphic")
+      .transition().delay(750).duration(250).attr("x","2000").text("Serve multiple purposes")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub.num1")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Using visual cues to guide the reader through a relatively complex graphic")
+      .transition().delay(750).duration(250).attr("x","2000").text("A gateway to FT content as well as primary visual purpose")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".hed.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Repackaging existing content")
+      .transition().delay(750).duration(250).attr("x","2000").text("Team effort")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Allowing readers to explore more naturally and with less friction")
+      .transition().delay(750).duration(250).attr("x","2000").text("Reporters, correspondents, editors as well as interactive team")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".hed.num3")
@@ -882,10 +1044,10 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("information conveyed")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 7
+      slidenum = 10
     }
 
-    function toslide8() {
+    function toslide11() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("How do we know if it's working?")
@@ -925,10 +1087,10 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 8
+      slidenum = 11
     }
 
-    function toslide9() {
+    function toslide12() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("Unique value of interactive graphics")
@@ -968,36 +1130,21 @@
       .transition().duration(250).attr("x","-1000").style("opacity","0")
       .transition().delay(750).duration(250).attr("x","2000").text("")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
-      slidenum = 9
+      slidenum = 12
     }
 
-    function toslide10() {
+    function toslide13() {
       d3.select(".slidetitle").transition().delay(700).duration(800).attr("y","200").style("font-weight","bold")
       d3.select(".mydetails").transition().delay(700).duration(800).style("font-size","24px").attr("y","300")
       d3.select(".mydetails2").transition().delay(700).duration(800).style("font-size","18px").attr("y","340")
       d3.select(".slideheader").transition().delay(700).duration(800).attr("y","-100")
       d3.selectAll(".keypoint").transition().delay(700).duration(800).style("opacity","0")
       d3.select(".anyqs").transition().delay(700).duration(800).attr("y","450")
-      slidenum = 10
-    }
-
-    function toslide11() {
-      bgchange()
-      slidenum = 11
-    }
-
-    function toslide12() {
-      d3.select(".slidetitle").text("Slide 12")
-      slidenum = 12
-    }
-
-    function toslide13() {
-      d3.select(".slidetitle").text("Slide 13")
       slidenum = 13
     }
 
     function toslide14() {
-      d3.select(".slidetitle").text("Slide 14")
+      bgchange()
       slidenum = 14
     }
 
