@@ -133,7 +133,7 @@
     .keypoint.hed{fill:#74736c;font-weight:bold;font-size:24px;}
     .keypoint.sub{fill:#434234;font-size:22px;}
     .keypoint.sub2{fill:#434234;font-size:22px;}
-    #chart{width:1572px;background-color:#fff1e0;}
+    #chart{width:1572px;background-color:#fff1e0;opacity:0.2;}
     .tick text{opacity:0;}
     .projectcircle{opacity:0;}
     .projects{fill:#b8b1a9;}
@@ -148,6 +148,8 @@
     .newcircle.outer{fill:#9e2f50;}
     body{background-color:#fff1e0;width:ww;margin:auto;}
     .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
+    #navintro{position:absolute;left:720px;top:350px;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;}
+    #navintroclose{border-radius:12px;font-weight:bold;color:darkblue;background-color:transparent;position:relative;top:-8px;padding:0px;left:6px;cursor:pointer;}
     </style>
   </head>
   <body>
@@ -172,6 +174,19 @@
       .style("margin-left","auto")
       .style("margin-right","auto")
       .style("background-color","transparent");
+
+    d3.select("body").append("span")
+      .attr("id","navintro")
+      .text("Right arrow or swipe right-to-left to move through slides ")
+
+    d3.select("#navintro").append("a")
+      .attr("id","navintroclose")
+      .text("x")
+
+    d3.select("#navintroclose").on('click',function(){
+      d3.select("#navintro").style("display","none")
+      d3.select("#chart").style("opacity","1")
+    })
       
     // This block is the "next" button I use to navigate forwards
     // d3.select("div#container").append("a")
@@ -1031,7 +1046,7 @@
 
       d3.select(".sub.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Challenge is to write a statistical analysis that reads like it was written by a fan, not a mathematician")
+      .transition().delay(750).duration(250).attr("x","2000").text("Challenge is to write a statistical analysis that reads as if written by a fan, not a mathematician")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub2.num2")
@@ -1254,6 +1269,31 @@
         else {if (event.keyCode == 34 && slidenum == 17) toslide18()
         else {if (event.keyCode == 34 && slidenum == 18) toslide19()
         else {if (event.keyCode == 34 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}
+      });
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 39 && slidenum == 0) toslide1()
+        else {if (event.keyCode == 39 && slidenum == 1) toslide2()
+        else {if (event.keyCode == 39 && slidenum == 2) toslide3()
+        else {if (event.keyCode == 39 && slidenum == 3) toslide4()
+        else {if (event.keyCode == 39 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 39 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 39 && slidenum == 6) toslide7()
+        else {if (event.keyCode == 39 && slidenum == 7) toslide8()
+        else {if (event.keyCode == 39 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 39 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 39 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 39 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 39 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 39 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 39 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 39 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 39 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 39 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 39 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 39 && slidenum == 19) toslide20()
         else donothing()
       }}}}}}}}}}}}}}}}}}}
       });
