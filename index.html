@@ -148,7 +148,7 @@
     .newcircle.outer{fill:#9e2f50;}
     body{background-color:#fff1e0;width:ww;margin:auto;}
     .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
-    #navintro{position:absolute;left:720px;top:350px;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;}
+    #navintro{position:absolute;left:765px;top:350px;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;}
     #navintroclose{border-radius:12px;font-weight:bold;color:darkblue;background-color:transparent;position:relative;top:-8px;padding:0px;left:6px;cursor:pointer;}
     </style>
   </head>
@@ -177,16 +177,7 @@
 
     d3.select("body").append("span")
       .attr("id","navintro")
-      .text("Right arrow or swipe right-to-left to move through slides ")
-
-    d3.select("#navintro").append("a")
-      .attr("id","navintroclose")
-      .text("x")
-
-    d3.select("#navintroclose").on('click',function(){
-      d3.select("#navintro").style("display","none")
-      d3.select("#chart").style("opacity","1")
-    })
+      .text("Right arrow or swipe right-to-left to continue")
       
     // This block is the "next" button I use to navigate forwards
     // d3.select("div#container").append("a")
@@ -723,6 +714,9 @@
     var slidenum = 0;
 
     function toslide1() {
+      d3.select("#navintro").style("display","none")
+      d3.select("#chart").style("opacity","1")
+
       d3.select("#chart").transition().duration(100).style("background-color","#fff1e0")
       d3.selectAll(".introtext").transition().duration(100).style({"color":"#000000","fill":"#000000"})
       d3.select(".slidetitle").transition().delay(700).duration(800).attr("y","130").style("font-weight","normal")
