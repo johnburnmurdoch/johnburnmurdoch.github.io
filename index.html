@@ -715,12 +715,16 @@
       d3.selectAll(".introtext").transition().delay(25000).duration(5000).style({"color":"#000000","fill":"#000000"}).each("end", bgchange)
     }
 
-    var slidenum = 0;
+    var slidenum = -1;
 
-    function toslide1() {
+    function toslide0() {
       d3.select("#navintro").style("display","none")
       d3.select("#chart").style("opacity","1")
 
+      slidenum = 0
+    }
+
+    function toslide1() {
       d3.select("#chart").transition().duration(100).style("background-color","#fff1e0")
       d3.selectAll(".introtext").transition().duration(100).style({"color":"#000000","fill":"#000000"})
       d3.select(".slidetitle").transition().delay(700).duration(800).attr("y","130").style("font-weight","normal")
@@ -1247,7 +1251,8 @@
     }
 
     addEventListener("keydown", function(event) {
-        if (event.keyCode == 34 && slidenum == 0) toslide1()
+        if (event.keyCode == 34 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 34 && slidenum == 0) toslide1()
         else {if (event.keyCode == 34 && slidenum == 1) toslide2()
         else {if (event.keyCode == 34 && slidenum == 2) toslide3()
         else {if (event.keyCode == 34 && slidenum == 3) toslide4()
@@ -1268,11 +1273,12 @@
         else {if (event.keyCode == 34 && slidenum == 18) toslide19()
         else {if (event.keyCode == 34 && slidenum == 19) toslide20()
         else donothing()
-      }}}}}}}}}}}}}}}}}}}
+      }}}}}}}}}}}}}}}}}}}}
       });
 
     addEventListener("keydown", function(event) {
-        if (event.keyCode == 39 && slidenum == 0) toslide1()
+        if (event.keyCode == 39 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 39 && slidenum == 0) toslide1()
         else {if (event.keyCode == 39 && slidenum == 1) toslide2()
         else {if (event.keyCode == 39 && slidenum == 2) toslide3()
         else {if (event.keyCode == 39 && slidenum == 3) toslide4()
@@ -1293,11 +1299,12 @@
         else {if (event.keyCode == 39 && slidenum == 18) toslide19()
         else {if (event.keyCode == 39 && slidenum == 19) toslide20()
         else donothing()
-      }}}}}}}}}}}}}}}}}}}
+      }}}}}}}}}}}}}}}}}}}}
       });
 
     $("body").on("swipeleft",function(){
-      if (slidenum == 0) toslide1()
+      if (slidenum == -1) toslide0()
+        else {if (slidenum == 0) toslide1()
         else {if (slidenum == 1) toslide2()
         else {if (slidenum == 2) toslide3()
         else {if (slidenum == 3) toslide4()
@@ -1318,7 +1325,7 @@
         else {if (slidenum == 18) toslide19()
         else {if (slidenum == 19) toslide20()
         else donothing()
-      }}}}}}}}}}}}}}}}}}}
+      }}}}}}}}}}}}}}}}}}}}
     }); 
 
     bgchange();
