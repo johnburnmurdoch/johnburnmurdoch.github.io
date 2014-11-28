@@ -5,6 +5,7 @@
     <title>Telling stories with data</title>
     <script src="d3.min.js"></script>
     <script type='text/javascript' src='jquery211.min.js'></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <style type='text/css'>
     @font-face{
         font-family: "BentonSans";
@@ -12,7 +13,7 @@
         src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
         url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
         url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
-        font-style: normal;m
+        font-style: normal;
         font-weight: normal;
     }
     @font-face{
@@ -132,7 +133,7 @@
     .keypoint.hed{fill:#74736c;font-weight:bold;font-size:24px;}
     .keypoint.sub{fill:#434234;font-size:22px;}
     .keypoint.sub2{fill:#434234;font-size:22px;}
-    #chart{width:1572px;}
+    #chart{width:1572px;background-color:#fff1e0;}
     .tick text{opacity:0;}
     .projectcircle{opacity:0;}
     .projects{fill:#b8b1a9;}
@@ -145,6 +146,8 @@
     .newcircle.inner{fill:#d7706c;}
     .newcircle.mid{fill:#76acb8;}
     .newcircle.outer{fill:#9e2f50;}
+    body{background-color:#fff1e0;width:ww;margin:auto;}
+    .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
     </style>
   </head>
   <body>
@@ -157,10 +160,9 @@
     <!-- <div id="credits"><span>Source: <a target="_blank" href="http://www.worldfootball.net/alltime_goalgetter/champions-league/tore/1/">WorldFootball.net</a><span id="author">Graphic by: <a target="_blank" href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a></span><span id="inspiredby">Inspired by: <a target="_blank" href="http://www.nytimes.com/interactive/2014/10/19/upshot/peyton-manning-breaks-touchdown-passing-record.html">NYT Upshot</a></span></div>    --> 
 
     <script type="text/javascript">
+
+    var ww = window.innerWidth;
     // Here I'm setting the page background to the FT style
-    d3.select("body")
-      .style("margin","auto")
-      .style("background-color","#fff1e0");
 
     // This block adds a div to hold everything that follows (except the hard-coded "credits" div which I have positioned below it)
     var cont = d3.select("body").append("div")
@@ -681,25 +683,26 @@
     //   "cy":function(){return d3.select(".goalspath.Lionel_Messi").attr("d").replace(/[A-z]/,"").split("L")[messilength].split(",")[1];},
     //   "r":"2px"
     // })
+
     function bgchange() {
-      d3.select("body").transition().duration(5000).style("background-color","#9e2f50")
+      d3.select("#chart").transition().duration(5000).style("background-color","#9e2f50")
       d3.selectAll(".introtext").transition().duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
-      d3.select("body").transition().delay(5000).duration(5000).style("background-color","#fff1e0")
+      d3.select("#chart").transition().delay(5000).duration(5000).style("background-color","#fff1e0")
       d3.selectAll(".introtext").transition().delay(5000).duration(5000).style({"color":"#000000","fill":"#000000"})
-      d3.select("body").transition().delay(10000).duration(5000).style("background-color","#76acb8")
+      d3.select("#chart").transition().delay(10000).duration(5000).style("background-color","#76acb8")
       d3.selectAll(".introtext").transition().delay(10000).duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
-      d3.select("body").transition().delay(15000).duration(5000).style("background-color","#fff1e0")
+      d3.select("#chart").transition().delay(15000).duration(5000).style("background-color","#fff1e0")
       d3.selectAll(".introtext").transition().delay(15000).duration(5000).style({"color":"#000000","fill":"#000000"})
-      d3.select("body").transition().delay(20000).duration(5000).style("background-color","#d7706c")
+      d3.select("#chart").transition().delay(20000).duration(5000).style("background-color","#d7706c")
       d3.selectAll(".introtext").transition().delay(20000).duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
-      d3.select("body").transition().delay(25000).duration(5000).style("background-color","#fff1e0")
+      d3.select("#chart").transition().delay(25000).duration(5000).style("background-color","#fff1e0")
       d3.selectAll(".introtext").transition().delay(25000).duration(5000).style({"color":"#000000","fill":"#000000"}).each("end", bgchange)
     }
 
     var slidenum = 0;
 
     function toslide1() {
-      d3.select("body").transition().duration(100).style("background-color","#fff1e0")
+      d3.select("#chart").transition().duration(100).style("background-color","#fff1e0")
       d3.selectAll(".introtext").transition().duration(100).style({"color":"#000000","fill":"#000000"})
       d3.select(".slidetitle").transition().delay(700).duration(800).attr("y","130").style("font-weight","normal")
       d3.select(".mydetails").transition().delay(700).duration(800).style("font-size","24px").attr("y","900")
@@ -875,7 +878,7 @@
     function toslide7() {
       d3.select(".slideheader")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Capacity for new challenges")
+      .transition().delay(750).duration(250).attr("x","2000").text("Which means capacity for new challenges!")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.selectAll(".newcircle")
@@ -1022,7 +1025,7 @@
 
       d3.select(".sub.num2")
       .transition().duration(250).attr("x","-1000").style("opacity","0")
-      .transition().delay(750).duration(250).attr("x","2000").text("Challenge is writing a statistical analysis that reads as if written by a fan, not a mathematician")
+      .transition().delay(750).duration(250).attr("x","2000").text("Challenge is to write a statistical analysis that reads like it was written by a fan, not a mathematician")
       .transition().delay(1000).duration(500).attr("x","350").style("opacity","1")
 
       d3.select(".sub2.num2")
@@ -1248,6 +1251,31 @@
         else donothing()
       }}}}}}}}}}}}}}}}}}}
       });
+
+    $("body").on("swipeleft",function(){
+      if (slidenum == 0) toslide1()
+        else {if (slidenum == 1) toslide2()
+        else {if (slidenum == 2) toslide3()
+        else {if (slidenum == 3) toslide4()
+        else {if (slidenum == 4) toslide5()
+        else {if (slidenum == 5) toslide6()
+        else {if (slidenum == 6) toslide7()
+        else {if (slidenum == 7) toslide8()
+        else {if (slidenum == 8) toslide9()
+        else {if (slidenum == 9) toslide10()
+        else {if (slidenum == 10) toslide11()
+        else {if (slidenum == 11) toslide12()
+        else {if (slidenum == 12) toslide13()
+        else {if (slidenum == 13) toslide14()
+        else {if (slidenum == 14) toslide15()
+        else {if (slidenum == 15) toslide16()
+        else {if (slidenum == 16) toslide17()
+        else {if (slidenum == 17) toslide18()
+        else {if (slidenum == 18) toslide19()
+        else {if (slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}
+    }); 
 
     bgchange();
     </script>
