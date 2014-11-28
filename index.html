@@ -148,7 +148,8 @@
     .newcircle.outer{fill:#9e2f50;}
     body{background-color:#fff1e0;width:ww;margin:auto;}
     .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
-    #navintro{position:absolute;left:765px;top:350px;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;}
+    #introholder{position:absolute;left:50%;top:350px;}
+    #navintro{position:relative;left:-50%;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;}
     #navintroclose{border-radius:12px;font-weight:bold;color:darkblue;background-color:transparent;position:relative;top:-8px;padding:0px;left:6px;cursor:pointer;}
     </style>
   </head>
@@ -176,6 +177,9 @@
       .style("background-color","transparent");
 
     d3.select("body").append("span")
+      .attr("id","introholder")
+
+    d3.select("#introholder").append("span")
       .attr("id","navintro")
       .text("Right arrow or swipe right-to-left to continue")
       
