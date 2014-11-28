@@ -684,6 +684,12 @@
     //   "r":"2px"
     // })
 
+    window.onload = function() {
+        if ( window.orientation == 0 || window.orientation == 180 ) { 
+            alert ('Please use your mobile device in landscape mode'); 
+        }
+    };
+
     function bgchange() {
       d3.select("#chart").transition().duration(5000).style("background-color","#9e2f50")
       d3.selectAll(".introtext").transition().duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
