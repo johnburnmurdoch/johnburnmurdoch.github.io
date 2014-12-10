@@ -546,7 +546,9 @@
 
     function hideintro(){return d3.select("#navintro").transition().duration(100).style({"opacity":"0"})}
 
-    function alertnext(){return d3.select("#navintro").transition().delay(10000).style("opacity","1").each("end", navnudge)}
+    function alertnextfirst(){return d3.select("#navintro").transition().delay(10000).style("opacity","1").each("end", navnudge)}
+
+    function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)}
     
 
 
@@ -558,7 +560,7 @@
         d3.select("#chart").transition().duration(100).style("opacity","1")
         d3.select("#textholder").transition().duration(100).style("opacity","1")
         slidenum = 0
-        alertnext()
+        alertnextfirst()
     }
 
     function toslide1() {
