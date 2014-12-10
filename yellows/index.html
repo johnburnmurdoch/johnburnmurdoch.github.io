@@ -157,16 +157,22 @@
     .aline{stroke-width:2px;stroke:#bb6d82;fill:none;}
     .anarea{stroke-width:0px;stroke:none;fill:#bb6d82;fill-opacity:0.5;}
     .scattertitle.large{font-size:14px;fill:#43423e;}
-    .scattertitle.ylabelred{font-size:14px;fill:#9e2f50;opacity:0;}
+    .scattertitle.ylabelred{font-size:14px;fill:#76acb8;opacity:0;}
+    .scattertitle.ylabelblue{font-size:14px;fill:#76acb8;opacity:0;}
     .scattertitle.mobile{visibility:hidden;}
     #yaxis.axis path{stroke:none;}
     #captiontitle span{position:relative;}
     #captionhold1 span{position:relative;}
     #captionhold2 span{position:relative;}
-    .aline.allbansdec{stroke:#9e2f50;}
+    .aline.allbansdec{stroke:#76acb8;}
+    .aline.allbansfeb{stroke:#76acb8;}
     .aline.justyellows{stroke:#af516c;}
-    .aline.secondyellows{stroke:#76acb8;}
+    .aline.secondyellows{stroke:#ecafaf;}
     .aline.justreds{stroke:#d7706c;}
+    .linelabel{font-size:14px;opacity:0;}
+    .linelabel.yellows{fill:#9e2f50;}
+    .linelabel.seconds{fill:#ecafaf;}
+    .linelabel.reds{fill:#d7706c;}
 
     @media screen and (max-width: 1000px) {
     div#credits{padding-bottom:16px;}
@@ -188,6 +194,8 @@
     .scattertitle.mobile{visibility:visible;font-size:24px;fill:#43423e;}
     .scattertitle.large{visibility:hidden;}
     .scattertitle.ylabelred{font-size:24px;}
+    .scattertitle.ylabelblue{font-size:24px;}
+    .linelabel{font-size:24px;}
 	}
     </style>
   </head>
@@ -264,9 +272,11 @@
 
     var gameweeks = d3.range(1,39,1);
 
-    var gameweeksdec = [19,19]
+    var gameweeksdec = [19,19];
 
-    var gameweeksarea = [1].concat(gameweeks).concat(38)
+    var gameweeksfeb = [26,26]
+
+    var gameweeksarea = [1].concat(gameweeks).concat(38);
 
     // This defines the domain (data values) and range (potion of SVG) that the x scale refers to
     var xScale = d3.scale.linear()
@@ -346,6 +356,36 @@
         .text("Boxing day fixtures")
         .attr("x",xScale(19))
         .attr("y","75")
+        .attr("text-anchor","end");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle ylabelblue")
+        .text("Last fixtures in February")
+        .attr("x",xScale(26))
+        .attr("y","75")
+        .attr("text-anchor","start");
+
+
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel yellows")
+        .text("5, 10 or 15 yellow cards")
+        .attr("x",xScale(19))
+        .attr("y","235")
+        .attr("text-anchor","middle");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel seconds")
+        .text("Second yellow card")
+        .attr("x",xScale(24))
+        .attr("y","515")
+        .attr("text-anchor","middle");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel reds")
+        .text("Red card")
+        .attr("x",xScale(36))
+        .attr("y","435")
         .attr("text-anchor","middle");
 
 
@@ -438,6 +478,21 @@
           .append("path")
           .attr("class","allbansdec aline")
           .attr("d", allbansdecline)
+          .attr("stroke-dasharray", yScale(0) + " " + yScale(0))
+          .attr("stroke-dashoffset", yScale(0))
+
+
+    var allbansfebline = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeksfeb[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(allbansdec)
+          .enter()
+          .append("path")
+          .attr("class","allbansfeb aline")
+          .attr("d", allbansfebline)
           .attr("stroke-dasharray", yScale(0) + " " + yScale(0))
           .attr("stroke-dashoffset", yScale(0))
 
@@ -584,8 +639,9 @@
         d3.select(".justyellows.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
         d3.select(".secondyellows.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
         d3.select(".justreds.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.selectAll(".linelabel").transition().delay(1000).duration(1500).style("opacity","1")
         doheader("Does the pattern hold true for reds and yellows?")
-        do1cap("You're now looking at the same suspension data, but split into three parts: bans for straight red cards, for two yellows in one game, and for a fifth yellow of the season")
+        do1cap("You're now looking at the same suspension data, but split into three parts: bans for straight red cards, for two yellows in one game, and for yellows accumulated over the season")
         do2cap("As we can see, there is too much variation in the data on straight reds and second yellows for us to be able to speak confidently about any underlying pattern")
       slidenum = 2
         alertnext()
@@ -593,6 +649,17 @@
 
     function toslide3() {
         hideintro();
+
+        d3.select(".secondyellows.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".justreds.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.selectAll(".linelabel").transition().duration(1000).attr("transform","translate(-2000,0)")
+
+        d3.select(".allbansdec.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
+        d3.select(".ylabelred").transition().delay(1000).duration(1000).style("opacity","1")
+
+        d3.select(".allbansfeb.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
+        d3.select(".ylabelblue").transition().delay(1000).duration(1000).style("opacity","1")
+
         doheader("Focusing on the fifth yellow card")
         do1cap("You're now looking at bans for cumulative yellows only. We've already discussed the pre-Christmas spike, but there's another interesting point here - the sharp drop-off at the end of February")
         do2cap("What might be causing this? Well the football historians among you may already know the answer...")
