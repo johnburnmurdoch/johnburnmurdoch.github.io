@@ -422,14 +422,14 @@
 
     d3.select("svg").append("text")
         .attr("class","scattertitle linelabel newbans")
-        .text("New cut-off")
+        .text("09/10 - 13/14")
         .attr("x",xScale(19))
         .attr("y","305")
         .attr("text-anchor","start");
 
     d3.select("svg").append("text")
         .attr("class","scattertitle linelabel oldbans")
-        .text("Old cut-off")
+        .text("95/96 - 08/09")
         .attr("x",xScale(20))
         .attr("y","200")
         .attr("text-anchor","start");
@@ -438,14 +438,14 @@
 
     d3.select("svg").append("text")
         .attr("class","scattertitle linelabel newfives")
-        .text("New cut-off")
+        .text("09/10 - 13/14")
         .attr("x",xScale(15))
         .attr("y","420")
         .attr("text-anchor","start");
 
     d3.select("svg").append("text")
         .attr("class","scattertitle linelabel oldfives")
-        .text("Old cut-off")
+        .text("95/96 - 08/09")
         .attr("x",xScale(20))
         .attr("y","280")
         .attr("text-anchor","start");
@@ -921,8 +921,8 @@
         d3.select(".projection").transition().delay(3500).duration(500).attr("stroke-dashoffset","0").transition().delay(4000).duration(0).attr("stroke-dasharray","3px 3px")
 
         doheader("So that peak? It's what we would expect to happen")
-        do1cap("Given this steady rate, we would expect bans to peak at the same level if cut-off points were unchanged. The same ceiling seen before - roughly 3.5 bans per week - would also apply today")
-        do2cap("The late December peak arises because the number of bans per week is still rising towards this ceiling, while in the old system there was no peak because the ceiling had already been reached")
+        do1cap("Given this steady rate, we would expect bans to peak at the same level if cut-off points were unchanged. The same maximum seen before - roughly 3.5 bans per week - would also apply today")
+        do2cap("The late December peak arises because the number of bans per week is still rising towards this level, while in the old system there was no peak because the ceiling had already been reached")
         alertnext()
       slidenum = 8
     }
