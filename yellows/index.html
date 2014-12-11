@@ -184,6 +184,7 @@
     .peak{fill:#76acb8;fill-opacity:0;stroke:none;}
     .projection{stroke:#76acb8;stroke-width:2px;fill:none;}
     .projectionold{stroke:#76acb8;stroke-width:2px;fill:none;}
+    #progressbar{float:left;width:0px;background-color:#af516c;position:absolute;top:50px;height:5px;}
 
     @media screen and (max-width: 1000px) {
     div#credits{padding-bottom:16px;}
@@ -209,6 +210,7 @@
     .linelabel{font-size:24px;}
     .projection{stroke-width:4px;}
     .projectionold{stroke-width:4px;}
+    #progressbar{float:left;width:0px;background-color:#af516c;position:absolute;top:80px;height:8px;}
 	}
     </style>
   </head>
@@ -235,6 +237,9 @@
 
 
     var thetext = d3.select("div#container").append("div").attr("id","textholder").style("opacity","0.2")
+
+    thetext.append("div")
+      .attr("id","progressbar")
 
     d3.select("div#container").append("div").attr("id","chart");
 
@@ -763,12 +768,13 @@
                 .each("end", navnudge);
     }
 
-    function hideintro(){return d3.select("#navintro").transition().duration(100).style({"opacity":"0"})}
+    function hideintro(){return d3.select("#navintro").transition().duration(100).style({"opacity":"0"})};
 
-    function alertnextfirst(){return d3.select("#navintro").transition().delay(10000).style("opacity","1").each("end", navnudge)}
+    function alertnextfirst(){return d3.select("#navintro").transition().delay(10000).style("opacity","1").each("end", navnudge)};
 
-    function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)}
+    function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)};
     
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+1) * 90) + "px"})};
 
 
     var slidenum = -1;
@@ -784,6 +790,7 @@
 
     function toslide1() {
         hideintro();
+        progress();
         d3.select(".allbansdec.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
         d3.select(".ylabelred").transition().delay(1000).duration(1000).style("opacity","1")
     	doheader("Let's take a closer look")
@@ -795,6 +802,7 @@
 
     function toslide2() {
         hideintro();
+        progress();
         d3.select(".allbansdec.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
         d3.select(".ylabelred").transition().duration(1000).style("opacity","0")
         d3.select(".allbans.anarea").transition().duration(1000).attr("transform","translate(-2000,0)")
@@ -815,6 +823,7 @@
 
     function toslide3() {
         hideintro();
+        progress();
 
         d3.select(".secondyellows.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
         d3.select(".justreds.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
@@ -837,6 +846,7 @@
 
     function toslide4() {
         hideintro();
+        progress();
         doheader("A change in the rules")
         do1cap("Until the 2009/10 season, the cut-off point after which a fifth yellow card no longer resulted in a suspension was the end of February")
         do2cap("So a player receiving their fifth yellow on or before the last match in February would get a ban, but a fifth yellow on 1 March would receive no such punishment")
@@ -845,6 +855,8 @@
     }
 
     function toslide5() {
+        hideintro();
+        progress();
 
         d3.select(".allbansdec.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
         d3.select(".allbansfeb.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
@@ -856,8 +868,7 @@
         d3.select(".oldbans.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
         d3.select(".linelabel.newbans").transition().delay(1500).duration(1000).style("opacity","1")
         d3.select(".linelabel.oldbans").transition().delay(1500).duration(1000).style("opacity","1")
-
-        hideintro();
+        
         doheader("A tale of two eras")
         do1cap("We can see the result of that pattern in the chart below. Under the old rules, bans for five yellow cards built up gradually until the end of February")
         do2cap("Whereas from 2009/10 onwards, that peak and subsequent drop came forward to the new cut-off for a five yellows ban - 31 December")
@@ -867,6 +878,7 @@
 
     function toslide6() {
         hideintro();
+        progress();
         d3.select(".peak").transition().duration(1500).style("fill-opacity","0.5")
         doheader("But what about the sharp peak in late December?")
         do1cap("While both follow the general pattern of a gradual increase in bans as yellow cards accumulate, followed by a sharp drop after the cut-off, the peak under the new rules appears more sudden")
@@ -877,6 +889,7 @@
 
     function toslide7() {
         hideintro();
+        progress();
 
         d3.select(".peak").transition().duration(100).style("fill-opacity","0")
         d3.select(".linelabel.newbans").transition().duration(1000).attr("transform","translate(-2000,0)")
@@ -902,6 +915,7 @@
 
     function toslide8() {
         hideintro();
+        progress();
 
         d3.select(".newfives.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
         d3.select(".oldfives.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
@@ -929,6 +943,7 @@
 
     function toslide9() {
         hideintro();
+        progress();
         doheader("So in summary:")
         do1cap("Yes, there's typically a bump in the number of Premier League footballers receiving their fifth yellow card of the league season in late December")
         do2cap("But don't be fooled into thinking it's a deliberate ploy to get more down time over Christmas and New Year. The real culprit is simple maths (with a little help from the F.A.)")
@@ -939,6 +954,7 @@
 
     function toslide10() {
         hideintro();
+        d3.select("#progressbar").transition().duration(1000).style("width","0px")
 
         d3.select(".linelabel.newbans").transition().duration(1000).style("opacity","0")
         d3.select(".linelabel.oldbans").transition().duration(1000).style("opacity","0")
