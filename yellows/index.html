@@ -774,7 +774,7 @@
 
     function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)};
     
-    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+1) * 90) + "px"})};
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"})};
 
 
     var slidenum = -1;
@@ -782,6 +782,7 @@
 
     function toslide0() {
         hideintro();
+        progress();
         d3.select("#chart").transition().duration(100).style("opacity","1")
         d3.select("#textholder").transition().duration(100).style("opacity","1")
         slidenum = 0
