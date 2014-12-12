@@ -131,7 +131,7 @@
     body{background-color:#fff1e0;margin:auto;}
     .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
     #introholder{position:absolute;left:50%;top:330px;}
-    #navintro{position:relative;left:-50%;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;z-index:1000;white-space:nowrap;}
+    #navintro{position:relative;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;white-space:nowrap;display: block;margin: 0 auto;width: 355px;top:640px;z-index:2000;}
     .stateOne {opacity:1;}
     .stateTwo {opacity:0;}
     #navintroclose{border-radius:12px;font-weight:bold;color:darkblue;background-color:transparent;position:relative;top:-8px;padding:0px;left:6px;cursor:pointer;}
@@ -200,7 +200,7 @@
     #chart{top:660px;}
     .slidetitle{top:100px;font-size:3.5em;white-space:normal;}
     #introholder{top:640px;}
-    #navintro{padding:12px;font-size:24px;white-space:nowrap;padding:12px;}
+    #navintro{padding:12px;font-size:24px;white-space:nowrap;width:475px;}
     a#baselinelogo{display:inline-block;width:33px;height:30px;background-image:url(baselinelogomobi.png);position:relative;top:2px;}
     .axis text{font-size:18px;}
     .aline{stroke-width:4px;}
@@ -227,7 +227,7 @@
     #chart{top:660px;}
     .slidetitle{top:115px;font-size:3em;}
     #introholder{top:640px;}
-    #navintro{padding:12px;font-size:24px;white-space:nowrap;padding:12px;}
+    #navintro{padding:12px;font-size:18px;white-space:nowrap;width:355px;}
     a#baselinelogo{display:inline-block;width:33px;height:30px;background-image:url(baselinelogomobi.png);position:relative;top:2px;}
     .axis text{font-size:23px;}
     .aline{stroke-width:6px;}
@@ -256,13 +256,9 @@
     var cont = d3.select("body").append("div")
       .attr("id","container");
 
-    // d3.select("body").append("span")
-    //   .attr("id","introholder")
-
-    // d3.select("#introholder").append("span")
-    //   .attr("id","navintro")
-    //   .text("Right arrow or swipe right-to-left to continue")
-
+    d3.select("#container").append("span")
+      .attr("id","navintro")
+      .text("Right arrow or swipe right-to-left to continue")
 
     var thetext = d3.select("div#container").append("div").attr("id","textholder").style("opacity","0.2")
 
