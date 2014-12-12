@@ -185,8 +185,9 @@
     .peak{fill:#76acb8;fill-opacity:0;stroke:none;}
     .projection{stroke:#76acb8;stroke-width:2px;fill:none;}
     .projectionold{stroke:#76acb8;stroke-width:2px;fill:none;}
-    #progressbar{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
+    #progressbar{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;opacity:0;}
     #scrollpoint{position:absolute;top:-50px;}
+    #progressbarwide{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:16px;}
@@ -212,8 +213,9 @@
     .linelabel{font-size:26px;}
     .projection{stroke-width:4px;}
     .projectionold{stroke-width:4px;}
-    #progressbar{float:left;width:0px;background-color:#af516c;top:50px;height:6px;}
+    #progressbar{float:left;width:0px;background-color:#af516c;top:50px;height:6px;opacity:1;}
     #scrollpoint{position:absolute;top:45px;}
+    #progressbarwide{display:none;}
 	}
 
     @media screen and (max-width: 480px) {
@@ -240,8 +242,9 @@
     .linelabel{font-size:28px;}
     .projection{stroke-width:6px;}
     .projectionold{stroke-width:6px;}
-    #progressbar{float:left;width:0px;background-color:#af516c;position:fixed;top:50px;height:5px;}
+    #progressbar{float:left;width:0px;background-color:#af516c;position:fixed;top:50px;height:5px;opacity:1;}
     #scrollpoint{position:absolute;top:45px;}
+    #progressbarwide{display:none;}
     }
     </style>
   </head>
@@ -267,6 +270,9 @@
 
     thetext.append("div")
       .attr("id","progressbar")
+
+    thetext.append("div")
+      .attr("id","progressbarwide")
 
     d3.select("div#container").append("div").attr("id","chart");
 
@@ -803,10 +809,11 @@
 
     function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)};
     
-    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * (progwidth/10)) + "px"})};
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * (progwidth/10)) + "px"}),
+        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"});
+    };
 
     navnudge();
-
 
     var slidenum = -1;
 
@@ -991,6 +998,7 @@
     function toslide10() {
         hideintro();
         d3.select("#progressbar").transition().duration(1000).style("width",function(){return progwidth/11 + "px";})
+        d3.select("#progressbarwide").transition().duration(1000).style("width",function(){return 90 + "px";})
 
         d3.select(".linelabel.newbans").transition().duration(1000).style("opacity","0")
         d3.select(".linelabel.oldbans").transition().duration(1000).style("opacity","0")
