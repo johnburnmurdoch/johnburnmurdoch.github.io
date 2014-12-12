@@ -186,6 +186,7 @@
     .projection{stroke:#76acb8;stroke-width:2px;fill:none;}
     .projectionold{stroke:#76acb8;stroke-width:2px;fill:none;}
     #progressbar{float:left;width:0px;background-color:#af516c;position:absolute;top:50px;height:5px;}
+    #scrollpoint{position:absolute;top:50px;}
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:16px;}
@@ -222,7 +223,7 @@
     #ft-header a>img {height:20px;}
     #thesvg{height:610px;}
     #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:100px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
-    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:170px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:16px;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:165px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:16px;}
     #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:285px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:16px;}
     #chart{top:210px;}
     .slidetitle{top:15px;font-size:30px;}
@@ -282,6 +283,8 @@
     thetext.append("span")
       .attr({"class":"introtext slidetitle"})
       .text("Do footballers seek suspension at Christmas?")
+
+    thetext.append("div").attr({"id":"scrollpoint"})
 
     thetext.append("div").attr({"id":"captiontitle"}).append("span").text("Early signs suggest there's something going on")
 
@@ -807,6 +810,9 @@
 
     function toslide0() {
         hideintro();
+        $('html, body').animate({
+        scrollTop: $("#scrollpoint").offset().top
+    }, 1000);
         progress();
         d3.select("#chart").transition().duration(100).style("opacity","1")
         d3.select("#textholder").transition().duration(100).style("opacity","1")
