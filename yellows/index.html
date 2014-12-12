@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width">
   <head>
     <title>FT Baseline: Premier League suspensions</title>
     <script src="d3.min.js"></script>
@@ -130,24 +131,24 @@
     body{background-color:#fff1e0;margin:auto;}
     .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
     #introholder{position:absolute;left:50%;top:330px;}
-    #navintro{position:relative;left:-50%;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;z-index:1000;}
+    #navintro{position:relative;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;white-space:nowrap;display: block;margin: 0 auto;width: 355px;top:590px;z-index:2000;}
     .stateOne {opacity:1;}
     .stateTwo {opacity:0;}
     #navintroclose{border-radius:12px;font-weight:bold;color:darkblue;background-color:transparent;position:relative;top:-8px;padding:0px;left:6px;cursor:pointer;}
     #container{height:100%;width:100%;margin-left:auto;margin-right:auto;background-color:transparent;text-align:center;}
     #textholder{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:90%;background-color:transparent;height:100%;max-width:900px;z-index:1000;}
-    #chart{background-color:#fff1e0;opacity:0.2;position:relative;top:290px;margin-left:auto;margin-right:auto;height:650px;width:90%;max-width:900px;}
-    #thesvg{position:relative;top:0px;height:600px;width:900px;}
-    .slidetitle{position:relative;font-family:"MillerDisplay","Clarion",Georgia,serif;font-weight:400;font-size:3em;color:black;top:75px;white-space:nowrap;}
+    #chart{background-color:#fff1e0;opacity:0.2;position:relative;top:240px;margin-left:auto;margin-right:auto;height:650px;width:90%;max-width:900px;}
+    #thesvg{position:relative;top:0px;height:600px;width:100%;max-width:900px;}
+    .slidetitle{position:relative;font-family:"MillerDisplay","Clarion",Georgia,serif;font-weight:400;font-size:3em;color:black;top:25px;white-space:nowrap;}
     div#credits{position:fixed;overflow:hidden;bottom:0px;margin-left:0;padding-bottom:4px;/*margin-right:auto;left:0;right:0;*/width:100%;z-index:1000;border-top:1px solid #e9decf;background-color:#FFF9F1;box-shadow: 2px 0px 0px 2px rgba(0,0,0,.1);}
     #credits a{color:#2e6e9e;position:relative;margin-right:0px;text-decoration:none;none;background-color:#FFF9F1;padding:0px;border-radius:0px;font-size:14px;font-weight:normal;}
     #credits span{font-size:14px;font-weight:bold;line-height:20px;}
     #credits span#author{position:relative;left:24px;}
     #credits span#inspiredby{position:relative;left:64px;font-weight:normal;}
     #credits span#maps{position:relative;left:16px;}
-    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:150px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:24px;}
-    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:200px;width:100%;height:60px;max-width:900px;z-index:1000;text-align:left;font-size:18px;}
-    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:265px;width:100%;height:60px;max-width:900px;z-index:1000;text-align:left;font-size:18px;}
+    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:100px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:24px;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:150px;width:100%;height:60px;max-width:900px;z-index:1000;text-align:left;font-size:18px;}
+    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:215px;width:100%;height:60px;max-width:900px;z-index:1000;text-align:left;font-size:18px;}
     #baselinecred{display:block;cursor:pointer;}
     span#baselinetagline{font-weight:normal;color:#2e6e9e;cursor:pointer;}
     span#baselinetext{color:#2e6e9e;cursor:pointer;}
@@ -184,34 +185,67 @@
     .peak{fill:#76acb8;fill-opacity:0;stroke:none;}
     .projection{stroke:#76acb8;stroke-width:2px;fill:none;}
     .projectionold{stroke:#76acb8;stroke-width:2px;fill:none;}
-    #progressbar{float:left;width:0px;background-color:#af516c;position:absolute;top:50px;height:5px;}
+    #progressbar{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;opacity:0;}
+    #scrollpoint{position:absolute;top:-50px;}
+    #progressbarwide{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:16px;}
-    #credits span{font-size:30px;line-height:40px;}
-    #credits a{font-size:30px;line-height:40px;}
-    #ft-header {height:80px;}
-    #ft-header a>img {height:40px;}
+    #credits span{font-size:18px;line-height:24px;}
+    #credits a{font-size:18px;line-height:24px;}
+    #ft-header {height:50px;}
+    #ft-header a>img {height:20px;}
     #thesvg{height:610px;}
-    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:250px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:36px;}
-    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:330px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:30px;}
-    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:500px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:30px;}
-    #chart{top:660px;}
-    .slidetitle{top:105px;font-size:3.5em;}
+    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:100px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:24px;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:150px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
+    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:250px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
+    #chart{top:270px;height:750px;}
+    .slidetitle{top:20px;font-size:36px;white-space:normal;}
     #introholder{top:640px;}
-    #navintro{padding:12px;font-size:24px;white-space:nowrap;padding:12px;}
-    a#baselinelogo{display:inline-block;width:33px;height:30px;background-image:url(baselinelogomobi.png);position:relative;top:2px;}
-    .axis text{font-size:18px;}
+    #navintro{padding:12px;font-size:24px;white-space:nowrap;width:475px;top:395px;}
+    a#baselinelogo{display:inline-block;width:22px;height:20px;background-image:url(baselinelogo.png);position:relative;top:2px;}
+    .axis text{font-size:20px;}
     .aline{stroke-width:4px;}
-    .scattertitle.mobile{visibility:visible;font-size:24px;fill:#43423e;}
+    .scattertitle.mobile{visibility:visible;font-size:26px;fill:#43423e;}
     .scattertitle.large{visibility:hidden;}
-    .scattertitle.ylabelred{font-size:24px;}
-    .scattertitle.ylabelblue{font-size:24px;}
-    .linelabel{font-size:24px;}
+    .scattertitle.ylabelred{font-size:26px;}
+    .scattertitle.ylabelblue{font-size:26px;}
+    .linelabel{font-size:26px;}
     .projection{stroke-width:4px;}
     .projectionold{stroke-width:4px;}
-    #progressbar{float:left;width:0px;background-color:#af516c;position:absolute;top:80px;height:8px;}
+    #progressbar{float:left;width:0px;background-color:#af516c;top:50px;height:6px;opacity:1;}
+    #scrollpoint{position:absolute;top:45px;}
+    #progressbarwide{display:none;}
 	}
+
+    @media screen and (max-width: 480px) {
+    div#credits{padding-bottom:8px;}
+    #credits span{font-size:10px;line-height:12px;}
+    #credits a{font-size:10px;line-height:12px;}
+    #ft-header {height:50px;}
+    #ft-header a>img {height:20px;}
+    #thesvg{height:610px;}
+    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:100px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:165px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:16px;}
+    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:285px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:16px;}
+    #chart{top:210px;}
+    .slidetitle{top:15px;font-size:30px;}
+    #introholder{top:640px;}
+    #navintro{padding:12px;font-size:18px;white-space:nowrap;width:355px;top:440px;}
+    a#baselinelogo{display:inline-block;width:22px;height:20px;background-image:url(baselinelogo.png);position:relative;top:2px;}
+    .axis text{font-size:22px;}
+    .aline{stroke-width:6px;}
+    .scattertitle.mobile{visibility:visible;font-size:28px;fill:#43423e;}
+    .scattertitle.large{visibility:hidden;}
+    .scattertitle.ylabelred{font-size:28px;}
+    .scattertitle.ylabelblue{font-size:28px;}
+    .linelabel{font-size:28px;}
+    .projection{stroke-width:6px;}
+    .projectionold{stroke-width:6px;}
+    #progressbar{float:left;width:0px;background-color:#af516c;position:fixed;top:50px;height:5px;opacity:1;}
+    #scrollpoint{position:absolute;top:45px;}
+    #progressbarwide{display:none;}
+    }
     </style>
   </head>
   <body>
@@ -228,18 +262,17 @@
     var cont = d3.select("body").append("div")
       .attr("id","container");
 
-    d3.select("body").append("span")
-      .attr("id","introholder")
-
-    d3.select("#introholder").append("span")
+    d3.select("#container").append("span")
       .attr("id","navintro")
       .text("Right arrow or swipe right-to-left to continue")
-
 
     var thetext = d3.select("div#container").append("div").attr("id","textholder").style("opacity","0.2")
 
     thetext.append("div")
       .attr("id","progressbar")
+
+    thetext.append("div")
+      .attr("id","progressbarwide")
 
     d3.select("div#container").append("div").attr("id","chart");
 
@@ -253,11 +286,13 @@
     d3.select("#baselinecred").append("span").attr({"id":"baselinetext"}).text(" FT Baseline").append("span").attr("id","baselinetagline").text(", on sporting statistics")
 
     // And now we add an SVG inside our chart container
-    var svg = d3.select("div#chart").append("svg").attr("id","thesvg");
+    var svg = d3.select("div#chart").append("svg").attr({"id":"thesvg","viewBox":"0 0 900 610"});
 
     thetext.append("span")
       .attr({"class":"introtext slidetitle"})
       .text("Do footballers seek suspension at Christmas?")
+
+    thetext.append("div").attr({"id":"scrollpoint"})
 
     thetext.append("div").attr({"id":"captiontitle"}).append("span").text("Early signs suggest there's something going on")
 
@@ -742,17 +777,17 @@
 
     function doheader(str){return d3.select("#captiontitle span")
     .transition().duration(250).style({"opacity":"0","left":"-2000px"})
-    .transition().delay(750).duration(250).style({"left":"50px"})
+    .transition().delay(750).duration(250).style({"left":"10px"})
     .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
 
     function do1cap(str){return d3.select("#captionhold1 span")
     .transition().duration(250).style({"opacity":"0","left":"-2000px"})
-    .transition().delay(750).duration(250).style({"left":"50px"})
+    .transition().delay(750).duration(250).style({"left":"10px"})
     .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
 
     function do2cap(str){return d3.select("#captionhold2 span")
     .transition().duration(250).style({"opacity":"0","left":"-2000px"})
-    .transition().delay(750).duration(250).style({"left":"50px"})
+    .transition().delay(750).duration(250).style({"left":"10px"})
     .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
 
     function navnudge(){
@@ -774,14 +809,21 @@
 
     function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)};
     
-    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"})};
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * (progwidth/10)) + "px"}),
+        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"});
+    };
 
+    navnudge();
 
     var slidenum = -1;
 
+    var progwidth = window.innerWidth*0.9;
 
     function toslide0() {
         hideintro();
+        $('html, body').animate({
+        scrollTop: $("#scrollpoint").offset().top
+    }, 1000);
         progress();
         d3.select("#chart").transition().duration(100).style("opacity","1")
         d3.select("#textholder").transition().duration(100).style("opacity","1")
@@ -936,7 +978,7 @@
         d3.select(".projection").transition().delay(3500).duration(500).attr("stroke-dashoffset","0").transition().delay(4000).duration(0).attr("stroke-dasharray","3px 3px")
 
         doheader("So that peak? It's what we would expect to happen")
-        do1cap("Given this steady rate, we would expect bans to peak at the same level if cut-off points were unchanged. The same maximum seen before - roughly 3.5 bans per week - would also apply today")
+        do1cap("Given this steady rate, we would expect bans to plateau at the same level if cut-off points were unchanged. The same maximum seen before - roughly 3.5 bans per week - would also apply today")
         do2cap("The late December peak arises because the number of bans per week is still rising towards this level, while in the old system there was no peak because the ceiling had already been reached")
         alertnext()
       slidenum = 8
@@ -955,7 +997,8 @@
 
     function toslide10() {
         hideintro();
-        d3.select("#progressbar").transition().duration(1000).style("width","90px")
+        d3.select("#progressbar").transition().duration(1000).style("width",function(){return progwidth/11 + "px";})
+        d3.select("#progressbarwide").transition().duration(1000).style("width",function(){return 90 + "px";})
 
         d3.select(".linelabel.newbans").transition().duration(1000).style("opacity","0")
         d3.select(".linelabel.oldbans").transition().duration(1000).style("opacity","0")
