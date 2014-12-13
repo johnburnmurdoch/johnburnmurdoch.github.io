@@ -194,13 +194,13 @@
     #credits span{font-size:16px;line-height:20px;}
     #credits a{font-size:16px;line-height:20px;}
     #thesvg{height:610px;}
-    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:135px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:24px;}
-    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:190px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
-    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:290px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
-    #chart{top:310px;}
+    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:105px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:24px;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:160px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
+    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:260px;width:100%;height:90px;max-width:900px;z-index:1000;text-align:left;font-size:20px;}
+    #chart{top:280px;}
     .slidetitle{top:20px;font-size:2.3em;}
     #introholder{top:460px;}
-    #navintro{padding:12px;font-size:24px;white-space:nowrap;width:475px;top:415px;}
+    #navintro{padding:12px;font-size:24px;white-space:nowrap;width:475px;top:385px;}
     a#baselinelogo{display:inline-block;width:23px;height:20px;background-image:url(baselinelogo.png);position:relative;top:2px;}
     .axis text{font-size:18px;}
     .aline{stroke-width:4px;}
@@ -212,7 +212,7 @@
     .projection{stroke-width:4px;}
     .projectionold{stroke-width:4px;}
     #progressbar{float:left;width:0px;background-color:#af516c;top:50px;height:6px;opacity:1;}
-    #scrollpoint{position:absolute;top:75px;}
+    #scrollpoint{position:absolute;top:90px;}
     #progressbarwide{display:none;}
 	}
 
@@ -276,7 +276,7 @@
 
     var thecredits = d3.select("body").append("div").attr("id","credits");
 
-    thecredits.append("span").text("Source: ").append("a").text("Transfermarkt.co.uk,").attr({"target":"_blank","href":"http://www.nrl.com"}).append("a").text(" The FA").attr({"target":"_blank","href":"http://www.nrl.com"})
+    thecredits.append("span").text("Source: ").append("a").text("Transfermarkt.co.uk,").attr({"target":"_blank","href":"http://www.transfermarkt.co.uk/"}).append("a").text(" The FA").attr({"target":"_blank","href":"http://www.thefa.com/football-rules-governance/suspensions"})
     thecredits.append("span").text("Graphic by: ").attr({"id":"author"}).append("a").text("John Burn-Murdoch").attr({"target":"_blank","href":"https://twitter.com/jburnmurdoch"})
 
     thecredits.append("a").attr({"id":"baselinecred","href":"http://blogs.ft.com/ftdata/category/baseline/","target":"_blank"}).append("a").attr("id","baselinelogo").text("")
