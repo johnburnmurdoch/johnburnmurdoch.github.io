@@ -1,0 +1,1102 @@
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <head>
+    <title>FT Baseline: Premier League suspensions</title>
+    <script src="d3.min.js"></script>
+    <script type='text/javascript' src='jquery211.min.js'></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style type='text/css'>
+    @font-face{
+        font-family: "BentonSans";
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face{
+    font-family: "BentonSans";
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+    }
+    @font-face{
+    font-family: "MillerDisplay";
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot');
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.woff") format("woff"),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    @font-face{
+    font-family: "Clarion";
+    src: url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    text{font-family:"BentonSans",sans-serif;cursor:default;}
+    a{color:#43423e;margin-right:0px;text-decoration:none;background-color:#fff1e0;padding:4px 8px;border-radius:3px;font-family:"BentonSans",sans-serif;height:20px;line-height:19px;transition: background-color 0.3s, color 0.3s;}
+    span{color:#74736c;font-family:"BentonSans",sans-serif;cursor:default;}
+    a:hover{background-color:#74736c;color:#fff1e0;}
+    #credits a:hover{background-color:none;color:#000;}
+    #credits a.ftr:hover{background-color:none;color:#43423e;}
+    #credits a.ftr{color:#43423e;}
+    .axis path,
+    .axis line{fill:none;stroke:#a7a59b;shape-rendering:crispEdges;}
+    .axis text{font-family:"BentonSans"sans-serif;font-size: 12px;fill:#74736c;}
+    text.fixtures{font-size:18px;fill:#d7706c;}
+    path.selected{stroke:#4e86b6;}
+    text.namelabel{cursor:default;}
+    .scattertext{pointer-events:none;}
+    .scatterhovertext{pointer-events:none;}
+    .servetext{pointer-events:none;}
+    .returntext{pointer-events:none;}
+    .scattercircle{cursor:pointer;}
+    .scattercircle:hover{stroke-width:2px;}
+    .goalspath{stroke-width:1px;stroke:#b8b1a9;fill:none;stroke-opacity:0.5;}
+    .goalspath.keyplayer{stroke-width:2px;stroke:#76acb8;stroke-opacity:1;}
+    .goalspath.keyplayer.hovered{stroke-width:3px;}
+    .goalspath.hovered{stroke:#af516c;stroke-opacity:1;stroke-width:2px;}
+    .goalscircle{fill:#b8b1a9;fill-opacity:0.5;}
+    .goalscircle.keyplayer{fill:#76acb8;fill-opacity:1;stroke:#76acb8;}
+    .goalscircle.hovered{fill:#af516c;fill-opacity:1;stroke:#af516c;}
+    .goalscircle.keyplayer.hovered{fill:#af516c;fill-opacity:1;stroke:#af516c;stroke-width:2px;}
+    .goalspathblank{stroke:transparent;stroke-width:8px;fill:none;}
+    .hovertext{font-size:10px;fill:transparent;pointer-events:none;}
+    .hovertext.keyplayer{fill:#43423e;}
+    .hovertext.hovered{fill:#43423e;}
+    .hovertext.keyplayer.hovered{font-weight:bold;}
+    #ft-header {
+    height: 50px;
+    background-color: #FFF9F1;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 1px solid #cec6b9;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+    }
+    #ft-header a{background-color:#fff9f1;}
+    #ft-header a>img {
+    margin-top: 13px;
+    opacity: .8;
+    transition: opacity .3s;
+    height:20px;
+    }
+    h1 {
+    text-align: center;
+    margin: 70px auto auto;
+    font-family: "MillerDisplay","Clarion",Georgia,serif;
+    font-weight: 400;
+    font-size: 3em;
+    }
+    h1 {
+    display: block;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    }
+    #captiondiv span {
+    font-family: "Clarion",Georgia,serif;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    color: #43423e;
+    margin-top: 1em;
+    }
+    #captiondiv a {
+    font-family: "Clarion",Georgia,serif;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin-top: 1em;
+    }
+    a.clickselected{background-color:#74736c;color:#fff1e0;}
+    a#captionlink{color:#2e6e9e;padding:0px;border-radius:0px;font-weight:normal;background-color:transparent;}
+    a#captionlink:hover{background-color:none;color:#000;}
+    .slideheader{font-size:56px;font-family:"BentonSans";font-weight:bold;}
+    .mydetails{text-anchor:middle;font-size:36px;font-family:"BentonSans";}
+    .mydetails2{text-anchor:middle;font-size:24px;font-family:"BentonSans";}
+    .anyqs{text-anchor:middle;font-size:48px;font-family:"BentonSans";}
+    .keypoint.hed{fill:#74736c;font-weight:bold;font-size:24px;}
+    .keypoint.sub{fill:#434234;font-size:22px;}
+    .keypoint.sub2{fill:#434234;font-size:22px;}
+    body{background-color:#fff1e0;margin:auto;}
+    .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
+    #introholder{position:absolute;left:50%;top:330px;}
+    #navintro{position:relative;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;white-space:nowrap;display: block;margin: 0 auto;width: 355px;top:590px;z-index:2000;}
+    .stateOne {opacity:1;}
+    .stateTwo {opacity:0;}
+    #navintroclose{border-radius:12px;font-weight:bold;color:darkblue;background-color:transparent;position:relative;top:-8px;padding:0px;left:6px;cursor:pointer;}
+    #container{height:100%;width:100%;margin-left:auto;margin-right:auto;background-color:transparent;text-align:center;}
+    #textholder{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:90%;background-color:transparent;height:100%;max-width:900px;z-index:1000;}
+    #chart{background-color:#fff1e0;opacity:0.2;position:relative;top:240px;margin-left:auto;margin-right:auto;height:650px;width:90%;max-width:900px;}
+    #thesvg{position:relative;top:0px;height:600px;width:100%;max-width:900px;}
+    .slidetitle{position:relative;font-family:"MillerDisplay","Clarion",Georgia,serif;font-weight:400;font-size:3em;color:black;top:25px;}
+    div#credits{position:fixed;overflow:hidden;bottom:0px;margin-left:0;padding-bottom:4px;/*margin-right:auto;left:0;right:0;*/width:100%;z-index:1000;background-color:#fff1e0;box-shadow: 2px 0px 0px 2px rgba(0,0,0,.1);padding-top:8px;}
+    #credits a{color:#2e6e9e;position:relative;margin-right:0px;text-decoration:none;none;background-color:#fff1e0;padding:0px;border-radius:0px;font-size:11px;font-weight:normal;}
+    #credits span{font-size:11px;font-weight:bold;line-height:20px;}
+    #credits span#author{position:relative;left:24px;}
+    #credits span#inspiredby{position:relative;left:64px;font-weight:normal;}
+    #credits span#maps{position:relative;left:16px;}
+    #captiontitle{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:100px;width:100%;height:40px;max-width:900px;z-index:1000;text-align:left;font-size:24px;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:150px;width:100%;height:60px;max-width:900px;z-index:1000;text-align:left;font-size:18px;}
+    #captionhold2{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:215px;width:100%;height:60px;max-width:900px;z-index:1000;text-align:left;font-size:18px;}
+    #baselinecred{display:block;cursor:pointer;float:right;}
+    span#baselinetagline{font-weight:normal;color:#2e6e9e;cursor:pointer;}
+    span#baselinetext{color:#2e6e9e;cursor:pointer;}
+    span#baselinetagline:hover{background-color:none;color:#000;}
+    span#baselinetext:hover{background-color:none;color:#000;}
+    a#baselinelogo{display:inline-block;width:22px;height:20px;background-image:url(baselinelogo.png);position:relative;top:2px;}
+    .aline{stroke-width:2px;stroke:#bb6d82;fill:none;}
+    .anarea{stroke-width:0px;stroke:none;fill:#bb6d82;fill-opacity:0.5;}
+    .scattertitle.large{font-size:16px;fill:#43423e;}
+    .scattertitle.ylabelred{font-size:14px;fill:#43423e;opacity:0;}
+    .scattertitle.ylabelblue{font-size:14px;fill:#43423e;opacity:0;}
+    .scattertitle.mobile{visibility:hidden;}
+    #yaxis.axis path{stroke:none;}
+    #captiontitle span{position:relative;}
+    #captionhold1 span{position:relative;}
+    #captionhold2 span{position:relative;}
+    .aline.allbansdec{stroke:#74736c;}
+    .aline.allbansfeb{stroke:#74736c;}
+    .aline.justyellows{stroke:#af516c;}
+    .aline.secondyellows{stroke:#ecafaf;}
+    .aline.justreds{stroke:#d7706c;}
+    .linelabel{font-size:14px;opacity:0;}
+    .linelabel.yellows{fill:#74736c;}
+    .linelabel.seconds{fill:#74736c;}
+    .linelabel.reds{fill:#74736c;}
+    .aline.newbans{stroke:#af516c;}
+    .aline.oldbans{stroke:#ecafaf;}
+    .aline.newfives{stroke:#af516c;}
+    .aline.oldfives{stroke:#ecafaf;}
+    .linelabel.newbans{fill:#74736c;}
+    .linelabel.oldbans{fill:#74736c;}
+    .linelabel.newfives{fill:#74736c;}
+    .linelabel.oldfives{fill:#74736c;}
+    .peak{fill:#9e2f50;fill-opacity:0;stroke:none;}
+    .projection{stroke:#43423e;stroke-width:2px;fill:none;}
+    .projectionold{stroke:#76acb8;stroke-width:2px;fill:none;}
+    #progressbar{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;opacity:0;}
+    #scrollpoint{position:absolute;top:-50px;}
+    #progressbarwide{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
+    </style>
+  </head>
+  <body>
+    <header id="ft-header" class="stickable">
+      <a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+    </header>
+
+    <!-- <div id="credits"><span>Source: <a target="_blank" href="http://www.worldfootball.net/alltime_goalgetter/champions-league/tore/1/">WorldFootball.net</a><span id="author">Graphic by: <a target="_blank" href="https://twitter.com/jburnmurdoch">John Burn-Murdoch</a></span><span id="inspiredby">Inspired by: <a target="_blank" href="http://www.nytimes.com/interactive/2014/10/19/upshot/peyton-manning-breaks-touchdown-passing-record.html">NYT Upshot</a></span></div> -->
+
+    <script type="text/javascript">
+
+    var progwidth= window.innerWidth*0.9;
+
+    var cont = d3.select("body").append("div")
+      .attr("id","container");
+
+    d3.select("#container").append("span")
+      .attr("id","navintro")
+      .text("Right arrow or swipe right-to-left to continue");
+
+    var thetext = d3.select("div#container").append("div").attr("id","textholder").style("opacity","0.2");
+
+    thetext.append("div")
+      .attr("id","progressbar");
+
+    thetext.append("div")
+      .attr("id","progressbarwide");
+
+    d3.select("div#container").append("div").attr("id","chart");
+
+    var thecredits = d3.select("body").append("div").attr("id","credits");
+
+    thecredits.append("span").text("Source: ").append("a").text("Transfermarkt.co.uk,").attr({"target":"_blank","href":"http://www.transfermarkt.co.uk/"}).append("a").text(" The FA").attr({"target":"_blank","href":"http://www.thefa.com/football-rules-governance/suspensions"})
+    thecredits.append("span").text("Graphic by: ").attr({"id":"author"}).append("a").text("John Burn-Murdoch").attr({"target":"_blank","href":"https://twitter.com/jburnmurdoch"})
+
+    thecredits.append("a").attr({"id":"baselinecred","href":"http://blogs.ft.com/ftdata/category/baseline/","target":"_blank"}).append("a").attr("id","baselinelogo").text("")
+
+    d3.select("#baselinecred").append("span").attr({"id":"baselinetext"}).text(" FT Baseline").append("span").attr("id","baselinetagline").text(", on sporting statistics")
+
+    // And now we add an SVG inside our chart container
+    var svg = d3.select("div#chart").append("svg").attr({"id":"thesvg","viewBox":"0 0 900 610"});
+
+    thetext.append("span")
+      .attr({"class":"introtext slidetitle"})
+      .text("Do footballers seek suspension at Christmas?");
+
+    thetext.append("div").attr({"id":"scrollpoint"});
+
+    thetext.append("div").attr({"id":"captiontitle"}).append("span").text("Early signs suggest there's something going on")
+
+    thetext.append("div").attr({"id":"captionhold1"}).append("span").text("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
+    thetext.append("div").attr({"id":"captionhold2"}).append("span").text("But is there any evidence? This chart shows the stage of the season when players pick up suspensions, going back to 1995/96 when the Premier League first took on its 20 team format")
+
+    var allbansarea = [
+    [0,1.97,1.74,1.7,1.53,1.88,1.89,2.14,2.54,2.89,3.09,3.02,2.98,3.09,3.4,3.84,3.86,4.16,4.42,4.86,4.37,4.12,4.09,4.05,4.04,3.82,3.88,3.25,2.47,1.84,1.86,1.79,1.7,1.37,1.39,1.42,1.65,1.79,1.84,0]
+    ];
+
+    var allbans = [
+    [1.97,1.74,1.7,1.53,1.88,1.89,2.14,2.54,2.89,3.09,3.02,2.98,3.09,3.4,3.84,3.86,4.16,4.42,4.86,4.37,4.12,4.09,4.05,4.04,3.82,3.88,3.25,2.47,1.84,1.86,1.79,1.7,1.37,1.39,1.42,1.65,1.79,1.84]
+    ];
+
+    var justyellows = [
+    [0,0,0,0.02,0.05,0.12,0.26,0.58,0.75,0.96,1.21,1.49,1.89,2.19,2.49,2.51,2.67,3,3.25,3.14,2.65,2.65,2.39,2.67,2.53,2.7,1.95,1.07,0.33,0.21,0.28,0.21,0.16,0.09,0.04,0.02,0,0]
+    ];
+
+    var justsecondyellows = [
+    [0.82,0.68,0.74,0.77,1.12,1.04,1,0.88,1,1.04,0.89,0.74,0.58,0.7,0.82,0.84,0.91,0.86,0.91,0.67,0.7,0.67,0.65,0.56,0.53,0.53,0.63,0.68,0.79,0.84,0.74,0.7,0.54,0.61,0.61,0.63,0.68,0.68]
+    ];
+
+    var justreds = [
+    [1.16,1.05,0.98,0.75,0.72,0.74,0.88,1.11,1.18,1.14,0.96,0.81,0.7,0.7,0.7,0.68,0.7,0.77,0.93,0.75,0.88,0.89,1.14,0.96,0.86,0.7,0.72,0.75,0.75,0.84,0.82,0.84,0.68,0.68,0.77,1,1.11,1.16]
+    ];
+
+    var newbans = [
+    [0,0,0,0.07,0.07,0.07,0.07,0.4,0.6,1,1.13,1.67,1.67,1.8,1.73,1.87,2,2.2,2.53,1.8,0.93,0,0,0,0.07,0.13,0.13,0.07,0.2,0.27,0.33,0.13,0.13,0.07,0.07,0,0,0]
+    ];
+
+    var oldbans = [
+    [0,0,0,0,0.05,0.14,0.33,0.64,0.81,0.95,1.24,1.43,1.98,2.33,2.76,2.74,2.9,3.29,3.5,3.62,3.26,3.59,3.24,3.62,3.41,3.62,2.6,1.43,0.38,0.19,0.26,0.24,0.17,0.09,0.02,0.02,0,0]
+    ];
+
+    var newfives = [
+    [0,0,0,0,0.1,0.07,0.07,0.4,0.6,1,1.13,1.67,1.67,1.8,1.73,1.87,2,2.2,3,4,4,3.87,3.67,4.4,4.53,4.2,4,3.93,4.13,4.07,4.07,3.93,4.07,4.2,4.73,4.2,3.73,3]
+    ];
+
+    var oldfives = [
+    [0,0,0,0,0.07,0.14,0.33,0.64,0.81,0.95,1.24,1.43,1.98,2.33,2.76,2.76,2.93,3.31,3.53,3.62,3.24,3.5,3.17,3.57,3.48,4.05,3.88,4.24,4.05,4.17,3.69,3.64,3.43,3.62,3.9,4.19,3.81,2.86]
+    ];
+
+    var allbansdec = [
+    [0,5]
+    ];
+
+    var gameweeks = d3.range(1,39,1);
+
+    var gameweeksdec = [19,19];
+
+    var gameweeksfeb = [27,27]
+
+    var gameweeksarea = [1].concat(gameweeks).concat(38);
+
+    // This defines the domain (data values) and range (potion of SVG) that the x scale refers to
+    var xScale = d3.scale.linear()
+     .domain([1,38])
+     .range([40, 860]);
+
+    // // And this does the same for the y scale
+    var yScale = d3.scale.linear()
+     .domain([0,5])
+     .range([550, 80]);
+
+    // var yScalegpg = d3.scale.linear()
+    //  .domain([0,8.5])
+    //  .range([480, 50]);
+
+    // // This then defins an axis based on the x scale, and where to draw ticks along the axis 
+    var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .tickFormat(d3.format("d"))
+      .tickValues([5,10,15,20,25,30,35,38])
+      ;
+
+    // // And this does the same for the y axis based on the y scale
+    var yAxis = d3.svg.axis()
+      .scale(yScale)
+      .orient("left")
+      .tickValues([0,1,2,3,4,5])
+      ;
+
+    // var yAxisgpg = d3.svg.axis()
+    //   .scale(yScalegpg)
+    //   .orient("left")
+
+    //   // .tickValues([41,4null,47,50])
+    //   ;
+
+    //This then draws the x axis on our SVG
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "xaxis")
+    .attr("transform", "translate(0,550)")
+    .call(xAxis);
+
+    // // And here is the same for the y axis
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "yaxis")
+    .attr("transform", "translate(40,0)")
+    .call(yAxis);
+
+
+
+    // d3.select("svg").append("g")
+    // .attr("class", "axis")
+    // .attr("id", "yaxisgpg")
+    // .attr("transform", "translate(23,-1000)")
+    // .call(yAxisgpg);
+
+    // Now we're adding a title at the top of our y axis, anchored to the left hand edge of the SVG
+    d3.select("svg").append("text")
+        .attr("class","scattertitle ytitle large")
+        .text("Bans picked up per game week")
+        .attr("x","0")
+        .attr("y","60");
+
+    // // And here's one for the x axis, anchored to the middle of our SVG
+    d3.select("svg").append("text")
+        .attr("class","scattertitle xtitle large")
+        .text("Game week")
+        .attr("x","450")
+        .attr("y","590")
+        .attr("text-anchor","middle");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle ylabelred")
+        .text("Boxing day fixtures")
+        .attr("x",xScale(19))
+        .attr("y","75")
+        .attr("text-anchor","end");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle ylabelblue")
+        .text("Last fixtures in February")
+        .attr("x",xScale(27))
+        .attr("y","75")
+        .attr("text-anchor","start");
+
+
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel yellows")
+        .text("5, 10 or 15 yellow cards")
+        .attr("x",xScale(19))
+        .attr("y","235")
+        .attr("text-anchor","middle");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel seconds")
+        .text("Second yellow card")
+        .attr("x",xScale(24))
+        .attr("y","515")
+        .attr("text-anchor","middle");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel reds")
+        .text("Red card")
+        .attr("x",xScale(36))
+        .attr("y","435")
+        .attr("text-anchor","middle");
+
+
+
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel newbans")
+        .text("New cut-off")
+        .attr("x",xScale(19))
+        .attr("y","305")
+        .attr("text-anchor","start");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel oldbans")
+        .text("Old cut-off")
+        .attr("x",xScale(20))
+        .attr("y","200")
+        .attr("text-anchor","start");
+
+
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel newfives")
+        .text("New cut-off")
+        .attr("x",xScale(15))
+        .attr("y","420")
+        .attr("text-anchor","start");
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle linelabel oldfives")
+        .text("Old cut-off")
+        .attr("x",xScale(20))
+        .attr("y","280")
+        .attr("text-anchor","start");
+
+
+
+
+    d3.select("svg").append("text")
+        .attr("class","scattertitle ytitle mobile")
+        .text("Bans picked up per game week")
+        .attr("x","0")
+        .attr("y","50");
+
+    // // And here's one for the x axis, anchored to the middle of our SVG
+    d3.select("svg").append("text")
+        .attr("class","scattertitle xtitle mobile")
+        .text("Game week")
+        .attr("x","450")
+        .attr("y","600")
+        .attr("text-anchor","middle");
+
+
+
+    var xticks = [5,10,15,20,25,30,35];
+    var yticks = [1,2,3,4,5];
+
+    svg.selectAll("line.horizontalGrid").data(yticks).enter()
+    .append("line")
+        .attr(
+        {
+            "class":"horizontalGrid",
+            "x1" : 40,
+            "x2" : 860,
+            "y1" : function(d){ return yScale(d);},
+            "y2" : function(d){ return yScale(d);},
+            "fill" : "none",
+            "shape-rendering" : "crispEdges",
+            "stroke" : "#cec6b9",
+            "stroke-width" : "1px",
+            "stroke-dasharray" : "1 1"
+        });
+
+    svg.selectAll("line.verticalGrid").data(xticks).enter()
+    .append("line")
+        .attr(
+        {
+            "class":"verticalGrid",
+            "y1" : 80,
+            "y2" : 550,
+            "x1" : function(d){ return xScale(d);},
+            "x2" : function(d){ return xScale(d);},
+            "fill" : "none",
+            "shape-rendering" : "crispEdges",
+            "stroke" : "#cec6b9",
+            "stroke-width" : "1px",
+            "stroke-dasharray" : "1 1"
+        });
+
+
+    svg.append("path")
+        .attr({
+            "class":"peak",
+            "d":"M416.7567567567568,343.19999999999993L438.91891891891896,312.18L450,343.2Z"
+        });
+
+
+
+    
+
+
+    var allbansareapath = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeksarea[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(allbansarea)
+          .enter()
+          .append("path")
+          .attr("class","allbans anarea")
+          .attr("d", allbansareapath);
+
+    var allbanslinepath = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(allbans)
+          .enter()
+          .append("path")
+          .attr("class","allbans aline")
+          .attr("d", allbanslinepath);
+
+
+
+    var allbansdecline = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeksdec[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(allbansdec)
+          .enter()
+          .append("path")
+          .attr("class","allbansdec aline")
+          .attr("d", allbansdecline)
+          .attr("stroke-dasharray", yScale(0) + " " + yScale(0))
+          .attr("stroke-dashoffset", yScale(0))
+
+
+    var allbansfebline = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeksfeb[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(allbansdec)
+          .enter()
+          .append("path")
+          .attr("class","allbansfeb aline")
+          .attr("d", allbansfebline)
+          .attr("stroke-dasharray", yScale(0) + " " + yScale(0))
+          .attr("stroke-dashoffset", yScale(0))
+
+
+
+    var justyellowsline = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(justyellows)
+          .enter()
+          .append("path")
+          .attr("class","justyellows aline")
+          .attr("d", justyellowsline);
+
+    var justyellowslength = d3.select(".justyellows.aline").node().getTotalLength();    
+          d3.select(".justyellows.aline").attr("stroke-dasharray", justyellowslength + " " + justyellowslength)
+          .attr("stroke-dashoffset", justyellowslength);
+
+
+    var secondyellowsline = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(justsecondyellows)
+          .enter()
+          .append("path")
+          .attr("class","secondyellows aline")
+          .attr("d", secondyellowsline);
+
+    var secondyellowslength = d3.select(".secondyellows.aline").node().getTotalLength();
+          d3.select(".secondyellows.aline").attr("stroke-dasharray", secondyellowslength + " " + secondyellowslength)
+          .attr("stroke-dashoffset", secondyellowslength);
+
+
+    var justredsline = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(justreds)
+          .enter()
+          .append("path")
+          .attr("class","justreds aline")
+          .attr("d", justredsline);
+
+    var justredslength = d3.select(".justreds.aline").node().getTotalLength();
+          d3.select(".justreds.aline").attr("stroke-dasharray", justredslength + " " + justredslength)
+          .attr("stroke-dashoffset", justredslength);
+
+
+
+
+    var newbanspath = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(newbans)
+          .enter()
+          .append("path")
+          .attr("class","newbans aline")
+          .attr("d", newbanspath);
+
+    var newbanslength = d3.select(".newbans.aline").node().getTotalLength();
+          d3.select(".newbans.aline").attr("stroke-dasharray", newbanslength + " " + newbanslength)
+          .attr("stroke-dashoffset", newbanslength);
+
+    var oldbanspath = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(oldbans)
+          .enter()
+          .append("path")
+          .attr("class","oldbans aline")
+          .attr("d", oldbanspath);
+
+    var oldbanslength = d3.select(".oldbans.aline").node().getTotalLength();
+          d3.select(".oldbans.aline").attr("stroke-dasharray", oldbanslength + " " + oldbanslength)
+          .attr("stroke-dashoffset", oldbanslength);
+
+    var newfivespath = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(newfives)
+          .enter()
+          .append("path")
+          .attr("class","newfives aline")
+          .attr("d", newfivespath);
+
+    var newfiveslength = d3.select(".newfives.aline").node().getTotalLength();
+          d3.select(".newfives.aline").attr("stroke-dasharray", newfiveslength + " " + newfiveslength)
+          .attr("stroke-dashoffset", newfiveslength);
+
+    var oldfivespath = d3.svg.line()
+      .interpolate("linear")
+      .x(function(d, i) { return xScale(gameweeks[i]); })
+      .y(yScale);
+
+    svg.selectAll(".line")
+          .data(oldfives)
+          .enter()
+          .append("path")
+          .attr("class","oldfives aline")
+          .attr("d", oldfivespath);
+
+    var oldfiveslength = d3.select(".oldfives.aline").node().getTotalLength();
+          d3.select(".oldfives.aline").attr("stroke-dasharray", oldfiveslength + " " + oldfiveslength)
+          .attr("stroke-dashoffset", oldfiveslength);
+
+
+
+    svg.append("path")
+        .attr({
+            "class":"projectionold",
+            "d":"M40,550L62.16216216216216,550L84.32432432432432,550L106.48648648648648,543.42L128.64864864864865,543.42L150.81081081081084,543.42L172.97297297297297,543.42L195.13513513513513,512.4L217.29729729729732,493.6L239.45945945945948,456L261.62162162162167,443.78000000000003L283.7837837837838,393.02L305.94594594594594,393.02L328.1081081081081,380.79999999999995L350.27027027027026,387.38L372.43243243243245,374.21999999999997L394.59459459459464,362L416.7567567567568,343.19999999999993L439,312"
+        });
+
+    var projectionoldlength = d3.select(".projectionold").node().getTotalLength();    
+          d3.select(".projectionold").attr("stroke-dasharray", projectionoldlength + " " + projectionoldlength)
+          .attr("stroke-dashoffset", projectionoldlength);
+
+    svg.append("path")
+        .attr({
+            "class":"projection",
+            "d":"M439,312L486,225"
+        });
+
+    var projectionlength = d3.select(".projection").node().getTotalLength();    
+          d3.select(".projection").attr("stroke-dasharray", projectionlength + " " + projectionlength)
+          .attr("stroke-dashoffset", projectionlength);
+
+    // window.onload = function() {
+    //     if ( window.orientation == 0 || window.orientation == 180 ) { 
+    //         alert ('Please rotate your device to landscape mode'); 
+    //     }
+    // };
+
+    function bgchange() {
+      d3.select("#chart").transition().duration(5000).style("background-color","#9e2f50")
+      d3.selectAll(".introtext").transition().duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
+      d3.select("#chart").transition().delay(5000).duration(5000).style("background-color","#fff1e0")
+      d3.selectAll(".introtext").transition().delay(5000).duration(5000).style({"color":"#000000","fill":"#000000"})
+      d3.select("#chart").transition().delay(10000).duration(5000).style("background-color","#76acb8")
+      d3.selectAll(".introtext").transition().delay(10000).duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
+      d3.select("#chart").transition().delay(15000).duration(5000).style("background-color","#fff1e0")
+      d3.selectAll(".introtext").transition().delay(15000).duration(5000).style({"color":"#000000","fill":"#000000"})
+      d3.select("#chart").transition().delay(20000).duration(5000).style("background-color","#d7706c")
+      d3.selectAll(".introtext").transition().delay(20000).duration(5000).style({"color":"#fff1e0","fill":"#fff1e0"})
+      d3.select("#chart").transition().delay(25000).duration(5000).style("background-color","#fff1e0")
+      d3.selectAll(".introtext").transition().delay(25000).duration(5000).style({"color":"#000000","fill":"#000000"}).each("end", bgchange)
+    }
+
+
+
+    function doheader(str){return d3.select("#captiontitle span")
+    .transition().duration(250).style({"opacity":"0","left":"-2000px"})
+    .transition().delay(750).duration(250).style({"left":"10px"})
+    .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
+
+    function do1cap(str){return d3.select("#captionhold1 span")
+    .transition().duration(250).style({"opacity":"0","left":"-2000px"})
+    .transition().delay(750).duration(250).style({"left":"10px"})
+    .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
+
+    function do2cap(str){return d3.select("#captionhold2 span")
+    .transition().duration(250).style({"opacity":"0","left":"-2000px"})
+    .transition().delay(750).duration(250).style({"left":"10px"})
+    .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
+
+    function navnudge(){
+        console.log('navnudge')
+        return d3.select("#navintro")
+            .transition()
+            .duration(1000)
+            .style("opacity","1")
+            .transition()
+                .delay(1000)
+                .duration(1000)
+                .style("opacity","0")
+                .each("end", navnudge);
+    }
+
+    function hideintro(){return d3.select("#navintro").transition().duration(100).style({"opacity":"0"})};
+
+    function alertnextfirst(){return d3.select("#navintro").transition().delay(10000).style("opacity","1").each("end", navnudge)};
+
+    function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)};
+    
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * (progwidth/10)) + "px"}),
+        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"});
+    };
+    
+    navnudge();
+
+    var slidenum = -1;
+
+
+    function toslide0() {
+        hideintro();
+        $('html, body').animate({
+        scrollTop: $("#scrollpoint").offset().top
+    }, 1000);
+        progress();
+        d3.select("#chart").transition().duration(100).style("opacity","1")
+        d3.select("#textholder").transition().duration(100).style("opacity","1")
+        slidenum = 0
+        alertnextfirst()
+    }
+
+    function toslide1() {
+        hideintro();
+        progress();
+        d3.select(".allbansdec.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
+        d3.select(".ylabelred").transition().delay(1000).duration(1000).style("opacity","1")
+    	doheader("Let's take a closer look")
+    	do1cap("The initial pattern seems fairly clear. The number of players receiving straight red cards, second yellows or their fifth yellow of the season peaks around Christmas.")
+    	do2cap("But wait, there's more to it than that")
+        slidenum = 1
+        alertnext()
+    }
+
+    function toslide2() {
+        hideintro();
+        progress();
+        d3.select(".allbansdec.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
+        d3.select(".ylabelred").transition().duration(1000).style("opacity","0")
+        d3.select(".allbans.anarea").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".allbans.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+
+        d3.select(".justyellows.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".secondyellows.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".justreds.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".linelabel.yellows").transition().delay(1000).duration(1500).style("opacity","1")
+        d3.select(".linelabel.seconds").transition().delay(1000).duration(1500).style("opacity","1")
+        d3.select(".linelabel.reds").transition().delay(1000).duration(1500).style("opacity","1")
+        doheader("Does the pattern hold true for reds and yellows?")
+        do1cap("You're now looking at the same suspension data, but split into three parts: bans for straight red cards, for two yellows in one game, and for yellows accumulated over the season")
+        do2cap("As we can see, there is too much variation in the data on straight reds and second yellows for us to be able to speak confidently about any underlying pattern")
+      slidenum = 2
+        alertnext()
+    }
+
+    function toslide3() {
+        hideintro();
+        progress();
+
+        d3.select(".secondyellows.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".justreds.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".linelabel.yellows").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".linelabel.seconds").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".linelabel.reds").transition().duration(1000).attr("transform","translate(-2000,0)")
+
+        d3.select(".allbansdec.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
+        d3.select(".ylabelred").transition().delay(1000).duration(1000).style("opacity","1")
+
+        d3.select(".allbansfeb.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
+        d3.select(".ylabelblue").transition().delay(1000).duration(1000).style("opacity","1")
+
+        doheader("Focusing on the fifth yellow card")
+        do1cap("You're now looking at bans for cumulative yellows only. We've already discussed the pre-Christmas spike, but there's another interesting point here - the sharp drop-off at the end of February")
+        do2cap("What might be causing this? Well the football historians among you may already know the answer...")
+      slidenum = 3
+        alertnext()
+    }
+
+    function toslide4() {
+        hideintro();
+        progress();
+        doheader("A change in the rules")
+        do1cap("Until the 2009/10 season, the cut-off point after which a fifth yellow card no longer resulted in a suspension was the end of February")
+        do2cap("So a player receiving their fifth yellow on or before the last match in February would get a ban, but a fifth yellow on 1 March would receive no such punishment")
+      slidenum = 4
+        alertnext()
+    }
+
+    function toslide5() {
+
+        d3.select(".allbansdec.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
+        d3.select(".allbansfeb.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
+        d3.select(".ylabelred").transition().duration(1000).style("opacity","0")
+        d3.select(".ylabelblue").transition().duration(1000).style("opacity","0")
+        d3.select(".justyellows.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+
+        d3.select(".newbans.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".oldbans.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".linelabel.newbans").transition().delay(1500).duration(1000).style("opacity","1")
+        d3.select(".linelabel.oldbans").transition().delay(1500).duration(1000).style("opacity","1")
+
+        hideintro();
+        progress();
+        doheader("A tale of two eras")
+        do1cap("We can see the result of that pattern in the chart below. Under the old rules, bans for five yellow cards built up gradually until the end of February")
+        do2cap("Whereas from 2009/10 onwards, that peak and subsequent drop came forward to the new cut-off for a five yellows ban - 31 December")
+      slidenum = 5
+        alertnext()
+    }
+
+    function toslide6() {
+        hideintro();
+        progress();
+        d3.select(".peak").transition().duration(1500).style("fill-opacity","0.5")
+        doheader("But what about the sharp peak in late December?")
+        do1cap("While both follow the general pattern of a gradual increase in bans as yellow cards accumulate, followed by a sharp drop after the cut-off, the peak under the new rules appears more sudden")
+        do2cap("So is this the evidence that there is, after all, a jump in players picking up their fifth yellow card just before Christmas, that wasn't mirrored with the old cut-off?")
+      slidenum = 6
+        alertnext()
+    }
+
+    function toslide7() {
+        hideintro();
+        progress();
+
+        d3.select(".peak").transition().duration(100).style("fill-opacity","0")
+        d3.select(".linelabel.newbans").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".linelabel.oldbans").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".newbans.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".oldbans.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+
+        d3.selectAll(".scattertitle.ytitle").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.selectAll(".scattertitle.ytitle").transition().delay(1100).text("Players receiving fifth yellow card per game week")
+        d3.selectAll(".scattertitle.ytitle").transition().delay(1200).duration(1300).attr("transform","translate(0,0)")
+
+        d3.select(".newfives.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".oldfives.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
+        d3.select(".linelabel.newfives").transition().delay(1500).duration(1000).style("opacity","1")
+        d3.select(".linelabel.oldfives").transition().delay(1500).duration(1000).style("opacity","1")
+
+        doheader("It's not that simple")
+        do1cap("And here's why. This chart shows the raw number of fifth yellow cards received in each game week since 1995/96, regardless of whether or not they fell before or after the cut-off")
+        do2cap("Aside from a little bit of randomness in the data, which is to be expected, the rate at which yellow cards accumulate has remained relatively constant over the two periods")
+      slidenum = 7
+        alertnext()
+    }    
+
+    function toslide8() {
+        hideintro();
+        progress();
+
+        d3.select(".newfives.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".oldfives.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".linelabel.newfives").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.select(".linelabel.oldfives").transition().duration(1000).attr("transform","translate(-2000,0)")
+
+        d3.selectAll(".scattertitle.ytitle").transition().duration(1000).attr("transform","translate(-2000,0)")
+        d3.selectAll(".scattertitle.ytitle").transition().delay(1100).text("Bans picked up per game week")
+        d3.selectAll(".scattertitle.ytitle").transition().delay(1200).duration(1300).attr("transform","translate(0,0)")
+
+        d3.select(".linelabel.newbans").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
+        d3.select(".linelabel.oldbans").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
+        d3.select(".newbans.aline").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
+        d3.select(".oldbans.aline").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
+
+        d3.select(".projectionold").transition().delay(2500).duration(1000).attr("stroke-dashoffset","0")
+        d3.select(".projection").transition().delay(3500).duration(500).attr("stroke-dashoffset","0").transition().delay(4000).duration(0).attr("stroke-dasharray","3px 3px")
+
+        doheader("So that peak? It's what we would expect to happen")
+        do1cap("Given this steady rate, we would expect bans to plateau at the same level if cut-off points were unchanged. The same maximum seen before - roughly 3.5 bans per week - would also apply today")
+        do2cap("The late December peak arises because the number of bans per week is still rising towards this level, while in the old system there was no peak because the ceiling had already been reached")
+        alertnext()
+      slidenum = 8
+    }
+
+    function toslide9() {
+        hideintro();
+        progress();
+        doheader("So in summary:")
+        do1cap("Yes, there's typically a bump in the number of Premier League footballers receiving their fifth yellow card of the league season in late December")
+        do2cap("But don't be fooled into thinking it's a deliberate ploy to get more down time over Christmas and New Year. The real culprit is simple maths (with a little help from the F.A.)")
+        d3.select("#navintro").text("Right arrow or swipe right-to-left to restart")
+        alertnext()
+      slidenum = 9
+    }
+
+    function toslide10() {
+        hideintro();
+        d3.select("#progressbar").transition().duration(1000).style("width",function(){return progwidth/11 + "px";})
+        d3.select("#progressbarwide").transition().duration(1000).style("width",function(){return 90 + "px";})
+
+        d3.select(".linelabel.newbans").transition().duration(1000).style("opacity","0")
+        d3.select(".linelabel.oldbans").transition().duration(1000).style("opacity","0")
+        d3.select(".newbans.aline").style("opacity","0").transition().duration(1000).attr("stroke-dashoffset",newbanslength).transition().delay(1000).style("opacity","1")
+        d3.select(".oldbans.aline").style("opacity","0").transition().duration(1000).attr("stroke-dashoffset",oldbanslength).transition().delay(1000).style("opacity","1")
+
+        d3.select(".projectionold").style("opacity","0").transition().duration(1000).attr("stroke-dashoffset", projectionoldlength).transition().delay(1000).style("opacity","1")
+        d3.select(".projection").style("opacity","0").transition().duration(1000).attr("stroke-dasharray", projectionlength + " " + projectionlength)
+          .attr("stroke-dashoffset", projectionlength).transition().delay(1000).style("opacity","1");
+
+        d3.select(".allbans.anarea").transition().duration(1500).attr("transform","translate(0,0)")
+        d3.select(".allbans.aline").transition().duration(1500).attr("transform","translate(0,0)")
+
+        d3.select(".newfives.aline").attr("stroke-dashoffset",newfiveslength).transition().duration(1000).attr("transform","translate(0,0)")
+        d3.select(".oldfives.aline").attr("stroke-dashoffset",oldfiveslength).transition().duration(1000).attr("transform","translate(0,0)")
+        d3.select(".justyellows.aline").attr("stroke-dashoffset",justyellowslength).transition().duration(1000).attr("transform","translate(0,0)")
+        d3.select(".justreds.aline").attr("stroke-dashoffset",justredslength).transition().duration(1000).attr("transform","translate(0,0)")
+        d3.select(".secondyellows.aline").attr("stroke-dashoffset",secondyellowslength).transition().duration(1000).attr("transform","translate(0,0)")
+
+        d3.selectAll(".linelabel").style("opacity","0").transition().duration(1000).attr("transform","translate(0,0)")
+
+        doheader("Early signs suggest there's something going on")
+        do1cap("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
+        do2cap("But is there any evidence? This chart shows the stage of the season when players pick up suspensions, going back to 1995/96 when the Premier League took on its current 20 team format")
+        alertnext()
+      slidenum = 0
+    }
+
+    function toslide11() {
+      slidenum = 11
+    }
+
+    function toslide12() {
+      slidenum = 12
+    }
+
+    function toslide13() {
+      slidenum = 13
+    }
+
+    function toslide14() {
+      slidenum = 14
+    }
+
+    function toslide15() {
+      // bgchange()
+      slidenum = 15
+    }
+
+    function toslide16() {
+      d3.select(".mydetails2").style("opacity","1")
+      slidenum = 16
+    }
+
+    function toslide17() {
+      d3.select(".mydetails2").style("opacity","1")
+      slidenum = 17
+    }
+
+    function toslide18() {
+      d3.select(".mydetails2").style("opacity","1")
+      slidenum = 18
+    }
+
+    function toslide19() {
+      d3.select(".mydetails2").style("opacity","1")
+      slidenum = 19
+    }
+
+    function toslide20() {
+      d3.select(".mydetails2").style("opacity","1")
+      slidenum = 20
+    }
+
+    function donothing() {
+      d3.select(".mydetails2").style("opacity","1")
+    }
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 34 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 34 && slidenum == 0) toslide1()
+        else {if (event.keyCode == 34 && slidenum == 1) toslide2()
+        else {if (event.keyCode == 34 && slidenum == 2) toslide3()
+        else {if (event.keyCode == 34 && slidenum == 3) toslide4()
+        else {if (event.keyCode == 34 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 34 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 34 && slidenum == 6) toslide7()
+        else {if (event.keyCode == 34 && slidenum == 7) toslide8()
+        else {if (event.keyCode == 34 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 34 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 34 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 34 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 34 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 34 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 34 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 34 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 34 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 34 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 34 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 34 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+      });
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 39 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 39 && slidenum == 0) toslide1()
+        else {if (event.keyCode == 39 && slidenum == 1) toslide2()
+        else {if (event.keyCode == 39 && slidenum == 2) toslide3()
+        else {if (event.keyCode == 39 && slidenum == 3) toslide4()
+        else {if (event.keyCode == 39 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 39 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 39 && slidenum == 6) toslide7()
+        else {if (event.keyCode == 39 && slidenum == 7) toslide8()
+        else {if (event.keyCode == 39 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 39 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 39 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 39 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 39 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 39 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 39 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 39 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 39 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 39 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 39 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 39 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+      });
+
+    $("body").on("swipeleft",function(){
+      if (slidenum == -1) toslide0()
+        else {if (slidenum == 0) toslide1()
+        else {if (slidenum == 1) toslide2()
+        else {if (slidenum == 2) toslide3()
+        else {if (slidenum == 3) toslide4()
+        else {if (slidenum == 4) toslide5()
+        else {if (slidenum == 5) toslide6()
+        else {if (slidenum == 6) toslide7()
+        else {if (slidenum == 7) toslide8()
+        else {if (slidenum == 8) toslide9()
+        else {if (slidenum == 9) toslide10()
+        else {if (slidenum == 10) toslide11()
+        else {if (slidenum == 11) toslide12()
+        else {if (slidenum == 12) toslide13()
+        else {if (slidenum == 13) toslide14()
+        else {if (slidenum == 14) toslide15()
+        else {if (slidenum == 15) toslide16()
+        else {if (slidenum == 16) toslide17()
+        else {if (slidenum == 17) toslide18()
+        else {if (slidenum == 18) toslide19()
+        else {if (slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+    }); 
+
+    // bgchange();
+    </script>
+    
+  </body>
+</html>
