@@ -1132,6 +1132,7 @@
 
     function toclubsaxis(){
         yScale.domain([100,-150])
+        yAxis.tickValues([-150,-100,-50,0,50,100])
         d3.select("#yaxis")
             .transition().duration(2000)
             .call(yAxis);};
