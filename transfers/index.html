@@ -908,7 +908,7 @@
     // Now we're adding a title at the top of our y axis, anchored to the left hand edge of the SVG
     d3.select("svg").append("text")
         .attr("class","scattertitle ytitle large")
-        .text("Net transfer spend (£m)")
+        .text("Transfer balance (£m)")
         .attr("x","0")
         .attr("y","60");
 
@@ -995,7 +995,7 @@
 
     d3.select("svg").append("text")
         .attr("class","scattertitle ytitle mobile")
-        .text("Net transfer spend (£m)")
+        .text("Transfer balance (£m)")
         .attr("x","0")
         .attr("y","50");
 
@@ -1137,13 +1137,28 @@
             .transition().duration(2000)
             .call(yAxis);};
 
+    function toctrysaxis(){
+        yScale.domain([100,-400])
+        yAxis.tickValues([-400,-350,-300,-250,-200,-150,-100,-50,0,50,100])
+        d3.select("#yaxis")
+            .transition().duration(2000)
+            .call(yAxis);};
+
     function toclubspath(){
         d3.selectAll(".clubpath")
           .data(clubsmth)
         .transition()
           .duration(2000)
           .attr("d",clubpaths);
-    }
+    };
+
+    function toctryspath(){
+        d3.selectAll(".clubpath")
+          .data(clubgroup)
+        .transition()
+          .duration(2000)
+          .attr("d",clubpaths);
+    };
 
     var slidenum = -1;
 
@@ -1164,6 +1179,7 @@
         hideintro();
         progress();
         d3.selectAll(".countrypath").transition().duration(250).style("opacity","0")
+        toclubsaxis();
         toclubspath();
     	doheader("Let's take a closer look")
     	do1cap("The initial pattern seems fairly clear. The number of players receiving straight red cards, second yellows or their fifth yellow of the season peaks around Christmas.")
@@ -1174,8 +1190,8 @@
     function toslide2() {
         hideintro();
         progress();
-        toclubsaxis();
-        toclubspath();
+        toctrysaxis();
+        toctryspath();
         doheader("Does the pattern hold true for reds and yellows?")
         do1cap("You're now looking at the same suspension data, but split into three parts: bans for straight red cards, for two yellows in one game, and for yellows accumulated over the season")
       slidenum = 2
@@ -1185,19 +1201,6 @@
     function toslide3() {
         hideintro();
         progress();
-
-        d3.select(".secondyellows.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".justreds.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".linelabel.yellows").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".linelabel.seconds").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".linelabel.reds").transition().duration(1000).attr("transform","translate(-2000,0)")
-
-        d3.select(".allbansdec.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
-        d3.select(".ylabelred").transition().delay(1000).duration(1000).style("opacity","1")
-
-        d3.select(".allbansfeb.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
-        d3.select(".ylabelblue").transition().delay(1000).duration(1000).style("opacity","1")
-
         doheader("Focusing on the fifth yellow card")
         do1cap("You're now looking at bans for cumulative yellows only. We've already discussed the pre-Christmas spike, but there's another interesting point here - the sharp drop-off at the end of February")
       slidenum = 3
