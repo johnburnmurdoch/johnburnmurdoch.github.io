@@ -97,7 +97,7 @@
     #progressbar{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;opacity:0;}
     #scrollpoint{position:absolute;top:-50px;}
     #progressbarwide{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
-    .clubpath{opacity:1;}
+    .clubpath{opacity:0;}
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:10px;}
@@ -1147,6 +1147,7 @@
     function toclubspath(){
         d3.selectAll(".clubpath")
           .data(clubsmth)
+          .style("opacity","1")
         .transition()
           .duration(2000)
           .attr("d",clubpaths);
@@ -1157,7 +1158,8 @@
           .data(clubgroup)
         .transition()
           .duration(2000)
-          .attr("d",clubpaths);
+          .attr("d",clubpaths)
+          .transition().duration(100).style("opacity","0");
     };
 
     var slidenum = -1;
@@ -1190,6 +1192,7 @@
     function toslide2() {
         hideintro();
         progress();
+        d3.selectAll(".countrypath").transition().delay(2000).style("opacity","1")
         toctrysaxis();
         toctryspath();
         doheader("Does the pattern hold true for reds and yellows?")
