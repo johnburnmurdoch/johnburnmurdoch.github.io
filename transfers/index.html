@@ -89,7 +89,7 @@
     .scattertitle.large{font-size:16px}
     .scattertitle.mobile{visibility:hidden;}
     #yaxis.axis path{stroke:none;}
-    #yaxis line{stroke:none;}
+    #yaxis line{stroke-dasharray:1px 1px;}
     #captiontitle span{position:relative;}
     #captionhold1 span{position:relative;}
     #captionhold2 span{position:relative;}
@@ -97,6 +97,7 @@
     #progressbar{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;opacity:0;}
     #scrollpoint{position:absolute;top:-50px;}
     #progressbarwide{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
+    .clubpath{opacity:1;}
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:10px;}
@@ -865,9 +866,6 @@
      .domain([100,-400])
      .range([550, 80]);
 
-    // var yScalegpg = d3.scale.linear()
-    //  .domain([0,8.5])
-    //  .range([480, 50]);
 
     // // This then defins an axis based on the x scale, and where to draw ticks along the axis 
     var xAxis = d3.svg.axis()
@@ -881,7 +879,8 @@
     var yAxis = d3.svg.axis()
       .scale(yScale)
       .orient("left")
-      .tickValues([-400,-300,-200,-100,0,100])
+      .tickValues([-400,-350,-300,-250,-200,-150,-100,-50,0,50,100])
+      .tickSize(-800)
       // .tickFormat(d3.format("+"));
       ;
 
@@ -906,18 +905,10 @@
     .attr("transform", "translate(60,0)")
     .call(yAxis);
 
-
-
-    // d3.select("svg").append("g")
-    // .attr("class", "axis")
-    // .attr("id", "yaxisgpg")
-    // .attr("transform", "translate(23,-1000)")
-    // .call(yAxisgpg);
-
     // Now we're adding a title at the top of our y axis, anchored to the left hand edge of the SVG
     d3.select("svg").append("text")
         .attr("class","scattertitle ytitle large")
-        .text("Net transfer spend")
+        .text("Net transfer spend (£m)")
         .attr("x","0")
         .attr("y","60");
 
@@ -1004,7 +995,7 @@
 
     d3.select("svg").append("text")
         .attr("class","scattertitle ytitle mobile")
-        .text("Net transfer spend")
+        .text("Net transfer spend (£m)")
         .attr("x","0")
         .attr("y","50");
 
@@ -1021,21 +1012,21 @@
     var xticks = [1985,1990,1995,2000,2005,2010];
     var yticks = [-400,-300,-200,-100,0,100];
 
-    svg.selectAll("line.horizontalGrid").data(yticks).enter()
-    .append("line")
-        .attr(
-        {
-            "class":"horizontalGrid",
-            "x1" : 60,
-            "x2" : 860,
-            "y1" : function(d){ return yScale(d);},
-            "y2" : function(d){ return yScale(d);},
-            "fill" : "none",
-            "shape-rendering" : "crispEdges",
-            "stroke" : "#cec6b9",
-            "stroke-width" : "1px",
-            "stroke-dasharray" : "1 1"
-        });
+    // svg.selectAll("line.horizontalGrid").data(yticks).enter()
+    // .append("line")
+    //     .attr(
+    //     {
+    //         "class":"horizontalGrid",
+    //         "x1" : 60,
+    //         "x2" : 860,
+    //         "y1" : function(d){ return yScale(d);},
+    //         "y2" : function(d){ return yScale(d);},
+    //         "fill" : "none",
+    //         "shape-rendering" : "crispEdges",
+    //         "stroke" : "#cec6b9",
+    //         "stroke-width" : "1px",
+    //         "stroke-dasharray" : "1 1"
+    //     });
 
     svg.selectAll("line.verticalGrid").data(xticks).enter()
     .append("line")
@@ -1139,6 +1130,20 @@
         d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"});
     };
 
+    function toclubsaxis(){
+        yScale.domain([100,-150])
+        d3.select("#yaxis")
+            .transition().duration(2000)
+            .call(yAxis);};
+
+    function toclubspath(){
+        d3.selectAll(".clubpath")
+          .data(clubsmth)
+        .transition()
+          .duration(2000)
+          .attr("d",clubpaths);
+    }
+
     var slidenum = -1;
 
 
@@ -1157,11 +1162,8 @@
     function toslide1() {
         hideintro();
         progress();
-        d3.selectAll(".clubpath")
-          .data(clubsmth)
-        .transition()
-          .duration(2000)
-          .attr("d",clubpaths);
+        d3.selectAll(".countrypath").transition().duration(250).style("opacity","0")
+        toclubspath();
     	doheader("Let's take a closer look")
     	do1cap("The initial pattern seems fairly clear. The number of players receiving straight red cards, second yellows or their fifth yellow of the season peaks around Christmas.")
         slidenum = 1
@@ -1171,17 +1173,8 @@
     function toslide2() {
         hideintro();
         progress();
-        d3.select(".allbansdec.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
-        d3.select(".ylabelred").transition().duration(1000).style("opacity","0")
-        d3.select(".allbans.anarea").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".allbans.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-
-        d3.select(".justyellows.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".secondyellows.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".justreds.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".linelabel.yellows").transition().delay(1000).duration(1500).style("opacity","1")
-        d3.select(".linelabel.seconds").transition().delay(1000).duration(1500).style("opacity","1")
-        d3.select(".linelabel.reds").transition().delay(1000).duration(1500).style("opacity","1")
+        toclubsaxis();
+        toclubspath();
         doheader("Does the pattern hold true for reds and yellows?")
         do1cap("You're now looking at the same suspension data, but split into three parts: bans for straight red cards, for two yellows in one game, and for yellows accumulated over the season")
       slidenum = 2
