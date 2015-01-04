@@ -1157,8 +1157,11 @@
     function toslide1() {
         hideintro();
         progress();
-        d3.select(".allbansdec.aline").transition().delay(1000).duration(1000).attr("stroke-dashoffset","0")
-        d3.select(".ylabelred").transition().delay(1000).duration(1000).style("opacity","1")
+        d3.selectAll(".clubpath")
+          .data(clubsmth)
+        .transition()
+          .duration(2000)
+          .attr("d",clubpaths);
     	doheader("Let's take a closer look")
     	do1cap("The initial pattern seems fairly clear. The number of players receiving straight red cards, second yellows or their fifth yellow of the season peaks around Christmas.")
         slidenum = 1
