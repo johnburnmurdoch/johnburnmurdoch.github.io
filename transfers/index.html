@@ -103,6 +103,10 @@
     .countrypath.bg{stroke-width:1px;transition:1.5s;}
     .clubpath.highlit{stroke-width:2px;opacity:1;stroke:#bb6d82;transition:1.5s;}
     .clubpath.bg{stroke-width:0.5px;opacity:0.5;stroke:#B8B1A9;transition:1.5s;}
+<<<<<<< HEAD
+    .countrylabel{font-size:12px;}
+=======
+>>>>>>> origin/master
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:10px;}
@@ -874,7 +878,11 @@
     // This defines the domain (data values) and range (potion of SVG) that the x scale refers to
     var xScale = d3.scale.linear()
      .domain([1980,2015])
+<<<<<<< HEAD
+     .range([60, 840]);
+=======
      .range([60, 860]);
+>>>>>>> origin/master
 
     // // And this does the same for the y scale
     var yScale = d3.scale.linear()
@@ -895,7 +903,11 @@
       .scale(yScale)
       .orient("left")
       .tickValues([-400,-350,-300,-250,-200,-150,-100,-50,0,50,100])
+<<<<<<< HEAD
+      .tickSize(-780)
+=======
       .tickSize(-800)
+>>>>>>> origin/master
       // .tickFormat(d3.format("+"));
       ;
 
@@ -1088,6 +1100,18 @@
           .append("path")
           .attr("class",function(d,i){return ctrnames[i] + " " + ctrtypes[i] + " countrypath aline";})
           .attr("d", countrypaths);
+<<<<<<< HEAD
+
+    svg.selectAll(".label")
+          .data(ctrnames)
+          .enter()
+          .append("text")
+          .attr("class",function(d,i){return ctrnames[i] + " " + ctrtypes[i] + " countrylabel alabel";})
+          .attr("x",xScale(2015.1))
+          .attr("y",function(d,i){return yScale(ctrsmth[i][35]+5);})
+          .text(function(d,i){return ctrnames[i].replace("Republic","Rep.");});
+=======
+>>>>>>> origin/master
 
     // window.onload = function() {
     //     if ( window.orientation == 0 || window.orientation == 180 ) { 
