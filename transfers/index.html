@@ -134,6 +134,7 @@
     .countrypath.bg{stroke-width:1px;}
     .clubpath.highlit{stroke-width:4px;}
     .clubpath.bg{stroke-width:1px;}
+    .countrylabel{font-size:14px;}
 	}
 
     @media screen and (max-width: 480px) {
@@ -167,6 +168,7 @@
     .countrypath.bg{stroke-width:1px;}
     .clubpath.highlit{stroke-width:4px;}
     .clubpath.bg{stroke-width:1px;}
+    .countrylabel{font-size:14px;}
     }
     </style>
   </head>
@@ -875,7 +877,7 @@
     // This defines the domain (data values) and range (potion of SVG) that the x scale refers to
     var xScale = d3.scale.linear()
      .domain([1980,2015])
-     .range([60, 840]);
+     .range([60, 820]);
 
     // // And this does the same for the y scale
     var yScale = d3.scale.linear()
@@ -896,7 +898,7 @@
       .scale(yScale)
       .orient("left")
       .tickValues([-400,-350,-300,-250,-200,-150,-100,-50,0,50,100])
-      .tickSize(-780)
+      .tickSize(-760)
       // .tickFormat(d3.format("+"));
       ;
 
