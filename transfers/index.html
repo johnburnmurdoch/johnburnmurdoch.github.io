@@ -98,7 +98,11 @@
     #scrollpoint{position:absolute;top:-50px;}
     #progressbarwide{position:fixed;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
     .clubpath{stroke-width:0.5px;opacity:0;stroke:#B8B1A9;}
-    .clubpath.Englandctry{stroke-width:2px;opacity:0;stroke:#bb6d82;}
+    .countrypath{stroke:#B8B1A9;}
+    .countrypath.highlit{stroke-width:2px;stroke:#bb6d82;}
+    .countrypath.bg{stroke-width:1px;}
+    .clubpath.highlit{stroke-width:2px;opacity:1;stroke:#bb6d82;}
+    .clubpath.bg{stroke-width:0.5px;opacity:0.5;stroke:#B8B1A9;}
 
     @media screen and (max-width: 768px) {
     div#credits{padding-bottom:10px;}
@@ -125,7 +129,10 @@
     #scrollpoint{position:absolute;top:30px;}
     #progressbarwide{display:none;}
     .clubpath{stroke-width:1px;opacity:0;stroke:#B8B1A9;}
-    .clubpath.Englandctry{stroke-width:4px;opacity:0;stroke:#bb6d82;}
+    .countrypath.highlit{stroke-width:4px;}
+    .countrypath.bg{stroke-width:1px;}
+    .clubpath.highlit{stroke-width:4px;}
+    .clubpath.bg{stroke-width:1px;}
 	}
 
     @media screen and (max-width: 480px) {
@@ -155,7 +162,10 @@
     #scrollpoint{position:absolute;top:15px;}
     #progressbarwide{display:none;}
     .clubpath{stroke-width:1px;opacity:0;stroke:#B8B1A9;}
-    .clubpath.Englandctry{stroke-width:4px;opacity:0;stroke:#bb6d82;}
+    .countrypath.highlit{stroke-width:4px;}
+    .countrypath.bg{stroke-width:1px;}
+    .clubpath.highlit{stroke-width:4px;}
+    .clubpath.bg{stroke-width:1px;}
     }
     </style>
   </head>
@@ -205,9 +215,9 @@
 
     thetext.append("div").attr({"id":"scrollpoint"});
 
-    thetext.append("div").attr({"id":"captiontitle"}).append("span").text("English money makes the world go round")
+    thetext.append("div").attr({"id":"captiontitle"}).append("span").text("The multi-billion-pound marketplace")
 
-    thetext.append("div").attr({"id":"captionhold1"}).append("span").text("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas. It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans")
+    thetext.append("div").attr({"id":"captionhold1"}).append("span").text("It is said that money makes the world go round, but in football's transfer market we can be a little more specific on that money's provenance. This chart shows the net spend of the 265 clubs in world football to have each spent £10m or more in total since 1980, grouped by country. Any guesses on the identity of the country whose clubs spend the most?")
 
     var ctrsmth = [
     [0,-0.37,-0.37,-0.37,0,0,0,0.21,0.21,0.5,0.45,0.45,0.16,0,0,0.9,2.3,7.96,13.51,24.34,46.75,61.85,58.55,41.87,35.78,35.65,47.72,64.53,73.93,59.07,35.2,31.88,31.01,28.74,24.45,25.08],
@@ -811,7 +821,7 @@
 
     var years = d3.range(1980,2016,1);
 
-    var clubctries = ["Germanyctry","Germanyctry","Germanyctry","Germanyctry","Italyctry","Italyctry","Italyctry","Italyctry","Czech Republicctry","Greecectry","Netherlandsctry","Englandctry","Francectry","Russiactry","Russiactry","Russiactry","Germanyctry","Englandctry","Italyctry","Francectry","Italyctry","Francectry","Englandctry","Italyctry","Spainctry","Spainctry","Brazilctry","Austriactry","Netherlandsctry","Englandctry","Germanyctry","Germanyctry","Turkeyctry","Italyctry","Englandctry","Englandctry","Englandctry","Italyctry","Englandctry","Germanyctry","Germanyctry","Brazilctry","Englandctry","Italyctry","Englandctry","Englandctry","Denmarkctry","Switzerlandctry","Englandctry","Turkeyctry","Argentinactry","Spainctry","Italyctry","Italyctry","Spainctry","Spainctry","Scotlandctry","Romaniactry","Englandctry","Englandctry","Italyctry","Argentinactry","Argentinactry","Argentinactry","Argentinactry","Argentinactry","Belgiumctry","Brazilctry","Brazilctry","Brazilctry","Englandctry","Brazilctry","Englandctry","Russiactry","Bulgariactry","Italyctry","Spainctry","Englandctry","Romaniactry","Russiactry","Ukrainectry","Ukrainectry","Francectry","Germanyctry","Turkeyctry","Argentinactry","Englandctry","Germanyctry","Spainctry","Spainctry","Italyctry","Switzerlandctry","Denmarkctry","Germanyctry","Francectry","Netherlandsctry","Germanyctry","Francectry","Francectry","Denmarkctry","Francectry","Portugalctry","Germanyctry","Switzerlandctry","Francectry","Francectry","Netherlandsctry","Netherlandsctry","Francectry","Romaniactry","Turkeyctry","Netherlandsctry","Russiactry","Russiactry","Brazilctry","Germanyctry","Englandctry","Turkeyctry","Turkeyctry","Turkeyctry","Italyctry","Spainctry","Croatiactry","Spainctry","Switzerlandctry","Brazilctry","Germanyctry","Germanyctry","Italyctry","Germanyctry","Croatiactry","Francectry","Englandctry","Englandctry","Italyctry","Englandctry","Turkeyctry","Italyctry","Belgiumctry","Germanyctry","Turkeyctry","Turkeyctry","Belgiumctry","Russiactry","Russiactry","Englandctry","Polandctry","Englandctry","Spainctry","Englandctry","Russiactry","Francectry","Israelctry","Israelctry","Spainctry","Englandctry","Englandctry","Turkeyctry","Ukrainectry","Ukrainectry","Englandctry","Englandctry","Englandctry","Turkeyctry","Germanyctry","Englandctry","Englandctry","Englandctry","Italyctry","Francectry","Greecectry","Francectry","Francectry","Greecectry","Greecectry","Francectry","Italyctry","Englandctry","Romaniactry","Englandctry","Englandctry","Netherlandsctry","Englandctry","Argentinactry","Spainctry","Francectry","Scotlandctry","Romaniactry","Austriactry","Francectry","Spainctry","Spainctry","Englandctry","Spainctry","Spainctry","Spainctry","Spainctry","Spainctry","Spainctry","Spainctry","Austriactry","Serbiactry","Italyctry","Italyctry","Norwayctry","Belgiumctry","Russiactry","Brazilctry","Brazilctry","Russiactry","Portugalctry","Germanyctry","Netherlandsctry","Spainctry","Ukrainectry","Englandctry","Englandctry","Turkeyctry","Norwayctry","Czech Republicctry","Austriactry","Portugalctry","Francectry","Brazilctry","Englandctry","Russiactry","Brazilctry","Brazilctry","Portugalctry","Italyctry","Italyctry","Francectry","Belgiumctry","Romaniactry","Englandctry","Englandctry","Germanyctry","Russiactry","Italyctry","Italyctry","Turkeyctry","Englandctry","Turkeyctry","Germanyctry","Germanyctry","Italyctry","Spainctry","Italyctry","Italyctry","Italyctry","Italyctry","Spainctry","Germanyctry","Germanyctry","Germanyctry","Italyctry","Spainctry","Netherlandsctry","Englandctry","Englandctry","Englandctry","Englandctry","Polandctry","Englandctry","Russiactry"];
+    var clubctries = ["Germanyctry","Germanyctry","Germanyctry","Germanyctry","Italyctry","Italyctry","Italyctry","Italyctry","Czech_Republicctry","Greecectry","Netherlandsctry","Englandctry","Francectry","Russiactry","Russiactry","Russiactry","Germanyctry","Englandctry","Italyctry","Francectry","Italyctry","Francectry","Englandctry","Italyctry","Spainctry","Spainctry","Brazilctry","Austriactry","Netherlandsctry","Englandctry","Germanyctry","Germanyctry","Turkeyctry","Italyctry","Englandctry","Englandctry","Englandctry","Italyctry","Englandctry","Germanyctry","Germanyctry","Brazilctry","Englandctry","Italyctry","Englandctry","Englandctry","Denmarkctry","Switzerlandctry","Englandctry","Turkeyctry","Argentinactry","Spainctry","Italyctry","Italyctry","Spainctry","Spainctry","Scotlandctry","Romaniactry","Englandctry","Englandctry","Italyctry","Argentinactry","Argentinactry","Argentinactry","Argentinactry","Argentinactry","Belgiumctry","Brazilctry","Brazilctry","Brazilctry","Englandctry","Brazilctry","Englandctry","Russiactry","Bulgariactry","Italyctry","Spainctry","Englandctry","Romaniactry","Russiactry","Ukrainectry","Ukrainectry","Francectry","Germanyctry","Turkeyctry","Argentinactry","Englandctry","Germanyctry","Spainctry","Spainctry","Italyctry","Switzerlandctry","Denmarkctry","Germanyctry","Francectry","Netherlandsctry","Germanyctry","Francectry","Francectry","Denmarkctry","Francectry","Portugalctry","Germanyctry","Switzerlandctry","Francectry","Francectry","Netherlandsctry","Netherlandsctry","Francectry","Romaniactry","Turkeyctry","Netherlandsctry","Russiactry","Russiactry","Brazilctry","Germanyctry","Englandctry","Turkeyctry","Turkeyctry","Turkeyctry","Italyctry","Spainctry","Croatiactry","Spainctry","Switzerlandctry","Brazilctry","Germanyctry","Germanyctry","Italyctry","Germanyctry","Croatiactry","Francectry","Englandctry","Englandctry","Italyctry","Englandctry","Turkeyctry","Italyctry","Belgiumctry","Germanyctry","Turkeyctry","Turkeyctry","Belgiumctry","Russiactry","Russiactry","Englandctry","Polandctry","Englandctry","Spainctry","Englandctry","Russiactry","Francectry","Israelctry","Israelctry","Spainctry","Englandctry","Englandctry","Turkeyctry","Ukrainectry","Ukrainectry","Englandctry","Englandctry","Englandctry","Turkeyctry","Germanyctry","Englandctry","Englandctry","Englandctry","Italyctry","Francectry","Greecectry","Francectry","Francectry","Greecectry","Greecectry","Francectry","Italyctry","Englandctry","Romaniactry","Englandctry","Englandctry","Netherlandsctry","Englandctry","Argentinactry","Spainctry","Francectry","Scotlandctry","Romaniactry","Austriactry","Francectry","Spainctry","Spainctry","Englandctry","Spainctry","Spainctry","Spainctry","Spainctry","Spainctry","Spainctry","Spainctry","Austriactry","Serbiactry","Italyctry","Italyctry","Norwayctry","Belgiumctry","Russiactry","Brazilctry","Brazilctry","Russiactry","Portugalctry","Germanyctry","Netherlandsctry","Spainctry","Ukrainectry","Englandctry","Englandctry","Turkeyctry","Norwayctry","Czech_Republicctry","Austriactry","Portugalctry","Francectry","Brazilctry","Englandctry","Russiactry","Brazilctry","Brazilctry","Portugalctry","Italyctry","Italyctry","Francectry","Belgiumctry","Romaniactry","Englandctry","Englandctry","Germanyctry","Russiactry","Italyctry","Italyctry","Turkeyctry","Englandctry","Turkeyctry","Germanyctry","Germanyctry","Italyctry","Spainctry","Italyctry","Italyctry","Italyctry","Italyctry","Spainctry","Germanyctry","Germanyctry","Germanyctry","Italyctry","Spainctry","Netherlandsctry","Englandctry","Englandctry","Englandctry","Englandctry","Polandctry","Englandctry","Russiactry"];
 
     var allbansarea = [
     [0,1.97,1.74,1.7,1.53,1.88,1.89,2.14,2.54,2.89,3.09,3.02,2.98,3.09,3.4,3.84,3.86,4.16,4.42,4.86,4.37,4.12,4.09,4.05,4.04,3.82,3.88,3.25,2.47,1.84,1.86,1.79,1.7,1.37,1.39,1.42,1.65,1.79,1.84,0]
@@ -913,7 +923,7 @@
     // Now we're adding a title at the top of our y axis, anchored to the left hand edge of the SVG
     d3.select("svg").append("text")
         .attr("class","scattertitle ytitle large")
-        .text("Transfer balance (£m)")
+        .text("Transfer balance (£m) - negative values represent clubs spending more than they receive")
         .attr("x","0")
         .attr("y","60");
 
@@ -1000,7 +1010,7 @@
 
     d3.select("svg").append("text")
         .attr("class","scattertitle ytitle mobile")
-        .text("Transfer balance (£m)")
+        .text("Transfer balance (£m) - negative values represent clubs spending more than they receive")
         .attr("x","0")
         .attr("y","50");
 
@@ -1062,7 +1072,7 @@
           .data(clubgroup)
           .enter()
           .append("path")
-          .attr("class",function(d,i){return clubctries[i] + " " + clubnames[i] + " clubpath aline";})
+          .attr("class",function(d,i){return clubctries[i] + " " + clubnames[i].replace(" ","_") + " clubpath aline";})
           .attr("d", clubpaths);
 
 
@@ -1113,13 +1123,21 @@
     .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
 
     function navnudge(){
-        console.log('navnudge')
+        //console.log('navnudge')
         return d3.select("#navintro")
             .transition()
-            .duration(1000)
-            .style("opacity","1")
+                .duration(1000)
+                .style("opacity","1")
             .transition()
                 .delay(1000)
+                .duration(1000)
+                .style("opacity","0")
+            .transition()
+                .delay(2000)
+                .duration(1000)
+                .style("opacity","1")
+            .transition()
+                .delay(3000)
                 .duration(1000)
                 .style("opacity","0")
                 // .each("end", navnudge);
@@ -1131,8 +1149,8 @@
 
     function alertnext(){return d3.select("#navintro").transition().delay(8000).style("opacity","1").each("end", navnudge)};
     
-    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * (progwidth/10)) + "px"}),
-        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum+2) * 90) + "px"});
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum+2) * (progwidth/15)) + "px"}),
+        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum+2) * 60) + "px"});
     };
 
     function toclubsaxis(){
@@ -1167,6 +1185,23 @@
           .transition().duration(100).style("opacity","0");
     };
 
+    function highlightcountry(name){
+        d3.selectAll(".countrypath").classed("highlit",false).classed("bg",true)
+        d3.selectAll(".countrypath." + name).classed("highlit",true).classed("bg",false)
+        $(".countrypath").insertBefore($(".countrypath." + name),null)
+    };
+
+    function highlightcountryclub(name){
+        d3.selectAll(".clubpath").classed("highlit",false).classed("bg",true)
+        d3.selectAll(".clubpath." + name).classed("highlit",true).classed("bg",false)
+    };
+
+    function highlightclub(name){
+        d3.selectAll(".clubpath").classed("highlit",false).classed("bg",true)
+        d3.selectAll(".clubpath." + name).classed("highlit",true).classed("bg",false)
+        $(".clubpath").insertBefore($(".clubpath." + name),null)
+    };
+
     var slidenum = -1;
 
 
@@ -1180,40 +1215,38 @@
         d3.select("#textholder").transition().duration(100).style("opacity","1")
         slidenum = 0
         alertnextfirst()
-    }
+    };
 
     function toslide1() {
         hideintro();
         progress();
-        d3.selectAll(".countrypath").transition().duration(250).style("opacity","0")
-        toclubsaxis();
-        toclubspath();
-    	doheader("Let's take a closer look")
-    	do1cap("The initial pattern seems fairly clear. The number of players receiving straight red cards, second yellows or their fifth yellow of the season peaks around Christmas.")
+        d3.selectAll(".scattertitle.ytitle").text("Transfer balance (£m)")
+        highlightcountry("England")
+    	doheader("English money makes the world go round")
+    	do1cap("English clubs account 30 per cent of the total spent by all 265 clubs since 1980. The bulk of this followed the 1992 founding of the Premier League, when broadcast evenues soared, allowing English clubs to outspend their continental Euopean rivals. Up until the early '90s another country's teams had been the dominant force in the transfer market...")
         slidenum = 1
         alertnext()
-    }
+    };
 
     function toslide2() {
         hideintro();
         progress();
-        d3.selectAll(".countrypath").transition().delay(2000).style("opacity","1")
-        toctrysaxis();
-        toctryspath();
-        doheader("Does the pattern hold true for reds and yellows?")
-        do1cap("You're now looking at the same suspension data, but split into three parts: bans for straight red cards, for two yellows in one game, and for yellows accumulated over the season")
+        highlightcountry("Italy")
+        doheader("Italy's golden era")
+        do1cap("In the 1980s and early '90s Diego Maradona, Ruud Gullit and Jean-Pierre Papin all broke the world transfer record upon arrival in Serie A. Italian sides briefly continued to compete financially with their English counterparts as the wealthy owners of Lazio, Juventus and AC Milan financed big signings, but the Premier League soon pulled clear")
       slidenum = 2
         alertnext()
-    }
+    };
 
     function toslide3() {
         hideintro();
         progress();
-        doheader("Focusing on the fifth yellow card")
-        do1cap("You're now looking at bans for cumulative yellows only. We've already discussed the pre-Christmas spike, but there's another interesting point here - the sharp drop-off at the end of February")
+        highlightcountry("Spain")
+        doheader("A more complex story in Spain")
+        do1cap("Real Madrid and Barcelona are both associated with extravagant spending, but there are two other factors at play. First, other Spanish clubs have far lower broadcast revenues, which they try to offset through profits from transfers. Second, the recent sales of Ozil, Alexis and Di Maria show that even Spain's superclubs realise they must sell in order to buy")
       slidenum = 3
         alertnext()
-    }
+    };
 
     function toslide4() {
         hideintro();
@@ -1222,90 +1255,53 @@
         do1cap("Until the 2009/10 season, the cut-off point after which a fifth yellow card no longer resulted in a suspension was the end of February")
       slidenum = 4
         alertnext()
-    }
+    };
 
     function toslide5() {
-
-        d3.select(".allbansdec.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
-        d3.select(".allbansfeb.aline").transition().duration(1000).attr("stroke-dashoffset",yScale(0))
-        d3.select(".ylabelred").transition().duration(1000).style("opacity","0")
-        d3.select(".ylabelblue").transition().duration(1000).style("opacity","0")
-        d3.select(".justyellows.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-
-        d3.select(".newbans.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".oldbans.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".linelabel.newbans").transition().delay(1500).duration(1000).style("opacity","1")
-        d3.select(".linelabel.oldbans").transition().delay(1500).duration(1000).style("opacity","1")
-
         hideintro();
         progress();
         doheader("A tale of two eras")
         do1cap("We can see the result of that pattern in the chart below. Under the old rules, bans for five yellow cards built up gradually until the end of February")
       slidenum = 5
         alertnext()
-    }
+    };
 
     function toslide6() {
         hideintro();
         progress();
-        d3.select(".peak").transition().duration(1500).style("fill-opacity","0.5")
         doheader("But what about the sharp peak in late December?")
         do1cap("While both follow the general pattern of a gradual increase in bans as yellow cards accumulate, followed by a sharp drop after the cut-off, the peak under the new rules appears more sudden")
       slidenum = 6
         alertnext()
-    }
+    };
 
     function toslide7() {
         hideintro();
         progress();
-
-        d3.select(".peak").transition().duration(100).style("fill-opacity","0")
-        d3.select(".linelabel.newbans").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".linelabel.oldbans").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".newbans.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".oldbans.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-
-        d3.selectAll(".scattertitle.ytitle").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.selectAll(".scattertitle.ytitle").transition().delay(1100).text("Players receiving fifth yellow card per game week")
-        d3.selectAll(".scattertitle.ytitle").transition().delay(1200).duration(1300).attr("transform","translate(0,0)")
-
-        d3.select(".newfives.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".oldfives.aline").transition().delay(1000).duration(1500).attr("stroke-dashoffset","0")
-        d3.select(".linelabel.newfives").transition().delay(1500).duration(1000).style("opacity","1")
-        d3.select(".linelabel.oldfives").transition().delay(1500).duration(1000).style("opacity","1")
+        
+        d3.selectAll(".countrypath").transition().duration(250).style("opacity","0")
+        toclubsaxis();
+        toclubspath();
 
         doheader("It's not that simple")
         do1cap("And here's why. This chart shows the raw number of fifth yellow cards received in each game week since 1995/96, regardless of whether or not they fell before or after the cut-off")
-      slidenum = 7
+        slidenum = 7
         alertnext()
-    }    
+    };
 
     function toslide8() {
         hideintro();
         progress();
-
-        d3.select(".newfives.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".oldfives.aline").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".linelabel.newfives").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.select(".linelabel.oldfives").transition().duration(1000).attr("transform","translate(-2000,0)")
-
-        d3.selectAll(".scattertitle.ytitle").transition().duration(1000).attr("transform","translate(-2000,0)")
-        d3.selectAll(".scattertitle.ytitle").transition().delay(1100).text("Bans picked up per game week")
-        d3.selectAll(".scattertitle.ytitle").transition().delay(1200).duration(1300).attr("transform","translate(0,0)")
-
-        d3.select(".linelabel.newbans").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
-        d3.select(".linelabel.oldbans").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
-        d3.select(".newbans.aline").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
-        d3.select(".oldbans.aline").transition().delay(1000).duration(1500).attr("transform","translate(0,0)")
-
-        d3.select(".projectionold").transition().delay(2500).duration(1000).attr("stroke-dashoffset","0")
-        d3.select(".projection").transition().delay(3500).duration(500).attr("stroke-dashoffset","0").transition().delay(4000).duration(0).attr("stroke-dasharray","3px 3px")
+        
+        d3.selectAll(".countrypath").transition().delay(2000).style("opacity","1")
+        toctrysaxis();
+        toctryspath();
 
         doheader("So that peak? It's what we would expect to happen")
         do1cap("Given this steady rate, we would expect bans to plateau at the same level if cut-off points were unchanged. The same maximum seen before - roughly 3.5 bans per week - would also apply today")
         alertnext()
       slidenum = 8
-    }
+    };
 
     function toslide9() {
         hideintro();
@@ -1315,84 +1311,94 @@
         d3.select("#navintro").text("Right arrow or swipe right-to-left to restart")
         alertnext()
       slidenum = 9
-    }
+    };
 
     function toslide10() {
         hideintro();
-        d3.select("#progressbar").transition().duration(1000).style("width",function(){return progwidth/11 + "px";})
-        d3.select("#progressbarwide").transition().duration(1000).style("width",function(){return 90 + "px";})
-
-        d3.select(".linelabel.newbans").transition().duration(1000).style("opacity","0")
-        d3.select(".linelabel.oldbans").transition().duration(1000).style("opacity","0")
-        d3.select(".newbans.aline").style("opacity","0").transition().duration(1000).attr("stroke-dashoffset",newbanslength).transition().delay(1000).style("opacity","1")
-        d3.select(".oldbans.aline").style("opacity","0").transition().duration(1000).attr("stroke-dashoffset",oldbanslength).transition().delay(1000).style("opacity","1")
-
-        d3.select(".projectionold").style("opacity","0").transition().duration(1000).attr("stroke-dashoffset", projectionoldlength).transition().delay(1000).style("opacity","1")
-        d3.select(".projection").style("opacity","0").transition().duration(1000).attr("stroke-dasharray", projectionlength + " " + projectionlength)
-          .attr("stroke-dashoffset", projectionlength).transition().delay(1000).style("opacity","1");
-
-        d3.select(".allbans.anarea").transition().duration(1500).attr("transform","translate(0,0)")
-        d3.select(".allbans.aline").transition().duration(1500).attr("transform","translate(0,0)")
-
-        d3.select(".newfives.aline").attr("stroke-dashoffset",newfiveslength).transition().duration(1000).attr("transform","translate(0,0)")
-        d3.select(".oldfives.aline").attr("stroke-dashoffset",oldfiveslength).transition().duration(1000).attr("transform","translate(0,0)")
-        d3.select(".justyellows.aline").attr("stroke-dashoffset",justyellowslength).transition().duration(1000).attr("transform","translate(0,0)")
-        d3.select(".justreds.aline").attr("stroke-dashoffset",justredslength).transition().duration(1000).attr("transform","translate(0,0)")
-        d3.select(".secondyellows.aline").attr("stroke-dashoffset",secondyellowslength).transition().duration(1000).attr("transform","translate(0,0)")
-
-        d3.selectAll(".linelabel").style("opacity","0").transition().duration(1000).attr("transform","translate(0,0)")
+        progress();
 
         doheader("Early signs suggest there's something going on")
         do1cap("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
         alertnext()
-      slidenum = 0
-    }
+      slidenum = 10
+    };
 
     function toslide11() {
+        hideintro();
+        progress();
+
+        doheader("Early signs suggest there's something going on")
+        do1cap("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
+        alertnext()
       slidenum = 11
-    }
+    };
 
     function toslide12() {
+        hideintro();
+        progress();
+
+        doheader("Early signs suggest there's something going on")
+        do1cap("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
+        alertnext()
       slidenum = 12
-    }
+    };
 
     function toslide13() {
+        hideintro();
+        progress();
+
+        doheader("Early signs suggest there's something going on")
+        do1cap("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
+        alertnext()
       slidenum = 13
-    }
+    };
 
     function toslide14() {
+        hideintro();
+        progress();
+
+        doheader("Early signs suggest there's something going on")
+        do1cap("It is an English footballing tradition that late in December a player will pick up a ban, and somebody will say this shows Premier League stars are seeking bans to get time off over Christmas")
+        alertnext()
       slidenum = 14
-    }
+    };
 
     function toslide15() {
-      // bgchange()
-      slidenum = 15
-    }
+        hideintro();
+        d3.select("#progressbar").transition().duration(1000).style("width",function(){return progwidth/15 + "px";})
+        d3.select("#progressbarwide").transition().duration(1000).style("width",function(){return 60 + "px";})
 
-    function toslide16() {
-      d3.select(".mydetails2").style("opacity","1")
-      slidenum = 16
-    }
+        doheader("The multi-billion-pound marketplace")
+        do1cap("It is said that money makes the world go round, but in football's transfer market we can be a little more specific on that money's provenance. This chart shows the net spend of the 265 clubs in world football to have each spent £10m or more in total since 1980, grouped by country. Any guesses on the identity of the country whose clubs spend the most?")
+        alertnext()
+      slidenum = 0
+    };
 
-    function toslide17() {
-      d3.select(".mydetails2").style("opacity","1")
-      slidenum = 17
-    }
 
-    function toslide18() {
-      d3.select(".mydetails2").style("opacity","1")
-      slidenum = 18
-    }
+    // function toslide16() {
+    //   d3.select(".mydetails2").style("opacity","1")
+    //   slidenum = 16
+    // }
 
-    function toslide19() {
-      d3.select(".mydetails2").style("opacity","1")
-      slidenum = 19
-    }
+    // function toslide17() {
+    //   d3.select(".mydetails2").style("opacity","1")
+    //   slidenum = 17
+    // }
 
-    function toslide20() {
-      d3.select(".mydetails2").style("opacity","1")
-      slidenum = 20
-    }
+    // function toslide18() {
+    //   d3.select(".mydetails2").style("opacity","1")
+    //   slidenum = 18
+    // }
+
+    // function toslide19() {
+    //   d3.select(".mydetails2").style("opacity","1")
+    //   slidenum = 19
+    // }
+
+    // function toslide20() {
+    //   d3.select(".mydetails2").style("opacity","1")
+    //   slidenum = 20
+    // }
 
     function donothing() {
       d3.select(".mydetails2").style("opacity","1")
