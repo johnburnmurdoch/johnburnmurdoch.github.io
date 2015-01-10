@@ -1,0 +1,651 @@
+id,x,y,name,classname,region,toryvote,population,valgainprivrent,unitsperthouprivrent,valgainall,valgainallpc,aveval,wasparty,isparty,waspartynum,ispartynum
+E14000792,25,30,Lincoln,Lincoln,East_Midlands,37.5,107697,331.1,108,330.6,5.8,116364,Con,Con,1,1
+E14001057,16,18,Wyre and Preston North,Wyre_and_Preston_North,North_West_,52.4,88676,170.4,58,-479.9,-7,176547,Con,Con,1,1
+S14000054,19,5,Perth and North Perthshire,Perth_and_North_Perthshire,Scotland,30.5,98280,136.4,83,363.5,4.9,156077,SNP,SNP,0,0
+S14000013,17,10,Dumfries and Galloway,Dumfries_and_Galloway,Scotland,31.6,95416,-6.2,74,-153.8,-2.7,116792,Lab,Lab,0,0
+W07000049,6,38,Aberavon,Aberavon,Wales,14.2,66349,51.2,64,-124.9,-4.4,91448,Lab,Lab,0,0
+S14000001,18,3,Aberdeen North,Aberdeen_North,Scotland,12.4,100432,621.0,104,882.6,11.8,148831,Lab,Lab,0,0
+S14000002,19,3,Aberdeen South,Aberdeen_South,Scotland,20.7,96414,685.7,112,942.5,10.2,191571,Lab,Lab,0,0
+S14000058,18,4,West Aberdeenshire and Kincardine,West_Aberdeenshire_and_Kincardine,Scotland,30.3,94682,93.5,51,451.2,5.6,201368,LD,LD,0,0
+E14000530,17,43,Aldershot,Aldershot,South_East,46.7,105099,425.3,76,1500.5,16.8,210146,Con,Con,1,1
+W07000043,11,33,Alyn and Deeside,Alyn_and_Deeside,Wales,32.3,82739,128.1,59,11.7,0.2,137316,Lab,Lab,0,0
+E14000814,21,30,Mid Derbyshire,Mid_Derbyshire,East_Midlands,48.3,84162,221.5,59,289.2,4.2,180341,Con,Con,1,1
+E14000972,20,30,Stoke-on-Trent Central,Stoke-on-Trent_Central,West_Midlands,21,83852,78.1,99,-350.4,-12,76615,Lab,Lab,0,0
+S14000004,19,4,Angus,Angus,Scotland,30.9,86316,200.9,74,596.5,11.1,129706,SNP,SNP,0,0
+N06000005,10,23,East Antrim,East_Antrim,Northern_Ireland,0,89994,22.1,70,-901.9,-20,114557,DUP,DUP,0,0
+N06000012,9,23,North Antrim,North_Antrim,Northern_Ireland,0,109460,35.2,79,-968.8,-22.7,94402,DUP,DUP,0,0
+N06000014,8,24,South Antrim,South_Antrim,Northern_Ireland,0,100371,23.7,61,-1198.6,-24.5,122699,DUP,DUP,0,0
+S14000005,16,3,Argyll and Bute,Argyll_and_Bute,Scotland,24,88050,-130.7,62,-686.8,-11.7,125991,LD,LD,0,0
+E14000534,18,45,Arundel and South Downs,Arundel_and_South_Downs,South_East,57.8,97756,693.9,65,3039.6,19,365785,Con,Con,1,1
+E14000536,30,48,Ashford,Ashford,South_East,54.1,115020,578.7,74,1862.9,17.4,222991,Con,Con,1,1
+E14000538,16,40,Aylesbury,Aylesbury,South_East,52.2,110512,709.0,74,2853,23.8,260022,Con,Con,1,1
+E14000539,15,39,Banbury,Banbury,South_East,52.8,118671,834.4,86,2722.2,21.9,248573,Con,Con,1,1
+S14000007,19,2,Banff and Buchan,Banff_and_Buchan,Scotland,30.8,91662,74.9,45,409.2,5.6,174306,SNP,SNP,0,0
+E14000543,17,18,Barrow and Furness,Barrow_and_Furness,North_West_,36.3,88111,99.0,76,-167.5,-3.3,118514,Lab,Lab,0,0
+E14000544,30,38,Basildon and Billericay,Basildon_and_Billericay,East,52.7,90982,405.3,53,1511.2,17.1,229480,Con,Con,1,1
+E14000545,15,43,Basingstoke,Basingstoke,South_East,50.5,110347,422.0,61,1741.1,18.4,202410,Con,Con,1,1
+E14000546,23,27,Bassetlaw,Bassetlaw,East_Midlands,33.9,104064,200.6,71,280.8,4.9,124926,Lab,Lab,0,0
+E14000547,9,44,Bath,Bath,South_West,31.4,90235,823.5,115,2043.9,17.4,293061,LD,LD,0,0
+E14000550,18,40,Beaconsfield,Beaconsfield,South_East,61.1,100072,940.9,60,4687.6,21.6,516292,Con,Con,1,1
+E14000552,20,39,Bedford,Bedford,East,38.9,101554,452.3,95,1193.4,16.3,163396,Con,Con,1,1
+E14000813,19,39,Mid Bedfordshire,Mid_Bedfordshire,East,52.5,102063,480.9,64,1821.6,16.7,253659,Con,Con,1,1
+E14000841,19,37,North East Bedfordshire,North_East_Bedfordshire,East,55.8,105435,410.4,56,1829,17.2,232790,Con,Con,1,1
+E14000949,18,38,South West Bedfordshire,South_West_Bedfordshire,East,52.8,104127,387.0,62,1643.5,18.5,198327,Con,Con,1,1
+N06000001,10,25,Belfast East,Belfast_East,Northern_Ireland,0,93074,61.9,93,-1106.2,-24.2,104080,All,All,0,0
+N06000002,8,25,Belfast North,Belfast_North,Northern_Ireland,0,102494,51.7,94,-527,-13,81693,DUP,DUP,0,0
+N06000003,10,24,Belfast South,Belfast_South,Northern_Ireland,0,112190,99.6,142,-1267.9,-23.9,103814,SDLP,SDLP,0,0
+N06000004,9,25,Belfast West,Belfast_West,Northern_Ireland,0,94176,23.3,60,-530.8,-16.6,82855,SF,SF,0,0
+E14000554,21,11,Berwick-upon-Tweed,Berwick-upon-Tweed,North_East,36.7,75797,99.3,95,-242.9,-4.2,150585,LD,LD,0,0
+E14000556,23,25,Beverley and Holderness,Beverley_and_Holderness,Yorkshire_And_The_Humber,47.1,100051,185.5,71,205.9,3.1,149839,Con,Con,1,1
+E14000557,27,48,Bexhill and Battle,Bexhill_and_Battle,South_East,51.6,101319,494.1,76,1886.1,15.6,255141,Con,Con,1,1
+E14000933,29,38,South Basildon and East Thurrock,South_Basildon_and_East_Thurrock,East,43.9,96855,384.2,58,1387.6,18.7,182587,Con,Con,1,1
+E14000569,17,17,Bishop Auckland,Bishop_Auckland,North_East,26.3,87362,84.5,84,-560.8,-13.9,96613,Lab,Lab,0,0
+E14000769,25,35,Kettering,Kettering,East_Midlands,49.1,94841,322.1,83,876.4,14.3,144856,Con,Con,1,1
+E14000570,14,20,Blackburn,Blackburn,North_West_,26.1,107531,71.8,74,-552.1,-15.7,83564,Lab,Lab,0,0
+E14000572,13,19,Blackpool North and Cleveleys,Blackpool_North_and_Cleveleys,North_West_,41.8,83401,32.9,111,-814.9,-20.2,99124,Con,Con,1,1
+E14000573,14,19,Blackpool South,Blackpool_South,North_West_,35.8,81138,14.7,152,-717.9,-20.6,88236,Lab,Lab,0,0
+W07000072,9,37,Blaenau Gwent,Blaenau_Gwent,Wales,7,69822,18.8,71,-459.8,-22.7,62669,Lab,Lab,0,0
+E14000622,30,40,Castle Point,Castle_Point,East,44,88218,395.1,60,1224.8,15,221815,Con,Con,1,1
+W07000066,5,37,Carmarthen West and South Pembrokeshire,Carmarthen_West_and_South_Pembrokeshire,Wales,41.1,77457,71.2,77,-2.7,0,148618,Con,Con,1,1
+W07000067,9,36,Carmarthen East and Dinefwr,Carmarthen_East_and_Dinefwr,Wales,22.4,71248,53.0,58,-149.9,-3.3,135505,PC,PC,0,0
+W07000079,7,40,Cardiff West,Cardiff_West,Wales,29.6,91446,408.8,90,611.9,9,167432,Lab,Lab,0,0
+W07000080,8,40,Cardiff South and Penarth,Cardiff_South_and_Penarth,Wales,28.3,108481,484.4,115,457.5,6.3,146176,Lab,Lab,0,0
+W07000051,7,39,Cardiff North,Cardiff_North,Wales,37.5,88072,348.1,71,637.2,8.7,196736,Con,Con,1,1
+W07000050,8,39,Cardiff Central,Cardiff_Central,Wales,21.6,89231,681.6,165,724.8,11.7,169874,LD,LD,0,0
+E14000619,32,44,Canterbury,Canterbury,South_East,44.8,111139,703.6,99,1819.5,16.8,234365,Con,Con,1,1
+E14000618,19,31,Cannock Chase,Cannock_Chase,West_Midlands,40.1,97940,219.5,67,296.8,5.6,124656,Con,Con,1,1
+E14000660,21,36,Daventry,Daventry,East_Midlands,56.5,94332,336.2,62,1114.2,12.9,216519,Con,Con,1,1
+E14000937,22,37,South East Cambridgeshire,South_East_Cambridgeshire,East,48,116385,507.7,71,2495.2,20.5,249010,Con,Con,1,1
+E14000934,20,37,South Cambridgeshire,South_Cambridgeshire,East,47.4,111556,539.6,56,2853.2,20.2,302775,Con,Con,1,1
+E14000855,23,36,North West Cambridgeshire,North_West_Cambridgeshire,East,50.5,126214,496.1,86,663.3,7,172157,Con,Con,1,1
+E14000842,24,36,North East Cambridgeshire,North_East_Cambridgeshire,East,51.6,113387,311.4,76,1512.4,20.3,148971,Con,Con,1,1
+E14000617,21,37,Cambridge,Cambridge,East,25.6,115988,1197.2,121,3014.8,23.5,268439,LD,LD,0,0
+S14000009,17,2,"Caithness, Sutherland and Easter Ross",Caithness_Sutherland_and_Easter_Ross,Scotland,13,61639,39.4,54,137.2,3.2,138183,LD,LD,0,0
+W07000076,8,38,Caerphilly,Caerphilly,Wales,17.1,87152,148.1,60,72,1.7,114024,Lab,Lab,0,0
+W07000057,7,33,Arfon,Arfon,Wales,16.9,60746,41.2,77,-145.3,-4.5,123548,PC,PC,0,0
+E14000613,25,36,Bury St Edmunds,Bury_St_Edmunds,East,47.5,114941,349.2,71,1721,16.6,205747,Con,Con,1,1
+E14000610,20,32,Burton,Burton,West_Midlands,44.5,103527,273.7,82,384.3,6.4,132465,Con,Con,1,1
+E14000609,16,20,Burnley,Burnley,North_West_,16.6,87127,120.2,106,-320,-9.4,84464,LD,LD,0,0
+E14000608,16,39,Buckingham,Buckingham,South_East,0,98694,620.9,58,3373.8,23.8,337674,Spk,Spk,0,0
+E14000533,22,30,Amber Valley,Amber_Valley,East_Midlands,38.6,88186,135.9,63,261.1,5.4,121053,Con,Con,1,1
+E14000606,22,38,Broxbourne,Broxbourne,East,58.8,99716,616.6,56,2747.8,22.8,288757,Con,Con,1,1
+E14000818,13,38,Mid Worcestershire,Mid_Worcestershire,West_Midlands,54.5,95061,285.2,59,837.1,9.6,207841,Con,Con,1,1
+E14000602,9,43,Bristol West,Bristol_West,South_West,18.4,126971,1995.5,200,3032.2,22.1,235942,LD,LD,0,0
+E14000601,7,44,Bristol South,Bristol_South,South_West,22.9,107959,578.9,92,1614.6,20.2,163429,Lab,Lab,0,0
+E14000600,8,43,Bristol North West,Bristol_North_West,South_West,38,101472,602.8,72,2002,19.8,231901,Con,Con,1,1
+E14000598,22,47,"Brighton, Pavilion",Brighton_Pavilion,South_East,23.7,105498,1528.3,159,3236.1,24.8,276996,Green,Green,0,0
+E14000597,23,47,"Brighton, Kemptown",Brighton_Kemptown,South_East,38,92393,863.6,111,2470.8,24.3,240610,Con,Con,1,1
+E14000596,25,28,Brigg and Goole,Brigg_and_Goole,Yorkshire_And_The_Humber,44.9,87210,144.8,72,151.9,3.1,127314,Con,Con,1,1
+E14000595,6,45,Bridgwater and West Somerset,Bridgwater_and_West_Somerset,South_West,45.3,107553,385.7,86,893.7,10,177579,Con,Con,1,1
+W07000073,5,40,Bridgend,Bridgend,Wales,30.4,80312,152.9,67,105.9,2.1,139768,Lab,Lab,0,0
+E14000594,28,38,Brentwood and Ongar,Brentwood_and_Ongar,East,56.9,93608,528.7,57,2594.1,17.3,363824,Con,Con,1,1
+W07000068,10,36,Brecon and Radnorshire,Brecon_and_Radnorshire,Wales,36.5,69181,54.1,80,52,0.9,161814,LD,LD,0,0
+E14000590,27,36,Braintree,Braintree,East,52.6,98860,482.4,71,1509.6,16.8,213671,Con,Con,1,1
+E14000586,17,42,Bracknell,Bracknell,South_East,52.4,106780,554.5,56,2925.5,24.8,269410,Con,Con,1,1
+E14000585,11,46,Bournemouth West,Bournemouth_West,South_West,45.1,100701,742.0,140,1086.3,12.3,189530,Con,Con,1,1
+E14000584,12,46,Bournemouth East,Bournemouth_East,South_West,48.4,103815,939.4,163,1252.4,12.4,204628,Con,Con,1,1
+E14000583,19,35,Bosworth,Bosworth,East_Midlands,42.6,99154,288.8,65,716,9.6,166546,Con,Con,1,1
+E14000582,24,32,Boston and Skegness,Boston_and_Skegness,East_Midlands,49.4,101966,269.1,96,289,5.4,116500,Con,Con,1,1
+E14000577,20,29,Bolsover,Bolsover,East_Midlands,24.6,95053,138.3,66,289.5,6.2,108502,Lab,Lab,0,0
+E14000576,18,46,Bognor Regis and Littlehampton,Bognor_Regis_and_Littlehampton,South_East,51.4,99965,611.9,95,1974.2,20,212331,Con,Con,1,1
+E14000575,21,12,Blyth Valley,Blyth_Valley,North_East,16.6,82282,62.5,58,-141.2,-3.8,98026,Lab,Lab,0,0
+E14000574,18,15,Blaydon,Blaydon,North_East,15.9,88086,123.2,52,6.3,0.1,125880,Lab,Lab,0,0
+W07000064,8,36,Ceredigion,Ceredigion,Wales,11.6,76046,82.2,99,-205.7,-3.6,166158,LD,LD,0,0
+E14000625,22,34,Charnwood,Charnwood,East_Midlands,49.6,95924,323.4,55,827.2,10,200817,Con,Con,1,1
+E14000626,30,46,Chatham and Aylesford,Chatham_and_Aylesford,South_East,46.2,98861,418.1,76,1098.6,15.4,175007,Con,Con,1,1
+E14000628,26,37,Chelmsford,Chelmsford,East,46.2,106301,511.1,70,1581.7,15.4,225585,Con,Con,1,1
+E14000630,14,40,Cheltenham,Cheltenham,South_West,41.2,105150,729.2,119,1357.3,12.1,227778,LD,LD,0,0
+E14000631,19,40,Chesham and Amersham,Chesham_and_Amersham,South_East,60.4,92954,549.2,44,3876.3,20.8,484338,Con,Con,1,1
+E14000640,15,30,City of Chester,City_of_Chester,North_West_,40.6,93533,349.8,98,287.1,3.6,180273,Con,Con,1,1
+E14000632,22,28,Chesterfield,Chesterfield,East_Midlands,15.7,93345,207.6,73,271.4,5.1,119717,Lab,Lab,0,0
+E14000633,17,45,Chichester,Chichester,South_East,55.3,105145,716.5,79,3607.9,20.8,347564,Con,Con,1,1
+E14000637,15,21,Chorley,Chorley,North_West_,38,96733,150.9,58,-161.6,-2.7,136854,Lab,Lab,0,0
+E14000638,12,45,Christchurch,Christchurch,South_West,56.4,84095,296.6,53,1080.2,9.7,278760,Con,Con,1,1
+E14000643,23,26,Cleethorpes,Cleethorpes,Yorkshire_And_The_Humber,42.1,93633,153.5,86,-432.1,-8.6,116736,Con,Con,1,1
+W07000062,11,35,Clwyd South,Clwyd_South,Wales,30.2,72373,52.6,60,-178.5,-4.4,125559,Lab,Lab,0,0
+W07000059,10,34,Clwyd West,Clwyd_West,Wales,41.5,74382,82.3,85,-125.5,-2.6,137513,Con,Con,1,1
+E14000644,30,37,Colchester,Colchester,East,32.9,111212,713.4,116,1588.6,18.8,171623,LD,LD,0,0
+E14000646,17,29,Congleton,Congleton,North_West_,45.8,92380,211.7,55,526.7,7,178797,Con,Con,1,1
+W07000058,8,33,Aberconwy,Aberconwy,Wales,35.8,56457,71.1,88,-60.6,-1.4,146882,Con,Con,1,1
+E14000647,16,17,Copeland,Copeland,North_West_,37.1,80534,47.5,51,-82.1,-1.6,133531,Lab,Lab,0,0
+E14000942,20,36,South Northamptonshire,South_Northamptonshire,East_Midlands,55.2,109815,546.6,67,1445.7,12.8,243373,Con,Con,1,1
+E14000837,3,46,North Cornwall,North_Cornwall,South_West,41.7,88638,181.2,82,639.8,6.4,222708,LD,LD,0,0
+E14000938,3,47,South East Cornwall,South_East_Cornwall,South_West,45.1,88516,149.7,76,437.2,5.6,184999,Con,Con,1,1
+E14000991,11,42,The Cotswolds,The_Cotswolds,South_West,53,96393,389.5,80,1990.7,13.8,311409,Con,Con,1,1
+E14000652,19,45,Crawley,Crawley,South_East,44.8,108302,588.7,75,1616,19.1,192651,Con,Con,1,1
+E14000653,17,30,Crewe and Nantwich,Crewe_and_Nantwich,North_West_,45.8,108148,266.5,77,398.7,5.9,142282,Con,Con,1,1
+W07000070,8,37,Cynon Valley,Cynon_Valley,Wales,10.1,69342,64.6,74,-64.7,-2.5,80446,Lab,Lab,0,0
+E14000658,19,17,Darlington,Darlington,North_East,31.5,91096,205.6,106,-238.3,-5.2,106669,Lab,Lab,0,0
+E14000659,29,46,Dartford,Dartford,South_East,48.8,104811,585.6,79,1708.1,17.4,219961,Con,Con,1,1
+E14000977,16,37,Stratford-on-Avon,Stratford-on-Avon,West_Midlands,51.5,88494,408.7,72,1740.5,15.2,280123,Con,Con,1,1
+W07000042,10,33,Delyn,Delyn,Wales,34.6,70004,98.8,53,-19,-0.4,145243,Lab,Lab,0,0
+E14000662,20,31,Derby North,Derby_North,East_Midlands,31.7,100844,310.9,93,226.4,4,129686,Lab,Lab,0,0
+E14000663,21,32,Derby South,Derby_South,East_Midlands,28.5,110667,258.2,93,152.7,3.4,97939,Lab,Lab,0,0
+E14000843,20,28,North East Derbyshire,North_East_Derbyshire,East_Midlands,33,91156,153.2,44,310.5,5.1,150936,Lab,Lab,0,0
+E14000935,21,33,South Derbyshire,South_Derbyshire,East_Midlands,45.5,95959,235.0,68,565.1,8.7,157691,Con,Con,1,1
+E14000664,19,29,Derbyshire Dales,Derbyshire_Dales,East_Midlands,52.1,78956,251.2,72,485.4,5.5,236590,Con,Con,1,1
+E14000665,12,44,Devizes,Devizes,South_West,55.1,99749,467.8,87,1333.6,13.3,248580,Con,Con,1,1
+E14000678,8,46,East Devon,East_Devon,South_West,48.3,95712,375.3,77,1384,11.4,264365,Con,Con,1,1
+E14000623,5,45,Central Devon,Central_Devon,South_West,51.5,89654,319.0,78,1025.4,10.4,242595,Con,Con,1,1
+E14000950,5,47,South West Devon,South_West_Devon,South_West,56,89136,245.4,65,557.3,6.9,206682,Con,Con,1,1
+E14001000,4,45,Torridge and West Devon,Torridge_and_West_Devon,South_West,45.7,98163,247.1,81,975,10.2,205407,Con,Con,1,1
+E14000815,10,46,Mid Dorset and North Poole,Mid_Dorset_and_North_Poole,South_West,44.5,81003,372.2,59,1175,13.4,252151,LD,LD,0,0
+E14000839,10,45,North Dorset,North_Dorset,South_West,51.1,96779,335.3,71,1045.3,10.5,235888,Con,Con,1,1
+E14000936,9,47,South Dorset,South_Dorset,South_West,45.1,92092,281.0,89,1051.2,11,211327,Con,Con,1,1
+E14001031,9,46,West Dorset,West_Dorset,South_West,47.6,95684,304.5,77,1353.4,11.2,251355,Con,Con,1,1
+E14000670,31,47,Dover,Dover,South_East,44,97918,451.8,94,1245.5,15.8,176013,Con,Con,1,1
+E14000711,31,45,Gillingham and Rainham,Gillingham_and_Rainham,South_East,46.2,99990,479.0,87,1166.3,15.7,178790,Con,Con,1,1
+E14000607,23,30,Broxtowe,Broxtowe,East_Midlands,39,96000,191.9,75,278.7,4.5,148099,Con,Con,1,1
+E14001020,20,15,Washington and Sunderland West,Washington_and_Sunderland_West,North_East,21.8,88415,122.9,49,45.8,1.2,95846,Lab,Lab,0,0
+E14000707,24,29,Gainsborough,Gainsborough,East_Midlands,49.3,92546,163.9,73,443.1,6.9,153253,Con,Con,1,1
+E14000706,15,19,Fylde,Fylde,North_West_,52.2,82175,143.3,93,-426.7,-6.2,171588,Con,Con,1,1
+N06000008,7,23,Foyle,Foyle,Northern_Ireland,0,101575,35.0,92,-912.2,-27,83128,SDLP,SDLP,0,0
+E14000705,12,40,Forest of Dean,Forest_of_Dean,South_West,46.9,86913,246.2,60,1061.9,14,196591,Con,Con,1,1
+E14000704,29,48,Folkestone and Hythe,Folkestone_and_Hythe,South_East,49.4,113796,747.9,114,1779,16.8,202590,Con,Con,1,1
+N06000007,6,26,Fermanagh and South Tyrone,Fermanagh_and_South_Tyrone,Northern_Ireland,0,104361,22.8,81,-1149.1,-25.3,109662,SF,SF,0,0
+E14000700,30,47,Faversham and Mid Kent,Faversham_and_Mid_Kent,South_East,56.2,93478,408.1,56,1555.9,16,247119,Con,Con,1,1
+E14000699,15,46,Fareham,Fareham,South_East,55.3,98462,411.0,54,1661.6,16.1,243613,Con,Con,1,1
+E14000616,1,48,Camborne and Redruth,Camborne_and_Redruth,South_West,37.6,86698,155.7,78,449.6,6.8,169994,Con,Con,1,1
+E14000698,5,46,Exeter,Exeter,South_West,33,107333,510.6,108,941.1,11.2,178161,Lab,Lab,0,0
+E14001045,29,37,Witham,Witham,East,52.2,88797,394.3,60,1487.6,16.6,234705,Con,Con,1,1
+E14000697,19,43,Esher and Walton,Esher_and_Walton,South_East,58.9,109998,1545.3,67,7672.8,25.7,640349,Con,Con,1,1
+E14000695,21,31,Erewash,Erewash,East_Midlands,39.5,94644,217.3,77,249,4.8,119453,Con,Con,1,1
+E14000694,20,44,Epsom and Ewell,Epsom_and_Ewell,South_East,56.2,105521,854.9,56,4787.7,26.2,417426,Con,Con,1,1
+E14000693,27,38,Epping Forest,Epping_Forest,East,54,96158,544.6,59,2428.6,16.7,351733,Con,Con,1,1
+E14000688,15,29,Ellesmere Port and Neston,Ellesmere_Port_and_Neston,North_West_,34.9,86834,147.9,52,182.9,3.2,144627,Lab,Lab,0,0
+E14000686,16,30,Eddisbury,Eddisbury,North_West_,51.7,85775,250.4,61,475.8,6.1,208736,Con,Con,1,1
+E14000685,15,45,Eastleigh,Eastleigh,South_East,39.3,105153,547.5,68,1685,17,220818,LD,LD,0,0
+E14000684,26,48,Eastbourne,Eastbourne,South_East,40.7,107434,741.6,120,1655.9,15.9,200580,LD,LD,0,0
+E14000641,19,16,City of Durham,City_of_Durham,North_East,13.3,94954,107.6,76,-636.5,-13.2,118692,Lab,Lab,0,0
+E14000856,17,16,North West Durham,North_West_Durham,North_East,20,92217,76.6,70,-654,-14.9,100527,Lab,Lab,0,0
+E14000840,18,16,North Durham,North_Durham,North_East,21,87164,68.7,66,-576.2,-15,94980,Lab,Lab,0,0
+S14000015,17,4,Dundee East,Dundee_East,Scotland,15.2,90113,182.3,67,557.5,10.6,127742,SNP,SNP,0,0
+S14000016,16,4,Dundee West,Dundee_West,Scotland,9.3,87981,250.7,115,493.5,11,100835,Lab,Lab,0,0
+N06000015,8,26,South Down,South_Down,Northern_Ireland,0,110438,29.4,77,-1342.3,-28.1,114624,SDLP,SDLP,0,0
+N06000013,9,24,North Down,North_Down,Northern_Ireland,0,90073,29.4,72,-1285.9,-24.2,129937,Ind,Ind,0,0
+E14000712,12,39,Gloucester,Gloucester,South_West,39.9,113849,417.6,92,1021.8,14.3,142863,Con,Con,1,1
+S14000037,20,3,Gordon,Gordon,Scotland,18.7,101680,442.8,48,1213.5,10.1,271819,LD,LD,0,0
+E14000713,15,47,Gosport,Gosport,South_East,51.8,97616,431.4,80,1161.3,15.6,173573,Con,Con,1,1
+W07000046,4,39,Gower,Gower,Wales,32,77986,111.0,57,-254.6,-4.3,162596,Lab,Lab,0,0
+E14000714,24,33,Grantham and Stamford,Grantham_and_Stamford,East_Midlands,50.3,105455,303.3,87,547.6,7.4,155320,Con,Con,1,1
+E14000715,30,45,Gravesham,Gravesham,South_East,48.5,102764,565.6,82,1345.6,15.7,203110,Con,Con,1,1
+E14000716,24,27,Great Grimsby,Great_Grimsby,Yorkshire_And_The_Humber,30.5,88386,123.2,106,-305.8,-9.5,78569,Lab,Lab,0,0
+E14000717,28,34,Great Yarmouth,Great_Yarmouth,East,43.1,97570,296.5,90,662.1,11.5,129364,Con,Con,1,1
+E14000719,20,45,Guildford,Guildford,South_East,53.3,107344,1083.2,77,4625.7,25.1,421851,Con,Con,1,1
+E14000725,15,28,Halton,Halton,North_West_,20.2,95028,124.6,60,38.4,0.9,104701,Lab,Lab,0,0
+E14000680,16,44,East Hampshire,East_Hampshire,South_East,56.8,96055,483.9,63,2318.4,16.9,335344,Con,Con,1,1
+E14000844,16,43,North East Hampshire,North_East_Hampshire,South_East,60.6,97321,606.3,61,2553.9,17.1,378169,Con,Con,1,1
+E14000857,13,43,North West Hampshire,North_West_Hampshire,South_East,58.3,101790,499.8,66,2052.5,18.5,253570,Con,Con,1,1
+E14001025,23,35,Wellingborough,Wellingborough,East_Midlands,48.2,107239,253.6,69,924.9,14.1,139040,Con,Con,1,1
+E14000729,26,36,Harlow,Harlow,East,44.9,93010,272.3,55,1190.3,17,173275,Con,Con,1,1
+E14000730,21,19,Harrogate and Knaresborough,Harrogate_and_Knaresborough,Yorkshire_And_The_Humber,45.7,101832,372.7,91,547.3,5,239315,Con,Con,1,1
+E14000733,21,16,Hartlepool,Hartlepool,North_East,28.1,92238,4.7,81,-915.3,-24.6,87924,Lab,Lab,0,0
+E14000734,31,36,Harwich and North Essex,Harwich_and_North_Essex,East,46.9,91603,417.8,70,1442,15.9,225338,Con,Con,1,1
+E14000735,28,48,Hastings and Rye,Hastings_and_Rye,South_East,41.1,108324,748.3,141,1406.8,15.5,172972,Con,Con,1,1
+E14000736,17,46,Havant,Havant,South_East,51.1,92488,350.2,57,1301,15.9,202305,Con,Con,1,1
+E14000739,21,39,Hemel Hempstead,Hemel_Hempstead,East,50,100707,687.4,63,2674,24.8,248929,Con,Con,1,1
+E14000742,16,41,Henley,Henley,South_East,56.2,98555,923.5,68,3920.1,21.4,442673,Con,Con,1,1
+E14000743,11,36,Hereford and South Herefordshire,Hereford_and_South_Herefordshire,West_Midlands,46.2,98217,258.7,83,391.7,5.3,170187,Con,Con,1,1
+E14000744,25,37,Hertford and Stortford,Hertford_and_Stortford,East,53.8,108332,842.8,72,3678.2,24.3,324044,Con,Con,1,1
+E14000845,24,38,North East Hertfordshire,North_East_Hertfordshire,East,53.5,96087,584.9,59,3012.1,24.5,296435,Con,Con,1,1
+E14001021,20,40,Watford,Watford,East,34.9,115689,1029.0,88,3242,24.6,268984,Con,Con,1,1
+E14000745,22,39,Hertsmere,Hertsmere,East,56,100710,887.8,64,3605.1,23.3,370437,Con,Con,1,1
+E14000746,18,13,Hexham,Hexham,North_East,43.2,76190,125.4,76,-330.9,-4.3,220593,Con,Con,1,1
+E14000749,21,38,Hitchin and Harpenden,Hitchin_and_Harpenden,East,54.6,100459,912.0,66,4214.7,23.8,420648,Con,Con,1,1
+E14000753,18,44,Horsham,Horsham,South_East,52.7,104481,668.9,66,2960.1,20.5,325311,Con,Con,1,1
+E14000677,21,15,Easington,Easington,North_East,13.7,82758,58.3,70,-438.4,-14.7,79359,Lab,Lab,0,0
+E14000755,21,47,Hove,Hove,South_East,36.7,99942,1540.8,161,3486.9,24.1,297975,Con,Con,1,1
+E14000771,24,24,Kingston upon Hull East,Kingston_upon_Hull_East,Yorkshire_And_The_Humber,16.6,91776,102.5,81,-353.3,-10.7,80066,Lab,Lab,0,0
+E14000772,24,23,Kingston upon Hull North,Kingston_upon_Hull_North,Yorkshire_And_The_Humber,13.1,95398,157.9,114,-480.6,-13.5,85905,Lab,Lab,0,0
+E14000773,22,26,Kingston upon Hull West and Hessle,Kingston_upon_Hull_West_and_Hessle,Yorkshire_And_The_Humber,20.2,85048,152.1,131,-382.8,-11.1,83963,Lab,Lab,0,0
+E14000806,28,37,Maldon,Maldon,East,59.8,89014,368.9,52,1535.6,14.9,273104,Con,Con,1,1
+E14000804,29,47,Maidstone and The Weald,Maidstone_and_The_Weald,South_East,48,101403,633.9,91,1659.9,17,224186,Con,Con,1,1
+E14000803,17,41,Maidenhead,Maidenhead,South_East,59.5,102613,852.9,64,4374.5,24,428866,Con,Con,1,1
+E14000802,19,28,Macclesfield,Macclesfield,North_West_,47,93498,305.6,67,519.7,5.6,218233,Con,Con,1,1
+E14000801,18,39,Luton South,Luton_South,East,29.4,112152,726.7,131,842.4,13.3,148678,Lab,Lab,0,0
+E14000800,17,39,Luton North,Luton_North,East,31.8,99688,391.2,70,723.8,12,161944,Lab,Lab,0,0
+E14000847,12,35,North Herefordshire,North_Herefordshire,West_Midlands,51.8,86715,267.4,82,489,5.8,213669,Con,Con,1,1
+E14000798,25,29,Louth and Horncastle,Louth_and_Horncastle,East_Midlands,49.6,96924,169.3,87,381.9,5.9,140490,Con,Con,1,1
+E14000797,23,33,Loughborough,Loughborough,East_Midlands,41.6,100829,298.1,80,640.9,9.9,156183,Con,Con,1,1
+N06000006,8,23,East Londonderry,East_Londonderry,Northern_Ireland,0,99964,50.1,87,-906.4,-19.8,105289,DUP,DUP,0,0
+W07000045,4,38,Llanelli,Llanelli,Wales,14.4,81536,47.7,65,-205.2,-5.3,104493,Lab,Lab,0,0
+E14000710,24,30,Gedling,Gedling,East_Midlands,37.3,92909,251.5,78,276.9,4.9,134337,Lab,Lab,0,0
+E14000791,18,34,Lichfield,Lichfield,West_Midlands,54.4,93432,233.5,53,498.1,6.4,192283,Con,Con,1,1
+E14000786,25,48,Lewes,Lewes,South_East,36.7,88959,552.7,77,1916.3,16.4,287121,LD,LD,0,0
+E14000605,12,38,Bromsgrove,Bromsgrove,West_Midlands,43.7,94285,249.6,47,703.5,7.9,226559,Con,Con,1,1
+E14000858,22,33,North West Leicestershire,North_West_Leicestershire,East_Midlands,44.6,94018,252.6,62,731,11.1,158249,Con,Con,1,1
+E14000784,20,34,Leicester West,Leicester_West,East_Midlands,27.2,102019,348.4,116,459.8,11,94019,Lab,Lab,0,0
+E14000783,21,34,Leicester South,Leicester_South,East_Midlands,21.4,120165,546.0,126,614.8,10.6,123906,Lab,Lab,0,0
+E14000782,22,35,Leicester East,Leicester_East,East_Midlands,24.4,109422,308.5,81,411.2,8.6,120380,Lab,Lab,0,0
+E14000776,17,19,Lancaster and Fleetwood,Lancaster_and_Fleetwood,North_West_,36.1,87599,55.4,90,-348.2,-7,134968,Con,Con,1,1
+E14001033,14,22,West Lancashire,West_Lancashire,North_West_,36.2,95168,113.0,57,-343.9,-5.3,156811,Lab,Lab,0,0
+N06000009,7,24,Lagan Valley,Lagan_Valley,Northern_Ireland,0,103140,15.4,59,-1393.8,-33.6,98544,DUP,DUP,0,0
+E14000774,11,43,Kingswood,Kingswood,South_West,40.4,88316,361.6,65,1073,14.6,197191,Con,Con,1,1
+E14000878,26,35,Peterborough,Peterborough,East,40.4,116988,356.3,94,367.8,6.2,123927,Con,Con,1,1
+E14000765,21,13,Jarrow,Jarrow,North_East,20.6,83270,95.6,46,-14.2,-0.3,108171,Lab,Lab,0,0
+W07000077,10,37,Islwyn,Islwyn,Wales,14,75534,106.0,57,23.6,0.7,100840,Lab,Lab,0,0
+E14000762,12,48,Isle of Wight,Isle_of_Wight,South_East,46.7,138748,468.8,93,692.9,5.5,185810,Con,Con,1,1
+E14000761,30,36,Ipswich,Ipswich,East,39.1,110162,503.0,114,944.2,14.1,135065,Con,Con,1,1
+S14000039,17,3,"Inverness, Nairn, Badenoch and Strathspey",Inverness_Nairn_Badenoch_and_Strathspey,Scotland,13.3,102854,70.4,73,173.4,2.6,138428,LD,LD,0,0
+E14000758,15,20,Hyndburn,Hyndburn,North_West_,33.8,91993,133.5,97,-372.7,-10.1,89707,Lab,Lab,0,0
+E14000757,22,36,Huntingdon,Huntingdon,East,48.9,114193,534.5,73,2077,20.5,209665,Con,Con,1,1
+E14000810,21,29,Mansfield,Mansfield,East_Midlands,26.3,104737,185.4,74,246.5,5,104995,Lab,Lab,0,0
+E14000898,31,44,Rochester and Strood,Rochester_and_Strood,South_East,49.2,107221,526.6,80,1446.9,16.9,190085,Con,UKIP,1,0
+W07000061,9,35,Dwyfor Meirionnydd,Dwyfor_Meirionnydd,Wales,22.3,61396,44.3,89,-235,-4.5,148849,PC,PC,0,0
+W07000071,6,39,Merthyr Tydfil and Rhymney,Merthyr_Tydfil_and_Rhymney,Wales,7.5,75234,15.3,60,-373.9,-13.2,82815,Lab,Lab,0,0
+E14000819,22,16,Middlesbrough,Middlesbrough,North_East,18.8,94342,108.4,108,-394.7,-12.5,77417,Lab,Lab,0,0
+E14000820,22,17,Middlesbrough South and East Cleveland,Middlesbrough_South_and_East_Cleveland,North_East,35.6,92646,121.0,67,-498.9,-10.2,116099,Lab,Lab,0,0
+E14000651,18,37,Coventry South,Coventry_South,West_Midlands,33.4,107393,373.4,100,191.3,3.1,140878,Lab,Lab,0,0
+E14000822,17,38,Milton Keynes South,Milton_Keynes_South,South_East,41.6,128337,746.6,79,2209.9,21.3,194155,Con,Con,1,1
+E14000824,21,46,Mole Valley,Mole_Valley,South_East,57.5,95326,921.1,63,5025.8,24.9,496727,Con,Con,1,1
+W07000054,11,38,Monmouth,Monmouth,Wales,48.3,84021,211.1,63,-67.3,-0.9,192120,Con,Con,1,1
+W07000063,10,35,Montgomeryshire,Montgomeryshire,Wales,41.3,63771,44.1,77,12.4,0.3,147018,Con,Con,1,1
+S14000046,18,2,Moray,Moray,Scotland,26.1,94350,55.8,63,428.2,7.5,131854,SNP,SNP,0,0
+E14000825,19,18,Morecambe and Lunesdale,Morecambe_and_Lunesdale,North_West_,41.5,87979,49.1,88,-371.6,-7.4,121473,Con,Con,1,1
+W07000069,7,37,Neath,Neath,Wales,13.1,73759,51.1,54,-147.8,-4.5,96567,Lab,Lab,0,0
+E14000827,13,45,New Forest East,New_Forest_East,South_East,52.8,92923,461.3,61,1783.1,15.6,284652,Con,Con,1,1
+E14000828,13,46,New Forest West,New_Forest_West,South_East,58.8,84459,533.2,73,1933.5,15.2,321416,Con,Con,1,1
+E14000829,21,28,Newark,Newark,East_Midlands,53.9,99757,256.5,70,430.4,5.6,172084,Con,Con,1,1
+E14000830,14,43,Newbury,Newbury,South_East,56.4,108244,698.4,77,2650.6,18.9,300885,Con,Con,1,1
+E14000834,18,30,Newcastle-under-Lyme,Newcastle-under-Lyme,West_Midlands,34.4,89374,149.7,61,288.2,6.2,116270,Lab,Lab,0,0
+E14000831,19,14,Newcastle upon Tyne Central,Newcastle_upon_Tyne_Central,North_East,19.4,94011,229.8,101,11.2,0.2,112134,Lab,Lab,0,0
+E14000832,19,13,Newcastle upon Tyne East,Newcastle_upon_Tyne_East,North_East,16,97062,320.8,130,52.2,1,126380,Lab,Lab,0,0
+E14000833,18,14,Newcastle upon Tyne North,Newcastle_upon_Tyne_North,North_East,18.1,91369,159.7,62,-69.7,-1.2,137270,Lab,Lab,0,0
+W07000055,10,38,Newport East,Newport_East,Wales,23,78213,137.4,70,319.5,8.2,114107,Lab,Lab,0,0
+W07000056,9,38,Newport West,Newport_West,Wales,32.3,85499,203.2,76,-15.7,-0.3,124657,Lab,Lab,0,0
+N06000011,7,26,Newry and Armagh,Newry_and_Armagh,Northern_Ireland,0,115075,22.4,76,-1072.4,-27,90968,SF,SF,0,0
+E14000848,24,34,North Norfolk,North_Norfolk,East,32.1,84871,195.8,77,1044.1,11.7,199928,LD,LD,0,0
+E14000859,23,34,North West Norfolk,North_West_Norfolk,East,54.2,95522,259.1,78,1027.9,12.1,179410,Con,Con,1,1
+E14001022,29,35,Waveney,Waveney,East,40.2,102822,280.4,79,974,14,147499,Con,Con,1,1
+E14000941,28,35,South Norfolk,South_Norfolk,East,49.3,99961,287.4,61,1406.1,14.9,209965,Con,Con,1,1
+E14000940,18,36,South Leicestershire,South_Leicestershire,East_Midlands,49.5,101402,310.8,57,683.2,9.1,174541,Con,Con,1,1
+E14000812,17,37,Meriden,Meriden,West_Midlands,51.7,108047,328.5,50,299.3,3.1,205729,Con,Con,1,1
+E14000994,10,42,Thornbury and Yate,Thornbury_and_Yate,South_West,37.2,83358,398.5,60,1329.6,15.3,251030,LD,LD,0,0
+E14000863,27,34,Norwich North,Norwich_North,East,40.6,87989,202.5,71,625,11.1,138308,Con,Con,1,1
+E14000865,23,31,Nottingham East,Nottingham_East,East_Midlands,23.7,99898,335.2,151,442.3,9.7,100046,Lab,Lab,0,0
+E14000866,23,29,Nottingham North,Nottingham_North,East_Midlands,24.8,97271,113.4,69,227.7,7.3,72074,Lab,Lab,0,0
+E14000867,22,31,Nottingham South,Nottingham_South,East_Midlands,32.9,111566,342.2,120,331,5.7,130488,Lab,Lab,0,0
+E14000648,24,35,Corby,Corby,East_Midlands,42.2,112191,493.6,79,1430.8,18.6,158559,Con,Lab,1,0
+S14000050,15,5,Ochil and South Perthshire,Ochil_and_South_Perthshire,Scotland,20.5,100750,207.5,60,487.1,8.3,127801,Lab,Lab,0,0
+W07000074,5,39,Ogmore,Ogmore,Wales,15.6,75053,101.2,64,58.2,1.7,103394,Lab,Lab,0,0
+E14000873,15,40,Oxford East,Oxford_East,South_East,18.8,121503,1027.5,113,2287,21.1,238624,Lab,Lab,0,0
+E14000874,14,41,Oxford West and Abingdon,Oxford_West_and_Abingdon,South_East,42.3,106262,1205.3,94,3755.5,21.8,382541,Con,Con,1,1
+E14000875,19,19,Pendle,Pendle,North_West_,38.9,89613,122.4,96,-429.9,-10.8,101053,Con,Con,1,1
+E14000877,17,14,Penrith and The Border,Penrith_and_The_Border,North_West_,53.4,81895,94.6,80,-48.7,-0.7,180804,Con,Con,1,1
+S14000049,21,7,North East Fife,North_East_Fife,Scotland,21.8,81145,180.7,89,-153.7,-3.3,123167,LD,LD,0,0
+E14000952,27,35,South West Norfolk,South_West_Norfolk,East,48.3,105110,317.8,83,867.8,11.9,157741,Con,Con,1,1
+E14000879,4,46,"Plymouth, Moor View",Plymouth_Moor_View,South_West,33.3,92206,151.7,56,361.8,7.5,119618,Lab,Lab,0,0
+E14000880,4,47,"Plymouth, Sutton and Devonport",Plymouth_Sutton_and_Devonport,South_West,34.3,111104,482.5,161,542.2,8.4,124898,Con,Con,1,1
+W07000075,6,40,Pontypridd,Pontypridd,Wales,16.2,80894,104.5,65,-96.8,-2.3,122707,Lab,Lab,0,0
+E14000881,10,47,Poole,Poole,South_West,47.5,96130,896.0,102,1958.7,14.5,295498,Con,Con,1,1
+E14000883,16,45,Portsmouth North,Portsmouth_North,South_East,44.3,98306,329.7,78,591.9,9.2,155799,Con,Con,1,1
+E14000884,16,46,Portsmouth South,Portsmouth_South,South_East,33.3,108530,699.4,164,738.8,10,153110,LD,Ind,0,0
+E14000956,14,45,"Southampton, Test",Southampton_Test,South_East,33,107067,468.9,137,546.2,8.1,147049,Lab,Lab,0,0
+E14000955,14,46,"Southampton, Itchen",Southampton_Itchen,South_East,36.3,104247,384.4,107,616.4,9.1,145361,Lab,Lab,0,0
+E14000944,20,13,South Shields,South_Shields,North_East,21.6,82568,130.6,70,44.8,1.2,97324,Lab,Lab,0,0
+E14000603,26,33,Broadland,Broadland,East,46.2,95621,287.0,65,1019.3,11.4,209427,Con,Con,1,1
+E14000939,25,33,South Holland and The Deepings,South_Holland_and_The_Deepings,East_Midlands,59.1,101943,219.4,68,470.8,7.4,140930,Con,Con,1,1
+E14000932,9,45,Somerton and Frome,Somerton_and_Frome,South_West,44.5,103922,328.5,74,953.9,9.1,220148,LD,LD,0,0
+E14000930,18,41,Slough,Slough,South_East,34.3,135654,1182.0,106,2174,21.2,205605,Lab,Lab,0,0
+E14000929,24,31,Sleaford and North Hykeham,Sleaford_and_North_Hykeham,East_Midlands,51.6,112307,215.6,66,635.7,7.9,161580,Con,Con,1,1
+E14000928,20,19,Skipton and Ripon,Skipton_and_Ripon,Yorkshire_And_The_Humber,50.6,99491,313.1,90,888.8,8.7,219829,Con,Con,1,1
+E14000927,31,46,Sittingbourne and Sheppey,Sittingbourne_and_Sheppey,South_East,50,109915,428.1,78,1388.4,17.4,172309,Con,Con,1,1
+E14000849,14,31,North Shropshire,North_Shropshire,West_Midlands,51.5,105264,216.0,73,470.8,6.1,169211,Con,Con,1,1
+E14000926,14,33,Shrewsbury and Atcham,Shrewsbury_and_Atcham,West_Midlands,43.9,102879,234.8,76,474.1,5.7,180925,Con,Con,1,1
+E14000924,23,28,Sherwood,Sherwood,East_Midlands,39.2,94866,211.3,65,417.5,6.8,145114,Con,Con,1,1
+E14000918,28,47,Sevenoaks,Sevenoaks,South_East,56.8,94720,572.0,56,2487.2,15.7,404689,Con,Con,1,1
+E14000917,24,21,Selby and Ainsty,Selby_and_Ainsty,Yorkshire_And_The_Humber,49.4,96888,197.0,59,507.1,6.5,184718,Con,Con,1,1
+E14000915,18,17,Sedgefield,Sedgefield,North_East,23.5,84045,128.4,67,-203.1,-5.1,104665,Lab,Lab,0,0
+E14000914,24,28,Scunthorpe,Scunthorpe,Yorkshire_And_The_Humber,32.6,89794,111.7,75,-85.8,-2.3,95232,Lab,Lab,0,0
+E14000913,21,18,Scarborough and Whitby,Scarborough_and_Whitby,Yorkshire_And_The_Humber,42.8,97264,270.6,109,738,9.7,150442,Con,Con,1,1
+E14000912,11,45,Salisbury,Salisbury,South_West,49.2,92235,390.7,82,1285.1,13.2,239160,Con,Con,1,1
+E14000964,0,48,St Ives,St_Ives,South_West,39,85977,185.9,92,586.6,6.2,212048,LD,LD,0,0
+E14000960,19,38,St Albans,St_Albans,East,40.8,98872,978.2,73,4072.1,24.7,399945,Con,Con,1,1
+E14000910,23,37,Saffron Walden,Saffron_Walden,East,55.5,103906,669.6,65,2416,17.4,318405,Con,Con,1,1
+E14000993,22,18,Thirsk and Malton,Thirsk_and_Malton,Yorkshire_And_The_Humber,52.9,97622,294.1,90,681,7,206296,Con,Con,1,1
+E14000909,23,32,Rutland and Melton,Rutland_and_Melton,East_Midlands,51.1,101107,254.4,71,1173.5,12.2,216921,Con,Con,1,1
+E14000908,22,32,Rushcliffe,Rushcliffe,East_Midlands,51.2,95322,221.7,67,545.6,6,222805,Con,Con,1,1
+E14000907,18,42,Runnymede and Weybridge,Runnymede_and_Weybridge,South_East,55.9,103703,1331.4,82,5224,25.1,477014,Con,Con,1,1
+E14000905,15,37,Rugby,Rugby,West_Midlands,44,97310,389.0,77,1076.7,15.5,161836,Con,Con,1,1
+E14000902,16,21,Rossendale and Darwen,Rossendale_and_Darwen,North_West_,41.8,96745,104.6,83,-674.8,-14.2,107050,Con,Con,1,1
+S14000055,15,3,"Ross, Skye and Lochaber",Ross_Skye_and_Lochaber,Scotland,12.2,68457,49.4,57,163.1,3.1,152202,LD,LD,0,0
+E14000901,13,44,Romsey and Southampton North,Romsey_and_Southampton_North,South_East,49.7,88113,456.2,81,832,8,284823,Con,Con,1,1
+E14000899,31,38,Rochford and Southend East,Rochford_and_Southend_East,East,46.9,101060,638.7,119,1303.1,15.2,185286,Con,Con,1,1
+E14000895,20,18,Richmond (Yorks),Richmond_(Yorks),Yorkshire_And_The_Humber,62.8,109531,303.0,89,549.8,5.8,196589,Con,Con,1,1
+E14000894,18,19,Ribble Valley,Ribble_Valley,North_West_,50.3,97443,114.4,64,-502.4,-6.9,170454,Con,Con,1,1
+E14000943,14,21,South Ribble,South_Ribble,North_West_,45.5,97225,127.5,48,-399.7,-6.1,158793,Con,Con,1,1
+W07000052,7,38,Rhondda,Rhondda,Wales,6.4,69738,50.0,86,-80.8,-4.1,60081,Lab,Lab,0,0
+E14000893,21,45,Reigate,Reigate,South_East,53.4,102341,959.2,66,4267.5,25.3,400102,Con,Con,1,1
+E14000767,15,38,Kenilworth and Southam,Kenilworth_and_Southam,West_Midlands,53.6,81901,412.2,61,1434.4,14.6,277307,Con,Con,1,1
+E14000891,21,17,Redcar,Redcar,North_East,13.8,86754,91.4,66,-475.6,-12,99524,LD,LD,0,0
+E14000890,14,42,Reading West,Reading_West,South_East,43.2,101843,508.6,82,1792.3,18.9,216150,Con,Con,1,1
+E14000889,15,42,Reading East,Reading_East,South_East,42.6,110068,1202.3,124,2573.5,21.6,263068,Con,Con,1,1
+E14000888,27,37,Rayleigh and Wickford,Rayleigh_and_Wickford,East,57.8,98197,360.5,45,1699.3,16.4,253949,Con,Con,1,1
+E14000885,16,19,Preston,Preston,North_West_,21.7,95122,158.0,115,-204.9,-6.2,79407,Lab,Lab,0,0
+W07000065,3,39,Preseli Pembrokeshire,Preseli_Pembrokeshire,Wales,42.8,77111,62.4,67,-8.8,-0.2,146042,Con,Con,1,1
+E14000957,30,39,Southend West,Southend_West,East,46.1,89153,531.3,95,1326.9,14.6,227459,Con,Con,1,1
+E14000959,19,42,Spelthorne,Spelthorne,South_East,47.1,96744,649.6,64,2979.9,23.7,304882,Con,Con,1,1
+E14000965,17,31,Stafford,Stafford,West_Midlands,43.9,95754,233.9,72,341.2,5.3,153192,Con,Con,1,1
+E14000966,18,29,Staffordshire Moorlands,Staffordshire_Moorlands,West_Midlands,45.2,77561,142.3,56,268.7,4.8,158943,Con,Con,1,1
+E14000945,12,36,South Staffordshire,South_Staffordshire,West_Midlands,53.2,93973,169.9,44,397.6,5.7,179139,Con,Con,1,1
+E14000968,23,38,Stevenage,Stevenage,East,41.4,94988,385.1,57,1800,23.3,190714,Con,Con,1,1
+S14000057,14,5,Stirling,Stirling,Scotland,24,91260,134.1,64,-184.1,-3.1,150690,Lab,Lab,0,0
+E14000970,20,16,Stockton North,Stockton_North,North_East,25.9,91946,153.6,70,-86.6,-2.1,100695,Lab,Lab,0,0
+E14000971,20,17,Stockton South,Stockton_South,North_East,38.9,100460,215.6,70,-35.4,-0.6,131711,Con,Con,1,1
+E14000973,19,30,Stoke-on-Trent North,Stoke-on-Trent_North,West_Midlands,23.8,96736,81.9,76,-391.9,-11,81597,Lab,Lab,0,0
+E14000974,18,31,Stoke-on-Trent South,Stoke-on-Trent_South,West_Midlands,28.4,89568,69.3,60,-413.4,-11.2,92460,Lab,Lab,0,0
+E14000975,16,31,Stone,Stone,West_Midlands,50.6,84576,202.2,59,387.9,5.4,190756,Con,Con,1,1
+N06000016,9,26,Strangford,Strangford,Northern_Ireland,0,90003,14.7,64,-1207.8,-29.8,106340,DUP,DUP,0,0
+E14000821,16,38,Milton Keynes North,Milton_Keynes_North,South_East,43.5,124021,866.9,96,2277.2,21.8,197219,Con,Con,1,1
+E14000980,12,41,Stroud,Stroud,South_West,40.8,100532,370.2,67,1401.3,13.8,223540,Con,Con,1,1
+E14000624,29,36,Central Suffolk and North Ipswich,Central_Suffolk_and_North_Ipswich,East,50.8,99064,397.3,60,1410.2,14.5,226590,Con,Con,1,1
+E14000946,28,36,South Suffolk,South_Suffolk,East,47.7,91938,384.6,70,1433.5,14.9,231092,Con,Con,1,1
+E14000642,31,37,Clacton,Clacton,East,53,85487,391.5,98,1075.4,15,166327,Con,UKIP,1,0
+E14001034,24,37,West Suffolk,West_Suffolk,East,50.6,114400,465.0,95,1556.6,17,183073,Con,Con,1,1
+E14000982,20,14,Sunderland Central,Sunderland_Central,North_East,30.1,100175,246.1,101,-96.3,-2,106292,Lab,Lab,0,0
+E14000754,21,14,Houghton and Sunderland South,Houghton_and_Sunderland_South,North_East,21.4,87153,118.1,50,-21.3,-0.5,100195,Lab,Lab,0,0
+E14000681,24,47,East Surrey,East_Surrey,South_East,56.7,106119,892.3,62,4386.3,25.9,377808,Con,Con,1,1
+E14000983,18,43,Surrey Heath,Surrey_Heath,South_East,57.6,106581,651.6,56,3847.2,24.9,355890,Con,Con,1,1
+E14000953,17,44,South West Surrey,South_West_Surrey,South_East,58.7,103467,821.8,59,5046.2,25.4,451742,Con,Con,1,1
+E14000817,20,46,Mid Sussex,Mid_Sussex,South_East,50.7,106894,719.2,70,2986.4,20.9,306746,Con,Con,1,1
+W07000047,5,38,Swansea West,Swansea_West,Wales,20.8,81153,168.2,111,-209,-4.4,129268,Lab,Lab,0,0
+E14000851,12,42,North Swindon,North_Swindon,South_West,44.6,108831,376.5,75,914.2,11.8,163083,Con,Con,1,1
+E14000947,13,42,South Swindon,South_Swindon,South_West,41.8,103103,439.2,93,920,12.3,162533,Con,Con,1,1
+E14000986,19,34,Tamworth,Tamworth,West_Midlands,45.8,95733,181.0,54,319.1,5,158077,Con,Con,1,1
+E14000987,18,28,Tatton,Tatton,North_West_,54.6,84587,356.2,64,647.2,5.8,294588,Con,Con,1,1
+E14000988,7,46,Taunton Deane,Taunton_Deane,South_West,42.2,111370,363.0,82,932.5,10,183743,LD,LD,0,0
+E14000835,7,47,Newton Abbot,Newton_Abbot,South_West,43,86229,245.5,82,914.7,11.2,199984,Con,Con,1,1
+E14000799,12,34,Ludlow,Ludlow,West_Midlands,52.8,85112,238.2,85,517,6.3,207689,Con,Con,1,1
+E14000990,13,40,Tewkesbury,Tewkesbury,South_West,47.2,99322,390.1,67,1283.7,13.3,214676,Con,Con,1,1
+E14000852,32,45,North Thanet,North_Thanet,South_East,52.7,94620,447.0,102,1230,15.9,175689,Con,Con,1,1
+E14000948,32,46,South Thanet,South_Thanet,South_East,48,97148,562.0,122,1281.1,15.5,178416,Con,Con,1,1
+E14000995,29,39,Thurrock,Thurrock,East,36.8,118467,575.7,76,1560.9,19.3,168634,Con,Con,1,1
+E14000996,6,46,Tiverton and Honiton,Tiverton_and_Honiton,South_West,50.3,98622,309.4,78,1013.4,10.1,215564,Con,Con,1,1
+E14000997,26,47,Tonbridge and Malling,Tonbridge_and_Malling,South_East,57.9,99867,538.7,56,2473.8,17.5,338111,Con,Con,1,1
+E14000999,6,47,Torbay,Torbay,South_West,38.7,97529,385.5,135,539.1,6.6,169056,LD,LD,0,0
+W07000053,11,37,Torfaen,Torfaen,Wales,20,81404,91.4,49,-80,-2.2,100602,Lab,Lab,0,0
+E14001001,6,48,Totnes,Totnes,South_West,45.9,83140,306.3,84,739.1,6.4,260755,Con,Con,1,1
+E14001003,1,47,Truro and Falmouth,Truro_and_Falmouth,South_West,41.7,90398,254.8,93,742.9,7.1,236742,Con,Con,1,1
+E14001004,27,47,Tunbridge Wells,Tunbridge_Wells,South_East,56.2,105713,783.3,85,2096.7,14.7,317906,Con,Con,1,1
+E14000709,19,15,Gateshead,Gateshead,North_East,14.9,94657,164.1,90,-97.5,-2.4,93502,Lab,Lab,0,0
+E14001006,20,12,Tynemouth,Tynemouth,North_East,34.4,99067,194.8,70,-88.9,-1.3,152403,Lab,Lab,0,0
+E14000853,19,12,North Tyneside,North_Tyneside,North_East,18.3,102379,148.0,70,-11.6,-0.2,97993,Lab,Lab,0,0
+N06000018,6,24,West Tyrone,West_Tyrone,Northern_Ireland,0,91860,27.1,86,-661.1,-20.3,88032,SF,SF,0,0
+N06000010,6,25,Mid Ulster,Mid_Ulster,Northern_Ireland,0,100842,19.6,73,-1126.8,-29,106311,SF,SF,0,0
+N06000017,7,25,Upper Bann,Upper_Bann,Northern_Ireland,0,120635,32.3,92,-1121.4,-28.3,80245,DUP,DUP,0,0
+E14000683,24,20,East Yorkshire,East_Yorkshire,Yorkshire_And_The_Humber,47.5,100928,220.5,92,236.3,3.5,144167,Con,Con,1,1
+E14001061,23,19,York Central,York_Central,Yorkshire_And_The_Humber,26.1,106113,683.0,134,1139,14.6,163327,Lab,Lab,0,0
+W07000041,8,31,Ynys Mon,Ynys_Mon,Wales,22.5,70049,83.6,77,252.4,4.8,151610,Lab,Lab,0,0
+E14001060,8,45,Yeovil,Yeovil,South_West,32.9,108158,260.1,72,800.5,9.5,172025,LD,LD,0,0
+E14001058,12,37,Wyre Forest,Wyre_Forest,West_Midlands,36.9,98074,313.3,75,649.4,9,161399,Con,Con,1,1
+E14001056,17,40,Wycombe,Wycombe,South_East,48.6,109256,866.1,81,2792.4,21.8,292194,Con,Con,1,1
+W07000044,11,34,Wrexham,Wrexham,Wales,25.4,71031,123.6,73,-17.3,-0.5,122989,Lab,Lab,0,0
+E14000992,15,31,The Wrekin,The_Wrekin,West_Midlands,47.7,91778,271.0,75,274.7,4.9,148582,Con,Con,1,1
+E14001055,19,46,Worthing West,Worthing_West,South_East,51.7,95411,629.6,95,2062.7,18.7,236463,Con,Con,1,1
+E14000682,20,47,East Worthing and Shoreham,East_Worthing_and_Shoreham,South_East,48.5,97165,525.8,74,1846.6,18.6,229619,Con,Con,1,1
+E14001053,16,16,Workington,Workington,North_West_,33.9,78371,44.7,52,-40.6,-0.9,118408,Lab,Lab,0,0
+E14001035,13,39,West Worcestershire,West_Worcestershire,West_Midlands,50.3,92117,249.9,63,865.5,9.1,226137,Con,Con,1,1
+E14000892,14,38,Redditch,Redditch,West_Midlands,43.5,89891,266.6,64,459.3,8,149198,Con,Con,1,1
+E14001052,14,39,Worcester,Worcester,West_Midlands,39.5,99604,438.5,97,578.8,8.4,156369,Con,Con,1,1
+E14000850,9,42,North Somerset,North_Somerset,South_West,49.3,99083,426.0,61,1545,13.4,263008,Con,Con,1,1
+E14001048,16,42,Wokingham,Wokingham,South_East,52.7,102655,556.8,61,2566.4,18.6,328047,Con,Con,1,1
+E14001047,19,44,Woking,Woking,South_East,50.3,106365,967.4,75,4297.5,25.7,379654,Con,Con,1,1
+E14001046,13,41,Witney,Witney,South_East,58.8,107118,617.0,73,3055,22.1,299888,Con,Con,1,1
+E14001042,19,41,Windsor,Windsor,South_East,60.8,103122,1292.8,91,4417.8,23.4,440066,Con,Con,1,1
+E14001041,14,44,Winchester,Winchester,South_East,48.5,98207,849.8,74,2432.5,16.7,353476,Con,Con,1,1
+E14000860,12,43,North Wiltshire,North_Wiltshire,South_West,51.6,89400,359.8,71,1320.7,13.3,262329,Con,Con,1,1
+E14001038,6,44,Weston-Super-Mare,Weston-Super-Mare,South_West,44.3,105302,535.9,110,1165.1,13.5,175660,Con,Con,1,1
+E14001037,18,18,Westmorland and Lonsdale,Westmorland_and_Lonsdale,North_West_,36.2,83788,97.9,80,-228.9,-2.5,212458,LD,LD,0,0
+E14000954,11,44,South West Wiltshire,South_West_Wiltshire,South_West,51.7,98354,353.3,85,1189,13.6,195045,Con,Con,1,1
+E14001027,20,38,Welwyn Hatfield,Welwyn_Hatfield,East,57,106827,801.3,69,2819.5,23.6,272261,Con,Con,1,1
+E14001026,7,45,Wells,Wells,South_West,42.5,103947,314.7,79,822.4,8.8,198356,LD,LD,0,0
+E14000728,19,36,Harborough,Harborough,East_Midlands,48.9,101279,294.2,57,880.7,10.5,197285,Con,Con,1,1
+E14001024,16,29,Weaver Vale,Weaver_Vale,North_West_,38.5,88255,153.6,55,-23.5,-0.4,163908,Con,Con,1,1
+E14001023,25,47,Wealden,Wealden,South_East,56.6,103094,582.5,61,2655,18.8,318548,Con,Con,1,1
+E14000981,30,35,Suffolk Coastal,Suffolk_Coastal,East,46.4,99005,351.1,75,1855.4,14.9,249187,Con,Con,1,1
+E14000951,21,40,South West Hertfordshire,South_West_Hertfordshire,East,54.2,106709,1091.8,59,4634.4,23.5,445504,Con,Con,1,1
+E14000854,18,35,North Warwickshire,North_Warwickshire,West_Midlands,40.2,90207,204.0,59,845.7,14.6,147576,Con,Con,1,1
+E14001019,14,37,Warwick and Leamington,Warwick_and_Leamington,West_Midlands,42.6,98391,608.0,104,1272.7,14.1,207383,Con,Con,1,1
+E14001018,17,28,Warrington South,Warrington_South,North_West_,35.8,108353,340.1,65,491.2,5.5,186080,Con,Con,1,1
+E14001017,16,28,Warrington North,Warrington_North,North_West_,30.2,95299,175.3,57,214.1,4.2,120618,Lab,Lab,0,0
+E14001015,15,41,Wantage,Wantage,South_East,52,108663,646.7,69,3080.8,23.1,289421,Con,Con,1,1
+E14000846,8,44,North East Somerset,North_East_Somerset,South_West,41.3,87408,326.8,54,1596.5,16.5,257246,Con,Con,1,1
+E14001014,20,11,Wansbeck,Wansbeck,North_East,17.5,81847,68.0,69,-175.3,-4.4,103047,Lab,Lab,0,0
+E14001062,22,19,York Outer,York_Outer,Yorkshire_And_The_Humber,43,93905,290.3,47,1163.8,12.9,227478,Con,Con,1,1
+W07000078,6,41,Vale of Glamorgan,Vale_of_Glamorgan,Wales,41.8,98094,341.4,75,463.1,6.1,179155,Con,Con,1,1
+W07000060,9,33,Vale of Clwyd,Vale_of_Clwyd,Wales,35.2,71257,54.5,87,-192.8,-5.3,112966,Lab,Lab,0,0
+E14001044,13,29,Wirral West,Wirral_West,North_West_,42.5,69204,134.3,56,-277,-4.7,192383,Con,Con,1,1
+E14000958,12,25,Southport,Southport,North_West_,35.8,90554,177.9,98,-256.8,-4,151491,LD,LD,0,0
+E14001039,14,23,Wigan,Wigan,North_West_,24.7,102250,181.0,69,155.8,3,112856,Lab,Lab,0,0
+E14000963,15,27,St Helens South and Whiston,St_Helens_South_and_Whiston,North_West_,17.8,101008,123.7,62,-88.6,-1.8,108334,Lab,Lab,0,0
+E14000708,13,27,Garston and Halewood,Garston_and_Halewood,North_West_,16.1,98135,160.5,65,-88,-1.5,131398,Lab,Lab,0,0
+E14000805,13,24,Makerfield,Makerfield,North_West_,18.8,98346,125.7,53,60.7,1.2,114535,Lab,Lab,0,0
+E14000580,15,23,Bolton West,Bolton_West,North_West_,38.3,94861,213.9,62,119.6,1.9,148143,Lab,Lab,0,0
+E14000785,15,25,Leigh,Leigh,North_West_,20.9,103275,166.4,73,81.9,1.7,104145,Lab,Lab,0,0
+E14000962,15,26,St Helens North,St_Helens_North,North_West_,22.3,97086,109.7,54,-44.7,-1,106919,Lab,Lab,0,0
+E14000775,14,25,Knowsley,Knowsley,North_West_,9,103817,103.3,57,-70.5,-1.8,88058,Lab,Lab,0,0
+E14000916,13,25,Sefton Central,Sefton_Central,North_West_,33.9,84715,98.5,40,-276.7,-3.9,194306,Lab,Lab,0,0
+E14000794,13,26,"Liverpool, Walton",Liverpool_Walton,North_West_,6.5,91647,132.9,115,-105.9,-3.8,66890,Lab,Lab,0,0
+E14000795,14,27,"Liverpool, Wavertree",Liverpool_Wavertree,North_West_,7.5,92274,258.1,134,-164.9,-3.3,119457,Lab,Lab,0,0
+E14000796,14,26,"Liverpool, West Derby",Liverpool_West_Derby,North_West_,9.3,90922,151.9,86,-22.3,-0.6,86502,Lab,Lab,0,0
+E14000979,16,26,Stretford and Urmston,Stretford_and_Urmston,North_West_,28.7,99493,107.7,58,50.1,0.9,126706,Lab,Lab,0,0
+E14000532,16,27,Altrincham and Sale West,Altrincham_and_Sale_West,North_West_,48.9,97409,234.1,59,186.7,1.5,291539,Con,Con,1,1
+E14000747,17,23,Heywood and Middleton,Heywood_and_Middleton,North_West_,27.2,104092,192.5,68,122.4,2.3,113051,Lab,Lab,0,0
+E14000612,16,22,Bury South,Bury_South,North_West_,33.6,98391,232.5,76,18.2,0.3,132055,Lab,Lab,0,0
+E14000579,14,24,Bolton South East,Bolton_South_East,North_West_,25.6,102827,167.6,79,71.3,2,83409,Lab,Lab,0,0
+E14001054,16,25,Worsley and Eccles South,Worsley_and_Eccles_South,North_West_,32.5,99326,187.2,68,68.8,1.3,114447,Lab,Lab,0,0
+E14000611,15,22,Bury North,Bury_North,North_West_,40.2,87808,203.4,74,38.1,0.7,133028,Con,Con,1,1
+E14000578,16,23,Bolton North East,Bolton_North_East,North_West_,36.5,96095,214.7,83,110.1,2.3,108829,Lab,Lab,0,0
+E14000871,18,23,Oldham West and Royton,Oldham_West_and_Royton,North_West_,23.7,103126,118.8,57,-29.4,-0.7,98881,Lab,Lab,0,0
+E14000537,17,24,Ashton-under-Lyne,Ashton-under-Lyne,North_West_,24.7,90915,135.6,80,-13.2,-0.3,92537,Lab,Lab,0,0
+E14000807,17,25,Manchester Central,Manchester_Central,North_West_,11.8,136160,613.0,176,502.8,8.6,95631,Lab,Lab,0,0
+E14000571,16,24,Blackley and Broughton,Blackley_and_Broughton,North_West_,18.3,113172,285.7,119,224.6,5.7,81623,Lab,Lab,0,0
+E14000911,15,24,Salford and Eccles,Salford_and_Eccles,North_West_,20.5,110536,352.7,134,193.6,3.6,99626,Lab,Lab,0,0
+E14000661,19,25,Denton and Reddish,Denton_and_Reddish,North_West_,24.9,86073,137.6,73,55,1.3,104254,Lab,Lab,0,0
+E14000969,18,26,Stockport,Stockport,North_West_,25.3,85465,204.9,82,72.5,1.3,136140,Lab,Lab,0,0
+E14000808,18,25,"Manchester, Gorton",Manchester_Gorton,North_West_,11,113855,348.0,141,205.2,4.8,98175,Lab,Lab,0,0
+E14000627,18,27,Cheadle,Cheadle,North_West_,40.8,91168,188.1,46,81.9,0.9,230632,LD,LD,0,0
+E14001059,17,27,Wythenshawe and Sale East,Wythenshawe_and_Sale_East,North_West_,25.6,106279,233.1,76,231,4.1,117545,Lab,Lab,0,0
+E14000809,17,26,"Manchester, Withington",Manchester_Withington,North_West_,11.1,100093,559.9,154,294.5,3.8,182826,LD,LD,0,0
+E14000967,18,24,Stalybridge and Hyde,Stalybridge_and_Hyde,North_West_,32.9,92097,147.6,67,101.8,2.1,117486,Lab,Lab,0,0
+E14000738,19,27,Hazel Grove,Hazel_Grove,North_West_,33.6,79189,128.1,48,58.7,1,167968,LD,LD,0,0
+E14000589,18,20,Bradford West,Bradford_West,Yorkshire_And_The_Humber,31.1,115758,194.3,95,-281.8,-7.9,90335,Lab,Resp,0,0
+E14000766,17,20,Keighley,Keighley,Yorkshire_And_The_Humber,41.9,96965,282.2,82,-337.3,-4.7,172221,Con,Con,1,1
+E14000780,21,20,Leeds North West,Leeds_North_West,Yorkshire_And_The_Humber,26.6,85597,263.3,108,-118.9,-2,170762,LD,LD,0,0
+E14000777,21,21,Leeds Central,Leeds_Central,Yorkshire_And_The_Humber,20.2,135348,389.0,164,190.3,3.7,82678,Lab,Lab,0,0
+E14000779,22,20,Leeds North East,Leeds_North_East,Yorkshire_And_The_Humber,33.1,92243,256.2,86,-28.7,-0.4,169770,Lab,Lab,0,0
+E14000778,23,21,Leeds East,Leeds_East,Yorkshire_And_The_Humber,23.2,95579,143.3,70,45.6,1.2,95227,Lab,Lab,0,0
+E14000781,20,21,Leeds West,Leeds_West,Yorkshire_And_The_Humber,19.7,93379,163.8,97,-7.2,-0.2,87923,Lab,Lab,0,0
+E14000886,20,20,Pudsey,Pudsey,Yorkshire_And_The_Humber,38.5,89262,218.1,73,47.5,0.7,169412,Con,Con,1,1
+E14000587,19,20,Bradford East,Bradford_East,Yorkshire_And_The_Humber,26.8,114860,177.7,88,-151.3,-4.2,84617,LD,LD,0,0
+E14000925,17,21,Shipley,Shipley,Yorkshire_And_The_Humber,48.6,95038,252.4,80,-287,-4.1,159840,Con,Con,1,1
+E14000756,20,22,Huddersfield,Huddersfield,Yorkshire_And_The_Humber,27.8,96059,170.8,102,-76.7,-1.6,109313,Lab,Lab,0,0
+E14000836,22,22,"Normanton, Pontefract and Castleford",Normanton_Pontefract_and_Castleford,Yorkshire_And_The_Humber,24.5,107744,147.6,58,82.9,1.7,99004,Lab,Lab,0,0
+E14000548,19,21,Batley and Spen,Batley_and_Spen,Yorkshire_And_The_Humber,33.6,108795,152.1,74,-38.5,-0.7,113445,Lab,Lab,0,0
+E14000826,22,21,Morley and Outwood,Morley_and_Outwood,Yorkshire_And_The_Humber,35.3,96652,176.0,70,26.5,0.5,130043,Lab,Lab,0,0
+E14000588,18,21,Bradford South,Bradford_South,Yorkshire_And_The_Humber,29.1,101998,176.0,88,-152.4,-3.9,90703,Lab,Lab,0,0
+E14000723,19,22,Halifax,Halifax,Yorkshire_And_The_Humber,34,101865,185.4,92,-72.5,-1.5,103906,Lab,Lab,0,0
+E14000666,21,22,Dewsbury,Dewsbury,Yorkshire_And_The_Humber,35,110878,162.9,66,-33,-0.5,134203,Con,Con,1,1
+E14000724,23,22,Haltemprice and Howden,Haltemprice_and_Howden,Yorkshire_And_The_Humber,50.2,88966,151.6,51,258,3.6,184704,Con,Con,1,1
+E14000689,23,20,Elmet and Rothwell,Elmet_and_Rothwell,Yorkshire_And_The_Humber,42.6,99635,199.4,51,-12.3,-0.1,199980,Con,Con,1,1
+E14000919,19,26,Sheffield Central,Sheffield_Central,Yorkshire_And_The_Humber,10.1,118478,534.0,168,194.1,3.3,117553,Lab,Lab,0,0
+E14000923,20,26,"Sheffield, Heeley",Sheffield_Heeley,Yorkshire_And_The_Humber,17.3,93560,136.4,62,-21.5,-0.5,94675,Lab,Lab,0,0
+E14000922,21,27,"Sheffield, Hallam",Sheffield_Hallam,Yorkshire_And_The_Humber,23.5,90105,263.3,65,-233.5,-2.7,233924,LD,LD,0,0
+E14000748,20,27,High Peak,High_Peak,East_Midlands,40.9,91118,233.6,72,307.1,4.5,167162,Con,Con,1,1
+E14000904,21,25,Rotherham,Rotherham,Yorkshire_And_The_Humber,16.7,90307,118.8,69,32.3,0.9,90515,Lab,Lab,0,0
+E14000921,20,25,"Sheffield, Brightside and Hillsborough",Sheffield_Brightside_and_Hillsborough,Yorkshire_And_The_Humber,11.5,107864,111.0,58,-111.8,-3.5,73239,Lab,Lab,0,0
+E14000541,20,24,Barnsley Central,Barnsley_Central,Yorkshire_And_The_Humber,17.3,86555,97.3,76,28.6,0.7,96902,Lab,Lab,0,0
+E14000669,23,23,Doncaster North,Doncaster_North,Yorkshire_And_The_Humber,21,98498,157.2,77,-151.3,-3.7,96664,Lab,Lab,0,0
+E14000668,22,24,Doncaster Central,Doncaster_Central,Yorkshire_And_The_Humber,24.8,105529,231.1,100,-125.2,-2.6,102368,Lab,Lab,0,0
+E14000667,23,24,Don Valley,Don_Valley,Yorkshire_And_The_Humber,29.7,98712,167.5,67,-93.3,-1.9,116520,Lab,Lab,0,0
+E14000903,22,27,Rother Valley,Rother_Valley,Yorkshire_And_The_Humber,28.4,94644,134.7,60,-14.8,-0.3,130654,Lab,Lab,0,0
+E14000920,21,26,Sheffield South East,Sheffield_South_East,Yorkshire_And_The_Humber,17.4,93056,107.4,50,-36.1,-0.9,98247,Lab,Lab,0,0
+E14000542,21,24,Barnsley East,Barnsley_East,Yorkshire_And_The_Humber,16.5,91567,90.8,66,35.6,0.9,95179,Lab,Lab,0,0
+E14001028,22,25,Wentworth and Dearne,Wentworth_and_Dearne,Yorkshire_And_The_Humber,17.6,95905,100.4,67,20.5,0.5,100791,Lab,Lab,0,0
+E14000876,19,24,Penistone and Stocksbridge,Penistone_and_Stocksbridge,Yorkshire_And_The_Humber,31.2,87364,84.3,45,42.5,0.8,142266,Lab,Lab,0,0
+E14000740,22,23,Hemsworth,Hemsworth,Yorkshire_And_The_Humber,24.3,94181,144.3,61,43.8,0.9,112336,Lab,Lab,0,0
+E14001009,21,23,Wakefield,Wakefield,Yorkshire_And_The_Humber,35.6,95662,179.5,74,19,0.4,112671,Lab,Lab,0,0
+E14000645,20,23,Colne Valley,Colne_Valley,Yorkshire_And_The_Humber,37,109785,197.5,81,-72.1,-1,142744,Con,Con,1,1
+E14000614,18,22,Calder Valley,Calder_Valley,Yorkshire_And_The_Humber,39.4,103428,218.0,85,-176.5,-2.6,139963,Con,Con,1,1
+E14000870,19,23,Oldham East and Saddleworth,Oldham_East_and_Saddleworth,North_West_,26.4,101980,178.8,68,50.3,0.9,122478,Lab,Lab,0,0
+E14000897,17,22,Rochdale,Rochdale,North_West_,18.1,107928,189.4,75,91.8,2.1,98743,Lab,Lab,0,0
+E14000793,12,27,"Liverpool, Riverside",Liverpool_Riverside,North_West_,10.9,116851,525.4,195,207.4,3.3,110036,Lab,Lab,0,0
+E14001043,14,30,Wirral South,Wirral_South,North_West_,39.5,72495,138.9,58,-173.7,-3.1,174465,Lab,Lab,0,0
+E14000559,14,29,Birkenhead,Birkenhead,North_West_,18.9,88888,191.3,112,-133.1,-3.2,98443,Lab,Lab,0,0
+E14000581,12,26,Bootle,Bootle,North_West_,8.9,98428,107.2,73,-123.6,-3.1,87238,Lab,Lab,0,0
+E14001010,14,28,Wallasey,Wallasey,North_West_,31.4,89642,176.7,106,-201.8,-4.7,106301,Lab,Lab,0,0
+E14001007,20,41,Uxbridge and South Ruislip,Uxbridge_and_South_Ruislip,London,48.3,104114,984.6,81,2992.5,26.8,285117,Con,Con,1,1
+E14000676,22,43,"Ealing, Southall",Ealing_Southall,London,29.8,98463,1727.8,100,4457.5,37.4,350711,Lab,Lab,0,0
+E14001005,21,44,Twickenham,Twickenham,London,34.1,113550,2653.7,96,11211,40,568508,LD,LD,0,0
+E14000701,20,43,Feltham and Heston,Feltham_and_Heston,London,34,128307,1080.8,83,3085.1,31.3,217450,Lab,Lab,0,0
+E14001040,23,45,Wimbledon,Wimbledon,London,49.1,97604,4223.8,136,10635,36.3,708138,Con,Con,1,1
+E14000896,22,44,Richmond Park,Richmond_Park,London,49.7,118846,4194.1,117,13059.3,34.5,735997,Con,Con,1,1
+E14000984,22,46,Sutton and Cheam,Sutton_and_Cheam,London,42.4,96653,1189.2,93,3969.3,28.4,341538,LD,LD,0,0
+E14000770,22,45,Kingston and Surbiton,Kingston_and_Surbiton,London,36.5,120655,1960.8,103,6543.9,34.8,379388,LD,LD,0,0
+E14000741,23,39,Hendon,Hendon,London,42.3,126421,2566.1,114,6428.6,34,388821,Con,Con,1,1
+E14000592,22,41,Brent North,Brent_North,London,31.5,129677,2266.0,105,5358.2,36.5,340545,Lab,Lab,0,0
+E14000731,23,40,Harrow East,Harrow_East,London,44.7,105529,1384.7,84,4020.4,28.8,379665,Con,Con,1,1
+E14000675,21,42,Ealing North,Ealing_North,London,30.9,122549,1823.9,99,4760,35.4,299735,Lab,Lab,0,0
+E14000737,20,42,Hayes and Harlington,Hayes_and_Harlington,London,29.4,114190,1015.1,89,2638.8,29,225626,Lab,Lab,0,0
+E14000732,22,40,Harrow West,Harrow_West,London,36.8,105402,1624.7,116,3651.4,28.9,322112,Lab,Lab,0,0
+E14000906,21,41,"Ruislip, Northwood and Pinner",Ruislip_Northwood_and_Pinner,London,57.5,94898,1301.6,71,5391,29.1,466876,Con,Con,1,1
+E14000768,24,43,Kensington,Kensington,London,50.1,114633,14935.3,209,30156.3,40.3,1185020,Con,Con,1,1
+E14000726,22,42,Hammersmith,Hammersmith,London,36.4,116708,6509.1,170,12950.1,47.2,496598,Lab,Lab,0,0
+E14000692,25,38,"Enfield, Southgate",Enfield_Southgate,London,49.4,98882,2101.7,117,4414.1,26.1,429657,Con,Con,1,1
+E14000752,25,40,Hornsey and Wood Green,Hornsey_and_Wood_Green,London,16.7,126977,5824.5,157,13535.7,42.1,577998,LD,LD,0,0
+E14000636,24,39,Chipping Barnet,Chipping_Barnet,London,48.8,114096,1927.0,93,6249.6,31,439410,Con,Con,1,1
+E14000656,24,46,Croydon South,Croydon_South,London,50.9,114523,1367.0,75,5682.6,32.1,379239,Con,Con,1,1
+E14000634,27,39,Chingford and Woodford Green,Chingford_and_Woodford_Green,London,52.8,88789,818.0,72,2712.4,22.6,328256,Con,Con,1,1
+E14001013,28,40,Walthamstow,Walthamstow,London,14,113791,2014.4,126,4739.1,40.9,268617,Lab,Lab,0,0
+E14000687,26,39,Edmonton,Edmonton,London,29.8,114381,1251.3,109,2380.9,26.1,214080,Lab,Lab,0,0
+E14000720,27,40,Hackney North and Stoke Newington,Hackney_North_and_Stoke_Newington,London,14.5,131054,4919.0,157,9504.3,48.8,352235,Lab,Lab,0,0
+E14001002,25,39,Tottenham,Tottenham,London,14.9,131935,2623.1,139,5758.6,44.3,241571,Lab,Lab,0,0
+E14000751,30,41,Hornchurch and Upminster,Hornchurch_and_Upminster,London,51.4,103569,509.4,46,2847.7,23,284734,Con,Con,1,1
+E14000759,28,39,Ilford North,Ilford_North,London,45.7,103814,850.4,76,2391.1,21.4,287307,Con,Con,1,1
+E14000657,29,41,Dagenham and Rainham,Dagenham_and_Rainham,London,34.3,103525,682.8,72,2028.6,25.6,192647,Lab,Lab,0,0
+E14000558,30,43,Bexleyheath and Crayford,Bexleyheath_and_Crayford,London,50.5,88427,370.7,50,1852,22.3,230740,Con,Con,1,1
+E14000900,29,40,Romford,Romford,London,56,97428,631.1,68,2544.1,24.1,255591,Con,Con,1,1
+E14000872,29,45,Orpington,Orpington,London,59.7,89404,578.0,41,4850,32.3,398656,Con,Con,1,1
+E14000869,30,44,Old Bexley and Sidcup,Old_Bexley_and_Sidcup,London,54.1,87123,471.3,52,2480.4,23.5,291027,Con,Con,1,1
+E14000690,29,44,Eltham,Eltham,London,37.5,90222,797.1,63,3605.3,34.4,277877,Lab,Lab,0,0
+E14000787,28,44,Lewisham East,Lewisham_East,London,23.6,103954,1930.0,108,5547.6,40.2,312254,Lab,Lab,0,0
+E14000604,28,45,Bromley and Chislehurst,Bromley_and_Chislehurst,London,53.5,89826,1023.8,68,5183.7,32.8,400950,Con,Con,1,1
+E14000718,28,43,Greenwich and Woolwich,Greenwich_and_Woolwich,London,24.5,115907,2658.3,128,5854.6,36.5,318196,Lab,Lab,0,0
+E14000679,28,42,East Ham,East_Ham,London,15.2,153676,2037.7,128,3331.2,30.8,226654,Lab,Lab,0,0
+E14000696,29,43,Erith and Thamesmead,Erith_and_Thamesmead,London,31.5,112660,606.7,82,1641.6,22.6,168792,Lab,Lab,0,0
+E14000790,27,41,Leyton and Wanstead,Leyton_and_Wanstead,London,22.2,105935,1480.6,134,2424.1,21.9,273791,Lab,Lab,0,0
+E14001032,27,42,West Ham,West_Ham,London,14.7,160408,2600.6,150,4585.7,35.8,209774,Lab,Lab,0,0
+E14000691,26,38,Enfield North,Enfield_North,London,42.3,104024,1194.5,98,2815.2,26.3,256243,Con,Con,1,1
+E14000760,28,41,Ilford South,Ilford_South,London,27.4,134854,1338.9,114,2289.3,21.7,241054,Lab,Lab,0,0
+E14000540,29,42,Barking,Barking,London,17.8,125771,1060.9,90,2321,27,183351,Lab,Lab,0,0
+E14000553,26,43,Bermondsey and Old Southwark,Bermondsey_and_Old_Southwark,London,17.1,129807,5116.7,149,11755.3,49.6,389755,LD,LD,0,0
+E14000882,27,43,Poplar and Limehouse,Poplar_and_Limehouse,London,27.1,134734,4207.5,168,8176.2,40.7,335851,Lab,Lab,0,0
+E14000555,26,42,Bethnal Green and Bow,Bethnal_Green_and_Bow,London,13.9,128269,3243.4,149,6432.9,42.3,279325,Lab,Lab,0,0
+E14000721,26,41,Hackney South and Shoreditch,Hackney_South_and_Shoreditch,London,13.5,121065,4300.5,140,9071.8,51.2,317508,Lab,Lab,0,0
+E14000764,25,41,Islington South and Finsbury,Islington_South_and_Finsbury,London,19.4,105822,5039.2,146,11948.9,47.9,481079,Lab,Lab,0,0
+E14000727,24,41,Hampstead and Kilburn,Hampstead_and_Kilburn,London,32.7,131018,9718.4,191,17408.8,37.1,760187,Lab,Lab,0,0
+E14000703,24,40,Finchley and Golders Green,Finchley_and_Golders_Green,London,46,123439,4566.4,147,9806.3,32.4,608198,Con,Con,1,1
+E14001036,24,42,Westminster North,Westminster_North,London,38.5,117987,10865.5,190,21531,44.9,833271,Lab,Lab,0,0
+E14000591,23,41,Brent Central,Brent_Central,London,11.2,140006,3421.2,143,6368.5,38.6,308538,LD,LD,0,0
+E14000674,23,43,Ealing Central and Acton,Ealing_Central_and_Acton,London,38,119659,5307.9,175,10331.4,38,511618,Con,Con,1,1
+E14000593,21,43,Brentford and Isleworth,Brentford_and_Isleworth,London,37.2,130745,3296.6,126,7652.4,31.6,451048,Con,Con,1,1
+E14001008,25,44,Vauxhall,Vauxhall,London,21.5,116602,5022.5,156,11585.7,49.6,420805,Lab,Lab,0,0
+E14000639,25,43,Cities of London and Westminster,Cities_of_London_and_Westminster,London,52.2,113475,17269.9,259,35936.5,45.6,1121052,Con,Con,1,1
+E14000763,26,40,Islington North,Islington_North,London,14.2,105225,4215.8,147,9998.2,48.1,408888,Lab,Lab,0,0
+E14000750,25,42,Holborn and St Pancras,Holborn_and_St_Pancras,London,20.4,138921,6932.4,141,15902.6,47.3,523919,Lab,Lab,0,0
+E14000615,26,44,Camberwell and Peckham,Camberwell_and_Peckham,London,13,126909,2396.3,95,6861.6,48.7,269357,Lab,Lab,0,0
+E14000673,26,45,Dulwich and West Norwood,Dulwich_and_West_Norwood,London,22.2,112414,3554.5,118,10428.9,47.4,456549,Lab,Lab,0,0
+E14000551,28,46,Beckenham,Beckenham,London,57.9,88668,1096.2,70,5803.1,33.2,450740,Con,Con,1,1
+E14000654,25,46,Croydon Central,Croydon_Central,London,39.4,116087,1299.0,100,3981.2,31.9,253690,Con,Con,1,1
+E14000788,27,45,Lewisham West and Penge,Lewisham_West_and_Penge,London,25.5,108059,1441.4,111,4278.6,33.8,256811,Lab,Lab,0,0
+E14000789,27,44,"Lewisham, Deptford",Lewisham_Deptford,London,13.5,115681,2862.2,153,6031.7,43.1,270974,Lab,Lab,0,0
+E14000978,25,45,Streatham,Streatham,London,18.3,117998,4158.5,148,10091,47,427667,Lab,Lab,0,0
+E14000655,27,46,Croydon North,Croydon_North,London,24.1,138276,1784.1,125,4232.4,31.8,237177,Lab,Lab,0,0
+E14000621,26,46,Carshalton and Wallington,Carshalton_and_Wallington,London,36.8,96977,747.3,64,3346.2,30.3,276609,LD,LD,0,0
+E14000823,23,46,Mitcham and Morden,Mitcham_and_Morden,London,25.2,104621,1413.8,101,4037.8,38.1,255683,Lab,Lab,0,0
+S14000051,20,0,Orkney and Shetland,Orkney_and_Shetland,Scotland,10.5,44770,15.8,52,409.2,14.2,132941,LD,LD,0,0
+E14000887,23,44,Putney,Putney,London,52,92762,4425.5,151,11640.7,45.5,605480,Con,Con,1,1
+E14000998,24,45,Tooting,Tooting,London,38.5,106084,4432.4,152,11057.1,43.8,556742,Lab,Lab,0,0
+E14000549,24,44,Battersea,Battersea,London,47.3,109466,5734.8,160,14096.2,44.5,619327,Con,Con,1,1
+E14000862,21,35,Northampton South,Northampton_South,East_Midlands,40.8,95145,437.2,114,723.7,12.9,131161,Con,Con,1,1
+E14000649,17,36,Coventry North East,Coventry_North_East,West_Midlands,22.1,112897,322.1,107,244.6,5.1,101138,Lab,Lab,0,0
+E14000861,20,35,Northampton North,Northampton_North,East_Midlands,34.1,87013,291.3,82,599.6,11.9,135210,Con,Con,1,1
+E14000985,20,33,Sutton Coldfield,Sutton_Coldfield,West_Midlands,54,94690,294.3,59,321.6,3.3,232934,Con,Con,1,1
+E14000561,18,33,"Birmingham, Erdington",Birmingham_Erdington,West_Midlands,32.6,98603,208.0,89,156.8,3.9,94864,Lab,Lab,0,0
+E14000563,17,34,"Birmingham, Hodge Hill",Birmingham_Hodge_Hill,West_Midlands,11.6,123537,195.7,66,171.3,4.3,95970,Lab,Lab,0,0
+E14000868,17,35,Nuneaton,Nuneaton,West_Midlands,41.5,91671,218.6,68,766.2,14.4,134400,Con,Con,1,1
+E14000565,13,37,"Birmingham, Northfield",Birmingham_Northfield,West_Midlands,33.6,101950,175.8,60,257.8,5.4,106375,Lab,Lab,0,0
+E14000566,17,33,"Birmingham, Perry Barr",Birmingham_Perry_Barr,West_Midlands,21.3,108224,205.5,80,88.9,2.1,107711,Lab,Lab,0,0
+E14000564,16,34,"Birmingham, Ladywood",Birmingham_Ladywood,West_Midlands,11.9,130702,488.9,139,493.7,9.7,97790,Lab,Lab,0,0
+E14000560,15,35,"Birmingham, Edgbaston",Birmingham_Edgbaston,West_Midlands,37.6,97661,429.3,106,347.8,4.8,171179,Lab,Lab,0,0
+E14001029,16,33,West Bromwich East,West_Bromwich_East,West_Midlands,28.9,88785,135.8,62,119.4,3,109593,Lab,Lab,0,0
+E14000722,14,35,Halesowen and Rowley Regis,Halesowen_and_Rowley_Regis,West_Midlands,41.2,87660,137.8,55,161,3.3,127899,Con,Con,1,1
+E14001030,14,34,West Bromwich West,West_Bromwich_West,West_Midlands,29.3,91260,136.2,65,147.4,4,97122,Lab,Lab,0,0
+E14000671,15,33,Dudley North,Dudley_North,West_Midlands,37,81909,116.8,52,217.1,5.5,111280,Lab,Lab,0,0
+E14000672,13,34,Dudley South,Dudley_South,West_Midlands,43.1,79831,120.3,53,176.5,4.1,123070,Con,Con,1,1
+E14000976,13,35,Stourbridge,Stourbridge,West_Midlands,42.7,89696,170.4,56,170.9,2.8,155729,Con,Con,1,1
+E14000531,19,32,Aldridge-Brownhills,Aldridge-Brownhills,West_Midlands,59.3,76963,133.9,46,282.1,5.3,158696,Con,Con,1,1
+E14001011,18,32,Walsall North,Walsall_North,West_Midlands,34.3,94295,152.4,64,234.5,6.3,92663,Lab,Lab,0,0
+E14001012,19,33,Walsall South,Walsall_South,West_Midlands,35.4,99666,203.0,71,298,6.9,109026,Lab,Lab,0,0
+E14001049,16,32,Wolverhampton North East,Wolverhampton_North_East,West_Midlands,34.3,89491,99.8,57,160.2,4.8,87362,Lab,Lab,0,0
+E14001050,17,32,Wolverhampton South East,Wolverhampton_South_East,West_Midlands,28.6,88960,116.7,63,151.4,4.7,85894,Lab,Lab,0,0
+E14001051,15,32,Wolverhampton South West,Wolverhampton_South_West,West_Midlands,40.7,84973,191.8,87,118.3,2.3,141245,Con,Con,1,1
+E14001016,15,34,Warley,Warley,West_Midlands,24.8,93298,169.3,80,109.2,2.8,104078,Lab,Lab,0,0
+E14000562,14,36,"Birmingham, Hall Green",Birmingham_Hall_Green,West_Midlands,15,117238,372.4,92,255.1,4,152964,Lab,Lab,0,0
+E14000931,15,36,Solihull,Solihull,West_Midlands,42.6,99333,350.1,58,271.5,2.8,231779,LD,LD,0,0
+E14000567,13,36,"Birmingham, Selly Oak",Birmingham_Selly_Oak,West_Midlands,31.1,104469,292.5,93,174.9,3.1,131014,Lab,Lab,0,0
+E14000568,16,35,"Birmingham, Yardley",Birmingham_Yardley,West_Midlands,19.2,108343,212.5,78,153.5,3.4,104683,LD,LD,0,0
+E14000864,26,34,Norwich South,Norwich_South,East,22.9,97993,504.2,122,860.9,12.5,145853,LD,LD,0,0
+E14000816,25,34,Mid Norfolk,Mid_Norfolk,East,49.5,100665,313.2,73,1018.1,12.5,181259,Con,Con,1,1
+E14000620,17,15,Carlisle,Carlisle,North_West_,39.3,86405,132.2,82,-59.4,-1.3,114365,Con,Con,1,1
+S14000006,15,10,"Ayr, Carrick and Cumnock",Ayr_Carrick_and_Cumnock,Scotland,25.5,92829,103.5,59,-332.5,-8.3,89622,Lab,Lab,0,0
+S14000008,21,10,"Berwickshire, Roxburgh and Selkirk",Berwickshire_Roxburgh_and_Selkirk,Scotland,33.8,94678,-94.5,79,-691,-11.5,125706,LD,LD,0,0
+S14000059,19,6,West Dunbartonshire,West_Dunbartonshire,Scotland,7.7,89810,92.0,42,-275.3,-7.6,81989,Lab,Lab,0,0
+S14000014,16,10,"Dumfriesshire, Clydesdale and Tweeddale",Dumfriesshire_Clydesdale_and_Tweeddale,Scotland,38,86708,-80.9,65,-673.9,-11.6,142393,Con,Con,1,1
+S14000027,16,0,Na h-Eileanan an Iar,Na_h-Eileanan_an_Iar,Scotland,4.4,27400,-5.5,39,53.6,4.1,94929,SNP,SNP,0,0
+S14000045,15,11,Midlothian,Midlothian,Scotland,11.9,84700,92.9,40,95.8,2,127898,Lab,Lab,0,0
+S14000020,17,11,East Lothian,East_Lothian,Scotland,19.7,101360,167.7,51,262.8,3.4,167791,Lab,Lab,0,0
+S14000040,19,8,Kilmarnock and Loudoun,Kilmarnock_and_Loudoun,Scotland,14.2,96416,97.1,52,-326.6,-8.4,86423,Lab,Lab,0,0
+S14000019,18,8,"East Kilbride, Strathaven and Lesmahagow",East_Kilbride_Strathaven_and_Lesmahagow,Scotland,13,99182,105.8,48,-405.1,-8.7,102889,Lab,Lab,0,0
+S14000047,19,7,Motherwell and Wishaw,Motherwell_and_Wishaw,Scotland,9.4,91716,113.8,43,33.8,1,81419,Lab,Lab,0,0
+S14000003,17,9,Airdrie and Shotts,Airdrie_and_Shotts,Scotland,8.7,87530,103.6,40,1.1,0,86804,Lab,Lab,0,0
+S14000044,18,9,Livingston,Livingston,Scotland,10.8,108552,250.7,56,125.8,2.3,115278,Lab,Lab,0,0
+S14000023,20,9,Edinburgh North and Leith,Edinburgh_North_and_Leith,Scotland,14.9,109816,881.9,180,-119.7,-1.2,175141,Lab,Lab,0,0
+S14000043,16,9,Linlithgow and East Falkirk,Linlithgow_and_East_Falkirk,Scotland,11.9,113445,172.6,47,246.1,4.8,101818,Lab,Lab,0,0
+S14000028,20,7,Falkirk,Falkirk,Scotland,11.2,111283,159.9,45,226.1,4.4,102311,Lab,Ind,0,0
+S14000041,18,11,Kirkcaldy and Cowdenbeath,Kirkcaldy_and_Cowdenbeath,Scotland,9.3,97349,147.3,59,-133.1,-2.7,105158,Lab,Lab,0,0
+S14000017,19,11,Dunfermline and West Fife,Dunfermline_and_West_Fife,Scotland,6.8,99237,145.3,54,-200.9,-3.8,116892,Lab,Lab,0,0
+S14000021,15,8,East Renfrewshire,East_Renfrewshire,Scotland,30.4,91500,142.8,27,974.4,11.5,219305,Lab,Lab,0,0
+S14000052,18,5,Paisley and Renfrewshire North,Paisley_and_Renfrewshire_North,Scotland,14.6,88671,164.6,45,538.5,10.5,125500,Lab,Lab,0,0
+S14000053,17,5,Paisley and Renfrewshire South,Paisley_and_Renfrewshire_South,Scotland,9.9,85229,218.1,68,543.3,11.5,108189,Lab,Lab,0,0
+S14000010,15,9,Central Ayrshire,Central_Ayrshire,Scotland,20.4,88560,24.0,47,-465.8,-12.7,89672,Lab,Lab,0,0
+S14000048,14,8,North Ayrshire and Arran,North_Ayrshire_and_Arran,Scotland,15.6,94405,28.5,50,-516.6,-11.9,91665,Lab,Lab,0,0
+S14000011,18,6,"Coatbridge, Chryston and Bellshill",Coatbridge_Chryston_and_Bellshill,Scotland,8.1,96443,108.9,39,-8.8,-0.2,85825,Lab,Lab,0,0
+S14000012,14,6,"Cumbernauld, Kilsyth and Kirkintilloch East",Cumbernauld_Kilsyth_and_Kirkintilloch_East,Scotland,8.3,85817,227.8,50,155.7,2.6,155453,Lab,Lab,0,0
+S14000018,20,6,East Dunbartonshire,East_Dunbartonshire,Scotland,15.5,82084,155.9,32,-27.7,-0.4,209917,LD,LD,0,0
+S14000022,21,9,Edinburgh East,Edinburgh_East,Scotland,10.9,96130,684.2,147,-71.4,-0.8,178918,Lab,Lab,0,0
+S14000026,19,9,Edinburgh West,Edinburgh_West,Scotland,23.2,93364,395.5,68,-248.1,-2.6,227672,LD,LD,0,0
+S14000025,19,10,Edinburgh South West,Edinburgh_South_West,Scotland,24.3,100111,648.8,123,-142.9,-1.5,191859,Lab,Lab,0,0
+S14000024,20,10,Edinburgh South,Edinburgh_South,Scotland,21.6,88079,515.6,107,-211.2,-2.5,214041,Lab,Lab,0,0
+S14000036,18,10,Glenrothes,Glenrothes,Scotland,7.2,89179,123.9,54,-114.4,-2.7,103065,Lab,Lab,0,0
+S14000038,16,5,Inverclyde,Inverclyde,Scotland,12,80310,114.0,60,-151,-3.9,98274,Lab,Lab,0,0
+S14000042,17,8,Lanark and Hamilton East,Lanark_and_Hamilton_East,Scotland,15,98057,115.6,50,-332,-6.8,105387,Lab,Lab,0,0
+S14000056,16,8,Rutherglen and Hamilton West,Rutherglen_and_Hamilton_West,Scotland,9.7,104949,102.0,42,-312.8,-6.8,94521,Lab,Lab,0,0
+S14000032,17,6,Glasgow North East,Glasgow_North_East,Scotland,5.3,85028,185.7,79,-175.2,-4.5,90262,Lab,Lab,0,0
+S14000030,18,7,Glasgow East,Glasgow_East,Scotland,4.5,88575,146.5,54,-232.6,-5.5,101302,Lab,Lab,0,0
+S14000031,16,6,Glasgow North,Glasgow_North,Scotland,7.1,71927,229.8,151,-260.2,-7.4,96752,Lab,Lab,0,0
+S14000034,16,7,Glasgow South,Glasgow_South,Scotland,11.5,88359,209.3,94,-408.1,-8.8,107108,Lab,Lab,0,0
+S14000033,15,6,Glasgow North West,Glasgow_North_West,Scotland,9.9,86937,194.0,84,-286.6,-6.7,99007,Lab,Lab,0,0
+S14000035,15,7,Glasgow South West,Glasgow_South_West,Scotland,6.6,85057,141.1,56,-266.1,-6.7,101617,Lab,Lab,0,0
+S14000029,17,7,Glasgow Central,Glasgow_Central,Scotland,7.1,90667,338.2,186,-254.1,-5.9,91419,Lab,Lab,0,0
+W07000048,6,37,Swansea East,Swansea_East,Wales,14.8,80494,87.7,76,-152.2,-4.6,89772,Lab,Lab,0,0
+E14000961,2,47,St Austell and Newquay,St_Austell_and_Newquay,South_West,40,99951,238.1,92,696.8,7.9,187335,LD,LD,0,0
+E14000838,5,44,North Devon,North_Devon,South_West,36,93847,353.2,95,901.9,9.6,210193,LD,LD,0,0
+E14000702,8,42,Filton and Bradley Stoke,Filton_and_Bradley_Stoke,South_West,40.8,94473,581.0,90,1386.2,16.6,208304,Con,Con,1,1
+E14000635,10,44,Chippenham,Chippenham,South_West,41,97078,280.2,62,1202.7,13.6,206156,LD,LD,0,0
+E14000535,22,29,Ashfield,Ashfield,East_Midlands,22.2,102518,177.7,70,310.5,6.5,104573,Lab,Lab,0,0
+E14000629,23,42,Chelsea and Fulham,Chelsea_and_Fulham,London,60.5,104439,12712.7,191,28638.7,46.3,1121926,Con,Con,1,1
+E14000811,15,44,Meon Valley,Meon_Valley,South_East,56.2,90234,334.7,54,1979.8,17.8,282221,Con,Con,1,1
+E14000989,14,32,Telford,Telford,West_Midlands,36.3,90856,258.4,85,294.6,6.5,116082,Lab,Lab,0,0
+E14000599,10,43,Bristol East,Bristol_East,South_West,28.3,96049,515.6,103,1287.6,19.2,155219,Lab,Lab,0,0
+E14000650,16,36,Coventry North West,Coventry_North_West,West_Midlands,29.3,102842,344.2,105,288.7,5.1,122958,Lab,Lab,0,0
