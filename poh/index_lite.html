@@ -81,6 +81,7 @@
     #londonmarker{fill:#b1493f;}
     #othermarker{fill:#E4AEA5;}
     #scrollpoint{position:absolute;top:-50px;}
+    rect.sometext{fill:white;fill-opacity:0.8;}
 
     @media screen and (max-width: 768px) {
     .hovertip{visibility:hidden;}
@@ -290,14 +291,38 @@
       // })
       // .text(function(d){ return d.name});
 
-    d3.selectAll(".hovermarker").on('mouseover', function(){
-      d3.selectAll(".hovertext." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
-      d3.selectAll(".hovertip." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
-      d3.select(".marker." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
+    d3.selectAll("g.constituency").on('mouseover', function(){
+
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('rect')
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return -1*(d.namelen*9+10)}
+            else {return 10}
+        },
+        y:function(d){return -7},
+        width:function(d){return d.namelen*9},
+        "height":"16"
+      })
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return -10}
+            else {return 10}
+        },
+        y:function(d){return 6},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "end"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return d.name});
+      $('g.constituency').insertBefore($(this),null)
     }).on('mouseout', function(){
-      d3.selectAll(".hovertext." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
-      d3.selectAll(".hovertip." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
-      d3.select(".marker." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
+      d3.selectAll(".sometext").remove()
     });
 
     d3.select("#animatebutton").on('click', function(){
@@ -326,22 +351,6 @@
     //       return this.parentNode.getBoundingClientRect().height+5;
     //     }
     //   });
-
-    // textobject = svg.selectAll('g.hovertextbox')
-    //   .append('text')  
-    //   .attr({
-    //     "class":function(d){return "hovertext " + d.classname},
-    //     x:function(d){
-    //       if (d.x >= 18) {return positionScale(d.x)-10}
-    //         else {return positionScale(d.x)+10}
-    //     },
-    //     y:function(d){return positionScale(d.y)+6},
-    //     "text-anchor":function(d){
-    //       if (d.x >= 18) {return "end"}
-    //         else {return "start"}
-    //     }
-    //   })
-    //   .text(function(d){ return d.name});
 
     });
 
