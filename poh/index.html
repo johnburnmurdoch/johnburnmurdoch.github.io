@@ -97,8 +97,6 @@
     #slidetitle{font-size:26px;top:48px;}
     #textholder{height:690px;}
     #container{height:950px;}
-    #textholder.introstate{opacity:0.5;}
-    #thesvg.introstate{opacity:0.5;}
     #navintro{position:absolute;padding:12px;font-size:24px;white-space:nowrap;width:475px;top:880px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:1.25px;}
     #animatebutton{visibility:hidden;}
@@ -128,6 +126,8 @@
     #slidetitle{font-size:22px;top:48px;}
     #textholder{height:690px;}
     #container{height:690px;}
+    #textholder.introstate{opacity:0.5;}
+    #thesvg.introstate{opacity:0.5;}
     #navintro{padding:6px;font-size:12px;white-space:nowrap;width:280px;top:300px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:2px;}
     #scrollpoint{position:absolute;top:45px;}
@@ -224,7 +224,7 @@
     var slidenum = 0;
 
     function setup(){
-      if (progwidth >=790) {return slidenum = 1;}
+      if (progwidth >=400) {return slidenum = 1;}
         else {return slidenum = 0;}
     };
 
