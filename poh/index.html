@@ -82,6 +82,7 @@
     #londonmarker{fill:#b1493f;}
     #othermarker{fill:#E4AEA5;}
     #scrollpoint{position:absolute;top:-50px;}
+    #scrollpointtwo{position:absolute;top:-50px;}
     rect.sometext{fill:white;fill-opacity:0.8;}
     #navpoint{visibility:hidden;}
 
@@ -125,12 +126,13 @@
     #slidetitle{font-size:22px;top:48px;}
     #textholder{height:690px;}
     #container{height:690px;}
-    #navintro{padding:8px;font-size:14px;white-space:nowrap;width:280px;top:300px;left:0;right:0;visibility:visible;}
+    #navintro{padding:7px;font-size:12px;white-space:nowrap;width:280px;top:300px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:2px;}
     #scrollpoint{position:absolute;top:45px;}
+    #scrollpointtwo{position:absolute;top:80px;}
     #animatebutton{visibility:hidden;}
     .ylabel,.xlabel{font-size:18px;}
-    #navpoint{visibility:visible;position:absolute;top:600px;}
+    #navpoint{visibility:visible;position:absolute;top:615px;}
     }
     </style>
   </head>
@@ -191,6 +193,8 @@
       .text("Right arrow or swipe right-to-left to continue");
 
     cont.append("div").attr({"id":"navpoint"});
+
+    cont.append("div").attr({"id":"scrollpointtwo"});
 
     function moveintro(){return d3.select("#navintro").transition().duration(2000).style("top",function(){return d3.select("#navpoint").style("top")})};
 
@@ -391,10 +395,11 @@
 
     d3.select("#animatebutton").on('click', function(){
       if (slidenum == 0) {return gainassize();}
-        else {if (slidenum == 1) return dolondon();
-        else {if (slidenum == 2) return twospeed();
-        else {if (slidenum == 3) return backtomap();
-        else {if (slidenum == 4) return animate();}}}}
+        else {if (slidenum == 1) return scrolltwo();
+        else {if (slidenum == 2) return dolondon();
+        else {if (slidenum == 3) return twospeed();
+        else {if (slidenum == 4) return backtomap();
+        else {if (slidenum == 5) return animate();}}}}}
     });
 
     var bbox = textobject[0][0].getBBox();
@@ -535,7 +540,7 @@
     function animate() {
         scatterhovers();
         d3.selectAll(".sometext").remove();
-        newtext("And now we show the same data as a scatter plot, giving a clearer picture of the fact that Tory voters benefit most from increased house prices, hence why Tories will push related policies in the coming months");
+        newtext("Now we show the same data as a scatter plot, giving a clearer picture of the fact that Tory voters benefit most from increased house prices, hence Tories will push related policies in the coming months");
         d3.select("#animatebutton").style("visibility","hidden");
       d3.selectAll("g.constituency").transition().duration(2000).delay(0)
         .attr({
@@ -600,14 +605,14 @@
         })        
         // .style("fill-opacity","0.5");
       sizePlotProperty = 'valgainall',
-      slidenum = 1;
+      slidenum = 2;
       };
 
       function dolondon() {
         d3.selectAll(".sometext").remove();
         d3.selectAll(".London").classed("highlit",true);
         newtext("We've now highlighted London constituencies, showing how gains in property value have been concentrated in the capital. In fact such is the extent of the two speed market we now see, that...");
-        slidenum = 2;
+        slidenum = 3;
       };
 
       function twospeed(){
@@ -655,7 +660,7 @@
             return positionScale(sizeScale2(Math.sqrt(parseFloat(402261))))*0.5
           }
         })
-        slidenum = 3;
+        slidenum = 4;
       };
 
       colourRangetory = ['#b8b1a9','#3C5F5E'];
@@ -691,14 +696,21 @@
           }
         })
         colourPlotProperty = 'toryvote',
-        slidenum = 4;
+        slidenum = 5;
       };
 
       function scrollit() {
         $('html, body').animate({
         scrollTop: $("#scrollpoint").offset().top
         }, 2000);
+      };
+
+      function scrolltwo() {
+        $('html, body').animate({
+        scrollTop: $("#scrollpointtwo").offset().top
+        }, 2000);
         moveintro();
+        slidenum = 1;
       };
 
       function newtext(str){return d3.select("#captionhold1 span")
@@ -715,12 +727,12 @@
 
       addEventListener("keydown", function(event) {
         if (event.keyCode == 34 && slidenum == -1) toslide0()
-        else {if (event.keyCode == 34 && slidenum == 0) gainassize()
-        else {if (event.keyCode == 34 && slidenum == 1) dolondon()
-        else {if (event.keyCode == 34 && slidenum == 2) twospeed()
-        else {if (event.keyCode == 34 && slidenum == 3) backtomap()
-        else {if (event.keyCode == 34 && slidenum == 4) animate()
-        else {if (event.keyCode == 34 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 34 && slidenum == 0) scrolltwo()
+        else {if (event.keyCode == 34 && slidenum == 1) gainassize()
+        else {if (event.keyCode == 34 && slidenum == 2) dolondon()
+        else {if (event.keyCode == 34 && slidenum == 3) twospeed()
+        else {if (event.keyCode == 34 && slidenum == 4) backtomap()
+        else {if (event.keyCode == 34 && slidenum == 5) animate()
         else {if (event.keyCode == 34 && slidenum == 6) toslide7()
         else {if (event.keyCode == 34 && slidenum == 7) toslide8()
         else {if (event.keyCode == 34 && slidenum == 8) toslide9()
@@ -741,12 +753,12 @@
 
     addEventListener("keydown", function(event) {
         if (event.keyCode == 39 && slidenum == -1) toslide0()
-        else {if (event.keyCode == 39 && slidenum == 0) gainassize()
-        else {if (event.keyCode == 39 && slidenum == 1) dolondon()
-        else {if (event.keyCode == 39 && slidenum == 2) twospeed()
-        else {if (event.keyCode == 39 && slidenum == 3) backtomap()
-        else {if (event.keyCode == 39 && slidenum == 4) animate()
-        else {if (event.keyCode == 39 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 39 && slidenum == 0) scrolltwo()
+        else {if (event.keyCode == 39 && slidenum == 1) gainassize()
+        else {if (event.keyCode == 39 && slidenum == 2) dolondon()
+        else {if (event.keyCode == 39 && slidenum == 3) twospeed()
+        else {if (event.keyCode == 39 && slidenum == 4) backtomap()
+        else {if (event.keyCode == 39 && slidenum == 5) animate()
         else {if (event.keyCode == 39 && slidenum == 6) toslide7()
         else {if (event.keyCode == 39 && slidenum == 7) toslide8()
         else {if (event.keyCode == 39 && slidenum == 8) toslide9()
@@ -767,12 +779,12 @@
 
     $("body").on("swipeleft",function(){
       if (slidenum == -1) toslide0()
-        else {if (slidenum == 0) gainassize()
-        else {if (slidenum == 1) dolondon()
-        else {if (slidenum == 2) twospeed()
-        else {if (slidenum == 3) backtomap()
-        else {if (slidenum == 4) animate()
-        else {if (slidenum == 5) toslide6()
+        else {if (slidenum == 0) scrolltwo()
+        else {if (slidenum == 1) gainassize()
+        else {if (slidenum == 2) dolondon()
+        else {if (slidenum == 3) twospeed()
+        else {if (slidenum == 4) backtomap()
+        else {if (slidenum == 5) animate()
         else {if (slidenum == 6) toslide7()
         else {if (slidenum == 7) toslide8()
         else {if (slidenum == 8) toslide9()
