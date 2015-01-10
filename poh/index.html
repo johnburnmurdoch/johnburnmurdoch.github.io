@@ -497,6 +497,7 @@
 
 
       function gainassize() {
+        d3.selectAll(".sometext").remove();
         newtext("Now the size scale has changed to the total gain in value, so something here about how we see even greater evidence of the two speed housing market. In fact in the next slide...");
         d3.selectAll('.marker')
         .transition().duration(2000)
@@ -511,6 +512,7 @@
       };
 
       function dolondon() {
+        d3.selectAll(".sometext").remove();
         d3.selectAll(".London").classed("highlit",true)
       };
 
@@ -570,6 +572,7 @@
 
 
       function backtomap(){
+        d3.selectAll(".sometext").remove();
         newtext("Now back to the map, where we broach the political question, by colouring the circles according to whether or not they have a Tory MP");
         d3.select("#londonmarker").transition().duration(500).delay(000).attr({
           "r":"0"
