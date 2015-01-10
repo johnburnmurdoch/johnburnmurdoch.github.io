@@ -70,6 +70,7 @@
     #animatebutton{position:relative;top:160px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
     #animatebutton:hover{background-color:#74736c;color:#fff1e0;}
     #slidetitle{position:absolute;top:60px;left:0;right:0;margin-left:auto;margin-right:auto;font-size:32px;font-family:"MillerDisplay","Clarion",Georgia,serif;}
+    #navintro{position:relative;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;white-space:nowrap;display: block;margin: 0 auto;width: 355px;top:590px;z-index:2000;visibility:hidden;}
     .hovertip{width:150px;height:20px;fill:white;fill-opacity:0.8;opacity:0;pointer-events:none;}
     .hovertip.hovered{opacity:1;}
     .axis path{fill:none;stroke:none;}
@@ -82,6 +83,7 @@
     #othermarker{fill:#E4AEA5;}
     #scrollpoint{position:absolute;top:-50px;}
     rect.sometext{fill:white;fill-opacity:0.8;}
+    #navpoint{visibility:hidden;}
 
     @media screen and (max-width: 768px) {
     .hovertip{visibility:hidden;}
@@ -93,9 +95,11 @@
     #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
     #slidetitle{font-size:26px;top:48px;}
     #textholder{height:690px;}
-    #container{height:690px;}
+    #container{height:950px;}
+    #navintro{position:absolute;padding:12px;font-size:24px;white-space:nowrap;width:475px;top:880px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:1.25px;}
     #animatebutton{visibility:hidden;}
+    #navpoint{position:absolute;top:880px;}
     }
 
     @media screen and (max-width: 605px) {
@@ -107,9 +111,8 @@
     #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
     #slidetitle{font-size:26px;top:48px;}
     #textholder{height:690px;}
-    #container{height:690px;}
+    #container{height:750px;}
     .axis line{stroke-width:1.25px;}
-    #animatebutton{visibility:hidden;}
     }
 
     @media screen and (max-width: 480px) {
@@ -122,10 +125,12 @@
     #slidetitle{font-size:22px;top:48px;}
     #textholder{height:690px;}
     #container{height:690px;}
+    #navintro{padding:8px;font-size:14px;white-space:nowrap;width:280px;top:300px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:2px;}
     #scrollpoint{position:absolute;top:45px;}
     #animatebutton{visibility:hidden;}
     .ylabel,.xlabel{font-size:18px;}
+    #navpoint{visibility:visible;position:absolute;top:600px;}
     }
     </style>
   </head>
@@ -180,6 +185,14 @@
     var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"-30 -20 700 900"});
 
     thetext.append("div").attr({"id":"scrollpoint"});
+
+    cont.append("span")
+      .attr("id","navintro")
+      .text("Right arrow or swipe right-to-left to continue");
+
+    cont.append("div").attr({"id":"navpoint"});
+
+    function moveintro(){return d3.select("#navintro").transition().duration(2000).style("top",function(){return d3.select("#navpoint").style("top")})};
 
     /* ADD INTERACTIVITY HERE! */
 
@@ -685,6 +698,7 @@
         $('html, body').animate({
         scrollTop: $("#scrollpoint").offset().top
         }, 2000);
+        moveintro();
       };
 
       function newtext(str){return d3.select("#captionhold1 span")
