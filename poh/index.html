@@ -97,6 +97,8 @@
     #slidetitle{font-size:26px;top:48px;}
     #textholder{height:690px;}
     #container{height:950px;}
+    #textholder.introstate{opacity:0.5;}
+    #thesvg.introstate{opacity:0.5;}
     #navintro{position:absolute;padding:12px;font-size:24px;white-space:nowrap;width:475px;top:880px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:1.25px;}
     #animatebutton{visibility:hidden;}
@@ -173,10 +175,12 @@
 
     var myFormat = d3.format(',');
 
-    var cont = d3.select("body").append("div")
-      .attr("id","container");
+    var progwidth= window.innerWidth;
 
-    var thetext = d3.select("div#container").append("div").attr("id","textholder");
+    var cont = d3.select("body").append("div")
+      .attr("id","container")
+
+    var thetext = d3.select("div#container").append("div").attr("id","textholder").attr("class","introstate");;
 
     thetext.append("span").attr("id","slidetitle").text("The politics of British housing");
 
@@ -184,7 +188,7 @@
 
     thetext.append("span").attr("id","animatebutton").text("Next »");
 
-    var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"-30 -20 700 900"});
+    var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"-30 -20 700 900","class":"introstate"});
 
     thetext.append("div").attr({"id":"scrollpoint"});
 
@@ -218,6 +222,13 @@
     var dataset;
 
     var slidenum = 0;
+
+    function setup(){
+      if (progwidth >=790) {return slidenum = 1;}
+        else {return slidenum = 0;}
+    };
+
+    setup();
 
     d3.csv('alldata.csv',function(data){
 
@@ -406,8 +417,8 @@
     
 
     d3.select("#animatebutton").on('click', function(){
-      if (slidenum == 0) {return gainassize();}
-        else {if (slidenum == 1) return scrolltwo();
+      if (slidenum == 0) {return scrolltwo();}
+        else {if (slidenum == 1) return gainassize();
         else {if (slidenum == 2) return dolondon();
         else {if (slidenum == 3) return twospeed();
         else {if (slidenum == 4) return backtomap();
@@ -723,6 +734,8 @@
         }, 2000);
         moveintro();
         slidenum = 1;
+        d3.select("#textholder").classed("introstate",false)
+        d3.select("#thesvg").classed("introstate",false)
       };
 
       function newtext(str){return d3.select("#captionhold1 span")
