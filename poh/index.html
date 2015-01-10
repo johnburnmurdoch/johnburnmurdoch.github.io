@@ -132,7 +132,7 @@
     #scrollpointtwo{position:absolute;top:80px;}
     #animatebutton{visibility:hidden;}
     .ylabel,.xlabel{font-size:18px;}
-    #navpoint{visibility:visible;position:absolute;top:615px;}
+    #navpoint{visibility:visible;position:absolute;top:600px;}
     }
     </style>
   </head>
@@ -336,7 +336,10 @@
           if (d.x >= 18) {return -1*(360)}
             else {return 5}
         },
-        y:function(d){return -9},
+        y:function(d){
+          if (d.y >= 45) {return -59}
+            else {return -9}
+        },
         width:function(d){return 350},
         "height":"50"
       })
@@ -348,7 +351,10 @@
           if (d.x >= 18) {return -350}
             else {return 10}
         },
-        y:function(d){return 6},
+        y:function(d){
+          if (d.y >= 45) {return -44}
+            else {return 6}
+        },
         "text-anchor":function(d){
           if (d.x >= 18) {return "start"}
             else {return "start"}
@@ -363,7 +369,10 @@
           if (d.x >= 18) {return -350}
             else {return 10}
         },
-        y:function(d){return 22},
+        y:function(d){
+          if (d.y >= 45) {return -28}
+            else {return 22}
+        },
         "text-anchor":function(d){
           if (d.x >= 18) {return "start"}
             else {return "start"}
@@ -378,7 +387,10 @@
           if (d.x >= 18) {return -350}
             else {return 10}
         },
-        y:function(d){return 36},
+        y:function(d){
+          if (d.y >= 45) {return -14}
+            else {return 36}
+        },
         "text-anchor":function(d){
           if (d.x >= 18) {return "start"}
             else {return "start"}
