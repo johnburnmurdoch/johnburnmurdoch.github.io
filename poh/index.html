@@ -1,0 +1,637 @@
+
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+  <head>
+    <title>The politics of Britain's housing market</title>
+    <script src="d3.min.js"></script>
+    <script type='text/javascript' src='jquery211.min.js'></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style type='text/css'>
+    @font-face{
+        font-family: "BentonSans";
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face{
+    font-family: "BentonSans";
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+    }
+    @font-face{
+    font-family: "MillerDisplay";
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot');
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.woff") format("woff"),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    @font-face{
+    font-family: "Clarion";
+    src: url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    body{background-color:#fff1e0;margin:auto;font-family:"BentonSans",sans-serif;cursor:default;}
+    .ui-mobile {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline:none;
+    }
+    .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
+    #ft-header {height: 50px;background-color: #fff1e0;width: 100%;position: absolute;top: 0;z-index: 2000;overflow: hidden;text-align:center;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);}
+    #ft-header a{background-color:#fff1e0;}
+    #ft-header a>img {margin-top: 13px;opacity: .8;transition: opacity .3s;height:20px;}
+    h1 {text-align: center;margin: 70px auto auto;font-family: "MillerDisplay","Clarion",Georgia,serif;font-weight: 400;font-size: 3em;}
+    h1 {display: block;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
+    text{font-family:"BentonSans",sans-serif;cursor:default;}
+    #container{height:950px;width:100%;margin-left:auto;margin-right:auto;background-color:transparent;text-align:center;max-width:900px;}
+    #thesvg{position:relative;top:170px;height:700px;width:100%;max-width:900px;}
+    #textholder{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:95%;background-color:transparent;height:100%;max-width:900px;z-index:1000;pointer-events:none;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:110px;width:100%;height:44px;max-width:900px;z-index:1000;text-align:left;font-size:18px;line-height:24px;background-color:#fff1e0;}
+    .hovertext_{opacity:0;pointer-events:none;}
+    .hovertext{opacity:0;pointer-events:none;font-size:16px;}
+    .hovertext.hovered{opacity:1;pointer-events:none;}
+    .marker{stroke:#E4AEA5;stroke-width:0.5px;}
+    .marker.hovered{stroke:#43423e;stroke-width:1px;}
+    .hovermarker{fill:transparent;}
+    #animatebutton{position:relative;top:160px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
+    #animatebutton:hover{background-color:#74736c;color:#fff1e0;}
+    #slidetitle{position:absolute;top:60px;left:0;right:0;margin-left:auto;margin-right:auto;font-size:32px;font-family:"MillerDisplay","Clarion",Georgia,serif;}
+    .hovertip{width:150px;height:20px;fill:white;fill-opacity:0.8;opacity:0;pointer-events:none;}
+    .hovertip.hovered{opacity:1;}
+    .axis path{fill:none;stroke:none;}
+    .axis line{fill:none;stroke:#a7a59b;shape-rendering:crispEdges;stroke-dasharray:3px 3px;stroke-width:1.25px;}
+    .axis text{font-family:"BentonSans"sans-serif;font-size: 16px;fill:#74736c;}
+    .axis{opacity:0;}
+    .axis.showing{opacity:1;}
+    .marker.highlit{stroke:#43423e;stroke-width:2px;}
+    #londonmarker{fill:#b1493f;}
+    #othermarker{fill:#E4AEA5;}
+    #scrollpoint{position:absolute;top:-50px;}
+
+    @media screen and (max-width: 768px) {
+    .hovertip{visibility:hidden;}
+    #ft-header {height: 40px;}
+    #ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
+    #thesvg{position:relative;top:175px;height:450px;width:100%;max-width:900px;}
+    .hovertext{opacity:0;pointer-events:none;font-size:20px;}
+    #captionhold1{height:44px;font-size:18px;line-height:24px;top:85px;}
+    #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
+    #slidetitle{font-size:26px;top:48px;}
+    #textholder{height:690px;}
+    #container{height:690px;}
+    .axis line{stroke-width:2px;}
+    #animatebutton{visibility:hidden;}
+    }
+
+    @media screen and (max-width: 605px) {
+    #ft-header {height: 40px;}
+    #ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
+    #thesvg{position:relative;top:190px;height:450px;width:100%;max-width:900px;}
+    .hovertext{opacity:0;pointer-events:none;font-size:20px;}
+    #captionhold1{height:44px;font-size:18px;line-height:24px;top:85px;}
+    #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
+    #slidetitle{font-size:26px;top:48px;}
+    #textholder{height:690px;}
+    #container{height:690px;}
+    .axis line{stroke-width:2px;}
+    #animatebutton{visibility:hidden;}
+    }
+
+    @media screen and (max-width: 480px) {
+    #ft-header {height: 40px;}
+    #ft-header a>img {margin-top: 11px;opacity: .8;transition: opacity .3s;height:18px;}
+    #thesvg{position:relative;top:155px;height:450px;width:100%;max-width:900px;}
+    .hovertext{opacity:0;pointer-events:none;font-size:20px;}
+    #captionhold1{height:44px;font-size:14px;line-height:18px;top:80px;}
+    #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
+    #slidetitle{font-size:22px;top:48px;}
+    #textholder{height:690px;}
+    #container{height:690px;}
+    .axis line{stroke-width:2px;}
+    #scrollpoint{position:absolute;top:45px;}
+    #animatebutton{visibility:hidden;}
+    .ylabel,.xlabel{font-size:18px;}
+    }
+    </style>
+  </head>
+  <body>
+    <header id="ft-header" class="stickable">
+      <a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+    </header>
+
+    <script type="text/javascript">
+
+    //config
+    var width = 900,
+      height = 700,
+      margin = {top:20,left:20,bottom:20,right:20},
+      // colourPlotProperty = 'valgainprivrent',
+      // colourRange = ['#3C5F5E','#fff1e0','#E4AEA5','#b1493f'],
+      colourPlotProperty = 'unitsperthouprivrent',
+      colourRange = ['#fff1e0','#b1493f'],
+      sizeRange = [0.6,1.2],
+      sizePlotProperty = 'aveval',
+      xPlotProperty = 'aveval',
+      yPlotProperty = 'toryvote';
+
+
+    var cont = d3.select("body").append("div")
+      .attr("id","container");
+
+    var thetext = d3.select("div#container").append("div").attr("id","textholder");
+
+    thetext.append("span").attr("id","slidetitle").text("The politics of British housing");
+
+    thetext.append("div").attr({"id":"captionhold1"}).append("span").text("Intro text here, something about London having both the highest house prices (circle size) and the largest private renting sector(shade of red)");
+
+    thetext.append("span").attr("id","animatebutton").text("Next »");
+
+    var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"-30 -20 700 900"});
+
+    thetext.append("div").attr({"id":"scrollpoint"});
+
+    /* ADD INTERACTIVITY HERE! */
+
+    var plotWidth = width - (margin.left + margin.right);
+    var plotHeight = height - (margin.top + margin.bottom);
+    var lookup = {};
+
+    var positionScale = d3.scale.linear()
+                          .range([0, Math.max(plotWidth, plotHeight)]);
+
+    var xScale = d3.scale.linear()
+                          .range([20,plotWidth-270])
+                          .domain([0,1200000]);
+
+    var yScale = d3.scale.linear()
+                          .range([plotHeight,15])
+                          .domain([0,70]);
+
+    var dataset;
+
+    var slidenum = 0;
+
+    d3.csv('alldata.csv',function(data){
+
+    dataset = data;
+
+    // console.log(data)
+
+    // data.forEach(function(row) {
+    //             console.log(Object.keys(row));
+    //         });
+    var jbm = d3.extent(data, function(d){ return parseFloat(d[colourPlotProperty]);})
+
+    Array.prototype.push.apply(jbm,[0,600]);
+
+    newdomain = jbm.sort(d3.ascending);
+    
+    var colourScale = d3.scale.linear()  
+                          .range(colourRange)
+                          // .domain(newdomain);
+                          .domain(d3.extent(data, function(d){ return (parseFloat(d[colourPlotProperty])) }));
+
+    var sizeScale = d3.scale.linear()
+                          .range(sizeRange)
+                          .domain(d3.extent(data, function(d){ return Math.sqrt(parseFloat(d[sizePlotProperty])) }));
+
+    console.log(newdomain);
+
+    // data.id.forEach(function(d){
+    //   lookup[d.id] = d;
+    // });
+
+    var xMax = d3.max(data, function(d){ return parseInt(d.x) });
+    var yMax = d3.max(data, function(d){ return parseInt(d.y) });
+
+    positionScale.domain([0, Math.max(xMax,yMax)]);
+
+    svg.selectAll('g.constituency').data(data).enter()
+      .append('g')
+        .attr({
+          'class':function(d) {return 'constituency '+ d.region},
+          'id':function(d){ return d.classname; },
+          'transform':function(d){
+            var xpos = positionScale(d.x);
+            var ypos = positionScale(d.y);
+            return 'translate('+xpos+','+ypos+')';
+          }
+        });
+
+    d3.selectAll('g.constituency')
+      .append('circle')
+      .attr({
+        r:function(d){
+          if(sizePlotProperty){
+            return positionScale(sizeScale(Math.sqrt(parseFloat(d[sizePlotProperty]))))*0.5
+          }else{ 
+            return positionScale(0.5);
+          }
+        },
+        fill:function(d){
+          return colourScale(parseFloat(d[colourPlotProperty]));
+        },
+        class:function(d){return "marker " + d.classname + " " + d.region}
+      });
+
+    d3.selectAll('g.constituency')
+      .append('circle')
+      .attr({
+        r:positionScale(0.5),
+        class:function(d){return "hovermarker " + d.classname}
+      });
+
+    textgroup = svg.selectAll('g.hovertextbox').data(data).enter()
+      .append('g')
+      .attr('class','hovertextbox')
+    textobject = svg.selectAll('g.hovertextbox')
+      .append('text')  
+      .attr({
+        "class":function(d){return "hovertext_ " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return positionScale(d.x)-10}
+            else {return positionScale(d.x)+10}
+        },
+        y:function(d){return positionScale(d.y)+6},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "end"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return d.name});
+
+      svg.selectAll('g.hovertextbox')
+      .append('text')  
+      .attr({
+        "class":function(d){return "hovertext_ " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return positionScale(d.x)-10}
+            else {return positionScale(d.x)+10}
+        },
+        y:function(d){return positionScale(d.y)+6},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "end"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return d.name});
+
+    d3.selectAll(".hovermarker").on('mouseover', function(){
+      d3.selectAll(".hovertext." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
+      d3.selectAll(".hovertip." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
+      d3.select(".marker." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
+    }).on('mouseout', function(){
+      d3.selectAll(".hovertext." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
+      d3.selectAll(".hovertip." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
+      d3.select(".marker." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
+    });
+
+    d3.select("#animatebutton").on('click', function(){
+      if (slidenum == 0) {return gainassize();}
+        else {if (slidenum == 1) return twospeed();
+        else {if (slidenum == 2) return backtomap();
+        else {if (slidenum == 3) return animate();}}}
+    });
+
+    var bbox = textobject[0][0].getBBox();
+    var tipwidth = bbox.width;
+
+    svg.selectAll('g.hovertextbox')
+      .append('rect')
+      .attr({
+        "class":function(d){return "hovertip " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return positionScale(d.x)-(this.parentNode.getBoundingClientRect().width * 1.32+10)}
+            else {return positionScale(d.x)+10}
+        },
+        y:function(d){return positionScale(d.y)-7},
+        "width":function(){
+          return this.parentNode.getBoundingClientRect().width * 1.35;
+        },
+        "height":function(){
+          return this.parentNode.getBoundingClientRect().height+5;
+        }
+      });
+
+    textobject = svg.selectAll('g.hovertextbox')
+      .append('text')  
+      .attr({
+        "class":function(d){return "hovertext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return positionScale(d.x)-10}
+            else {return positionScale(d.x)+10}
+        },
+        y:function(d){return positionScale(d.y)+6},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "end"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return d.name});
+
+    });
+
+    var xAxis = d3.svg.axis()
+      .scale(xScale)
+      .orient("bottom")
+      .tickFormat(d3.format("d"))
+      .tickValues([0,250000,500000,750000,1000000,1250000])
+      .tickSize(-645)
+      ;
+
+    var yAxis = d3.svg.axis()
+      .scale(yScale)
+      .orient("left")
+      .tickFormat(d3.format("d"))
+      .tickValues([0,10,20,30,40,50,60,70])
+      .tickSize(-600)
+      ;
+
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "xaxis")
+    .attr("transform", "translate(0,660)")
+    .call(xAxis);
+
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "yaxis")
+    .attr("transform", "translate(20,0)")
+    .call(yAxis);
+
+    svg.append("text")
+    .attr({
+      "class":"axis ylabel",
+      "x":"0",
+      "y":"-2"
+    })
+    .text("% voting Conservative (2010)");
+
+    svg.append("text")
+    .attr({
+      "class":"axis xlabel",
+      "x":"350",
+      "y":"700",
+      "text-anchor":"middle"
+    })
+    .text("Average property value");
+
+    function animate() {
+        newtext("And now we show the same data as a scatter plot, giving a clearer picture of the fact that Tory voters benefit most from increased house prices, hence why Tories will push related policies in the coming months");
+        d3.select("#animatebutton").style("visibility","hidden");
+      d3.selectAll("g.constituency").transition().duration(2000).delay(0)
+        .attr({
+          'transform':function(d){
+            var xpos = xScale(d[xPlotProperty]);
+            var ypos = yScale(d[yPlotProperty]);
+            return 'translate('+xpos+','+ypos+')';
+          }
+        })
+      d3.selectAll('.hovertext').transition().duration(2000).delay(0)
+        .attr({
+          x:function(d){
+            if (d[xPlotProperty] >= 600000) {return xScale(d[xPlotProperty])-(this.parentNode.getBoundingClientRect().width)*0.05}
+              else {return xScale(d[xPlotProperty])+10}
+          },
+          y:function(d){return yScale(d[yPlotProperty])+5},
+        "text-anchor":function(d){
+          if (d[xPlotProperty] >= 600000) {return "end"}
+            else {return "start"}
+        }
+        })
+      d3.selectAll('.hovertip').transition().duration(2000).delay(0)
+        .attr({
+          x:function(d){
+            if (d[xPlotProperty] >= 600000) {return xScale(d[xPlotProperty])-(this.parentNode.getBoundingClientRect().width)*1.3}
+              else {return xScale(d[xPlotProperty])+10}
+          },
+          y:function(d){return yScale(d[yPlotProperty])-9}
+        })
+      d3.selectAll('.axis').transition().duration(2000).delay(0).style("opacity",1)
+      };
+
+
+
+
+
+      sizeRange2 = [0.1,1.4];
+
+      var sizeScale2 = d3.scale.linear()
+                          .range(sizeRange2)
+                          .domain([0,Math.sqrt(35950)]);
+
+      var sizeScale3 = d3.scale.linear()
+                          .range(sizeRange2)
+                          .domain([0,Math.sqrt(100000)]);
+
+
+      function gainassize() {
+        newtext("Now the size scale has changed to the total gain in value, so something here about how we see even greater evidence of the two speed housing market. In fact in the next slide...");
+        d3.selectAll('.marker')
+        .transition().duration(2000)
+        .attr({
+        r:function(d){
+            return positionScale(sizeScale2(Math.sqrt(parseFloat(d.valgainall))))*0.5
+          }
+        })        
+        // .style("fill-opacity","0.5");
+      slidenum = 1;
+      };
+
+      function dolondon() {
+        d3.selectAll(".London").classed("highlit",true)
+      };
+
+      function twospeed(){
+        newtext("We now add all the London constituency value gains into one, and do the same for every other constituency in the UK, and as we can see, London properties have gained more value than the entire rest of the country");
+        // d3.selectAll(".axis").transition().duration(500).style("opacity","0");
+        d3.selectAll(".hovertext").classed("hovered",false);
+        svg.append("circle")
+          .attr({
+            "id":"londonmarker",
+            "r":0,
+            "cx":xScale(700000),
+            "cy":yScale(35)
+          });
+        svg.append("circle")
+          .attr({
+            "id":"othermarker",
+            "r":0,
+            "cx":xScale(500000),
+            "cy":yScale(35)
+          });
+        d3.selectAll("g.constituency.London").transition().duration(2000).delay(0)
+        .attr({
+          'transform':function(d){
+            var xpos = xScale(700000);
+            var ypos = yScale(35);
+            return 'translate('+xpos+','+ypos+')';
+          }
+        })
+        d3.selectAll("*:not(.London).constituency").transition().duration(2000).delay(0)
+        .attr({
+          'transform':function(d){
+            var xpos = xScale(500000);
+            var ypos = yScale(35);
+            return 'translate('+xpos+','+ypos+')';
+          }
+        })
+        d3.select("#londonmarker").transition().duration(3000).delay(000).attr({
+          r:function(d){
+            return positionScale(sizeScale2(Math.sqrt(parseFloat(563311))))*0.5
+          }
+        })
+        d3.select("#othermarker").transition().duration(3000).delay(000).attr({
+          r:function(d){
+            return positionScale(sizeScale2(Math.sqrt(parseFloat(402261))))*0.5
+          }
+        })
+        slidenum = 2;
+      };
+
+      colourRangetory = ['#b8b1a9','#3C5F5E'];
+
+      var colourScaletory = d3.scale.linear()  
+                          .range(colourRangetory)
+                          // .domain(newdomain);
+                          .domain([0,1]);
+
+
+      function backtomap(){
+        newtext("Now back to the map, where we broach the political question, by colouring the circles according to whether or not they have a Tory MP");
+        d3.select("#londonmarker").transition().duration(500).delay(000).attr({
+          "r":"0"
+        });
+        d3.select("#othermarker").transition().duration(500).delay(000).attr({
+          "r":"0"
+        });
+        d3.selectAll("g.constituency").transition().duration(2000).delay(0)
+        .attr({
+          'transform':function(d){
+            var xpos = positionScale(d.x);
+            var ypos = positionScale(d.y);
+            return 'translate('+xpos+','+ypos+')';
+          }
+        })
+        d3.selectAll(".marker")
+        .attr({
+          fill:function(d){return colourScaletory(parseFloat(d.waspartynum));}
+        })
+        slidenum = 3;
+      };
+
+      function scrollit() {
+        $('html, body').animate({
+        scrollTop: $("#scrollpoint").offset().top
+        }, 2000);
+      };
+
+      function newtext(str){return d3.select("#captionhold1 span")
+      .transition().duration(250).style({"opacity":"0","left":"-2000px"})
+      .transition().delay(750).duration(250).style({"left":"10px"})
+      .transition().delay(1000).duration(500).style({"opacity":"1","left":"0px"}).text(str)};
+
+
+      scrollit();
+
+
+
+
+
+      addEventListener("keydown", function(event) {
+        if (event.keyCode == 34 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 34 && slidenum == 0) gainassize()
+        else {if (event.keyCode == 34 && slidenum == 1) twospeed()
+        else {if (event.keyCode == 34 && slidenum == 2) backtomap()
+        else {if (event.keyCode == 34 && slidenum == 3) animate()
+        else {if (event.keyCode == 34 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 34 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 34 && slidenum == 6) toslide7()
+        else {if (event.keyCode == 34 && slidenum == 7) toslide8()
+        else {if (event.keyCode == 34 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 34 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 34 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 34 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 34 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 34 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 34 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 34 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 34 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 34 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 34 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 34 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+      });
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 39 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 39 && slidenum == 0) gainassize()
+        else {if (event.keyCode == 39 && slidenum == 1) twospeed()
+        else {if (event.keyCode == 39 && slidenum == 2) backtomap()
+        else {if (event.keyCode == 39 && slidenum == 3) animate()
+        else {if (event.keyCode == 39 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 39 && slidenum == 5) toslide6()
+        else {if (event.keyCode == 39 && slidenum == 6) toslide7()
+        else {if (event.keyCode == 39 && slidenum == 7) toslide8()
+        else {if (event.keyCode == 39 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 39 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 39 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 39 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 39 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 39 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 39 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 39 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 39 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 39 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 39 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 39 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+      });
+
+    $("body").on("swipeleft",function(){
+      if (slidenum == -1) toslide0()
+        else {if (slidenum == 0) gainassize()
+        else {if (slidenum == 1) twospeed()
+        else {if (slidenum == 2) backtomap()
+        else {if (slidenum == 3) animate()
+        else {if (slidenum == 4) toslide5()
+        else {if (slidenum == 5) toslide6()
+        else {if (slidenum == 6) toslide7()
+        else {if (slidenum == 7) toslide8()
+        else {if (slidenum == 8) toslide9()
+        else {if (slidenum == 9) toslide10()
+        else {if (slidenum == 10) toslide11()
+        else {if (slidenum == 11) toslide12()
+        else {if (slidenum == 12) toslide13()
+        else {if (slidenum == 13) toslide14()
+        else {if (slidenum == 14) toslide15()
+        else {if (slidenum == 15) toslide16()
+        else {if (slidenum == 16) toslide17()
+        else {if (slidenum == 17) toslide18()
+        else {if (slidenum == 18) toslide19()
+        else {if (slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+    }); 
+
+  
+    </script>
+    
+  </body>
+</html>
