@@ -149,6 +149,22 @@
       xPlotProperty = 'aveval',
       yPlotProperty = 'toryvote';
 
+    var lookupTable = {
+      "aveval": function() {
+        return "Average value (£)";
+      },
+      "toryvote": function() {
+        return "Voted Conservative (%)";
+      },
+      "valgainall":  function() {
+        return "Value gained (£m)";
+      },
+      "unitsperthouprivrent":  function() {
+        return "Private rental properties per 1,000 people";
+      }
+    };
+
+    var myFormat = d3.format(',');
 
     var cont = d3.select("body").append("div")
       .attr("id","container");
@@ -298,28 +314,58 @@
       .attr({
         "class":function(d){return "sometext " + d.classname},
         x:function(d){
-          if (d.x >= 18) {return -1*(d.namelen*9+10)}
-            else {return 10}
+          if (d.x >= 18) {return -1*(360)}
+            else {return 5}
         },
-        y:function(d){return -7},
-        width:function(d){return d.namelen*9},
-        "height":"16"
+        y:function(d){return -9},
+        width:function(d){return 350},
+        "height":"50"
       })
       svg.select('g.constituency#' + d3.select(this).attr('id'))
       .append('text')  
       .attr({
         "class":function(d){return "sometext " + d.classname},
         x:function(d){
-          if (d.x >= 18) {return -10}
+          if (d.x >= 18) {return -350}
             else {return 10}
         },
         y:function(d){return 6},
         "text-anchor":function(d){
-          if (d.x >= 18) {return "end"}
+          if (d.x >= 18) {return "start"}
             else {return "start"}
         }
       })
       .text(function(d){ return d.name});
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return -350}
+            else {return 10}
+        },
+        y:function(d){return 22},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "start"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return lookupTable[sizePlotProperty]() + ": " + myFormat(d[sizePlotProperty])});
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return -350}
+            else {return 10}
+        },
+        y:function(d){return 36},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "start"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return lookupTable[colourPlotProperty]() + ": " + myFormat(d[colourPlotProperty])});
       $('g.constituency').insertBefore($(this),null)
     }).on('mouseout', function(){
       d3.selectAll(".sometext").remove()
@@ -357,7 +403,7 @@
     var xAxis = d3.svg.axis()
       .scale(xScale)
       .orient("bottom")
-      .tickFormat(d3.format("d"))
+      .tickFormat(d3.format(",.0f"))
       .tickValues([0,250000,500000,750000,1000000,1250000])
       .tickSize(-645)
       ;
@@ -397,7 +443,7 @@
       "y":"700",
       "text-anchor":"middle"
     })
-    .text("Average property value");
+    .text("Average property value (£)");
 
     function animate() {
         d3.selectAll(".sometext").remove();
@@ -431,7 +477,8 @@
       //     },
       //     y:function(d){return yScale(d[yPlotProperty])-9}
       //   })
-      // d3.selectAll('.axis').transition().duration(2000).delay(0).style("opacity",1)
+      sizePlotProperty = 'aveval',
+      d3.selectAll('.axis').transition().duration(2000).delay(0).style("opacity",1);
       };
 
 
@@ -459,6 +506,7 @@
           }
         })        
         // .style("fill-opacity","0.5");
+      sizePlotProperty = 'valgainall',
       slidenum = 1;
       };
 
@@ -541,6 +589,7 @@
         .attr({
           fill:function(d){return colourScaletory(parseFloat(d.waspartynum));}
         })
+        colourPlotProperty = 'toryvote',
         slidenum = 3;
       };
 

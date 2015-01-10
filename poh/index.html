@@ -81,6 +81,7 @@
     #londonmarker{fill:#b1493f;}
     #othermarker{fill:#E4AEA5;}
     #scrollpoint{position:absolute;top:-50px;}
+    rect.sometext{fill:white;fill-opacity:0.8;}
 
     @media screen and (max-width: 768px) {
     .hovertip{visibility:hidden;}
@@ -148,6 +149,22 @@
       xPlotProperty = 'aveval',
       yPlotProperty = 'toryvote';
 
+    var lookupTable = {
+      "aveval": function() {
+        return "Average value (£)";
+      },
+      "toryvote": function() {
+        return "Voted Conservative (%)";
+      },
+      "valgainall":  function() {
+        return "Value gained (£m)";
+      },
+      "unitsperthouprivrent":  function() {
+        return "Private rental properties per 1,000 people";
+      }
+    };
+
+    var myFormat = d3.format(',');
 
     var cont = d3.select("body").append("div")
       .attr("id","container");
@@ -255,49 +272,103 @@
         class:function(d){return "hovermarker " + d.classname}
       });
 
-    textgroup = svg.selectAll('g.hovertextbox').data(data).enter()
-      .append('g')
-      .attr('class','hovertextbox')
-    textobject = svg.selectAll('g.hovertextbox')
+    // textgroup = svg.selectAll('g.hovertextbox').data(data).enter()
+    //   .append('g')
+    //   .attr('class','hovertextbox')
+    // textobject = svg.selectAll('g.hovertextbox')
+    //   .append('text')  
+    //   .attr({
+    //     "class":function(d){return "hovertext_ " + d.classname},
+    //     x:function(d){
+    //       if (d.x >= 18) {return positionScale(d.x)-10}
+    //         else {return positionScale(d.x)+10}
+    //     },
+    //     y:function(d){return positionScale(d.y)+6},
+    //     "text-anchor":function(d){
+    //       if (d.x >= 18) {return "end"}
+    //         else {return "start"}
+    //     }
+    //   })
+    //   .text(function(d){ return d.name});
+
+      // svg.selectAll('g.hovertextbox')
+      // .append('text')  
+      // .attr({
+      //   "class":function(d){return "hovertext_ " + d.classname},
+      //   x:function(d){
+      //     if (d.x >= 18) {return positionScale(d.x)-10}
+      //       else {return positionScale(d.x)+10}
+      //   },
+      //   y:function(d){return positionScale(d.y)+6},
+      //   "text-anchor":function(d){
+      //     if (d.x >= 18) {return "end"}
+      //       else {return "start"}
+      //   }
+      // })
+      // .text(function(d){ return d.name});
+
+    d3.selectAll("g.constituency").on('mouseover', function(){
+
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('rect')
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return -1*(360)}
+            else {return 5}
+        },
+        y:function(d){return -9},
+        width:function(d){return 350},
+        "height":"50"
+      })
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
       .append('text')  
       .attr({
-        "class":function(d){return "hovertext_ " + d.classname},
+        "class":function(d){return "sometext " + d.classname},
         x:function(d){
-          if (d.x >= 18) {return positionScale(d.x)-10}
-            else {return positionScale(d.x)+10}
+          if (d.x >= 18) {return -350}
+            else {return 10}
         },
-        y:function(d){return positionScale(d.y)+6},
+        y:function(d){return 6},
         "text-anchor":function(d){
-          if (d.x >= 18) {return "end"}
+          if (d.x >= 18) {return "start"}
             else {return "start"}
         }
       })
       .text(function(d){ return d.name});
-
-      svg.selectAll('g.hovertextbox')
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
       .append('text')  
       .attr({
-        "class":function(d){return "hovertext_ " + d.classname},
+        "class":function(d){return "sometext " + d.classname},
         x:function(d){
-          if (d.x >= 18) {return positionScale(d.x)-10}
-            else {return positionScale(d.x)+10}
+          if (d.x >= 18) {return -350}
+            else {return 10}
         },
-        y:function(d){return positionScale(d.y)+6},
+        y:function(d){return 22},
         "text-anchor":function(d){
-          if (d.x >= 18) {return "end"}
+          if (d.x >= 18) {return "start"}
             else {return "start"}
         }
       })
-      .text(function(d){ return d.name});
-
-    d3.selectAll(".hovermarker").on('mouseover', function(){
-      d3.selectAll(".hovertext." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
-      d3.selectAll(".hovertip." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
-      d3.select(".marker." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",true)
+      .text(function(d){ return lookupTable[sizePlotProperty]() + ": " + myFormat(d[sizePlotProperty])});
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d.x >= 18) {return -350}
+            else {return 10}
+        },
+        y:function(d){return 36},
+        "text-anchor":function(d){
+          if (d.x >= 18) {return "start"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return lookupTable[colourPlotProperty]() + ": " + myFormat(d[colourPlotProperty])});
+      $('g.constituency').insertBefore($(this),null)
     }).on('mouseout', function(){
-      d3.selectAll(".hovertext." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
-      d3.selectAll(".hovertip." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
-      d3.select(".marker." + d3.select(this).attr("class").split(" ")[1]).classed("hovered",false)
+      d3.selectAll(".sometext").remove()
     });
 
     d3.select("#animatebutton").on('click', function(){
@@ -310,45 +381,29 @@
     var bbox = textobject[0][0].getBBox();
     var tipwidth = bbox.width;
 
-    svg.selectAll('g.hovertextbox')
-      .append('rect')
-      .attr({
-        "class":function(d){return "hovertip " + d.classname},
-        x:function(d){
-          if (d.x >= 18) {return positionScale(d.x)-(this.parentNode.getBoundingClientRect().width * 1.32+10)}
-            else {return positionScale(d.x)+10}
-        },
-        y:function(d){return positionScale(d.y)-7},
-        "width":function(){
-          return this.parentNode.getBoundingClientRect().width * 1.35;
-        },
-        "height":function(){
-          return this.parentNode.getBoundingClientRect().height+5;
-        }
-      });
-
-    textobject = svg.selectAll('g.hovertextbox')
-      .append('text')  
-      .attr({
-        "class":function(d){return "hovertext " + d.classname},
-        x:function(d){
-          if (d.x >= 18) {return positionScale(d.x)-10}
-            else {return positionScale(d.x)+10}
-        },
-        y:function(d){return positionScale(d.y)+6},
-        "text-anchor":function(d){
-          if (d.x >= 18) {return "end"}
-            else {return "start"}
-        }
-      })
-      .text(function(d){ return d.name});
+    // svg.selectAll('g.hovertextbox')
+    //   .append('rect')
+    //   .attr({
+    //     "class":function(d){return "hovertip " + d.classname},
+    //     x:function(d){
+    //       if (d.x >= 18) {return positionScale(d.x)-(this.parentNode.getBoundingClientRect().width * 1.32+10)}
+    //         else {return positionScale(d.x)+10}
+    //     },
+    //     y:function(d){return positionScale(d.y)-7},
+    //     "width":function(){
+    //       return this.parentNode.getBoundingClientRect().width * 1.35;
+    //     },
+    //     "height":function(){
+    //       return this.parentNode.getBoundingClientRect().height+5;
+    //     }
+    //   });
 
     });
 
     var xAxis = d3.svg.axis()
       .scale(xScale)
       .orient("bottom")
-      .tickFormat(d3.format("d"))
+      .tickFormat(d3.format(",.0f"))
       .tickValues([0,250000,500000,750000,1000000,1250000])
       .tickSize(-645)
       ;
@@ -388,9 +443,10 @@
       "y":"700",
       "text-anchor":"middle"
     })
-    .text("Average property value");
+    .text("Average property value (£)");
 
     function animate() {
+        d3.selectAll(".sometext").remove();
         newtext("And now we show the same data as a scatter plot, giving a clearer picture of the fact that Tory voters benefit most from increased house prices, hence why Tories will push related policies in the coming months");
         d3.select("#animatebutton").style("visibility","hidden");
       d3.selectAll("g.constituency").transition().duration(2000).delay(0)
@@ -401,27 +457,28 @@
             return 'translate('+xpos+','+ypos+')';
           }
         })
-      d3.selectAll('.hovertext').transition().duration(2000).delay(0)
-        .attr({
-          x:function(d){
-            if (d[xPlotProperty] >= 600000) {return xScale(d[xPlotProperty])-(this.parentNode.getBoundingClientRect().width)*0.05}
-              else {return xScale(d[xPlotProperty])+10}
-          },
-          y:function(d){return yScale(d[yPlotProperty])+5},
-        "text-anchor":function(d){
-          if (d[xPlotProperty] >= 600000) {return "end"}
-            else {return "start"}
-        }
-        })
-      d3.selectAll('.hovertip').transition().duration(2000).delay(0)
-        .attr({
-          x:function(d){
-            if (d[xPlotProperty] >= 600000) {return xScale(d[xPlotProperty])-(this.parentNode.getBoundingClientRect().width)*1.3}
-              else {return xScale(d[xPlotProperty])+10}
-          },
-          y:function(d){return yScale(d[yPlotProperty])-9}
-        })
-      d3.selectAll('.axis').transition().duration(2000).delay(0).style("opacity",1)
+      // d3.selectAll('.hovertext').transition().duration(2000).delay(0)
+      //   .attr({
+      //     x:function(d){
+      //       if (d[xPlotProperty] >= 600000) {return xScale(d[xPlotProperty])-(this.parentNode.getBoundingClientRect().width)*0.05}
+      //         else {return xScale(d[xPlotProperty])+10}
+      //     },
+      //     y:function(d){return yScale(d[yPlotProperty])+5},
+      //   "text-anchor":function(d){
+      //     if (d[xPlotProperty] >= 600000) {return "end"}
+      //       else {return "start"}
+      //   }
+      //   })
+      // d3.selectAll('.hovertip').transition().duration(2000).delay(0)
+      //   .attr({
+      //     x:function(d){
+      //       if (d[xPlotProperty] >= 600000) {return xScale(d[xPlotProperty])-(this.parentNode.getBoundingClientRect().width)*1.3}
+      //         else {return xScale(d[xPlotProperty])+10}
+      //     },
+      //     y:function(d){return yScale(d[yPlotProperty])-9}
+      //   })
+      sizePlotProperty = 'aveval',
+      d3.selectAll('.axis').transition().duration(2000).delay(0).style("opacity",1);
       };
 
 
@@ -449,6 +506,7 @@
           }
         })        
         // .style("fill-opacity","0.5");
+      sizePlotProperty = 'valgainall',
       slidenum = 1;
       };
 
@@ -459,7 +517,7 @@
       function twospeed(){
         newtext("We now add all the London constituency value gains into one, and do the same for every other constituency in the UK, and as we can see, London properties have gained more value than the entire rest of the country");
         // d3.selectAll(".axis").transition().duration(500).style("opacity","0");
-        d3.selectAll(".hovertext").classed("hovered",false);
+        d3.selectAll(".sometext").remove();
         svg.append("circle")
           .attr({
             "id":"londonmarker",
@@ -531,6 +589,7 @@
         .attr({
           fill:function(d){return colourScaletory(parseFloat(d.waspartynum));}
         })
+        colourPlotProperty = 'toryvote',
         slidenum = 3;
       };
 
