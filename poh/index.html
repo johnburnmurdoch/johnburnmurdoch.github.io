@@ -371,6 +371,8 @@
       d3.selectAll(".sometext").remove()
     });
 
+    
+
     d3.select("#animatebutton").on('click', function(){
       if (slidenum == 0) {return gainassize();}
         else {if (slidenum == 1) return twospeed();
@@ -445,7 +447,74 @@
     })
     .text("Average property value (£)");
 
+    function scatterhovers() {
+      d3.selectAll("g.constituency").on('mouseover', function(){
+
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('rect')
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d[xPlotProperty] >= 600000) {return -1*(360)}
+            else {return 5}
+        },
+        y:function(d){return -9},
+        width:function(d){return 350},
+        "height":"50"
+      })
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d[xPlotProperty] >= 600000) {return -350}
+            else {return 10}
+        },
+        y:function(d){return 6},
+        "text-anchor":function(d){
+          if (d[xPlotProperty] >= 600000) {return "start"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return d.name});
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d[xPlotProperty] >= 600000) {return -350}
+            else {return 10}
+        },
+        y:function(d){return 22},
+        "text-anchor":function(d){
+          if (d[xPlotProperty] >= 600000) {return "start"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return lookupTable[sizePlotProperty]() + ": " + myFormat(d[sizePlotProperty])});
+      svg.select('g.constituency#' + d3.select(this).attr('id'))
+      .append('text')  
+      .attr({
+        "class":function(d){return "sometext " + d.classname},
+        x:function(d){
+          if (d[xPlotProperty] >= 600000) {return -350}
+            else {return 10}
+        },
+        y:function(d){return 36},
+        "text-anchor":function(d){
+          if (d[xPlotProperty] >= 600000) {return "start"}
+            else {return "start"}
+        }
+      })
+      .text(function(d){ return lookupTable[colourPlotProperty]() + ": " + myFormat(d[colourPlotProperty])});
+      $('g.constituency').insertBefore($(this),null)
+    }).on('mouseout', function(){
+      d3.selectAll(".sometext").remove()
+    })
+    };
+
     function animate() {
+        scatterhovers();
         d3.selectAll(".sometext").remove();
         newtext("And now we show the same data as a scatter plot, giving a clearer picture of the fact that Tory voters benefit most from increased house prices, hence why Tories will push related policies in the coming months");
         d3.select("#animatebutton").style("visibility","hidden");
