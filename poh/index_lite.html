@@ -400,6 +400,7 @@
     .text("Average property value");
 
     function animate() {
+        d3.selectAll(".sometext").remove();
         newtext("And now we show the same data as a scatter plot, giving a clearer picture of the fact that Tory voters benefit most from increased house prices, hence why Tories will push related policies in the coming months");
         d3.select("#animatebutton").style("visibility","hidden");
       d3.selectAll("g.constituency").transition().duration(2000).delay(0)
@@ -468,7 +469,7 @@
       function twospeed(){
         newtext("We now add all the London constituency value gains into one, and do the same for every other constituency in the UK, and as we can see, London properties have gained more value than the entire rest of the country");
         // d3.selectAll(".axis").transition().duration(500).style("opacity","0");
-        d3.selectAll(".hovertext").classed("hovered",false);
+        d3.selectAll(".sometext").remove();
         svg.append("circle")
           .attr({
             "id":"londonmarker",
