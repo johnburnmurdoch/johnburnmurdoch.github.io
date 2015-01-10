@@ -65,7 +65,7 @@
     .hovertext{opacity:0;pointer-events:none;font-size:16px;}
     .hovertext.hovered{opacity:1;pointer-events:none;}
     .marker{stroke:#E4AEA5;stroke-width:0.5px;}
-    .marker.hovered{stroke:#43423e;stroke-width:1px;}
+    .marker.hovered{stroke:#43423e;stroke-width:2px;}
     .hovermarker{fill:transparent;}
     #animatebutton{position:relative;top:160px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
     #animatebutton:hover{background-color:#74736c;color:#fff1e0;}
@@ -309,6 +309,8 @@
 
     d3.selectAll("g.constituency").on('mouseover', function(){
 
+      d3.select('.marker.' + d3.select(this).attr('id')).classed('hovered',true)
+
       svg.select('g.constituency#' + d3.select(this).attr('id'))
       .append('rect')
       .attr({
@@ -368,6 +370,7 @@
       .text(function(d){ return lookupTable[colourPlotProperty]() + ": " + myFormat(d[colourPlotProperty])});
       $('g.constituency').insertBefore($(this),null)
     }).on('mouseout', function(){
+      d3.select('.marker.' + d3.select(this).attr('id')).classed('hovered',false)
       d3.selectAll(".sometext").remove()
     });
 
@@ -375,9 +378,10 @@
 
     d3.select("#animatebutton").on('click', function(){
       if (slidenum == 0) {return gainassize();}
-        else {if (slidenum == 1) return twospeed();
-        else {if (slidenum == 2) return backtomap();
-        else {if (slidenum == 3) return animate();}}}
+        else {if (slidenum == 1) return dolondon();
+        else {if (slidenum == 2) return twospeed();
+        else {if (slidenum == 3) return backtomap();
+        else {if (slidenum == 4) return animate();}}}}
     });
 
     var bbox = textobject[0][0].getBBox();
@@ -449,6 +453,7 @@
 
     function scatterhovers() {
       d3.selectAll("g.constituency").on('mouseover', function(){
+      d3.select('.marker.' + d3.select(this).attr('id')).classed('hovered',true)
 
       svg.select('g.constituency#' + d3.select(this).attr('id'))
       .append('rect')
@@ -509,6 +514,7 @@
       .text(function(d){ return lookupTable[colourPlotProperty]() + ": " + myFormat(d[colourPlotProperty])});
       $('g.constituency').insertBefore($(this),null)
     }).on('mouseout', function(){
+      d3.select('.marker.' + d3.select(this).attr('id')).classed('hovered',false)
       d3.selectAll(".sometext").remove()
     })
     };
@@ -564,10 +570,14 @@
                           .range(sizeRange2)
                           .domain([0,Math.sqrt(100000)]);
 
+      var sizeScale4 = d3.scale.linear()
+                          .range(sizeRange2)
+                          .domain([0,Math.sqrt(1185020)]);
+
 
       function gainassize() {
         d3.selectAll(".sometext").remove();
-        newtext("Now the size scale has changed to the total gain in value, so something here about how we see even greater evidence of the two speed housing market. In fact in the next slide...");
+        newtext("Now the size scale has changed to the total gain in value, so something here about how we see even greater evidence of the two speed housing market.");
         d3.selectAll('.marker')
         .transition().duration(2000)
         .attr({
@@ -582,10 +592,13 @@
 
       function dolondon() {
         d3.selectAll(".sometext").remove();
-        d3.selectAll(".London").classed("highlit",true)
+        d3.selectAll(".London").classed("highlit",true);
+        newtext("We've now highlighted London constituencies, showing how gains in property value have been concentrated in the capital. In fact such is the extent of the two speed market we now see, that...");
+        slidenum = 2;
       };
 
       function twospeed(){
+        d3.selectAll(".London").classed("highlit",false)
         newtext("We now add all the London constituency value gains into one, and do the same for every other constituency in the UK, and as we can see, London properties have gained more value than the entire rest of the country");
         // d3.selectAll(".axis").transition().duration(500).style("opacity","0");
         d3.selectAll(".sometext").remove();
@@ -629,7 +642,7 @@
             return positionScale(sizeScale2(Math.sqrt(parseFloat(402261))))*0.5
           }
         })
-        slidenum = 2;
+        slidenum = 3;
       };
 
       colourRangetory = ['#b8b1a9','#3C5F5E'];
@@ -659,10 +672,13 @@
         })
         d3.selectAll(".marker")
         .attr({
-          fill:function(d){return colourScaletory(parseFloat(d.waspartynum));}
+          fill:function(d){return colourScaletory(parseFloat(d.waspartynum));},
+          r:function(d){
+            return positionScale(sizeScale4(Math.sqrt(parseFloat(d.aveval))))*0.5
+          }
         })
         colourPlotProperty = 'toryvote',
-        slidenum = 3;
+        slidenum = 4;
       };
 
       function scrollit() {
@@ -686,10 +702,10 @@
       addEventListener("keydown", function(event) {
         if (event.keyCode == 34 && slidenum == -1) toslide0()
         else {if (event.keyCode == 34 && slidenum == 0) gainassize()
-        else {if (event.keyCode == 34 && slidenum == 1) twospeed()
-        else {if (event.keyCode == 34 && slidenum == 2) backtomap()
-        else {if (event.keyCode == 34 && slidenum == 3) animate()
-        else {if (event.keyCode == 34 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 34 && slidenum == 1) dolondon()
+        else {if (event.keyCode == 34 && slidenum == 2) twospeed()
+        else {if (event.keyCode == 34 && slidenum == 3) backtomap()
+        else {if (event.keyCode == 34 && slidenum == 4) animate()
         else {if (event.keyCode == 34 && slidenum == 5) toslide6()
         else {if (event.keyCode == 34 && slidenum == 6) toslide7()
         else {if (event.keyCode == 34 && slidenum == 7) toslide8()
@@ -712,10 +728,10 @@
     addEventListener("keydown", function(event) {
         if (event.keyCode == 39 && slidenum == -1) toslide0()
         else {if (event.keyCode == 39 && slidenum == 0) gainassize()
-        else {if (event.keyCode == 39 && slidenum == 1) twospeed()
-        else {if (event.keyCode == 39 && slidenum == 2) backtomap()
-        else {if (event.keyCode == 39 && slidenum == 3) animate()
-        else {if (event.keyCode == 39 && slidenum == 4) toslide5()
+        else {if (event.keyCode == 39 && slidenum == 1) dolondon()
+        else {if (event.keyCode == 39 && slidenum == 2) twospeed()
+        else {if (event.keyCode == 39 && slidenum == 3) backtomap()
+        else {if (event.keyCode == 39 && slidenum == 4) animate()
         else {if (event.keyCode == 39 && slidenum == 5) toslide6()
         else {if (event.keyCode == 39 && slidenum == 6) toslide7()
         else {if (event.keyCode == 39 && slidenum == 7) toslide8()
@@ -738,10 +754,10 @@
     $("body").on("swipeleft",function(){
       if (slidenum == -1) toslide0()
         else {if (slidenum == 0) gainassize()
-        else {if (slidenum == 1) twospeed()
-        else {if (slidenum == 2) backtomap()
-        else {if (slidenum == 3) animate()
-        else {if (slidenum == 4) toslide5()
+        else {if (slidenum == 1) dolondon()
+        else {if (slidenum == 2) twospeed()
+        else {if (slidenum == 3) backtomap()
+        else {if (slidenum == 4) animate()
         else {if (slidenum == 5) toslide6()
         else {if (slidenum == 6) toslide7()
         else {if (slidenum == 7) toslide8()
