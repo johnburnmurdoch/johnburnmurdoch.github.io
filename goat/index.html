@@ -1047,15 +1047,13 @@
 
     // d3.select('#resetfilter')
     // .on('click', showall)
-        
-    });});});
 
     addEventListener("keydown", function(event) {
     if (event.keyCode == 34 && slidenum == -1) toslide0()
-        else {if (event.keyCode == 34 && slidenum == 0) scrolltwo()
-        else {if (event.keyCode == 34 && slidenum == 1) dolondon()
-        else {if (event.keyCode == 34 && slidenum == 2) gainassize()
-        else {if (event.keyCode == 34 && slidenum == 3) twospeed()
+        else {if (event.keyCode == 34 && slidenum == 0) upto1()
+        else {if (event.keyCode == 34 && slidenum == 1) upto2()
+        else {if (event.keyCode == 34 && slidenum == 2) upto3()
+        else {if (event.keyCode == 34 && slidenum == 3) upto3()
         else {if (event.keyCode == 34 && slidenum == 4) backtomap()
         else {if (event.keyCode == 34 && slidenum == 5) animate()
         else {if (event.keyCode == 34 && slidenum == 6) animatesteptwo()
@@ -1078,10 +1076,10 @@
 
     addEventListener("keydown", function(event) {
         if (event.keyCode == 39 && slidenum == -1) toslide0()
-        else {if (event.keyCode == 39 && slidenum == 0) scrolltwo()
-        else {if (event.keyCode == 39 && slidenum == 1) dolondon()
-        else {if (event.keyCode == 39 && slidenum == 2) gainassize()
-        else {if (event.keyCode == 39 && slidenum == 3) twospeed()
+        else {if (event.keyCode == 39 && slidenum == 0) upto1()
+        else {if (event.keyCode == 39 && slidenum == 1) upto2()
+        else {if (event.keyCode == 39 && slidenum == 2) upto3()
+        else {if (event.keyCode == 39 && slidenum == 3) upto3()
         else {if (event.keyCode == 39 && slidenum == 4) backtomap()
         else {if (event.keyCode == 39 && slidenum == 5) animate()
         else {if (event.keyCode == 39 && slidenum == 6) animatesteptwo()
@@ -1102,12 +1100,64 @@
       }}}}}}}}}}}}}}}}}}}}
       });
 
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 37 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 37 && slidenum == 0) downto0()
+        else {if (event.keyCode == 37 && slidenum == 1) downto0()
+        else {if (event.keyCode == 37 && slidenum == 2) downto1()
+        else {if (event.keyCode == 37 && slidenum == 3) downto2()
+        else {if (event.keyCode == 37 && slidenum == 4) backtomap()
+        else {if (event.keyCode == 37 && slidenum == 5) animate()
+        else {if (event.keyCode == 37 && slidenum == 6) animatesteptwo()
+        else {if (event.keyCode == 37 && slidenum == 7) restartviz()
+        else {if (event.keyCode == 37 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 37 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 37 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 37 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 37 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 37 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 37 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 37 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 37 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 37 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 37 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 37 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+      });
+
     $("body").on("swipeleft",function(){
       if (slidenum == -1) toslide0()
-        else {if (slidenum == 0) scrolltwo()
-        else {if (slidenum == 1) dolondon()
-        else {if (slidenum == 2) gainassize()
-        else {if (slidenum == 3) twospeed()
+        else {if (slidenum == 0) upto1()
+        else {if (slidenum == 1) upto2()
+        else {if (slidenum == 2) upto3()
+        else {if (slidenum == 3) upto3()
+        else {if (slidenum == 4) backtomap()
+        else {if (slidenum == 5) animate()
+        else {if (slidenum == 6) animatesteptwo()
+        else {if (slidenum == 7) restartviz()
+        else {if (slidenum == 8) toslide9()
+        else {if (slidenum == 9) toslide10()
+        else {if (slidenum == 10) toslide11()
+        else {if (slidenum == 11) toslide12()
+        else {if (slidenum == 12) toslide13()
+        else {if (slidenum == 13) toslide14()
+        else {if (slidenum == 14) toslide15()
+        else {if (slidenum == 15) toslide16()
+        else {if (slidenum == 16) toslide17()
+        else {if (slidenum == 17) toslide18()
+        else {if (slidenum == 18) toslide19()
+        else {if (slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+    });
+
+    $("body").on("swiperight",function(){
+      if (slidenum == -1) toslide0()
+        else {if (slidenum == 0) downto0()
+        else {if (slidenum == 1) downto0()
+        else {if (slidenum == 2) downto1()
+        else {if (slidenum == 3) downto2()
         else {if (slidenum == 4) backtomap()
         else {if (slidenum == 5) animate()
         else {if (slidenum == 6) animatesteptwo()
@@ -1129,6 +1179,8 @@
     }); 
 
   
+        
+    });});});
     </script>
     
   </body>
