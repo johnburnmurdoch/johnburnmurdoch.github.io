@@ -58,6 +58,7 @@
     text{font-family:"BentonSans",sans-serif;cursor:default;}
     #container{height:950px;width:100%;margin-left:auto;margin-right:auto;background-color:transparent;text-align:center;max-width:1000px;}
     #thesvg{position:relative;top:200px;height:640px;width:100%;max-width:1000px;}
+    #thesvg.inactive{pointer-events:none;}
     #textholder{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:95%;background-color:transparent;height:100%;max-width:900px;z-index:1000;pointer-events:none;}
     #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:110px;width:100%;height:44px;max-width:900px;z-index:1000;text-align:left;font-size:18px;line-height:24px;background-color:#fff1e0;}
     .hovertext_{opacity:0;pointer-events:none;}
@@ -255,6 +256,7 @@
     }
 
     @media screen and (max-width: 768px) {
+    #thesvg.inactive{pointer-events:all;}
     #progressbar{display:block;top:41px;height:3px;opacity:1;}
     #progressbarwide{display:none;}
     .hovertip{visibility:hidden;}
@@ -277,6 +279,7 @@
     #londonlabel{fill:#fff1e0;font-size:18px;}
     #otherlabeltop{fill:#fff1e0;font-size:18px;}
     #otherlabelbottom{fill:#fff1e0;font-size:18px;}
+    #dropdowndesktop{display:none;}
     }
 
     @media only screen and (min-device-width: 801px) and (max-device-width :1024px) and (orientation : landscape) {
@@ -286,6 +289,7 @@
     #navpoint{position:absolute;top:520px;}
     #animatebutton{display:none;}
     #backbutton{display:none;}
+    #dropdowndesktop{display:none;}
     }
 
     @media only screen and (min-device-width: 768px) and (max-device-width : 800px) and (orientation : landscape) {
@@ -296,6 +300,7 @@
     #progressbar{position:absolute;top:41px;height:3px;opacity:1;display:block;}
     #animatebutton{display:none;}
     #backbutton{display:none;}
+    #dropdowndesktop{display:none;}
     }
 
     @media screen and (max-width: 605px) {
@@ -311,6 +316,7 @@
     .axis line{stroke-width:1.25px;}
     #legendscroll{top:190px;}
     .legendtext{font-size:12px;position:absolute;left:0;top:170px;}
+    #dropdowndesktop{display:none;}
     }
 
     @media screen and (max-width: 480px) {
@@ -323,7 +329,7 @@
     #progressbar{position:absolute;top:41px;height:3px;opacity:1;}
     #ft-header {height: 40px;}
     #ft-header a>img {margin-top: 11px;opacity: .8;transition: opacity .3s;height:18px;}
-    #thesvg{position:relative;top:165px;height:365px;width:100%;max-width:900px;}
+    #thesvg{position:relative;top:165px;height:365px;width:100%;max-width:900px;pointer-events:none;}
     .hovertext{opacity:0;pointer-events:none;font-size:20px;}
     #captionhold1{height:44px;font-size:13px;line-height:17px;top:80px;}
     #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
@@ -1033,12 +1039,12 @@
 
     function todropdown(){
         d3.selectAll(".dropdown").classed("hidden",false)
-        svg.style("pointer-events","none")
+        svg.classed("inactive",true)
     };
 
     function tohover(){
         d3.selectAll(".dropdown").classed("hidden",true)
-        svg.style("pointer-events","all")
+        svg.classed("inactive",false)
     };
 
     d3.select('#topbutton')
