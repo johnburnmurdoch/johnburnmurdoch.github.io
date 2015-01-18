@@ -75,6 +75,8 @@
     #topbuttontext{position:relative;top:167px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
     #dropdowntext{position:relative;top:167px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
 
+    /*#dropdowntext.hidden{display:none;}*/
+
     #topbutton{position:relative;top:172px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
     #topbutton:hover{background-color:#74736c;color:#fff1e0;}
 
@@ -359,6 +361,8 @@
     #londonlabel{fill:#fff1e0;font-size:20px;}
     #otherlabeltop{fill:#fff1e0;font-size:20px;}
     #otherlabelbottom{fill:#fff1e0;font-size:20px;}
+
+    #dropdowndesktop{display:none;}
     }
     </style>
   </head>
@@ -406,7 +410,7 @@
 
     var check = thetext.append("input").attr("type","checkbox").attr("id","topbutton").attr("class","hidden");
 
-    thetext.append("span").attr("id","dropdowntext").text("Compare players using dropdown (disables hover)").attr("class","hidden");
+    thetext.append("span").attr("id","dropdowntext").text("Compare players using dropdown").attr("class","hidden").append("span").attr("id","dropdowndesktop").text(" (disables hover)");
 
     var check2 = thetext.append("input").attr("type","checkbox").attr("id","dropbutton").attr("class","hidden");
 
