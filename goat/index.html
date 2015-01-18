@@ -1,0 +1,1129 @@
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+  <head>
+    <title>The greatest tennis players of all time</title>
+    <script src="d3.min.js"></script>
+    <script type='text/javascript' src='jquery211.min.js'></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style type='text/css'>
+    @font-face{
+        font-family: "BentonSans";
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face{
+    font-family: "BentonSans";
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+    }
+    @font-face{
+    font-family: "MillerDisplay";
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot');
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.woff") format("woff"),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    @font-face{
+    font-family: "Clarion";
+    src: url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    body{background-color:#fff1e0;margin:auto;font-family:"BentonSans",sans-serif;cursor:default;}
+    .ui-mobile {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline:none;
+    }
+    .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
+    #ft-header {height: 50px;background-color: #fff1e0;width: 100%;position: absolute;top: 0;z-index: 2000;overflow: hidden;text-align:center;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);}
+    #ft-header a{background-color:#fff1e0;}
+    #ft-header a>img {margin-top: 13px;opacity: .8;transition: opacity .3s;height:20px;}
+    h1 {text-align: center;margin: 70px auto auto;font-family: "MillerDisplay","Clarion",Georgia,serif;font-weight: 400;font-size: 3em;}
+    h1 {display: block;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
+    text{font-family:"BentonSans",sans-serif;cursor:default;}
+    #container{height:950px;width:100%;margin-left:auto;margin-right:auto;background-color:transparent;text-align:center;max-width:1000px;}
+    #thesvg{position:relative;top:200px;height:640px;width:100%;max-width:1000px;}
+    #textholder{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:95%;background-color:transparent;height:100%;max-width:900px;z-index:1000;pointer-events:none;}
+    #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:110px;width:100%;height:44px;max-width:900px;z-index:1000;text-align:left;font-size:18px;line-height:24px;background-color:#fff1e0;}
+    .hovertext_{opacity:0;pointer-events:none;}
+    .hovertext{opacity:0;pointer-events:none;font-size:16px;}
+    .hovertext.hovered{opacity:1;pointer-events:none;}
+    .marker{stroke:#E4AEA5;stroke-width:0.5px;}
+    .marker.hovered{stroke:#43423e;stroke-width:2px;}
+    .hovermarker{fill:transparent;}
+    #animatebutton{position:relative;top:165px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
+    #animatebutton:hover{background-color:#74736c;color:#fff1e0;}
+
+    #backbutton{position:relative;top:165px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;}
+    #backbutton:hover{background-color:#74736c;color:#fff1e0;}
+
+    #topbuttontext{position:relative;top:167px;padding:6px 0px 6px 8px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
+    #dropdowntext{position:relative;top:167px;padding:6px 0px 6px 8px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
+
+    #topbutton{position:relative;top:172px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
+    #topbutton:hover{background-color:#74736c;color:#fff1e0;}
+
+    #dropbutton{position:relative;top:172px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
+    #dropbutton:hover{background-color:#74736c;color:#fff1e0;}
+
+    #slidetitle{position:absolute;top:60px;left:0;right:0;margin-left:auto;margin-right:auto;font-size:32px;font-family:"MillerDisplay","Clarion",Georgia,serif;}
+    #navintro{position:relative;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;white-space:nowrap;display: block;margin: 0 auto;width: 355px;top:0px;z-index:2000;visibility:hidden;}
+    .hovertip{width:150px;height:20px;fill:white;fill-opacity:0.8;opacity:0;pointer-events:none;}
+    .hovertip.hovered{opacity:1;}
+    .axis path{fill:none;stroke:none;}
+    .axis line{fill:none;stroke:#cec6b9;shape-rendering:crispEdges;stroke-dasharray:1px 1px;stroke-width:1px;}
+    .axis text{font-family:"BentonSans"sans-serif;font-size: 12px;fill:#74736c;}
+    .tick.hidden text{opacity:0;}
+    .axis{opacity:1}
+    .axis.showing{opacity:1;}
+    .marker.highlit{stroke:#43423e;stroke-width:1.5px;}
+    #londonmarker{fill:#b1493f;}
+    #othermarker{fill:#E4AEA5;}
+    #londonlabel{fill:#fff1e0;font-size:16px;}
+    #otherlabeltop{fill:#fff1e0;font-size:16px;}
+    #otherlabelbottom{fill:#fff1e0;font-size:16px;}
+    #scrollpoint{position:absolute;top:-50px;}
+    #scrollpointtwo{position:absolute;top:-50px;}
+    rect.sometext{fill:white;fill-opacity:0.8;stroke:#b8b1a9;stroke-width:1px;}
+    #navpoint{visibility:hidden;}
+    #toryline{stroke-width:1.5px;stroke:#3C5F5E;opacity:0;}
+    #labourline{stroke-width:1.5px;stroke:#b1493f;opacity:0;}
+    #allline{stroke-width:1.5px;stroke:#b8b1a9;opacity:0;}
+    #legendscroll{top:170px;}
+    #storylink{color:#2e6e9e;transition:0.3s;pointer-events:all;cursor:pointer;text-decoration:none;}
+    a#storylink:hover{color:#000;background-color:#fff1e0;}
+    #footer{position:fixed;overflow:hidden;bottom:0px;margin-left:0;padding-bottom:4px;width:100%;z-index:1000;background-color:#fff1e0;box-shadow: 2px 0px 0px 2px rgba(0,0,0,.1);padding-top:6px;right:0;font-size:14px;}
+    #footer a{color:#2e6e9e;transition:0.3s;pointer-events:all;cursor:pointer;text-decoration:none;}
+    #footer a:hover{color:#000;background-color:#fff1e0;}
+    #progressbar{position:absolute;float:left;width:0px;background-color:#af516c;top:45px;height:5px;display:none;}
+    #progressbarwide{position:absolute;float:left;width:0px;background-color:#af516c;top:50px;height:5px;}
+
+    .legendtext{display:none;font-size:12px;position:absolute;left:0;top:167px;border:solid 0px #F6E9D8;padding:2px;}
+    #smallcircle{padding:3px;border-radius:4px;border:solid 1px #b8b1a9;display:inline-block;}
+    #mediumcircle{padding:4px;border-radius:5px;border:solid 1px #b8b1a9;display:inline-block;}
+    #largecircle{padding:5px;border-radius:6px;border:solid 1px #b8b1a9;display:inline-block;}
+
+    #colorcircle{padding:5px;border-radius:6px;border:solid 0px #b8b1a9;display:inline-block;}
+    #colorcircle.low{background-color:rgb(247, 224, 207);}
+    #colorcircle.med{background-color:rgb(209, 143, 130);}
+    #colorcircle.high{background-color:#b1493f;}
+
+    #colorcircle.tory{background-color:#3C5F5E;}
+    #colorcircle.labour{background-color:#b1493f;}
+    #colorcircle.other{background-color:#b8b1a9;}
+    #footer.introstate{opacity:1;}
+
+    .Roger_Federer.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#af516c;}
+    .Roger_Federer.added text.namelabel{opacity:1;fill:#43423e;}
+    .Roger_Federer.added .playercircle{opacity:1;fill:#af516c;}
+
+    .Rafael_Nadal.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#af516c;}
+    .Rafael_Nadal.added text.namelabel{opacity:1;fill:#43423e;}
+    .Rafael_Nadal.added .playercircle{opacity:1;fill:#af516c;}
+
+    .Novak_Djokovic.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#af516c;}
+    .Novak_Djokovic.added text.namelabel{opacity:1;fill:#43423e;}
+    .Novak_Djokovic.added .playercircle{opacity:1;fill:#af516c;}
+
+    .Andy_Murray.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#af516c;}
+    .Andy_Murray.added text.namelabel{opacity:1;fill:#43423e;}
+    .Andy_Murray.added .playercircle{opacity:1;fill:#af516c;}
+
+    .Jimmy_Connors.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#d7706c;}
+    .Jimmy_Connors.added text.namelabel{opacity:1;fill:#43423e;}
+    .Jimmy_Connors.added .playercircle{opacity:1;fill:#d7706c;}
+
+    .Ivan_Lendl.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#d7706c;}
+    .Ivan_Lendl.added text.namelabel{opacity:1;fill:#43423e;}
+    .Ivan_Lendl.added .playercircle{opacity:1;fill:#d7706c;}
+
+    .John_Mcenroe.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#d7706c;}
+    .John_Mcenroe.added text.namelabel{opacity:1;fill:#43423e;}
+    .John_Mcenroe.added .playercircle{opacity:1;fill:#d7706c;}
+
+    .Bjorn_Borg.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#d7706c;}
+    .Bjorn_Borg.added text.namelabel{opacity:1;fill:#43423e;}
+    .Bjorn_Borg.added .playercircle{opacity:1;fill:#d7706c;}
+
+    .Andre_Agassi.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#76acb8;}
+    .Andre_Agassi.added text.namelabel{opacity:1;fill:#43423e;}
+    .Andre_Agassi.added .playercircle{opacity:1;fill:#76acb8;}
+
+    .Pete_Sampras.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#76acb8;}
+    .Pete_Sampras.added text.namelabel{opacity:1;fill:#43423e;}
+    .Pete_Sampras.added .playercircle{opacity:1;fill:#76acb8;}
+
+    .Boris_Becker.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#76acb8;}
+    .Boris_Becker.added text.namelabel{opacity:1;fill:#43423e;}
+    .Boris_Becker.added .playercircle{opacity:1;fill:#76acb8;}
+
+    .Arthur_Ashe.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#4e86b6;}
+    .Arthur_Ashe.added text.namelabel{opacity:1;fill:#43423e;}
+    .Arthur_Ashe.added .playercircle{opacity:1;fill:#4e86b6;}
+
+    .Rod_Laver.added path.playerline{stroke-opacity:1;stroke-width:2px;stroke:#4e86b6;}
+    .Rod_Laver.added text.namelabel{opacity:1;fill:#43423e;}
+    .Rod_Laver.added .playercircle{opacity:1;fill:#4e86b6;}
+
+    .player path{
+      fill: none;
+      stroke-width: 2px;
+      stroke-opacity:0.25;
+      stroke:#b8b1a9;
+    }
+
+    .player.hovered path{
+      stroke-width: 3px;
+      stroke-opacity:1;
+      stroke:#9e2f50;
+    }
+
+    .player.hoveredtwo path{
+      stroke-width: 3px;
+      stroke-opacity:1;
+      stroke:#76acb8;
+    }
+
+    .player.backed path{
+      stroke-width: 1px;
+      stroke-opacity:0.25;
+      stroke:#b8b1a9;
+    }
+
+    .player.hovered circle.playercircle{
+      stroke-width: 1px;
+      stroke:#9e2f50;
+      fill:#9e2f50;
+    }
+
+    .player.hoveredtwo circle.playercircle{
+      stroke-width: 1px;
+      stroke:#76acb8;
+      fill:#76acb8;
+    }
+
+    .player.backed circle.playercircle{
+      fill-opacity:0.25;
+      stroke-width: 0px;
+      stroke:#43423e;
+      fill:#b8b1a9;
+    }
+
+    .namelabel{font-size:11px;opacity:0;fill:#43423e;alignment-baseline:middle;}
+    .namelabel.backed{opacity:0!important;}
+
+    .hoverlabel{font-size:11px;opacity:1;fill:#43423e;alignment-baseline:middle;overflow:visible;}
+    .hoverrect{opacity:0.7;fill:white;stroke:#b8b1a9;}
+    .hoverlabeltwo{font-size:11px;opacity:1;fill:#43423e;alignment-baseline:middle;overflow:visible;}
+    .hoverrecttwo{opacity:0.7;fill:white;stroke:#b8b1a9;}
+
+    .playercircle{opacity:0.5;fill:#b8b1a9;}
+
+    .ylabel{font-size:12px;}
+    .xlabel{font-size:12px;}
+
+    .dropdown{position:relative;top:172px;z-index:2000;float:left;pointer-events:all;margin-left:10px;}
+    .dropdown.hidden{display:none;}
+    .dropdown.off{display:none;}
+
+    #selector{}
+    #selector0{}
+
+    #selector2{}
+    #selector20{}
+
+    @media screen and (min-width: 1030px) and (max-height : 910px) {
+    #thesvg{height:550px;}
+    #scrollpoint{position:absolute;top:50px;}
+    }
+
+    @media screen and (max-width: 768px) {
+    #progressbar{display:block;top:41px;height:3px;opacity:1;}
+    #progressbarwide{display:none;}
+    .hovertip{visibility:hidden;}
+    #ft-header {height: 40px;}
+    #ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
+    #thesvg{position:relative;top:175px;height:700px;width:100%;max-width:900px;}
+    .hovertext{opacity:0;pointer-events:none;font-size:20px;}
+    #captionhold1{height:44px;font-size:18px;line-height:24px;top:85px;}
+    #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
+    #slidetitle{font-size:26px;top:48px;}
+    #textholder{height:690px;}
+    #container{height:950px;}
+    #navintro{position:absolute;padding:10px;font-size:20px;white-space:nowrap;width:325px;top:750px;left:0;right:0;visibility:visible;}
+    .axis line{stroke-width:1.25px;}
+    #animatebutton{display:none;}
+    #backbutton{display:none;}
+    #navpoint{position:absolute;top:880px;}
+    #legendscroll{top:175px;}
+    .legendtext{font-size:12px;position:absolute;left:0;top:170px;}
+    #londonlabel{fill:#fff1e0;font-size:18px;}
+    #otherlabeltop{fill:#fff1e0;font-size:18px;}
+    #otherlabelbottom{fill:#fff1e0;font-size:18px;}
+    }
+
+    @media only screen and (min-device-width: 801px) and (max-device-width :1024px) and (orientation : landscape) {
+    #thesvg{top:190px;height:330px;}
+    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:210px;top:520px;left:0;right:0;visibility:visible;}
+    #scrollpoint{position:absolute;top:77px;}
+    #navpoint{position:absolute;top:520px;}
+    #animatebutton{display:none;}
+    #backbutton{display:none;}
+    }
+
+    @media only screen and (min-device-width: 768px) and (max-device-width : 800px) and (orientation : landscape) {
+    #thesvg{top:190px;height:330px;}
+    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:210px;top:520px;left:0;right:0;visibility:visible;}
+    #scrollpoint{position:absolute;top:41px;}
+    #navpoint{position:absolute;top:520px;}
+    #progressbar{position:absolute;top:41px;height:3px;opacity:1;display:block;}
+    #animatebutton{display:none;}
+    #backbutton{display:none;}
+    }
+
+    @media screen and (max-width: 605px) {
+    #ft-header {height: 40px;}
+    #ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
+    #thesvg{position:relative;top:190px;height:700px;width:100%;max-width:900px;}
+    .hovertext{opacity:0;pointer-events:none;font-size:20px;}
+    #captionhold1{height:44px;font-size:18px;line-height:24px;top:85px;}
+    #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
+    #slidetitle{font-size:26px;top:48px;}
+    #textholder{height:690px;}
+    #container{height:750px;}
+    .axis line{stroke-width:1.25px;}
+    #legendscroll{top:190px;}
+    .legendtext{font-size:12px;position:absolute;left:0;top:170px;}
+    }
+
+    @media screen and (max-width: 480px) {
+    #progressbar{position:absolute;top:41px;height:3px;opacity:1;}
+    #ft-header {height: 40px;}
+    #ft-header a>img {margin-top: 11px;opacity: .8;transition: opacity .3s;height:18px;}
+    #thesvg{position:relative;top:165px;height:365px;width:100%;max-width:900px;}
+    .hovertext{opacity:0;pointer-events:none;font-size:20px;}
+    #captionhold1{height:44px;font-size:13px;line-height:17px;top:80px;}
+    #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
+    #slidetitle{font-size:22px;top:48px;}
+    #textholder{height:690px;}
+    #container{height:690px;}
+    #textholder.introstate{opacity:1;}
+    #thesvg.introstate{opacity:1;}
+    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:210px;top:450px;left:0;right:0;visibility:visible;}
+    .axis line{stroke-width:2px;}
+    #scrollpoint{position:absolute;top:42px;}
+    #scrollpointtwo{position:absolute;top:42px;}
+    #animatebutton{visibility:hidden;}
+    #navpoint{visibility:visible;position:absolute;top:530px;}
+    #toryline{stroke-width:3px;stroke:#3C5F5E;}
+    #labourline{stroke-width:3px;stroke:#b1493f;}
+    #allline{stroke-width:3px;stroke:#b8b1a9;}
+    #legendscroll{top:175px;}
+    .legendtext{font-size:9px;position:absolute;float:left;top:150px;}
+    #footer{padding-bottom:3px;width:100%;z-index:0;background-color:#fff1e0;box-shadow: 2px 0px 0px 2px rgba(0,0,0,.1);padding-top:3px;right:0;font-size:12px;}
+    #footer.introstate{opacity:1;}
+
+    #smallcircle{padding:2px;border-radius:3px;border:solid 1px #b8b1a9;display:inline-block;}
+    #mediumcircle{padding:3px;border-radius:4px;border:solid 1px #b8b1a9;display:inline-block;}
+    #largecircle{padding:4px;border-radius:5px;border:solid 1px #b8b1a9;display:inline-block;}
+
+    #colorcircle{padding:4px;border-radius:5px;border:solid 0px #b8b1a9;display:inline-block;}
+    #colorcircle.low{background-color:rgb(247, 224, 207);}
+    #colorcircle.med{background-color:rgb(209, 143, 130);}
+    #colorcircle.high{background-color:#b1493f;}
+
+    #colorcircle.tory{background-color:#3C5F5E;}
+    #colorcircle.labour{background-color:#b1493f;}
+    #colorcircle.other{background-color:#b8b1a9;}
+    #londonlabel{fill:#fff1e0;font-size:20px;}
+    #otherlabeltop{fill:#fff1e0;font-size:20px;}
+    #otherlabelbottom{fill:#fff1e0;font-size:20px;}
+    }
+    </style>
+  </head>
+  <body>
+    <header id="ft-header" class="stickable">
+      <a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+    </header>
+
+    <script type="text/javascript">
+
+    //config
+
+    var width = 1000,
+      height = 600,
+      margin = {top:20,left:20,bottom:20,right:20};
+
+    var cont = d3.select("body").append("div")
+      .attr("id","container");
+
+    var thetext = d3.select("div#container").append("div").attr("id","textholder").attr("class","introstate");;
+
+    thetext.append("span")
+    .attr({
+      "class":"legendtext size"
+    })
+    .html();
+
+    function drawlegend() {
+    d3.select(".legendtext")
+    .html();
+    };
+
+    function partylegend() {
+    d3.select(".legendtext")
+    .html();
+    };
+
+    thetext.append("span").attr("id","slidetitle").text("The greatest tennis players of all time");
+
+    thetext.append("div").attr({"id":"captionhold1"}).append("span").html("156 players have reached the top ten of the ATP rankings since they were established in 1973. How do they compare on success and longevity?");
+
+    thetext.append("span").attr("id","backbutton").text("« Back").attr("class","hidden");
+
+    thetext.append("span").attr("id","topbuttontext").text("Top players only").attr("class","hidden");
+
+    var check = thetext.append("input").attr("type","checkbox").attr("id","topbutton").attr("class","hidden");
+
+    thetext.append("span").attr("id","dropdowntext").text("Select using dropdown instead of hover").attr("class","hidden");
+
+    var check2 = thetext.append("input").attr("type","checkbox").attr("id","dropbutton").attr("class","hidden");
+
+    thetext.append("span").attr("id","animatebutton").text("Next »");
+
+    var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"0 0 1000 640","class":"introstate","xml:space":"preserve"});
+
+    thetext.append("div").attr({"id":"scrollpoint"});
+
+    thetext.append("div")
+      .attr("id","progressbar");
+
+    thetext.append("div")
+      .attr("id","progressbarwide");
+
+    cont.append("span")
+      .attr("id","navintro")
+      .text("Swipe right-to-left to continue");
+
+    cont.append("div").attr({"id":"navpoint"});
+
+    cont.append("div").attr({"id":"scrollpointtwo"});
+
+    cont.append("div").attr({"id":"legendscroll"});
+
+    cont.append("span").attr({"id":"footer","class":"introstate"}).html("By " + '<a href="https://twitter.com/jburnmurdoch" title="John Burn-Murdoch" target="_blank" id="authorlink">' + "John Burn-Murdoch" + "</a>" + '&nbsp;&nbsp;&nbsp;&nbsp;' + "Source: " + '<a href="http://www.atpworldtour.com/" title="ATP World Tour" target="_blank" id="sourcelink">' + "ATP World Tour" + "</a>");
+
+    function moveintro(){return d3.select("#navintro").transition().duration(2000).style("top",function(){return d3.select("#navpoint").style("top")})};
+
+    function movesvg(){return d3.select("#thesvg").style("top",function(){return d3.select("#legendscroll").style("top")})};
+
+    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum) * ($("#textholder").width())/6) + "px"}),
+        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum) * 150) + "px"});
+    };
+
+    /* ADD INTERACTIVITY HERE! */
+
+    var plotWidth = width;
+    var plotHeight = height;
+    var lookup = {};
+
+    var slidenum = 0;
+
+    var positionScale = d3.scale.linear()
+                          .range([0, Math.max(plotWidth, plotHeight)]);
+
+
+
+
+
+
+
+    var x = d3.scale.linear()
+    .range([45,width-40]);
+
+    var x2 = d3.scale.linear()
+        .range([45,width-40]);
+
+    var x3 = d3.scale.linear()
+        .range([45,width-40]);
+        
+    var y = d3.scale.linear()
+        .range([height-20,30]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .tickFormat(d3.format(",.0f"))
+        .tickValues([0,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500])
+        .tickSize(-550);
+
+    var xAxisyears = d3.svg.axis()
+        .scale(x2)
+        .orient("bottom")
+        .tickFormat(d3.format("d"))
+        .tickValues([1975,1980,1985,1990,1995,2000,2005,2010,2015])
+        .tickSize(-550);
+
+    var xAxisage = d3.svg.axis()
+        .scale(x3)
+        .orient("bottom")
+        .tickFormat(d3.format(",.0f"))
+        .tickValues([15,20,25,30,35,40,45])
+        .tickSize(-550);
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickFormat(d3.format("d"))
+        .tickValues([0,10,20,30,40,50,60,70,80,90,100])
+        .tickSize(-910);
+
+    var yAxisright = d3.svg.axis()
+          .scale(y)
+          .orient("right")
+          .tickFormat(d3.format("d"))
+          .tickValues([0,10,20,30,40,50,60,70,80,90,100])
+          .tickSize(0)
+          ;
+
+    var svgdefs = svg.append("svg:defs")
+
+    svgdefs.append("clipPath")
+        .attr("id", "clip")
+        .append("rect")
+        .attr("x",45)
+        .attr("y",30)
+        .attr("width", plotWidth-55)
+        .attr("height", plotHeight-50);
+    
+    var line = d3.svg.line()
+    .interpolate("cardinal")
+    .x(function(d) { return x(d.match); })
+    .y(function(d) { return y(d.winrate); });
+
+    var line2 = d3.svg.line()
+        .interpolate("cardinal")
+        .x(function(d) { return x2(d.year); })
+        .y(function(d) { return y(d.winrate); });
+
+    var line3 = d3.svg.line()
+        .interpolate("cardinal")
+        .x(function(d) { return x3(d.age); })
+        .y(function(d) { return y(d.winrate); });
+
+    d3.csv("halfdata.csv", function(error, data) {
+        d3.csv("slimdata.csv", function(error, data2) {
+            d3.csv("slim25.csv", function(error, data3) {
+
+    data = data.map( function (d) { 
+        return { 
+          player: d.player,
+          match: +d.match,
+          winrate: +d.winrate,
+          year: +d.year,
+          age: +d.age,
+          playerrank: +d.playerrank }; 
+    });
+
+    data = d3.nest().key(function(d) { return d.player; }).entries(data)
+    console.log("firstdata",data);
+
+    data2 = d3.nest().key(function(d) { return d.player; }).sortKeys(d3.ascending).entries(data2)
+    console.log("second",data2);
+
+    top25 = d3.nest().key(function(d) { return d.player; }).sortKeys(d3.ascending).entries(data3)
+    console.log("second",data3);
+
+    x.domain([d3.min(data, function(d) { return d3.min(d.values, function (d) { return d.match; }); }),
+             d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.match+95; }); })]);
+    x2.domain([d3.min(data, function(d) { return d3.min(d.values, function (d) { return d.year; }); }),
+             d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.year+4; }); })]);
+    x3.domain([d3.min(data, function(d) { return d3.min(d.values, function (d) { return d.age; }); }),
+             d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.age+2; }); })]);
+    y.domain([0, d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.winrate; }); })]);
+
+
+
+
+
+
+    
+
+
+
+
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "xaxis")
+    .attr("transform", "translate(0,580)")
+    .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("id", "xaxisyears")
+        .attr("transform", "translate(-2000,580)")
+        .call(xAxisyears);
+
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("id", "xaxisage")
+        .attr("transform", "translate(-2000,580)")
+        .call(xAxisage);
+
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "yaxis")
+    .attr("transform", "translate(45,0)")
+    .call(yAxis);
+
+    d3.select("svg").append("g")
+    .attr("class", "axis")
+    .attr("id", "yaxisright")
+    .attr("transform", "translate(955,0)")
+    .call(yAxisright);
+
+    svg.append("text")
+        .attr({
+          "class":"axis ylabel",
+          "x":"45",
+          "y":"18"
+        })
+        .text("Cumulative win percentage");
+
+    svg.append("text")
+        .attr({
+          "class":"axis xlabel",
+          "x":"500",
+          "y":"620",
+          "text-anchor":"middle"
+        })
+        .text("Number of matches played");
+
+    d3.select("#yaxis .tick:nth-of-type(1)").classed("hidden",true);
+    d3.select("#yaxisright .tick:nth-of-type(1)").classed("hidden",true);
+
+
+    var players = svg.selectAll(".player")
+        .data(data, function(d) { return d.key; })
+        .enter().append("g")
+        .attr("class", function(d) {return "player " + (d.key).replace(/ /g,"_")})
+        .attr("clip-path","url(#clip)");
+
+    players.append("path")
+        .attr("class", function(d) {return "playerline " + (d.key).replace(/ /g,"_")})
+        .attr("d", function(d) { return line(d.values); });
+
+    players.append("circle")
+        .attr("class", function(d) {return "playercircle " + (d.key).replace(/ /g,"_")})
+        .attr("cx", function(d) { return line(d.values).split("Q")[2].split(",")[2]; })
+        .attr("cy", function(d) { return line(d.values).split("Q")[2].split(",")[3]; })
+        .attr("r",2);
+
+    players.append("text")
+        .attr("class", "namelabel")
+        .attr("xml:space","preserve")
+        .attr("x", function(d) { return line(d.values).split("Q")[2].split(",")[2]; })
+        .attr("y", function(d) { return line(d.values).split("Q")[2].split(",")[3]; })
+        .text(function(d) { return " " + (d.key)});
+
+    var tooltips = svg.selectAll(".tooltip")
+        .data(data, function(d) { return d.key; })
+        .enter().append("g")
+        .attr("class", function(d) {return "tooltip " + (d.key).replace(/ /g,"_")})
+        .attr('transform',function(d){
+            var xpos = line(d.values).split("Q")[2].split(",")[2]
+            var ypos = line(d.values).split("Q")[2].split(",")[3]
+            return 'translate('+xpos+','+ypos+')';
+          });
+
+    d3.selectAll("g.player").on('mouseover', function(){
+    var xpos = d3.select("." + d3.select(this).attr("class").split(" ")[1] + " " + "circle").attr("cx")
+    var ypos = d3.select("." + d3.select(this).attr("class").split(" ")[1] + " " + "circle").attr("cy")
+    var playersname = d3.select(this).attr("class").split(" ")[1].replace(/_/g," ")
+    d3.selectAll('g.player').classed('backed',true)
+    d3.selectAll('.namelabel').classed('backed',true)
+    d3.selectAll('g.player').classed('hovered',false)
+    d3.selectAll('g.player').classed('hoveredtwo',false)
+    d3.select('g.player.' + d3.select(this).attr('class').split(" ")[1]).classed('hovered',true).classed('backed',false)
+    svg.append("rect").attr("x",xpos).attr("y",ypos-11).attr("class","hoverrect").attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
+    svg.append("text").attr("xml:space","preserve").attr("x",xpos).attr("y",ypos).attr("class","hoverlabel").text(" " + playersname)
+    }).on('mouseout', function(){
+    d3.selectAll('g.player').classed('backed',false)
+    d3.selectAll('.namelabel').classed('backed',false)
+      d3.select('g.player.' + d3.select(this).attr('class').split(" ")[1]).classed('hovered',false)
+      d3.selectAll(".hoverlabel").remove()
+      d3.selectAll(".hoverrect").remove()
+      d3.selectAll(".hoverlabeltwo").remove()
+      d3.selectAll(".hoverrecttwo").remove()
+    })
+
+    d3.selectAll("g.player").filter(function(d,i) { return i > 123 }).classed("top50",true);
+
+    var select  = thetext.append("select").attr("class","dropdown hidden").attr("id","selector").on("change", change),
+    options = select.selectAll('option').data(data2);
+    options.enter().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    var select0  = thetext.append("select").attr("class","dropdown hidden off").attr("id","selector0").on("change", change0),
+    options = select0.selectAll('option').data(top25);
+    options.enter().sort().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    var select2 = thetext.append("select").attr("class","dropdown hidden").attr("id","selector2").on("change", change2),
+    options = select2.selectAll('option').data(data2);
+    options.enter().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    var select20  = thetext.append("select").attr("class","dropdown hidden off").attr("id","selector20").on("change", change20),
+    options = select20.selectAll('option').data(top25);
+    options.enter().sort().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    // options.enter().append("option").text(function(d,i) {for (i>123; i<data.length; i++)  return d.key.replace(/_/g, ' ')});
+
+    function highlightplayer(name){        
+        var xpos = d3.select("." + name + " " + "circle").attr("cx")
+        var ypos = d3.select("." + name + " " + "circle").attr("cy")
+        var playersname = name.replace(/_/g," ")
+        d3.selectAll(".hoverlabel").remove()
+        d3.selectAll(".hoverrect").remove()
+        d3.selectAll("*:not(.player2).player").classed('backed',true)
+        d3.selectAll('.namelabel').classed('backed',true)
+        d3.selectAll('g.player').classed('hovered',false)
+        d3.select('g.player.' + name).classed('hovered player1',true).classed('backed',false)
+        d3.select('g.tooltip.' + name).append("rect").attr("x",0).attr("y",-11).attr("class","hoverrect " + name).attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
+        d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",0).attr("y",0).attr("class","hoverlabel " + name).text(" " + playersname)
+        $("g.player").insertBefore($("g.player." + name),null)
+    };
+
+    function highlightplayertwo(name){        
+        var xpos = d3.select("." + name + " " + "circle").attr("cx")
+        var ypos = d3.select("." + name + " " + "circle").attr("cy")
+        var playersname = name.replace(/_/g," ")
+        d3.selectAll(".hoverlabeltwo").remove()
+        d3.selectAll(".hoverrecttwo").remove()
+        d3.selectAll("*:not(.player1).player").classed('backed',true)
+        d3.selectAll('.namelabel').classed('backed',true)
+        d3.selectAll('g.player').classed('hoveredtwo',false)
+        d3.select('g.player.' + name).classed('hoveredtwo player2',true).classed('backed',false)
+        d3.select('g.tooltip.' + name).append("rect").attr("x",0).attr("y",-11).attr("class","hoverrecttwo " + name).attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
+        d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",0).attr("y",0).attr("class","hoverlabeltwo " + name).text(" " + playersname)
+        $("g.player").insertBefore($("g.player." + name),null)
+    };
+
+    function change() {
+        $('#selector').change(function () {
+            highlightplayer((this.value).replace(/ /g, '_'));
+        });
+    };
+
+    function change0() {
+        $('#selector0').change(function () {
+            highlightplayer((this.value).replace(/ /g, '_'));
+        });
+    };
+
+
+
+    function change2() {
+        $('#selector2').change(function () {
+            highlightplayertwo((this.value).replace(/ /g, '_'));
+        });
+    };
+
+    function change20() {
+        $('#selector20').change(function () {
+            highlightplayertwo((this.value).replace(/ /g, '_'));
+        });
+    };
+
+
+    // d3.select(".Roger_Federer").classed("topplayer",true)
+    // d3.select(".Rafael_Nadal").classed("topplayer",true)
+    // d3.select(".Novak_Djokovic").classed("topplayer",true)
+    // d3.select(".Andy_Murray").classed("topplayer",true)
+    // d3.select(".Jimmy_Connors").classed("topplayer",true)
+    // d3.select(".John_Mcenroe").classed("topplayer",true)
+    // d3.select(".Ivan_Lendl").classed("topplayer",true)
+    // d3.select(".Bjorn_Borg").classed("topplayer",true)
+    // d3.select(".Pete_Sampras").classed("topplayer",true)
+    // d3.select(".Andre_Agassi").classed("topplayer",true)
+    // d3.select(".Boris_Becker").classed("topplayer",true)
+    // d3.select(".Rod_Laver").classed("topplayer",true)
+    // d3.select(".Stefan_Edberg").classed("topplayer",true)
+    // d3.select(".Arthur_Ashe").classed("topplayer",true)
+    // d3.select(".Guillermo_Vilas").classed("topplayer",true)
+
+
+    // d3.selectAll(".playerg").filter(function(d,i) { return i > 105 }).classed("top50",true);
+
+    d3.select("#animatebutton").on('click', function(){
+      if (slidenum == 0) {return upto1();}
+        else {if (slidenum == 1) return upto2();
+        else {if (slidenum == 2) return upto3();
+        else {if (slidenum == 3) return upto4();
+        else {if (slidenum == 4) return upto5();
+        else {if (slidenum == 5) return upto6();
+        else {if (slidenum == 6) return upto7();
+        else {if (slidenum == 7) return restartviz();}}}}}}}
+    });
+
+    d3.select("#backbutton").on('click', function(){
+      if  (slidenum == 1) return downto0();
+        else {if (slidenum == 2) return downto1();
+        else {if (slidenum == 3) return downto2();
+        else {if (slidenum == 4) return upto5();
+        else {if (slidenum == 5) return upto6();
+        else {if (slidenum == 6) return upto7();
+        else {if (slidenum == 7) return restartviz();}}}}}}
+    });
+
+    function tomatchline(){
+        d3.selectAll(".playerline").transition().duration(2000)
+            .attr("d", function(d) { return line(d.values); });
+        d3.selectAll(".playercircle").transition().duration(2000)
+            .attr("cx", function(d) { return line(d.values).split("Q")[2].split(",")[2]; })
+            .attr("cy", function(d) { return line(d.values).split("Q")[2].split(",")[3]; });
+        d3.selectAll(".namelabel").transition().duration(2000)
+            .attr("x", function(d) { return line(d.values).split("Q")[2].split(",")[2]; })
+            .attr("y", function(d) { return line(d.values).split("Q")[2].split(",")[3]; });
+        d3.selectAll(".tooltip").transition().duration(2000)
+        .attr('transform',function(d){
+            var xpos = line(d.values).split("Q")[2].split(",")[2]
+            var ypos = line(d.values).split("Q")[2].split(",")[3]
+            return 'translate('+xpos+','+ypos+')';
+          });
+        d3.select("#xaxisyears").transition().delay(0).duration(1000)
+            .attr("transform", "translate(-1000,580)");
+        d3.select("#xaxis").transition().delay(1000).duration(1000)
+            .attr("transform", "translate(0,580)");
+    };
+
+    function toyearsline(){
+        d3.selectAll(".playerline").transition().duration(2000)
+            .attr("d", function(d) { return line2(d.values); });
+        d3.selectAll(".playercircle").transition().duration(2000)
+            .attr("cx", function(d) { return line2(d.values).split("Q")[2].split(",")[2]; })
+            .attr("cy", function(d) { return line2(d.values).split("Q")[2].split(",")[3]; });
+        d3.selectAll(".namelabel").transition().duration(2000)
+            .attr("x", function(d) { return line2(d.values).split("Q")[2].split(",")[2]; })
+            .attr("y", function(d) { return line2(d.values).split("Q")[2].split(",")[3]; });
+        d3.selectAll(".tooltip").transition().duration(2000)
+        .attr('transform',function(d){
+            var xpos = line2(d.values).split("Q")[2].split(",")[2]
+            var ypos = line2(d.values).split("Q")[2].split(",")[3]
+            return 'translate('+xpos+','+ypos+')';
+          });
+        d3.select("#xaxis").transition().delay(0).duration(1000)
+            .attr("transform", "translate(-1000,580)");
+        d3.select("#xaxisage").transition().delay(0).duration(1000)
+            .attr("transform", "translate(-1000,580)");
+        d3.select("#xaxisyears").transition().delay(1000).duration(1000)
+            .attr("transform", "translate(0,580)");
+    };
+
+    function toageline(){
+        d3.selectAll(".playerline").transition().duration(2000)
+            .attr("d", function(d) { return line3(d.values); });
+        d3.selectAll(".playercircle").transition().duration(2000)
+            .attr("cx", function(d) { return line3(d.values).split("Q")[2].split(",")[2]; })
+            .attr("cy", function(d) { return line3(d.values).split("Q")[2].split(",")[3]; });
+        d3.selectAll(".namelabel").transition().duration(2000)
+            .attr("x", function(d) { return line3(d.values).split("Q")[2].split(",")[2]; })
+            .attr("y", function(d) { return line3(d.values).split("Q")[2].split(",")[3]; });
+        d3.selectAll(".tooltip").transition().duration(2000)
+        .attr('transform',function(d){
+            var xpos = line3(d.values).split("Q")[2].split(",")[2]
+            var ypos = line3(d.values).split("Q")[2].split(",")[3]
+            return 'translate('+xpos+','+ypos+')';
+          });
+        d3.select("#xaxisyears").transition().delay(0).duration(1000)
+            .attr("transform", "translate(-1000,580)");
+        d3.select("#xaxisage").transition().delay(1000).duration(1000)
+            .attr("transform", "translate(0,580)");
+    };
+
+    function toshortyaxis(){
+        y.domain([30,90])
+        yAxis.tickValues([40,50,60,70,80,90])
+        yAxisright.tickValues([40,50,60,70,80,90])
+        d3.select("#yaxis")
+            .transition().duration(2000)
+            .call(yAxis);
+            d3.select("#yaxisright")
+            .transition().duration(2000)
+            .call(yAxisright);};
+
+    function tominiyaxis(){
+        y.domain([60,90])
+        yAxis.tickValues([70,80,90])
+        yAxisright.tickValues([70,80,90])
+        d3.select("#yaxis")
+            .transition().duration(2000)
+            .call(yAxis);
+            d3.select("#yaxisright")
+            .transition().duration(2000)
+            .call(yAxisright);};
+
+    function tolongyaxis(){
+        y.domain([0,100])
+        yAxis.tickValues([0,10,20,30,40,50,60,70,80,90,100])
+        yAxisright.tickValues([0,10,20,30,40,50,60,70,80,90,100])
+        d3.select("#yaxis")
+            .transition().duration(2000)
+            .call(yAxis);
+            d3.select("#yaxisright")
+            .transition().duration(2000)
+            .call(yAxisright);            
+        d3.select("#yaxis .tick:nth-of-type(1)").classed("hidden",true);
+        d3.select("#yaxisright .tick:nth-of-type(1)").classed("hidden",true);};
+
+    function switchdropdowns(){
+        d3.selectAll(".dropdown.off").classed("on",true)
+        d3.selectAll("*:not(.off).dropdown").classed("off",true)
+        d3.selectAll(".dropdown.on").classed("off on",false)
+    };
+
+    function fifty0(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").style("display","none");
+        tominiyaxis();
+        tomatchline();
+        d3.selectAll(".topplayer").classed("added",true);
+    };
+
+    function fifty1(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").style("display","none");
+        tominiyaxis();
+        tomatchline();
+        d3.selectAll(".topplayer").classed("added",true);
+    };
+
+    function fifty2(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").style("display","none");
+        tominiyaxis();
+        toyearsline();
+        d3.selectAll(".topplayer").classed("added",true);
+    };
+
+    function fifty3(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").style("display","none");
+        tominiyaxis();
+        toageline();
+        d3.selectAll(".topplayer").classed("added",true);
+    };  
+
+    function nofifty0(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").transition().delay(2000).style("display","block");
+        tolongyaxis();
+        tomatchline();
+        d3.selectAll(".topplayer").classed("added",false);
+    };
+
+    function nofifty1(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").transition().delay(2000).style("display","block");
+        toshortyaxis();
+        tomatchline();
+        d3.selectAll(".topplayer").classed("added",false);
+    };
+
+    function nofifty2(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").transition().delay(2000).style("display","block");
+        toshortyaxis();
+        toyearsline();
+        d3.selectAll(".topplayer").classed("added",false);
+    };
+
+    function nofifty3(){
+        switchdropdowns();
+        d3.selectAll("*:not(.top50).player").transition().delay(2000).style("display","block");
+        toshortyaxis();
+        toageline();
+        d3.selectAll(".topplayer").classed("added",false);
+    };      
+
+    function dotop11() {
+    if (document.getElementById('topbutton').checked && slidenum == 0) fifty0();
+        else {if (document.getElementById('topbutton').checked && slidenum == 1) fifty1()
+        else {if (document.getElementById('topbutton').checked && slidenum == 2) fifty2()
+        else {if (document.getElementById('topbutton').checked && slidenum == 3) fifty3()
+        else {if (document.getElementById('topbutton').checked === false && slidenum == 0) nofifty0()
+        else {if (document.getElementById('topbutton').checked === false && slidenum == 1) nofifty1()
+        else {if (document.getElementById('topbutton').checked === false && slidenum == 2) nofifty2()
+        else {if (document.getElementById('topbutton').checked === false && slidenum == 3) nofifty3()}}}}}}}     
+    };
+
+    function upto1() {
+        toshortyaxis();
+        tomatchline();
+        d3.select("#backbutton").classed("hidden",false);
+        // d3.selectAll("*:not(.top50).player").style("display","none");
+        slidenum = 1;
+    };
+
+    function downto0() {
+        tolongyaxis();
+        tomatchline();
+        d3.select("#backbutton").classed("hidden",true);
+        // d3.selectAll("*:not(.top50).player").style("display","block");
+        slidenum = 0;
+    };
+
+    function upto2() {
+        toyearsline();
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        .transition().delay(1000).duration(1000).text("Year").attr("transform","translate(0,0)");
+        slidenum = 2;
+    };    
+
+    function downto1() {
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        .transition().delay(1000).duration(1000).text("Matches played").attr("transform","translate(0,0)");
+        tomatchline();
+        slidenum = 1;
+    };
+
+    function upto3() {
+        d3.select("#topbutton").classed("hidden",false);
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        .transition().delay(1000).duration(1000).text("Age").attr("transform","translate(0,0)");
+        toageline();
+        slidenum = 3;
+    };
+
+    function downto2() {
+        toyearsline();
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        .transition().delay(1000).duration(1000).text("Year").attr("transform","translate(0,0)");
+        slidenum = 2;
+    };
+
+    function dropped(){
+        if (document.getElementById('dropbutton').checked) todropdown()
+            else {if (document.getElementById('dropbutton').checked === false) tohover()}
+    };
+
+    function todropdown(){
+        d3.selectAll(".dropdown").classed("hidden",false)
+        svg.style("pointer-events","none")
+    };
+
+    function tohover(){
+        d3.selectAll(".dropdown").classed("hidden",true)
+        svg.style("pointer-events","all")
+    };
+
+    d3.select('#topbutton')
+    .on('click', dotop11)
+
+    d3.select('#dropbutton')
+    .on('click', dropped)
+
+    // d3.select('#top50button')
+    // .on('click', filtertop50)
+
+    // d3.select('#resetfilter')
+    // .on('click', showall)
+        
+    });});});
+
+    addEventListener("keydown", function(event) {
+    if (event.keyCode == 34 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 34 && slidenum == 0) scrolltwo()
+        else {if (event.keyCode == 34 && slidenum == 1) dolondon()
+        else {if (event.keyCode == 34 && slidenum == 2) gainassize()
+        else {if (event.keyCode == 34 && slidenum == 3) twospeed()
+        else {if (event.keyCode == 34 && slidenum == 4) backtomap()
+        else {if (event.keyCode == 34 && slidenum == 5) animate()
+        else {if (event.keyCode == 34 && slidenum == 6) animatesteptwo()
+        else {if (event.keyCode == 34 && slidenum == 7) restartviz()
+        else {if (event.keyCode == 34 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 34 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 34 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 34 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 34 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 34 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 34 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 34 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 34 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 34 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 34 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 34 && slidenum == 19) toslide20()
+        else donothing()
+    }}}}}}}}}}}}}}}}}}}}
+    });
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 39 && slidenum == -1) toslide0()
+        else {if (event.keyCode == 39 && slidenum == 0) scrolltwo()
+        else {if (event.keyCode == 39 && slidenum == 1) dolondon()
+        else {if (event.keyCode == 39 && slidenum == 2) gainassize()
+        else {if (event.keyCode == 39 && slidenum == 3) twospeed()
+        else {if (event.keyCode == 39 && slidenum == 4) backtomap()
+        else {if (event.keyCode == 39 && slidenum == 5) animate()
+        else {if (event.keyCode == 39 && slidenum == 6) animatesteptwo()
+        else {if (event.keyCode == 39 && slidenum == 7) restartviz()
+        else {if (event.keyCode == 39 && slidenum == 8) toslide9()
+        else {if (event.keyCode == 39 && slidenum == 9) toslide10()
+        else {if (event.keyCode == 39 && slidenum == 10) toslide11()
+        else {if (event.keyCode == 39 && slidenum == 11) toslide12()
+        else {if (event.keyCode == 39 && slidenum == 12) toslide13()
+        else {if (event.keyCode == 39 && slidenum == 13) toslide14()
+        else {if (event.keyCode == 39 && slidenum == 14) toslide15()
+        else {if (event.keyCode == 39 && slidenum == 15) toslide16()
+        else {if (event.keyCode == 39 && slidenum == 16) toslide17()
+        else {if (event.keyCode == 39 && slidenum == 17) toslide18()
+        else {if (event.keyCode == 39 && slidenum == 18) toslide19()
+        else {if (event.keyCode == 39 && slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+      });
+
+    $("body").on("swipeleft",function(){
+      if (slidenum == -1) toslide0()
+        else {if (slidenum == 0) scrolltwo()
+        else {if (slidenum == 1) dolondon()
+        else {if (slidenum == 2) gainassize()
+        else {if (slidenum == 3) twospeed()
+        else {if (slidenum == 4) backtomap()
+        else {if (slidenum == 5) animate()
+        else {if (slidenum == 6) animatesteptwo()
+        else {if (slidenum == 7) restartviz()
+        else {if (slidenum == 8) toslide9()
+        else {if (slidenum == 9) toslide10()
+        else {if (slidenum == 10) toslide11()
+        else {if (slidenum == 11) toslide12()
+        else {if (slidenum == 12) toslide13()
+        else {if (slidenum == 13) toslide14()
+        else {if (slidenum == 14) toslide15()
+        else {if (slidenum == 15) toslide16()
+        else {if (slidenum == 16) toslide17()
+        else {if (slidenum == 17) toslide18()
+        else {if (slidenum == 18) toslide19()
+        else {if (slidenum == 19) toslide20()
+        else donothing()
+      }}}}}}}}}}}}}}}}}}}}
+    }); 
+
+  
+    </script>
+    
+  </body>
+</html>
