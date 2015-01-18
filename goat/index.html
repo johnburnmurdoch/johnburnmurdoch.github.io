@@ -72,8 +72,8 @@
     #backbutton{position:relative;top:165px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;}
     #backbutton:hover{background-color:#74736c;color:#fff1e0;}
 
-    #topbuttontext{position:relative;top:167px;padding:6px 0px 6px 8px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
-    #dropdowntext{position:relative;top:167px;padding:6px 0px 6px 8px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
+    #topbuttontext{position:relative;top:167px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
+    #dropdowntext{position:relative;top:167px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
 
     #topbutton{position:relative;top:172px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
     #topbutton:hover{background-color:#74736c;color:#fff1e0;}
@@ -237,7 +237,7 @@
     .ylabel{font-size:12px;}
     .xlabel{font-size:12px;}
 
-    .dropdown{position:relative;top:172px;z-index:2000;float:left;pointer-events:all;margin-left:10px;}
+    .dropdown{position:relative;top:172px;z-index:2000;float:left;pointer-events:all;margin-left:7px;}
     .dropdown.hidden{display:none;}
     .dropdown.off{display:none;}
 
@@ -402,11 +402,11 @@
 
     thetext.append("span").attr("id","backbutton").text("« Back").attr("class","hidden");
 
-    thetext.append("span").attr("id","topbuttontext").text("Top players only").attr("class","hidden");
+    thetext.append("span").attr("id","topbuttontext").text("Top 25 only").attr("class","hidden");
 
     var check = thetext.append("input").attr("type","checkbox").attr("id","topbutton").attr("class","hidden");
 
-    thetext.append("span").attr("id","dropdowntext").text("Select using dropdown instead of hover").attr("class","hidden");
+    thetext.append("span").attr("id","dropdowntext").text("Compare players using dropdown (disables hover)").attr("class","hidden");
 
     var check2 = thetext.append("input").attr("type","checkbox").attr("id","dropbutton").attr("class","hidden");
 
@@ -680,24 +680,6 @@
 
     d3.selectAll("g.player").filter(function(d,i) { return i > 123 }).classed("top50",true);
 
-    var select  = thetext.append("select").attr("class","dropdown hidden").attr("id","selector").on("change", change),
-    options = select.selectAll('option').data(data2);
-    options.enter().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
-
-    var select0  = thetext.append("select").attr("class","dropdown hidden off").attr("id","selector0").on("change", change0),
-    options = select0.selectAll('option').data(top25);
-    options.enter().sort().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
-
-    var select2 = thetext.append("select").attr("class","dropdown hidden").attr("id","selector2").on("change", change2),
-    options = select2.selectAll('option').data(data2);
-    options.enter().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
-
-    var select20  = thetext.append("select").attr("class","dropdown hidden off").attr("id","selector20").on("change", change20),
-    options = select20.selectAll('option').data(top25);
-    options.enter().sort().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
-
-    // options.enter().append("option").text(function(d,i) {for (i>123; i<data.length; i++)  return d.key.replace(/_/g, ' ')});
-
     function highlightplayer(name){        
         var xpos = d3.select("." + name + " " + "circle").attr("cx")
         var ypos = d3.select("." + name + " " + "circle").attr("cy")
@@ -729,31 +711,50 @@
     };
 
     function change() {
-        $('#selector').change(function () {
             highlightplayer((this.value).replace(/ /g, '_'));
-        });
-    };
+        };
 
     function change0() {
-        $('#selector0').change(function () {
             highlightplayer((this.value).replace(/ /g, '_'));
-        });
-    };
+        };
 
-
-
-    function change2() {
-        $('#selector2').change(function () {
+    function change2() {        
             highlightplayertwo((this.value).replace(/ /g, '_'));
-        });
-    };
+        };
 
     function change20() {
-        $('#selector20').change(function () {
             highlightplayertwo((this.value).replace(/ /g, '_'));
-        });
-    };
+        };
 
+
+    var select  = thetext.append("select").attr("class","dropdown hidden").attr("id","selector").on("change", change),
+    options = select.selectAll('option').data(data2);
+    select.append("option").text("Player 1")
+    options.enter().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    var select0  = thetext.append("select").attr("class","dropdown hidden off").attr("id","selector0").on("change", change0),
+    options = select0.selectAll('option').data(top25);
+    select0.append("option").text("Player 1")
+    options.enter().sort().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    var select2 = thetext.append("select").attr("class","dropdown hidden").attr("id","selector2").on("change", change2),
+    options = select2.selectAll('option').data(data2);
+    select2.append("option").text("Player 2")
+    options.enter().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    var select20  = thetext.append("select").attr("class","dropdown hidden off").attr("id","selector20").on("change", change20),
+    options = select20.selectAll('option').data(top25);
+    select20.append("option").text("Player 2")
+    options.enter().sort().append("option").text(function(d,i) { return d.key.replace(/_/g, ' ')});
+
+    // document.getElementById('selector').selectedIndex = -1;
+    // document.getElementById('selector0').selectedIndex = -1;
+    // document.getElementById('selector2').selectedIndex = -1;
+    // document.getElementById('selector20').selectedIndex = -1;
+
+    // options.enter().append("option").text(function(d,i) {for (i>123; i<data.length; i++)  return d.key.replace(/_/g, ' ')});
+
+    
 
     // d3.select(".Roger_Federer").classed("topplayer",true)
     // d3.select(".Rafael_Nadal").classed("topplayer",true)
@@ -811,7 +812,7 @@
             return 'translate('+xpos+','+ypos+')';
           });
         d3.select("#xaxisyears").transition().delay(0).duration(1000)
-            .attr("transform", "translate(-1000,580)");
+            .attr("transform", "translate(-1500,580)");
         d3.select("#xaxis").transition().delay(1000).duration(1000)
             .attr("transform", "translate(0,580)");
     };
@@ -832,9 +833,9 @@
             return 'translate('+xpos+','+ypos+')';
           });
         d3.select("#xaxis").transition().delay(0).duration(1000)
-            .attr("transform", "translate(-1000,580)");
+            .attr("transform", "translate(-1500,580)");
         d3.select("#xaxisage").transition().delay(0).duration(1000)
-            .attr("transform", "translate(-1000,580)");
+            .attr("transform", "translate(-1500,580)");
         d3.select("#xaxisyears").transition().delay(1000).duration(1000)
             .attr("transform", "translate(0,580)");
     };
@@ -855,7 +856,7 @@
             return 'translate('+xpos+','+ypos+')';
           });
         d3.select("#xaxisyears").transition().delay(0).duration(1000)
-            .attr("transform", "translate(-1000,580)");
+            .attr("transform", "translate(-1500,580)");
         d3.select("#xaxisage").transition().delay(1000).duration(1000)
             .attr("transform", "translate(0,580)");
     };
@@ -994,13 +995,13 @@
 
     function upto2() {
         toyearsline();
-        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Year").attr("transform","translate(0,0)");
         slidenum = 2;
     };    
 
     function downto1() {
-        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Matches played").attr("transform","translate(0,0)");
         tomatchline();
         slidenum = 1;
@@ -1008,7 +1009,7 @@
 
     function upto3() {
         d3.select("#topbutton").classed("hidden",false);
-        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Age").attr("transform","translate(0,0)");
         toageline();
         slidenum = 3;
@@ -1016,7 +1017,7 @@
 
     function downto2() {
         toyearsline();
-        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1000,0)")
+        d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Year").attr("transform","translate(0,0)");
         slidenum = 2;
     };
