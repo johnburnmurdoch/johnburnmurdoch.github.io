@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+  <head>
+    <title>Old displace young on income ladder</title>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ft">
+    <meta name="twitter:creator" content="@jburnmurdoch">
+    <meta name='twitter:url' content="http://www.ft.com/ig/features/baseline/federer-nadal-different-paths-greatness/"/>
+    <meta name="twitter:title" content="The disunited kingdom: 175 years of British cities">
+    <meta name="twitter:description" content="Rafael Nadal and Roger Federer have achieved greatness in remarkably different ways. Find out how using our interactive graphic">
+    <meta name="twitter:image" content="http://www.ft.com/ig/features/baseline/federer-nadal-different-paths-greatness/nadfed1.png">
+    <script src="d3.min.js"></script>
+    <script type='text/javascript' src='jquery211.min.js'></script>
+    <//script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="http://thematicmapping.org/playground/d3/d3.slider/d3.slider.css" />
+    <style type='text/css'>
+    @font-face{
+        font-family: "BentonSans";
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+        src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: normal;
+    }
+    @font-face{
+    font-family: "BentonSans";
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+    src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+    url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+    }
+    @font-face{
+    font-family: "MillerDisplay";
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot');
+    src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.woff") format("woff"),
+         url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    @font-face{
+    font-family: "Clarion";
+    src: url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.woff") format("woff"),
+        url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    }
+    body{background-color:#fff1e0;margin:auto;font-family:"BentonSans",sans-serif;cursor:default;}
+    .ui-mobile {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline:none;
+    }
+    .ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
+    #ft-header {height: 50px;background-color: #fff1e0;width: 100%;position: absolute;top: 0;z-index: 2000;overflow: hidden;text-align:center;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);}
+    #ft-header a{background-color:#fff1e0;}
+    #ft-header a>img {margin-top: 13px;opacity: .8;transition: opacity .3s;height:20px;}
+    h1 {text-align: center;margin: 70px auto auto;font-family: "MillerDisplay","Clarion",Georgia,serif;font-weight: 400;font-size: 3em;}
+    h1 {display: block;-webkit-margin-start: 0px;-webkit-margin-end: 0px;}
+    text{font-family:"BentonSans",sans-serif;cursor:default;fill:#43423e;}
+
+    #container{background-color:#fff1e0}
+    #thesvg{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:1000px;height:800px;top:60px;overflow:visible;}
+    .slidetitle{font-size:28px;}
+    .slideline{font-size:20px;}
+    .slideimage{fill:#cec6b9;}
+    #talktitle{text-anchor:middle;font-size:36px;font-weight:bold;fill:#9e2f50;}
+    #whoami{font-size:24px;text-anchor:middle;fill:#256ea6;}
+    #contactme{font-size:24px;text-anchor:middle;fill:#256ea6;}
+    .acircle{stroke:none;fill:#af516c;}
+    </style>
+  </head><body>
+    <header id="ft-header" class="stickable">
+      <a href="//www.ft.com/"><img src="ft.svg" alt="Financial Times"></a>
+    </header>
+
+    <script type="text/javascript">
+    Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+    };
+
+    var dataset;
+
+    d3.csv("data.csv", function(error, data) {
+
+    data = data.sort(function(a,b) {
+        if ( +a.order > +b.order )
+           return -1;
+        else if ( +a.order < +b.order )
+           return 1;
+        else
+           return 0;
+    });
+
+    data = data.map( function (d) { 
+        return { 
+          title: d.title,
+          lineone: d.lineone,
+          linetwo: d.linetwo,
+          order: +d.order}; 
+    });
+
+    data = d3.nest().key(function(d) { return d.title; }).entries(data);
+
+    dataset = data;
+
+    console.log(data);
+
+    var slidenum = 0;
+
+    var ww = window.innerWidth;
+    var hh = window.innerHeight;
+
+    var centrex = 500;
+    var centrey = 400;
+
+    var ringradius = 310;
+
+    var innerringradius = 300;
+
+    var slides = d3.range(1,31).reverse();
+    var circles = d3.range(1,301);
+
+    var slidesnum = Object.size(data);
+    var circlesnum = Object.size(circles);
+
+    var pi = Math.PI;
+
+    var container = d3.select("body").append("div").attr("id","container").style({"width":ww+"px","height":hh+"px"});
+
+    var svg = container.append("svg").attr("id","thesvg");
+
+    var rotator = svg.append("g").attr("id","rotator");
+
+    function drawviz(){
+
+    var talktitle = svg.append("text").attr({"id":"talktitle","x":500,"y":350}).text("Interactive journalism at the FT");
+    var whoami = svg.append("text").attr({"id":"whoami","x":500,"y":450}).text("John Burn-Murdoch, Interactive data journalist");
+    var contactme = svg.append("text").attr({"id":"contactme","x":500,"y":500}).attr("xml:space","preserve").text("@jburnmurdoch    john.burn-murdoch@ft.com");
+
+
+    var circlering = rotator.selectAll(".circlering")
+        .data(circles, function(d) { return d; });
+
+    var circleg = circlering.enter().append("g")
+        .attr("class", function(d) {return "circleg num" + d})
+        .attr("transform",function(d,i){
+        var xpos = centrex + ((innerringradius) * Math.cos((((360/circlesnum)*(i+1)))*(pi/180)));
+        var ypos = centrey + ((innerringradius) * Math.sin((((360/circlesnum)*(i+1)))*(pi/180)));
+        return 'translate('+xpos+','+ypos+') rotate(' + ((((i+1)/circlesnum)*360)-90) + ')';
+    });
+
+    var acircle = circleg.append("circle")
+        .attr("class", function(d) {return "acircle num" + d})
+        .attr({"cx":0,"cy":0,"r":2});
+
+
+
+    var slidering = rotator.selectAll(".slidering")
+        .data(data, function(d) { return d.key; });
+
+    var slideg = slidering.enter().append("g")
+        .attr("class", function(d) {return "slideg num" + d.key})
+        .attr("transform",function(d,i){
+        var xpos = centrex + ((ringradius) * Math.cos((((360/slidesnum)*(31-d.values[0].order)))*(pi/180)));
+        var ypos = centrey + ((ringradius) * Math.sin((((360/slidesnum)*(31-d.values[0].order)))*(pi/180)));
+        return 'translate('+xpos+','+ypos+') rotate(' + ((((31-d.values[0].order)/slidesnum)*360)-90) + ')';
+    });
+
+    var slidetitle = slideg.append("text")
+        .attr("class", function(d) {return "slidetitle num" + d.values[0].title})
+        .attr("transform","rotate(90)")
+        .attr("y",0).style("font-size","8px")
+        .text(function(d){return "title"+d.values[0].title});
+
+    var slideimage = slideg.append("svg:image")
+        .attr("class",function(d) {return "slideimage num" + d.values[0].title})
+        .attr({"x":10,"y":25,"height":20,"width":30})
+        .attr("transform","rotate(90)")
+        .attr("xlink:href","clgoalspromo.png");
+
+    var slideline1 = slideg.append("text")
+        .attr("class", function(d) {return "slideline one num" + d.values[0].lineone})
+        .attr("transform","rotate(90)")
+        .attr("y",10).style("font-size","6px")
+        .text(function(d){return "lineone"+d.values[0].lineone});
+
+    var slideline2 = slideg.append("text")
+        .attr("class", function(d) {return "slideline two num" + d.values[0].linetwo})
+        .attr("transform","rotate(90)")
+        .attr("y",20).style("font-size","6px")
+        .text(function(d){return "linetwo"+d.values[0].linetwo});
+
+    };
+
+    drawviz();
+
+    function updateviz(thisslide){
+    centrex = -4000;
+    centrey = 120;
+    ringradius = 4100;
+    innerringradius = 4070;
+
+    d3.select("#rotator").transition().duration(1000).attr("transform",function(){return "rotate(" + (360*thisslide)/slidesnum + " " + centrex + " " + centrey + ")"});
+
+    d3.select("#talktitle").transition().delay(500).duration(1000).attr("y","30").style({"font-size":"30px","font-weight":"normal"});
+    d3.select("#whoami").transition().delay(500).duration(1000).attr("y","770").style({"font-size":"18px","font-weight":"normal"});
+    d3.select("#contactme").transition().delay(500).duration(1000).attr("y","795").style({"font-size":"22px","font-weight":"normal"});    
+
+    d3.selectAll(".circleg").transition().duration(1000).attr("transform",function(d,i){
+        var xpos = centrex + ((innerringradius) * Math.cos((((360/circlesnum)*(i+1)))*(pi/180)));
+        var ypos = centrey + ((innerringradius) * Math.sin((((360/circlesnum)*(i+1)))*(pi/180)));
+        return 'translate('+xpos+','+ypos+') rotate(' + ((((i+1)/circlesnum)*360)-90) + ')';
+    });
+
+    d3.selectAll(".acircle").transition().duration(1000).attr("r",8);
+
+    var slidering = rotator.selectAll(".slidering")
+        .data(data, function(d) { return d.key; });
+
+    d3.selectAll(".slideg").transition().duration(1000).attr("transform",function(d,i){
+        var xpos = centrex + ((ringradius) * Math.cos((((360/slidesnum)*(31-d.values[0].order)))*(pi/180)));
+        var ypos = centrey + ((ringradius) * Math.sin((((360/slidesnum)*(31-d.values[0].order)))*(pi/180)));
+        return 'translate('+xpos+','+ypos+') rotate(' + ((((31-d.values[0].order)/slidesnum)*360)-90) + ')';
+    });
+
+    d3.selectAll(".slideimage").transition().duration(1000).attr({"x":100,"y":220,"width":600,"height":400});
+    d3.selectAll(".slidetitle").transition().duration(1000).attr("y",0).style("font-size","28px");
+    d3.selectAll(".slideline.one").transition().duration(1000).attr("y",90).style("font-size","20px");
+    d3.selectAll(".slideline.two").transition().duration(1000).attr("y",160).style("font-size","20px");
+
+    };
+
+    function resetviz(){
+    centrex = 500;
+    centrey = 400;
+    ringradius = 310;
+    innerringradius = 300;
+
+    d3.select("#rotator").transition().delay(500).duration(1000).attr("transform",function(){return "rotate(" + (360)/slidesnum + " " + centrex + " " + centrey + ")"})
+
+    d3.select("#talktitle").transition().duration(1000).attr("y","350").style({"font-size":"36px","font-weight":"normal"});
+    d3.select("#whoami").transition().duration(1000).attr("y","450").style({"font-size":"24px","font-weight":"normal"});
+    d3.select("#contactme").transition().duration(1000).attr("y","500").style({"font-size":"24px","font-weight":"normal"});    
+
+    d3.selectAll(".circleg").transition().delay(500).duration(1000).attr("transform",function(d,i){
+        var xpos = centrex + ((innerringradius) * Math.cos((((360/circlesnum)*(i+1)))*(pi/180)));
+        var ypos = centrey + ((innerringradius) * Math.sin((((360/circlesnum)*(i+1)))*(pi/180)));
+        return 'translate('+xpos+','+ypos+') rotate(' + ((((i+1)/circlesnum)*360)-90) + ')';
+    });
+
+    d3.selectAll(".acircle").transition().delay(500).duration(1000).attr("r",2);
+
+    var slidering = rotator.selectAll(".slidering")
+        .data(data, function(d) { return d.key; });
+
+    d3.selectAll(".slideg").transition().delay(500).duration(1000).attr("transform",function(d,i){
+        var xpos = centrex + ((ringradius) * Math.cos((((360/slidesnum)*(31-d.values[0].order)))*(pi/180)));
+        var ypos = centrey + ((ringradius) * Math.sin((((360/slidesnum)*(31-d.values[0].order)))*(pi/180)));
+        return 'translate('+xpos+','+ypos+') rotate(' + ((((31-d.values[0].order)/slidesnum)*360)-90) + ')';
+    });
+
+    d3.selectAll(".slideimage").transition().delay(500).duration(1000).attr({"x":10,"y":25,"width":30,"height":20});
+    d3.selectAll(".slidetitle").transition().delay(500).duration(1000).attr("y",0).style("font-size","8px");
+    d3.selectAll(".slideline.one").transition().delay(500).duration(1000).attr("y",10).style("font-size","6px");
+    d3.selectAll(".slideline.two").transition().delay(500).duration(1000).attr("y",20).style("font-size","6px");
+
+    };
+
+    function nextslide(thisslide){
+        d3.select("#rotator").transition().duration(1000).attr("transform",function(){return "rotate(" + (360*thisslide)/slidesnum + " " + centrex + " " + centrey + ")"});
+        d3.selectAll("#whoami,#contactme").transition().duration(500).style("opacity","0").transition().duration(500).style("opacity","1");
+    };
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 33 && slidenum == 1) {resetviz();slidenum=0;}
+        else {if (event.keyCode == 34 && slidenum == 0) {updateviz(slidenum); slidenum=slidenum+1;}
+        else {if (event.keyCode == 34) {updateviz(slidenum);nextslide(slidenum);slidenum=slidenum+1;}
+        else {if (event.keyCode == 33) {nextslide(slidenum-2); slidenum=slidenum-1;}}}}
+    });
+
+    addEventListener("keydown", function(event) {
+        if (event.keyCode == 37 && slidenum == 1) {resetviz();slidenum=0;}
+        else {if (event.keyCode == 39 && slidenum == 0) {updateviz(slidenum); slidenum=slidenum+1;}
+        else {if (event.keyCode == 39) {updateviz(slidenum);nextslide(slidenum);slidenum=slidenum+1;}
+        else {if (event.keyCode == 37) {nextslide(slidenum-2); slidenum=slidenum-1;}}}}
+    });
+
+    });
+    </script>
+</body>
+</html>
