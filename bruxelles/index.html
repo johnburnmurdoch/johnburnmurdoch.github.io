@@ -74,6 +74,7 @@
     #contactme{font-size:24px;text-anchor:middle;fill:#256ea6;}
     .acircle{stroke:none;fill:#af516c;}
     .axis path{stroke-width:2px;fill:none;stroke:#74736c;}
+    #navmessage{text-anchor:middle;font-weight:bold;font-size:18px;fill:#d7706c;}
 
     .projectcircle{opacity:1;}
     .projects{fill:#b8b1a9;}
@@ -159,6 +160,8 @@
 
     var rotator = svg.append("g").attr("id","rotator");
 
+    var navmessage = svg.append("text").attr({"id":"navmessage","x":"500","y":"250"}).html("&larr; Use arrow keys to navigate through slides &rarr;")
+
     function getxcoords(str)
     {
       return d3.select(".projectcircle." + str).attr("cx")
@@ -176,21 +179,21 @@
 
     //This then draws the x axis on our SVG
     svg.append("g")
-    .attr("class", "axis")
+    .attr("class", "axis scatter")
     .attr("id", "xaxis")
     .attr("transform", "translate(0,700)")
     .call(xAxis);
 
     // // And here is the same for the y axis
     svg.append("g")
-    .attr("class", "axis")
+    .attr("class", "axis scatter")
     .attr("id", "yaxis")
     .attr("transform", "translate(200,0)")
     .call(yAxis);
 
     // Now we're adding a title at the top of our y axis, anchored to the left hand edge of the SVG
     d3.select("svg").append("text")
-        .attr("class","yscattertitle")
+        .attr("class","yscattertitle scatter")
         .text("Specialist skills required")
         .attr("x","150")
         .attr("y","305")
@@ -202,7 +205,7 @@
 
     // // And here's one for the x axis, anchored to the middle of our SVG
     d3.select("svg").append("text")
-        .attr("class","xscattertitle")
+        .attr("class","xscattertitle scatter")
         .text("Time/personnel required")
         .attr("x","500")
         .attr("y","745")
@@ -216,7 +219,7 @@
     svg.selectAll("projectcircles").data(circlenames).enter()
       .append("circle")
       .attr({
-        "class":function(d,i){return "projectcircle " + d;},
+        "class":function(d,i){return "projectcircle " + d + " scatter";},
         "cx":"386",
         "cy":"570",
         "r":"40px"
@@ -225,7 +228,7 @@
     svg.selectAll("projecttext").data(circlenames).enter()
       .append("text")
       .attr({
-        "class":function(d,i){return "projecttext " + d;},
+        "class":function(d,i){return "projecttext " + d + " scatter";},
         "x":"426",
         "y":"610"
       })
@@ -234,7 +237,7 @@
 
     svg.append("circle")
       .attr({
-        "class":"newcircle  outer",
+        "class":"newcircle outer scatter",
         "cx":"2000",
         "cy":"-400",
         "r":"10px"
@@ -242,7 +245,7 @@
 
       svg.append("circle")
       .attr({
-        "class":"newcircle mid",
+        "class":"newcircle mid scatter",
         "cx":"2000",
         "cy":"-400",
         "r":"7px"
@@ -250,14 +253,23 @@
 
       svg.append("circle")
       .attr({
-        "class":"newcircle inner",
+        "class":"newcircle inner scatter",
         "cx":"2000",
         "cy":"-400",
         "r":"4px"
       });
     };
 
-  function movescatter1(){
+    function undrawscatter(){
+        d3.selectAll(".scatter").remove()
+    };
+
+    function unmovescatter1(){
+        d3.selectAll(".projectcircle").transition().duration(1000).attr({"cx":"386","cy":"570","r":40});
+        d3.selectAll(".projecttext").transition().duration(1000).attr({"cx":"426","cy":"610"}).style("opacity","0");
+    };
+
+    function movescatter1(){
       d3.selectAll(".All").transition().duration(1000).style("opacity","0")
 
       d3.select(".projectcircle.Maps").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","450").attr("cy","550")
@@ -273,12 +285,50 @@
       d3.select(".projecttext.Statistical").style("opacity","1").transition().duration(1000).attr("x","560").attr("y","465")
     };
 
+    function unmovescatter2(){
+        d3.select(".projectcircle.Maps").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","450").attr("cy","550")
+        d3.select(".projecttext.Maps").style("opacity","1").transition().duration(1000).attr("x","460").attr("y","570")
+
+        d3.select(".projectcircle.Charts").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","370").attr("cy","560")
+        d3.select(".projecttext.Charts").style("opacity","1").transition().duration(1000).attr("x","380").attr("y","580")
+
+        d3.select(".projectcircle.videos").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","480").attr("cy","490")
+        d3.select(".projecttext.videos").style("opacity","1").transition().duration(1000).attr("x","490").attr("y","510")
+
+        d3.select(".projectcircle.Statistical").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","550").attr("cy","445")
+        d3.select(".projecttext.Statistical").style("opacity","1").transition().duration(1000).attr("x","560").attr("y","465")
+    };
+
     function movescatter2(){
-        d3.select(".projectcircle.Maps").style("opacity","1").transition().duration(1000).style("opacity","0")
+        d3.select(".projectcircle.Maps").style("opacity","1").transition().duration(1000).style("opacity","1")
         d3.select(".projecttext.Maps").style("opacity","1").transition().duration(1000).style("opacity","0")
 
-        d3.select(".projectcircle.Charts").style("opacity","1").transition().duration(1000).style("opacity","0")
+        d3.select(".projectcircle.Charts").style("opacity","1").transition().duration(1000).style("opacity","1")
         d3.select(".projecttext.Charts").style("opacity","1").transition().duration(1000).style("opacity","0")
+    };
+
+    function unmovescatter3(){
+        d3.select(".projectcircle.Maps").style("opacity","0").transition().duration(1000).style("opacity","1")
+        d3.select(".projecttext.Maps").style("opacity","0").transition().duration(1000).style("opacity","0")
+
+        d3.select(".projectcircle.Charts").style("opacity","0").transition().duration(1000).style("opacity","1")
+        d3.select(".projecttext.Charts").style("opacity","0").transition().duration(1000).style("opacity","0")
+
+        d3.select(".projectcircle.Animated").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","450").attr("cy","550")
+        d3.select(".projecttext.Animated").style("opacity","0").transition().duration(1000).attr("x","460").attr("y","570")
+        d3.select(".projectcircle.Placemarkers").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","450").attr("cy","550")
+        d3.select(".projecttext.Placemarkers").style("opacity","0").transition().duration(1000).attr("x","460").attr("y","570")
+        d3.select(".projectcircle.Interactive").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","450").attr("cy","550")
+        d3.select(".projecttext.Interactive").style("opacity","0").transition().duration(1000).attr("x","460").attr("y","570")
+
+        d3.select(".projectcircle.Calculators").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","370").attr("cy","560")
+        d3.select(".projecttext.Calculators").style("opacity","0").transition().duration(1000).attr("x","380").attr("y","580")
+        d3.select(".projectcircle.Dashboards").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","370").attr("cy","560")
+        d3.select(".projecttext.Dashboards").style("opacity","0").transition().duration(1000).attr("x","380").attr("y","580")
+        d3.select(".projectcircle.Nonstandard").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","370").attr("cy","560")
+        d3.select(".projecttext.Nonstandard").style("opacity","0").transition().duration(1000).attr("x","380").attr("y","580")
+        d3.select(".projectcircle.Narrative").style("opacity","1").transition().duration(1000).attr("r","15px").attr("cx","370").attr("cy","560")
+        d3.select(".projecttext.Narrative").style("opacity","0").transition().duration(1000).attr("x","380").attr("y","580")
     };
 
     function movescatter3(){
@@ -299,6 +349,14 @@
         d3.select(".projecttext.Narrative").style("opacity","1").transition().duration(1000).attr("x","405").attr("y","500")
     };
 
+    function unmovescatter4(){
+        d3.selectAll(".projecttext").transition().duration(1000).style("opacity","1")
+
+        d3.selectAll(".projectcircle").transition().duration(1750)
+        .attr("cx",function(d,i){return getxcoords(circlenames[i].split(" ")[0])*1.25;})
+        .attr("cy",function(d,i){return (getycoords(circlenames[i].split(" ")[0])*0.909090);})
+    };    
+
     function movescatter4(){
         d3.selectAll(".projecttext").transition().duration(1000).style("opacity","0")
 
@@ -307,14 +365,30 @@
         .attr("cy",function(d,i){return (getycoords(circlenames[i].split(" ")[0])*1.1);})
     };
 
+    function unmovescatter5(){
+    d3.selectAll(".newcircle")
+      .transition().duration(1750).attr("cx","2000").attr("cy","-400").style("opacity","0")
+    };
+
     function movescatter5(){
     d3.selectAll(".newcircle")
       .transition().duration(1750).attr("cx","800").attr("cy","360").style("opacity","1")
     };
 
+    function unclearscatter(){
+
+        d3.selectAll(".projectcircle").transition().duration(250).attr("transform","translate(0,0)")
+
+        d3.select(".xscattertitle").transition().duration(250).attr("transform","translate(0,0)")
+        d3.select(".yscattertitle").transition().duration(250).attr("transform","translate(0,0)")
+
+        d3.select("#xaxis").transition().duration(250).attr("transform","translate(0,700)")
+        d3.select("#yaxis").transition().duration(250).attr("transform","translate(200,0)")
+
+        d3.selectAll(".newcircle").transition().duration(250).attr("transform","translate(0,0)")
+    };
+
     function clearscatter(){
-        d3.selectAll(".verticalGrid").transition().duration(250).attr("transform","translate(-2000,0)")
-        d3.selectAll(".horizontalGrid").transition().duration(250).attr("transform","translate(-2000,0)")
 
         d3.selectAll(".projectcircle").transition().duration(250).attr("transform","translate(-2000,0)")
 
@@ -429,7 +503,8 @@
 
     d3.select("#talktitle").transition().delay(500).duration(1000).attr("y","30").style({"font-size":"30px","font-weight":"normal"});
     d3.select("#whoami").transition().delay(500).duration(1000).attr("y","770").style({"font-size":"18px","font-weight":"normal"});
-    d3.select("#contactme").transition().delay(500).duration(1000).attr("y","795").style({"font-size":"22px","font-weight":"normal"});    
+    d3.select("#contactme").transition().delay(500).duration(1000).attr("y","795").style({"font-size":"22px","font-weight":"normal"});
+    d3.select("#navmessage").transition().delay(500).duration(1000).attr("y","825").style({"font-size":"16px","font-weight":"normal"});    
 
     d3.selectAll(".circleg").transition().duration(1000).attr("transform",function(d,i){
         var xpos = centrex + ((innerringradius) * Math.cos((((360/circlesnum)*(i+1)))*(pi/180)));
@@ -472,7 +547,8 @@
 
     d3.select("#talktitle").transition().duration(1000).attr("y","350").style({"font-size":"36px","font-weight":"normal"});
     d3.select("#whoami").transition().duration(1000).attr("y","450").style({"font-size":"24px","font-weight":"normal"});
-    d3.select("#contactme").transition().duration(1000).attr("y","500").style({"font-size":"24px","font-weight":"normal"});    
+    d3.select("#contactme").transition().duration(1000).attr("y","500").style({"font-size":"24px","font-weight":"normal"});
+    d3.select("#navmessage").transition().delay(500).duration(1000).attr("y","250").style({"font-size":"18px","font-weight":"bold"});    
 
     d3.selectAll(".circleg").transition().delay(500).duration(1000).attr("transform",function(d,i){
         var xpos = centrex + ((innerringradius) * Math.cos((((360/circlesnum)*(i+1)))*(pi/180)));
@@ -507,7 +583,7 @@
 
     function nextslide(thisslide){
         d3.select("#rotator").transition().duration(1000).attr("transform",function(){return "rotate(" + (360*thisslide)/slidesnum + " " + centrex + " " + centrey + ")"});
-        d3.selectAll("#whoami,#contactme").transition().duration(500).style("opacity","0").transition().duration(500).style("opacity","1");
+        d3.selectAll("#whoami,#contactme,#navmessage").transition().duration(500).style("opacity","0").transition().duration(500).style("opacity","1");
     };
 
     addEventListener("keydown", function(event) {
@@ -516,12 +592,23 @@
         else {if (event.keyCode == 34 && slidenum == 5 && scatternum == 2) {movescatter2();scatternum=scatternum+1;}
         else {if (event.keyCode == 34 && slidenum == 5 && scatternum == 3) {movescatter3();scatternum=scatternum+1;}
         else {if (event.keyCode == 34 && slidenum == 5 && scatternum == 4) {movescatter4();scatternum=scatternum+1;}
-        else {if (event.keyCode == 34 && slidenum == 5 && scatternum == 5) {movescatter5();scatternum=scatternum+1;slidenum=slidenum+1}
-        else {if (event.keyCode == 34 && slidenum == 6 && scatternum == 6) {clearscatter();updateviz(slidenum);slidenum=slidenum+1;}
+        else {if (event.keyCode == 34 && slidenum == 5 && scatternum == 5) {movescatter5();scatternum=scatternum+1;}
+        else {if (event.keyCode == 34 && slidenum == 5 && scatternum == 6) {clearscatter();updateviz(slidenum+1);slidenum=slidenum+2;}
+
+        else {if (event.keyCode == 33 && slidenum == 5 && scatternum == 1) {undrawscatter();scatternum=scatternum-1;updateviz(slidenum-1)}
+        else {if (event.keyCode == 33 && slidenum == 5 && scatternum == 2) {unmovescatter1();scatternum=scatternum-1;}
+        else {if (event.keyCode == 33 && slidenum == 5 && scatternum == 3) {unmovescatter2();scatternum=scatternum-1;}
+        else {if (event.keyCode == 33 && slidenum == 5 && scatternum == 4) {unmovescatter3();scatternum=scatternum-1;}
+        else {if (event.keyCode == 33 && slidenum == 5 && scatternum == 5) {unmovescatter4();scatternum=scatternum-1;}
+        else {if (event.keyCode == 33 && slidenum == 5 && scatternum == 6) {unmovescatter5();scatternum=scatternum-1;}
+        else {if (event.keyCode == 33 && slidenum == 7 && scatternum == 6) {unclearscatter();updateviz(slidenum-2);slidenum=slidenum-2;}
+
+        else {if (event.keyCode == 33 && slidenum == 0) {updateviz(slidenum+36);slidenum=37;}
         else {if (event.keyCode == 33 && slidenum == 1) {resetviz();slidenum=0;}
         else {if (event.keyCode == 34 && slidenum == 0) {updateviz(slidenum); slidenum=slidenum+1;}
+        else {if (event.keyCode == 34 && slidenum == 37) {resetviz();slidenum=0;}
         else {if (event.keyCode == 34) {updateviz(slidenum);nextslide(slidenum);slidenum=slidenum+1;}
-        else {if (event.keyCode == 33) {nextslide(slidenum-2); slidenum=slidenum-1;}}}}}}}}}}}
+        else {if (event.keyCode == 33) {nextslide(slidenum-2); slidenum=slidenum-1;}}}}}}}}}}}}}}}}}}}}
     });
 
     
@@ -531,12 +618,23 @@
         else {if (event.keyCode == 39 && slidenum == 5 && scatternum == 2) {movescatter2();scatternum=scatternum+1;}
         else {if (event.keyCode == 39 && slidenum == 5 && scatternum == 3) {movescatter3();scatternum=scatternum+1;}
         else {if (event.keyCode == 39 && slidenum == 5 && scatternum == 4) {movescatter4();scatternum=scatternum+1;}
-        else {if (event.keyCode == 39 && slidenum == 5 && scatternum == 5) {movescatter5();scatternum=scatternum+1;slidenum=slidenum+1}
-        else {if (event.keyCode == 39 && slidenum == 6 && scatternum == 6) {clearscatter();updateviz(slidenum);slidenum=slidenum+1;}
+        else {if (event.keyCode == 39 && slidenum == 5 && scatternum == 5) {movescatter5();scatternum=scatternum+1;}
+        else {if (event.keyCode == 39 && slidenum == 5 && scatternum == 6) {clearscatter();updateviz(slidenum+1);slidenum=slidenum+2;}
+
+        else {if (event.keyCode == 37 && slidenum == 5 && scatternum == 1) {undrawscatter();scatternum=scatternum-1;updateviz(slidenum-1)}
+        else {if (event.keyCode == 37 && slidenum == 5 && scatternum == 2) {unmovescatter1();scatternum=scatternum-1;}
+        else {if (event.keyCode == 37 && slidenum == 5 && scatternum == 3) {unmovescatter2();scatternum=scatternum-1;}
+        else {if (event.keyCode == 37 && slidenum == 5 && scatternum == 4) {unmovescatter3();scatternum=scatternum-1;}
+        else {if (event.keyCode == 37 && slidenum == 5 && scatternum == 5) {unmovescatter4();scatternum=scatternum-1;}
+        else {if (event.keyCode == 37 && slidenum == 5 && scatternum == 6) {unmovescatter5();scatternum=scatternum-1;}
+        else {if (event.keyCode == 37 && slidenum == 7 && scatternum == 6) {unclearscatter();updateviz(slidenum-2);slidenum=slidenum-2;}
+
+        else {if (event.keyCode == 37 && slidenum == 0) {updateviz(slidenum+36);slidenum=37;}
         else {if (event.keyCode == 37 && slidenum == 1) {resetviz();slidenum=0;}
         else {if (event.keyCode == 39 && slidenum == 0) {updateviz(slidenum); slidenum=slidenum+1;}
+        else {if (event.keyCode == 39 && slidenum == 37) {resetviz();slidenum=0;}
         else {if (event.keyCode == 39) {updateviz(slidenum);nextslide(slidenum);slidenum=slidenum+1;}
-        else {if (event.keyCode == 37) {nextslide(slidenum-2); slidenum=slidenum-1;}}}}}}}}}}}
+        else {if (event.keyCode == 37) {nextslide(slidenum-2); slidenum=slidenum-1;}}}}}}}}}}}}}}}}}}}}
     });
 
     });  
