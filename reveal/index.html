@@ -36,13 +36,24 @@
 	  	#jbm-header a.myName{color:#43423e;font-size:28px;display:inline-block;position:absolute;left:56px;bottom:6px;padding-left:10px;}
 	  	#jbm-header a.myTitle{color:#43423e;font-size:20px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;   /*display:none;*/}
 
-	    #progressbar {
-	        position: absolute;
-	        float: left;
-	        background-color: #af516c;
-	        top: 45px;
-	        height: 6px;
-	        /*width:100%;*/
+	    @media screen and (max-width: 800px) {
+	    	#jbm-header {height: 35px;background-color:white;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #ccc;box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);}
+		  	#jbm-header a{background-color:white;text-decoration: none;display:table;}
+		  	#jbm-header img {opacity: .8;transition: opacity .3s;height:35px;border-radius:18px;}
+		  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+		  	#jbm-header a.myName{color:#43423e;font-size:24px;display:inline-block;position:absolute;left:56px;bottom:6px;padding-left:10px;}
+		  	#jbm-header a.myTitle{color:#43423e;font-size:16px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;   /*display:none;*/}
+		  	.reveal .progress {top:42px!important;}
+	    }
+
+	    @media screen and (max-width: 480px) {
+	    	#jbm-header {height: 30px;background-color:white;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #ccc;box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);}
+		  	#jbm-header a{background-color:white;text-decoration: none;display:table;}
+		  	#jbm-header img {opacity: .8;transition: opacity .3s;height:30px;border-radius:20px;}
+		  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+		  	#jbm-header a.myName{color:#43423e;font-size:20px;display:inline-block;position:absolute;left:56px;bottom:6px;padding-left:10px;}
+		  	#jbm-header a.myTitle{color:#43423e;font-size:20px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;display:none;}
+		  	.reveal .progress {top:37px!important;}
 	    }
 
 	    body{font-family: arial,sans-serif!important;}
