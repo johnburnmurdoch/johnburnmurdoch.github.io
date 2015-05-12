@@ -235,10 +235,10 @@ body {
   display: none;
   height: 3px;
   width: 100%;
-  bottom: 0;
+  top: 47px;
   left: 0;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.2); }
+  /*background-color: rgba(0, 0, 0, 0.2);*/ }
 
 .reveal .progress:after {
   content: '';
