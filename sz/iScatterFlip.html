@@ -367,11 +367,7 @@
 	        		'transform':function(d){
 	        			return 'translate(' + x(d.values[0].aveY) + ',' + y(d.values[0].aveX) + ')'
 	        		}
-        	})
-    		.on('click',function(d){
-    			console.log(d.key.replace(/ /g,'_'))
-    			zoomIn(d.key.replace(/ /g,'_'))
-    		});
+        	});
         	console.log('clubShapes',clubShapes)
 
         	var clubText = chartHolder.selectAll('g.clubText')
@@ -382,11 +378,7 @@
 	        		'transform':function(d){
 	        			return 'translate(' + x(d.values[0].aveY) + ',' + y(d.values[0].aveX) + ')'
 	        		}
-        	})
-    		.on('click',function(d){
-    			console.log(d.key.replace(/ /g,'_'))
-    			zoomIn(d.key.replace(/ /g,'_'))
-    		});
+        	});
 
     		var labels = clubText.append('text').attr({
     			'class':'label',
@@ -443,16 +435,25 @@
     			console.log(thisClub)
     			d3.select('g.clubText.name_' + thisClub + ' text')
 	    			.style('opacity',1);
-    			d3.select('g.club.name_' + thisClub + ' .playerCircle')
-	    			.classed('highlit',true)
+    			d3.select('g.club.name_' + thisClub + ' .playerCircle').classed('highlit',true);
+    			d3.selectAll('g.clubText.name_' + thisClub + ',g.club.name_' + thisClub).on('click',function(d){
+	    			console.log(d.key.replace(/ /g,'_'))
+	    			zoomIn(d.key.replace(/ /g,'_'))
+	    		});
     		}).on('mouseout',function(d){
     			d3.selectAll('g.clubText text')
     				.style('opacity',function(d){
     				if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
     				{return 1}else{return 0}
     				});
-    				d3.selectAll('g.club .playerCircle')
-	    			.classed('highlit',false)
+    				d3.selectAll('g.club .playerCircle').classed('highlit',false);
+    				d3.selectAll('.selected').classed('selected',false);
+    		});
+
+
+    		d3.selectAll('g.club.selected,g.clubText.selected').on('click',function(d){
+    			console.log(d.key.replace(/ /g,'_'))
+    			zoomIn(d.key.replace(/ /g,'_'))
     		});
 
 
