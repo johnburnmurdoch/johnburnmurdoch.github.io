@@ -278,7 +278,7 @@
 
     		var y = d3.scale.linear()
         		.range([height,margin.top])
-        		.domain([63,85]);
+        		.domain([63.5,84]);
 
             var xScaleMax = x.domain()[1];
             var xPxMin = x(xScaleMax);
@@ -306,7 +306,7 @@
             var yAxis = d3.svg.axis()
 	            .scale(y)
 	            .orient("left")
-	            .ticks(5)
+	            .tickValues([65,70,75,80,84])
 	            .tickSize(5);
             var theYaxis = chartHolder.append('g')
 	            .attr({
@@ -430,7 +430,7 @@
 
             function playerAxes(){
 		        y.domain([0,100]);
-		        yAxis.ticks(5);
+		        yAxis.tickValues([0,20,40,60,80,100]);
 		        x.domain([16,42]);
 		        xAxis.tickValues([16,20,24,28,32,36,40,42]);
 		        xScaleMax = x.domain()[1];
@@ -444,8 +444,8 @@
 		        };
 
 	        function clubAxes(){
-		        y.domain([63,85]);
-		        yAxis.ticks(5);
+		        y.domain([63.5,84]);
+		        yAxis.tickValues([65,70,75,80,84]);
 		        x.domain([23.5,33.5]);
 		        xAxis.tickValues([24,26,28,30,32]);
 		        xScaleMax = x.domain()[1];
