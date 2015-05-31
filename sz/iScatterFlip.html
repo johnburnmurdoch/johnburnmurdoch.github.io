@@ -54,11 +54,15 @@
 	      	#slidetext{fill:#43423e;font-size:36px;display:block;padding:8px;font-family: "MillerDisplay","Clarion";margin-left:0px;margin-right:auto;left:0;right:0;text-align:center;transition:0.5s;}
 	      	#slidetext.first{position:relative;top:50px;}
 	      	#guidetext.first{position:relative;top:40px;}
-	      	#guidetext{fill:#43423e;font-size:18px;position:relative;top:0px;width:99%;display:block;padding:4px;line-height:24px;/*background-color:#cec6b9;border-radius:5px;*/margin-top:5px;margin-left:auto;margin-right:auto;left:0;right:0;max-width:700px;transition:0.5s;}
+	      	#guidetext{fill:#43423e;font-size:18px;position:relative;top:0px;width:99%;display:block;padding:4px;line-height:24px;/*background-color:#cec6b9;border-radius:5px;*/margin-top:5px;margin-left:auto;margin-right:auto;left:0;right:0;max-width:700px;transition:0.5s;pointer-events:none;}
+	      	.innerText{pointer-events:all;}
 
 	        #resetButton{position:relative;background-color:#F6E9D8;padding: 5px;border-radius: 5px;color: #74736c;border: 1px solid #74736c;transition: 0.3s;cursor: pointer;pointer-events: all;float: right;top:30px;font-size:14px;opacity:0;}
 	        #resetButton:hover{background-color:#74736c;color:#fff1e0;}
 	      	#resetButton.hidden{display:none;pointer-events:none;}
+
+	      	.FTlink{color:#2e6e9e;transition:0.3s;pointer-events:all;cursor:pointer;text-decoration:none;}
+    	  	.FTlink:hover{color:#000;background-color:#fff1e0;}
 
 	      	#graphic{margin-left:auto;margin-right:auto;text-align:center;}
 	      	#backdrop{fill:#fff1e0;}
@@ -81,11 +85,14 @@
 	      	.playerBar{stroke:#cec6b9;fill:none;stroke-width:1px;shape-rendering:crispEdges;}
 	      	/*.playerCircle{fill:#ecafaf;fill-opacity:0.7;stroke:#ecafaf;}*/
 	      	.dot{stroke:#9e2f50;fill:#af516c;fill-opacity:0.8;}
+	      	.playerCircle{stroke:none;}
+	      	.playerCircle.highlit{stroke:#af516c;stroke-width:1px;}
 
 	      	.in_XI .playerCircle{fill:#af516c;fill-opacity:0.7;stroke:#af516c;}
 	      	.in_XI.pos_Keeper .playerCircle{fill:#d7706c;fill-opacity:0.7;stroke:#d7706c;}
 
 	      	.clickArea{stroke:none;fill-opacity:0;}
+	      	.clickArea.club{cursor:pointer;}
 
 	      	g.club{opacity:1;transition:1s;}
 	      	g.clubText{opacity:1;transition:1s;}
@@ -388,10 +395,14 @@
     			'text-anchor':'start'
     		})
     		.text(function(d){
-    			if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
+    			// if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
     			return d.key
     			.replace(/ FC/g,'')
     			.replace(/ AFC/g,'')
+    		})
+    		.style('opacity',function(d){
+    			if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
+    			{return 1}else{return 0}
     		});
 
         	var tails = clubShapes.append('rect').attr({
@@ -415,7 +426,7 @@
     		});
 
     		var clubClicks = clubShapes.append('rect').attr({
-    			'class':'clickArea',
+    			'class':'clickArea club',
     			'y':-10,
     			'x':function(d){
                     return -5},
@@ -424,6 +435,24 @@
                 'height':20,
                 'rx':10,
                 'ry':10
+    		});
+
+    		clubClicks.on('mouseover',function(d){
+    			var thisClub = d.key.replace(/ /g,'_')
+    			d3.selectAll('g.clubText text').style('opacity',0);
+    			console.log(thisClub)
+    			d3.select('g.clubText.name_' + thisClub + ' text')
+	    			.style('opacity',1);
+    			d3.select('g.club.name_' + thisClub + ' .playerCircle')
+	    			.classed('highlit',true)
+    		}).on('mouseout',function(d){
+    			d3.selectAll('g.clubText text')
+    				.style('opacity',function(d){
+    				if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
+    				{return 1}else{return 0}
+    				});
+    				d3.selectAll('g.club .playerCircle')
+	    			.classed('highlit',false)
     		});
 
 
@@ -468,6 +497,7 @@
 
     			d3.selectAll('g.club').style('opacity',0);
     			d3.selectAll('g.clubText').style('opacity',0);
+    			d3.selectAll('.club').style('pointer-events','none');
     			//d3.selectAll('g.club:not(.name_'+Uclub+')').style('opacity',0);
 
     			var playerShapes = chartHolder.selectAll('g.player')
@@ -517,7 +547,7 @@
 	    		});
 
 	    		var playerClicks = playerShapes.append('rect').attr({
-	    			'class':'clickArea',
+	    			'class':'clickArea player',
 	    			'y':-10,
 	    			'x':function(d){
 	                    return -5},
@@ -575,6 +605,7 @@
 
     			d3.selectAll('g.club').style('opacity',1);
     			d3.selectAll('g.clubText').style('opacity',1);
+    			d3.selectAll('.club').style('pointer-events','all');
 			}
 
             var resetButton = guidetextHolder.append('a').attr('id','resetButton').text('Reset view').on('click',function(){
