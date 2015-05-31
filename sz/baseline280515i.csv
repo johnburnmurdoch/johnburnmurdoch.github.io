@@ -1,0 +1,546 @@
+"name","pos","age","club","minsRatio","contract","minsRank","aveX","aveY","aveZ","isLoan","newRank"
+"David Ospina","Keeper",26,"Arsenal FC",47.4,5,18,64.7363636363636,26.9090909090909,4,"none",0
+"Wojciech Szczesny","Keeper",25,"Arsenal FC",43.8,4,15,64.7363636363636,26.9090909090909,4,"none",20
+"Damián Martínez","Keeper",22,"Arsenal FC",8.8,1,6,64.7363636363636,26.9090909090909,4,"none",40
+"Brad Guzan","Keeper",30,"Aston Villa",89.5,3,27,68.4727272727273,26.3636363636364,3.18181818181818,"none",0
+"Shay Given","Keeper",39,"Aston Villa",7.9,2,4,68.4727272727273,26.3636363636364,3.18181818181818,"none",20
+"Tom Heaton","Keeper",29,"Burnley FC",100,3,24,83.4909090909091,28,2.36363636363636,"none",0
+"Thibaut Courtois","Keeper",23,"Chelsea FC",82.3,5,19,82.3727272727273,26.8181818181818,4.27272727272727,"none",0
+"Petr Cech","Keeper",33,"Chelsea FC",17.7,2,8,82.3727272727273,26.8181818181818,4.27272727272727,"none",20
+"Julián Speroni","Keeper",36,"Crystal Palace",93.7,2,29,77.6363636363636,28,3.36363636363636,"none",0
+"Wayne Hennessey","Keeper",28,"Crystal Palace",6.3,3,10,77.6363636363636,28,3.36363636363636,"none",20
+"Tim Howard","Keeper",36,"Everton FC",82.9,4,25,73.1818181818182,27.3636363636364,4.09090909090909,"none",0
+"Joel Robles","Keeper",24,"Everton FC",17.1,4,10,73.1818181818182,27.3636363636364,4.09090909090909,"none",20
+"Allan McGregor","Keeper",33,"Hull City",68.4,2,25,64.9363636363636,27.8181818181818,2.18181818181818,"none",0
+"Steve Harper","Keeper",40,"Hull City",24.9,1,10,64.9363636363636,27.8181818181818,2.18181818181818,"none",20
+"Eldin Jakupovic","Keeper",30,"Hull City",6.7,2,6,64.9363636363636,27.8181818181818,2.18181818181818,"none",40
+"Kasper Schmeichel","Keeper",28,"Leicester City",63.2,4,22,66.7909090909091,28.3636363636364,2.90909090909091,"none",0
+"Ben Hamer","Keeper",27,"Leicester City",21.1,4,9,66.7909090909091,28.3636363636364,2.90909090909091,"none",20
+"Mark Schwarzer","Keeper",42,"Leicester City",15.8,2,7,66.7909090909091,28.3636363636364,2.90909090909091,"none",40
+"Simon Mignolet","Keeper",27,"Liverpool FC",94.3,4,24,72.1090909090909,25.1818181818182,4,"none",0
+"Brad Jones","Keeper",33,"Liverpool FC",5.7,2,2,72.1090909090909,25.1818181818182,4,"none",20
+"Joe Hart","Keeper",28,"Manchester City",94.7,5,24,71.0181818181818,29.0909090909091,3.81818181818182,"none",0
+"Willy Caballero","Keeper",33,"Manchester City",5.3,3,4,71.0181818181818,29.0909090909091,3.81818181818182,"none",20
+"David de Gea","Keeper",24,"Manchester United",96.9,2,33,66.1,26.7272727272727,3.36363636363636,"none",0
+"Víctor Valdés","Keeper",33,"Manchester United",3.1,2,10,66.1,26.7272727272727,3.36363636363636,"none",20
+"Tim Krul","Keeper",27,"Newcastle United",78.9,3,23,72.2272727272727,26.0909090909091,3.81818181818182,"none",0
+"Rob Elliot","Keeper",29,"Newcastle United",6.6,2,5,72.2272727272727,26.0909090909091,3.81818181818182,"none",20
+"Robert Green","Keeper",35,"Queens Park Rangers",93.1,2,32,69.1181818181818,29,1.90909090909091,"none",0
+"Alex McCarthy","Keeper",25,"Queens Park Rangers",6.9,4,11,69.1181818181818,29,1.90909090909091,"none",20
+"Fraser Forster","Keeper",27,"Southampton FC",76.7,4,24,77.2545454545455,26.2727272727273,3.27272727272727,"none",0
+"Kelvin Davis","Keeper",38,"Southampton FC",18,2,14,77.2545454545455,26.2727272727273,3.27272727272727,"none",20
+"Paulo Gazzaniga","Keeper",23,"Southampton FC",5.3,2,8,77.2545454545455,26.2727272727273,3.27272727272727,"none",40
+"Asmir Begovic","Keeper",27,"Stoke City",92.1,2,24,72.5363636363636,27.8181818181818,2.81818181818182,"none",0
+"Jack Butland","Keeper",22,"Stoke City",7.9,5,6,72.5363636363636,27.8181818181818,2.81818181818182,"none",20
+"Costel Pantilimon","Keeper",28,"Sunderland AFC",73.7,4,21,70.9545454545455,28.1818181818182,2.72727272727273,"none",0
+"Vito Mannone","Keeper",27,"Sunderland AFC",26.3,2,9,70.9545454545455,28.1818181818182,2.72727272727273,"none",20
+"Lukasz Fabianski","Keeper",30,"Swansea City",96.7,4,27,73.8636363636364,27.6363636363636,3.54545454545455,"none",0
+"Gerhard Tremmel","Keeper",36,"Swansea City",3.2,1,3,73.8636363636364,27.6363636363636,3.54545454545455,"none",20
+"Hugo Lloris","Keeper",28,"Tottenham Hotspur",89.6,5,26,72.3909090909091,24,4.45454545454545,"none",0
+"Michel Vorm","Keeper",31,"Tottenham Hotspur",10.4,4,5,72.3909090909091,24,4.45454545454545,"none",20
+"Ben Foster","Keeper",32,"West Bromwich Albion",72.6,4,20,70.6272727272727,28.3636363636364,2.45454545454545,"none",0
+"Boaz Myhill","Keeper",32,"West Bromwich Albion",27.4,2,10,70.6272727272727,28.3636363636364,2.45454545454545,"none",20
+"Adrián","Keeper",28,"West Ham United",99.2,2,27,75.3090909090909,26.7272727272727,3.81818181818182,"none",0
+"Jussi Jääskeläinen","Keeper",40,"West Ham United",0.8,1,2,75.3090909090909,26.7272727272727,3.81818181818182,"none",20
+"Per Mertesacker","Centre Back",30,"Arsenal FC",92.1,3,29,64.7363636363636,26.9090909090909,4,"none",1
+"Santi Cazorla","Attacking Midfield",30,"Arsenal FC",87.5,4,28,64.7363636363636,26.9090909090909,4,"none",2
+"Alexis Sánchez","Left Wing",26,"Arsenal FC",86,4,27,64.7363636363636,26.9090909090909,4,"none",3
+"Nacho Monreal","Left-Back",29,"Arsenal FC",67.6,3,26,64.7363636363636,26.9090909090909,4,"none",4
+"Laurent Koscielny","Centre Back",29,"Arsenal FC",66.9,3,25,64.7363636363636,26.9090909090909,4,"none",5
+"Aaron Ramsey","Central Midfield",24,"Arsenal FC",58.7,4,24,64.7363636363636,26.9090909090909,4,"none",6
+"Olivier Giroud","Centre Forward",28,"Arsenal FC",54.4,4,23,64.7363636363636,26.9090909090909,4,"none",7
+"Mesut Özil","Attacking Midfield",26,"Arsenal FC",54.3,4,22,64.7363636363636,26.9090909090909,4,"none",8
+"Danny Welbeck","Centre Forward",24,"Arsenal FC",48.6,5,20.5,64.7363636363636,26.9090909090909,4,"none",9
+"Francis Coquelin","Defensive Midfield",24,"Arsenal FC",48.6,5,20.5,64.7363636363636,26.9090909090909,4,"none",10
+"Kieran Gibbs","Left-Back",25,"Arsenal FC",48.5,4,19,64.7363636363636,26.9090909090909,4,"none",11
+"Calum Chambers","Right-Back",20,"Arsenal FC",46,6,17,64.7363636363636,26.9090909090909,4,"none",12
+"Héctor Bellerín","Right-Back",20,"Arsenal FC",45.7,3,16,64.7363636363636,26.9090909090909,4,"none",13
+"Alex Oxlade-Chamberlain","Right Wing",21,"Arsenal FC",43.6,4,14,64.7363636363636,26.9090909090909,4,"none",14
+"Mathieu Flamini","Defensive Midfield",31,"Arsenal FC",42.7,1,13,64.7363636363636,26.9090909090909,4,"none",15
+"Mathieu Debuchy","Right-Back",29,"Arsenal FC",23.5,5,12,64.7363636363636,26.9090909090909,4,"none",16
+"Jack Wilshere","Central Midfield",23,"Arsenal FC",21.3,4,11,64.7363636363636,26.9090909090909,4,"none",17
+"Tomás Rosicky","Attacking Midfield",34,"Arsenal FC",17,2,10,64.7363636363636,26.9090909090909,4,"none",18
+"Mikel Arteta","Defensive Midfield",33,"Arsenal FC",13.1,2,8.5,64.7363636363636,26.9090909090909,4,"none",20
+"Theo Walcott","Right Wing",26,"Arsenal FC",13.1,2,8.5,64.7363636363636,26.9090909090909,4,"none",19
+"Gabriel Paulista","Centre Back",24,"Arsenal FC",10.2,5,7,64.7363636363636,26.9090909090909,4,"none",21
+"Yaya Sanogo","Centre Forward",22,"Arsenal FC",4,3,5,64.7363636363636,26.9090909090909,4,"none",22
+"Lukas Podolski","Left Wing",29,"Arsenal FC",3.1,2,4,64.7363636363636,26.9090909090909,4,"none",23
+"Joel Campbell","Right Wing",22,"Arsenal FC",1.2,2,3,64.7363636363636,26.9090909090909,4,"none",24
+"Chuba Akpom","Centre Forward",19,"Arsenal FC",0.9,5,2,64.7363636363636,26.9090909090909,4,"none",25
+"Ainsley Maitland-Niles","Right Wing",17,"Arsenal FC",0,1,1,64.7363636363636,26.9090909090909,4,"none",26
+"Gabriel Agbonlahor","Left Wing",28,"Aston Villa",78.8,4,26,68.4727272727273,26.3636363636364,3.18181818181818,"none",1
+"Tom Cleverley","Central Midfield",25,"Aston Villa",73.3,1,25,68.4727272727273,26.3636363636364,3.18181818181818,"loan",2
+"Fabian Delph","Central Midfield",25,"Aston Villa",71.2,5,24,68.4727272727273,26.3636363636364,3.18181818181818,"none",3
+"Alan Hutton","Right-Back",30,"Aston Villa",70.7,3,23,68.4727272727273,26.3636363636364,3.18181818181818,"none",4
+"Christian Benteke","Centre Forward",24,"Aston Villa",69.6,3,22,68.4727272727273,26.3636363636364,3.18181818181818,"none",5
+"Ashley Westwood","Defensive Midfield",25,"Aston Villa",62.8,3,21,68.4727272727273,26.3636363636364,3.18181818181818,"none",6
+"Aly Cissokho","Left-Back",27,"Aston Villa",62.2,4,20,68.4727272727273,26.3636363636364,3.18181818181818,"none",7
+"Jores Okore","Centre Back",22,"Aston Villa",58.8,3,19,68.4727272727273,26.3636363636364,3.18181818181818,"none",8
+"Ciaran Clark","Centre Back",25,"Aston Villa",58.2,2,18,68.4727272727273,26.3636363636364,3.18181818181818,"none",9
+"Carlos Sánchez","Defensive Midfield",29,"Aston Villa",58.1,4,17,68.4727272727273,26.3636363636364,3.18181818181818,"none",10
+"Andreas Weimann","Right Wing",23,"Aston Villa",51.9,2,16,68.4727272727273,26.3636363636364,3.18181818181818,"none",11
+"Ron Vlaar","Centre Back",30,"Aston Villa",48.2,1,15,68.4727272727273,26.3636363636364,3.18181818181818,"none",12
+"Charles N'Zogbia","Right Wing",29,"Aston Villa",41.5,2,14,68.4727272727273,26.3636363636364,3.18181818181818,"none",13
+"Kieran Richardson","Left-Back",30,"Aston Villa",39.3,2,13,68.4727272727273,26.3636363636364,3.18181818181818,"none",14
+"Leandro Bacuna","Right Midfield",23,"Aston Villa",28.8,2,12,68.4727272727273,26.3636363636364,3.18181818181818,"none",15
+"Jack Grealish","Left Wing",19,"Aston Villa",24,4,11,68.4727272727273,26.3636363636364,3.18181818181818,"none",16
+"Nathan Baker","Centre Back",24,"Aston Villa",22.3,2,10,68.4727272727273,26.3636363636364,3.18181818181818,"none",17
+"Matthew Lowton","Right-Back",25,"Aston Villa",22.1,3,9,68.4727272727273,26.3636363636364,3.18181818181818,"none",18
+"Philippe Senderos","Centre Back",30,"Aston Villa",18.5,2,8,68.4727272727273,26.3636363636364,3.18181818181818,"none",19
+"Scott Sinclair","Left Wing",26,"Aston Villa",13.5,5,7,68.4727272727273,26.3636363636364,3.18181818181818,"none",20
+"Carles Gil","Attacking Midfield",22,"Aston Villa",10.5,5,6,68.4727272727273,26.3636363636364,3.18181818181818,"none",21
+"Joe Cole","Attacking Midfield",33,"Aston Villa",8.3,2,5,68.4727272727273,26.3636363636364,3.18181818181818,"none",22
+"Darren Bent","Centre Forward",31,"Aston Villa",2.4,1,2,68.4727272727273,26.3636363636364,3.18181818181818,"none",23
+"Rushian Hepburn-Murphy","Centre Forward",16,"Aston Villa",0.2,1,1,68.4727272727273,26.3636363636364,3.18181818181818,"none",24
+"Kieran Trippier","Right-Back",24,"Burnley FC",99.9,3,23,83.4909090909091,28,2.36363636363636,"none",1
+"Jason Shackell","Centre Back",31,"Burnley FC",97.8,2,22,83.4909090909091,28,2.36363636363636,"none",2
+"David Jones","Central Midfield",30,"Burnley FC",93.6,2,20.5,83.4909090909091,28,2.36363636363636,"none",4
+"Scott Arfield","Right Midfield",26,"Burnley FC",93.6,3,20.5,83.4909090909091,28,2.36363636363636,"none",3
+"Danny Ings","Centre Forward",22,"Burnley FC",88.4,1,19,83.4909090909091,28,2.36363636363636,"none",5
+"George Boyd","Left Wing",29,"Burnley FC",87.9,3,18,83.4909090909091,28,2.36363636363636,"none",6
+"Ben Mee","Left-Back",25,"Burnley FC",84.4,3,17,83.4909090909091,28,2.36363636363636,"none",7
+"Ashley Barnes","Centre Forward",25,"Burnley FC",70.6,3,16,83.4909090909091,28,2.36363636363636,"none",8
+"Michael Duff","Centre Back",36,"Burnley FC",52.9,1,15,83.4909090909091,28,2.36363636363636,"none",9
+"Dean Marney","Central Midfield",31,"Burnley FC",49.3,2,14,83.4909090909091,28,2.36363636363636,"none",10
+"Lukas Jutkiewicz","Centre Forward",26,"Burnley FC",28.7,3,12,83.4909090909091,28,2.36363636363636,"none",11
+"Michael Kightly","Right Wing",29,"Burnley FC",27.7,3,11,83.4909090909091,28,2.36363636363636,"none",12
+"Stephen Ward","Left-Back",29,"Burnley FC",18.2,3,10,83.4909090909091,28,2.36363636363636,"none",13
+"Sam Vokes","Centre Forward",25,"Burnley FC",16.6,3,9,83.4909090909091,28,2.36363636363636,"none",14
+"Matthew Taylor","Left Midfield",33,"Burnley FC",16.5,2,8,83.4909090909091,28,2.36363636363636,"none",15
+"Marvin Sordell","Centre Forward",24,"Burnley FC",8.5,3,7,83.4909090909091,28,2.36363636363636,"none",16
+"Ross Wallace","Right Midfield",30,"Burnley FC",7,1,6,83.4909090909091,28,2.36363636363636,"none",17
+"Steven Reid","Right-Back",34,"Burnley FC",3.3,1,5,83.4909090909091,28,2.36363636363636,"none",18
+"Fredrik Ulvestad","Central Midfield",23,"Burnley FC",2,4,3.5,83.4909090909091,28,2.36363636363636,"none",20
+"Nathaniel Chalobah","Defensive Midfield",20,"Burnley FC",2,1,3.5,83.4909090909091,28,2.36363636363636,"none",19
+"Kevin Long","Centre Back",24,"Burnley FC",0.6,3,2,83.4909090909091,28,2.36363636363636,"none",21
+"Danny Lafferty","Left-Back",27,"Burnley FC",0.5,3,1,83.4909090909091,28,2.36363636363636,"none",22
+"Branislav Ivanovic","Right-Back",31,"Chelsea FC",100,2,24.5,82.3727272727273,26.8181818181818,4.27272727272727,"none",1
+"John Terry","Centre Back",34,"Chelsea FC",100,2,24.5,82.3727272727273,26.8181818181818,4.27272727272727,"none",2
+"Eden Hazard","Left Wing",24,"Chelsea FC",98.5,6,23,82.3727272727273,26.8181818181818,4.27272727272727,"none",3
+"Nemanja Matic","Defensive Midfield",26,"Chelsea FC",91.3,5,22,82.3727272727273,26.8181818181818,4.27272727272727,"none",4
+"Gary Cahill","Centre Back",29,"Chelsea FC",87.3,3,21,82.3727272727273,26.8181818181818,4.27272727272727,"none",5
+"Cesc Fàbregas","Central Midfield",28,"Chelsea FC",84.3,5,20,82.3727272727273,26.8181818181818,4.27272727272727,"none",6
+"César Azpilicueta","Right-Back",25,"Chelsea FC",72.6,5,18,82.3727272727273,26.8181818181818,4.27272727272727,"none",7
+"Willian","Right Wing",26,"Chelsea FC",70.2,4,17,82.3727272727273,26.8181818181818,4.27272727272727,"none",8
+"Diego Costa","Centre Forward",26,"Chelsea FC",60.5,5,16,82.3727272727273,26.8181818181818,4.27272727272727,"none",9
+"Oscar","Attacking Midfield",23,"Chelsea FC",59.1,5,15,82.3727272727273,26.8181818181818,4.27272727272727,"none",10
+"Ramires","Central Midfield",28,"Chelsea FC",32.4,3,14,82.3727272727273,26.8181818181818,4.27272727272727,"none",11
+"Filipe Luís","Left-Back",29,"Chelsea FC",27.5,3,13,82.3727272727273,26.8181818181818,4.27272727272727,"none",12
+"Didier Drogba","Centre Forward",37,"Chelsea FC",25.4,1,12,82.3727272727273,26.8181818181818,4.27272727272727,"none",13
+"John Obi Mikel","Defensive Midfield",28,"Chelsea FC",20.5,3,11,82.3727272727273,26.8181818181818,4.27272727272727,"none",14
+"Loïc Rémy","Centre Forward",28,"Chelsea FC",19.6,4,10,82.3727272727273,26.8181818181818,4.27272727272727,"none",15
+"Kurt Zouma","Centre Back",20,"Chelsea FC",18.9,5,9,82.3727272727273,26.8181818181818,4.27272727272727,"none",16
+"André Schürrle","Left Wing",24,"Chelsea FC",12.7,1,7,82.3727272727273,26.8181818181818,4.27272727272727,"none",17
+"Juan Cuadrado","Right Wing",27,"Chelsea FC",9.2,5,6,82.3727272727273,26.8181818181818,4.27272727272727,"none",18
+"Ruben Loftus-Cheek","Central Midfield",19,"Chelsea FC",3.9,3,5,82.3727272727273,26.8181818181818,4.27272727272727,"none",19
+"Mohamed Salah","Right Wing",22,"Chelsea FC",1,5,4,82.3727272727273,26.8181818181818,4.27272727272727,"none",20
+"Nathan Aké","Defensive Midfield",20,"Chelsea FC",0.5,4,3,82.3727272727273,26.8181818181818,4.27272727272727,"none",21
+"Andreas Christensen","Centre Back",19,"Chelsea FC",0.4,1,1.5,82.3727272727273,26.8181818181818,4.27272727272727,"none",22
+"Isaiah Brown","Left Wing",18,"Chelsea FC",0.4,1,1.5,82.3727272727273,26.8181818181818,4.27272727272727,"none",23
+"Joel Ward","Left-Back",25,"Crystal Palace",97.4,4,30,77.6363636363636,28,3.36363636363636,"none",1
+"Scott Dann","Centre Back",28,"Crystal Palace",85.4,3,28,77.6363636363636,28,3.36363636363636,"none",2
+"Jason Puncheon","Right Wing",28,"Crystal Palace",82.5,5,27,77.6363636363636,28,3.36363636363636,"none",3
+"Yala Bolasie","Left Wing",26,"Crystal Palace",80.9,3,26,77.6363636363636,28,3.36363636363636,"none",4
+"James McArthur","Central Midfield",27,"Crystal Palace",76.1,3,25,77.6363636363636,28,3.36363636363636,"none",5
+"Joe Ledley","Central Midfield",28,"Crystal Palace",75.2,3,24,77.6363636363636,28,3.36363636363636,"none",6
+"Martin Kelly","Right-Back",25,"Crystal Palace",73,3,23,77.6363636363636,28,3.36363636363636,"none",7
+"Damien Delaney","Centre Back",33,"Crystal Palace",71.2,2,22,77.6363636363636,28,3.36363636363636,"none",8
+"Mile Jedinak","Central Midfield",30,"Crystal Palace",60.8,3,21,77.6363636363636,28,3.36363636363636,"none",9
+"Wilfried Zaha","Right Wing",22,"Crystal Palace",57.8,6,20,77.6363636363636,28,3.36363636363636,"none",10
+"Brede Hangeland","Centre Back",33,"Crystal Palace",34.3,1,18.5,77.6363636363636,28,3.36363636363636,"none",12
+"Fraizer Campbell","Centre Forward",27,"Crystal Palace",34.3,3,18.5,77.6363636363636,28,3.36363636363636,"none",11
+"Marouane Chamakh","Centre Forward",31,"Crystal Palace",33.6,2,17,77.6363636363636,28,3.36363636363636,"none",13
+"Dwight Gayle","Centre Forward",24,"Crystal Palace",32,3,16,77.6363636363636,28,3.36363636363636,"none",14
+"Glenn Murray","Centre Forward",31,"Crystal Palace",25.5,3,15,77.6363636363636,28,3.36363636363636,"none",15
+"Adrian Mariappa","Right-Back",28,"Crystal Palace",24.6,2,14,77.6363636363636,28,3.36363636363636,"none",16
+"Pape Souaré","Left-Back",24,"Crystal Palace",17.7,4,13,77.6363636363636,28,3.36363636363636,"none",17
+"Jordon Mutch","Central Midfield",23,"Crystal Palace",9.7,5,12,77.6363636363636,28,3.36363636363636,"none",18
+"Yaya Sanogo","Centre Forward",22,"Crystal Palace",9.4,1,11,77.6363636363636,28,3.36363636363636,"loan",19
+"Barry Bannan","Central Midfield",25,"Crystal Palace",4,2,9,77.6363636363636,28,3.36363636363636,"none",20
+"Chung-Yong Lee","Right Wing",26,"Crystal Palace",2.7,4,7,77.6363636363636,28,3.36363636363636,"none",21
+"Stuart O'Keefe","Central Midfield",24,"Crystal Palace",2.4,1,6,77.6363636363636,28,3.36363636363636,"none",22
+"Shola Ameobi","Centre Forward",33,"Crystal Palace",1.2,1,5,77.6363636363636,28,3.36363636363636,"none",23
+"Jonathan Williams","Attacking Midfield",21,"Crystal Palace",1.1,4,3.5,77.6363636363636,28,3.36363636363636,"none",24
+"Kevin Doyle","Centre Forward",31,"Crystal Palace",1.1,1,3.5,77.6363636363636,28,3.36363636363636,"none",25
+"Jerome Thomas","Left Wing",32,"Crystal Palace",0.2,1,2,77.6363636363636,28,3.36363636363636,"none",26
+"Zeki Fryers","Left-Back",22,"Crystal Palace",0.1,3,1,77.6363636363636,28,3.36363636363636,"none",27
+"Phil Jagielka","Centre Back",32,"Everton FC",96.1,3,28,73.1818181818182,27.3636363636364,4.09090909090909,"none",1
+"Seamus Coleman","Right-Back",26,"Everton FC",89.6,5,27,73.1818181818182,27.3636363636364,4.09090909090909,"none",2
+"Romelu Lukaku","Centre Forward",22,"Everton FC",83.9,5,26,73.1818181818182,27.3636363636364,4.09090909090909,"none",3
+"Gareth Barry","Defensive Midfield",34,"Everton FC",82.5,3,24,73.1818181818182,27.3636363636364,4.09090909090909,"none",4
+"Leighton Baines","Left-Back",30,"Everton FC",81.1,5,23,73.1818181818182,27.3636363636364,4.09090909090909,"none",5
+"James McCarthy","Central Midfield",24,"Everton FC",70.2,4,22,73.1818181818182,27.3636363636364,4.09090909090909,"none",6
+"Steven Naismith","Secondary Striker",28,"Everton FC",60.2,5,21,73.1818181818182,27.3636363636364,4.09090909090909,"none",7
+"John Stones","Centre Back",21,"Everton FC",59.7,5,20,73.1818181818182,27.3636363636364,4.09090909090909,"none",8
+"Ross Barkley","Attacking Midfield",21,"Everton FC",57.3,4,19,73.1818181818182,27.3636363636364,4.09090909090909,"none",9
+"Kevin Mirallas","Left Wing",27,"Everton FC",41.5,2,18,73.1818181818182,27.3636363636364,4.09090909090909,"none",10
+"Muhamed Besic","Defensive Midfield",22,"Everton FC",37.5,5,17,73.1818181818182,27.3636363636364,4.09090909090909,"none",11
+"Leon Osman","Attacking Midfield",34,"Everton FC",37.4,2,16,73.1818181818182,27.3636363636364,4.09090909090909,"none",12
+"Sylvain Distin","Centre Back",37,"Everton FC",31.6,1,15,73.1818181818182,27.3636363636364,4.09090909090909,"none",13
+"Aaron Lennon","Right Wing",28,"Everton FC",31.2,1,14,73.1818181818182,27.3636363636364,4.09090909090909,"loan",14
+"Aiden McGeady","Right Wing",29,"Everton FC",25.8,4,13,73.1818181818182,27.3636363636364,4.09090909090909,"none",15
+"Samuel Eto'o","Centre Forward",34,"Everton FC",23,1,12,73.1818181818182,27.3636363636364,4.09090909090909,"none",16
+"Arouna Koné","Centre Forward",31,"Everton FC",17.6,2,11,73.1818181818182,27.3636363636364,4.09090909090909,"none",17
+"Antolín Alcaraz","Centre Back",32,"Everton FC",15.4,1,9,73.1818181818182,27.3636363636364,4.09090909090909,"none",18
+"Darron Gibson","Central Midfield",27,"Everton FC",12.2,2,8,73.1818181818182,27.3636363636364,4.09090909090909,"none",19
+"Tony Hibbert","Right-Back",34,"Everton FC",9.6,2,7,73.1818181818182,27.3636363636364,4.09090909090909,"none",20
+"Bryan Oviedo","Left-Back",25,"Everton FC",9.4,2,6,73.1818181818182,27.3636363636364,4.09090909090909,"none",21
+"Steven Pienaar","Left Wing",33,"Everton FC",9.3,2,5,73.1818181818182,27.3636363636364,4.09090909090909,"none",22
+"Luke Garbutt","Left-Back",22,"Everton FC",8.4,1,4,73.1818181818182,27.3636363636364,4.09090909090909,"none",23
+"Brendan Galloway","Centre Back",19,"Everton FC",5.1,1,3,73.1818181818182,27.3636363636364,4.09090909090909,"none",24
+"Christian Atsu","Right Wing",23,"Everton FC",3.3,1,2,73.1818181818182,27.3636363636364,4.09090909090909,"loan",25
+"Tyias Browning","Centre Back",21,"Everton FC",0.9,1,1,73.1818181818182,27.3636363636364,4.09090909090909,"none",26
+"Ahmed Elmohamady","Right Midfield",27,"Hull City",100,2,29,64.9363636363636,27.8181818181818,2.18181818181818,"none",1
+"Jake Livermore","Central Midfield",25,"Hull City",88.5,3,28,64.9363636363636,27.8181818181818,2.18181818181818,"none",2
+"Tom Huddlestone","Defensive Midfield",28,"Hull City",74.3,2,27,64.9363636363636,27.8181818181818,2.18181818181818,"none",3
+"Michael Dawson","Centre Back",31,"Hull City",71.1,3,26,64.9363636363636,27.8181818181818,2.18181818181818,"none",4
+"James Chester","Centre Back",26,"Hull City",54.6,2,24,64.9363636363636,27.8181818181818,2.18181818181818,"none",5
+"Curtis Davies","Centre Back",30,"Hull City",53,2,23,64.9363636363636,27.8181818181818,2.18181818181818,"none",6
+"Nikica Jelavic","Centre Forward",29,"Hull City",52.8,3,22,64.9363636363636,27.8181818181818,2.18181818181818,"none",7
+"Robbie Brady","Left Wing",23,"Hull City",51.5,2,21,64.9363636363636,27.8181818181818,2.18181818181818,"none",8
+"David Meyler","Central Midfield",25,"Hull City",50.6,2,20,64.9363636363636,27.8181818181818,2.18181818181818,"none",9
+"Paul McShane","Centre Back",29,"Hull City",49.5,1,19,64.9363636363636,27.8181818181818,2.18181818181818,"none",10
+"Stephen Quinn","Central Midfield",29,"Hull City",47.8,1,18,64.9363636363636,27.8181818181818,2.18181818181818,"none",11
+"Andrew Robertson","Left-Back",21,"Hull City",44.6,3,17,64.9363636363636,27.8181818181818,2.18181818181818,"none",12
+"Alex Bruce","Centre Back",30,"Hull City",42.4,1,16,64.9363636363636,27.8181818181818,2.18181818181818,"none",13
+"Abel Hernández","Centre Forward",24,"Hull City",38.4,4,15,64.9363636363636,27.8181818181818,2.18181818181818,"none",14
+"Sone Aluko","Secondary Striker",26,"Hull City",36.3,2,14,64.9363636363636,27.8181818181818,2.18181818181818,"none",15
+"Dame N'Doye","Centre Forward",30,"Hull City",34.9,3,13,64.9363636363636,27.8181818181818,2.18181818181818,"none",16
+"Gastón Ramírez","Attacking Midfield",24,"Hull City",28.9,1,12,64.9363636363636,27.8181818181818,2.18181818181818,"loan",17
+"Mohamed Diamé","Central Midfield",27,"Hull City",25.6,3,11,64.9363636363636,27.8181818181818,2.18181818181818,"none",18
+"Liam Rosenior","Right-Back",30,"Hull City",17,1,9,64.9363636363636,27.8181818181818,2.18181818181818,"none",19
+"Hatem Ben Arfa","Right Wing",28,"Hull City",11.2,1,8,64.9363636363636,27.8181818181818,2.18181818181818,"none",20
+"Tom Ince","Left Wing",23,"Hull City",8.8,2,7,64.9363636363636,27.8181818181818,2.18181818181818,"none",21
+"Maynor Figueroa","Left-Back",32,"Hull City",6.2,1,5,64.9363636363636,27.8181818181818,2.18181818181818,"none",22
+"Harry Maguire","Centre Back",22,"Hull City",2.7,3,4,64.9363636363636,27.8181818181818,2.18181818181818,"none",23
+"Yannick Sagbo","Centre Forward",27,"Hull City",1.7,1,3,64.9363636363636,27.8181818181818,2.18181818181818,"none",24
+"Robert Snodgrass","Right Wing",27,"Hull City",1.1,3,2,64.9363636363636,27.8181818181818,2.18181818181818,"none",25
+"George Boyd","Left Wing",29,"Hull City",0.3,1,1,64.9363636363636,27.8181818181818,2.18181818181818,"none",26
+"Wes Morgan","Centre Back",31,"Leicester City",95.3,3,28,66.7909090909091,28.3636363636364,2.90909090909091,"none",1
+"Jeffrey Schlupp","Left-Back",22,"Leicester City",74,3,27,66.7909090909091,28.3636363636364,2.90909090909091,"none",2
+"Esteban Cambiasso","Defensive Midfield",34,"Leicester City",70.6,1,26,66.7909090909091,28.3636363636364,2.90909090909091,"none",3
+"Leonardo Ulloa","Centre Forward",28,"Leicester City",70.1,4,25,66.7909090909091,28.3636363636364,2.90909090909091,"none",4
+"Jamie Vardy","Centre Forward",28,"Leicester City",66.3,4,24,66.7909090909091,28.3636363636364,2.90909090909091,"none",5
+"Paul Konchesky","Left-Back",34,"Leicester City",65.7,1,23,66.7909090909091,28.3636363636364,2.90909090909091,"none",6
+"Riyad Mahrez","Right Wing",24,"Leicester City",60.8,3,21,66.7909090909091,28.3636363636364,2.90909090909091,"none",7
+"Marcin Wasilewski","Centre Back",34,"Leicester City",58.2,1,20,66.7909090909091,28.3636363636364,2.90909090909091,"none",8
+"Matty James","Central Midfield",23,"Leicester City",55.4,4,19,66.7909090909091,28.3636363636364,2.90909090909091,"none",9
+"Ritchie de Laet","Right-Back",26,"Leicester City",55.1,4,18,66.7909090909091,28.3636363636364,2.90909090909091,"none",10
+"David Nugent","Centre Forward",30,"Leicester City",50,2,17,66.7909090909091,28.3636363636364,2.90909090909091,"none",11
+"Danny Drinkwater","Central Midfield",25,"Leicester City",43.5,4,16,66.7909090909091,28.3636363636364,2.90909090909091,"none",12
+"Andy King","Central Midfield",26,"Leicester City",40.2,4,15,66.7909090909091,28.3636363636364,2.90909090909091,"none",13
+"Danny Simpson","Right-Back",28,"Leicester City",34.6,3,14,66.7909090909091,28.3636363636364,2.90909090909091,"none",14
+"Robert Huth","Centre Back",30,"Leicester City",34.4,1,13,66.7909090909091,28.3636363636364,2.90909090909091,"loan",15
+"Marc Albrighton","Right Midfield",25,"Leicester City",30.1,4,12,66.7909090909091,28.3636363636364,2.90909090909091,"none",16
+"Liam Moore","Centre Back",22,"Leicester City",27.4,3,11,66.7909090909091,28.3636363636364,2.90909090909091,"none",17
+"Dean Hammond","Central Midfield",32,"Leicester City",22.8,1,10,66.7909090909091,28.3636363636364,2.90909090909091,"none",18
+"Andrej Kramaric","Centre Forward",23,"Leicester City",16.9,4,8,66.7909090909091,28.3636363636364,2.90909090909091,"none",19
+"Matthew Upson","Centre Back",36,"Leicester City",10.9,1,6,66.7909090909091,28.3636363636364,2.90909090909091,"none",20
+"Anthony Knockaert","Right Wing",23,"Leicester City",9.8,1,5,66.7909090909091,28.3636363636364,2.90909090909091,"none",21
+"Chris Wood","Centre Forward",23,"Leicester City",3.3,2,4,66.7909090909091,28.3636363636364,2.90909090909091,"none",22
+"Tom Lawrence","Secondary Striker",21,"Leicester City",1.6,4,3,66.7909090909091,28.3636363636364,2.90909090909091,"none",23
+"Nick Powell","Secondary Striker",21,"Leicester City",1.3,1,2,66.7909090909091,28.3636363636364,2.90909090909091,"none",24
+"Gary Taylor-Fletcher","Right Wing",33,"Leicester City",0.5,1,1,66.7909090909091,28.3636363636364,2.90909090909091,"none",25
+"Jordan Henderson","Central Midfield",24,"Liverpool FC",95.2,6,25,72.1090909090909,25.1818181818182,4,"none",1
+"Raheem Sterling","Right Wing",20,"Liverpool FC",89,3,23,72.1090909090909,25.1818181818182,4,"none",2
+"Martin Skrtel","Centre Back",30,"Liverpool FC",86.8,2,22,72.1090909090909,25.1818181818182,4,"none",3
+"Coutinho","Attacking Midfield",22,"Liverpool FC",81.6,6,21,72.1090909090909,25.1818181818182,4,"none",4
+"Alberto Moreno","Left-Back",22,"Liverpool FC",65.9,5,20,72.1090909090909,25.1818181818182,4,"none",5
+"Steven Gerrard","Central Midfield",34,"Liverpool FC",65.4,1,19,72.1090909090909,25.1818181818182,4,"none",6
+"Emre Can","Defensive Midfield",21,"Liverpool FC",60.4,4,18,72.1090909090909,25.1818181818182,4,"none",7
+"Dejan Lovren","Centre Back",25,"Liverpool FC",59.6,5,17,72.1090909090909,25.1818181818182,4,"none",8
+"Adam Lallana","Attacking Midfield",27,"Liverpool FC",52,5,16,72.1090909090909,25.1818181818182,4,"none",9
+"Joe Allen","Central Midfield",25,"Liverpool FC",43,3,15,72.1090909090909,25.1818181818182,4,"none",10
+"Mamadou Sakho","Centre Back",25,"Liverpool FC",41.5,3,14,72.1090909090909,25.1818181818182,4,"none",11
+"Glen Johnson","Right-Back",30,"Liverpool FC",38.8,1,13,72.1090909090909,25.1818181818182,4,"none",12
+"Lucas Leiva","Defensive Midfield",28,"Liverpool FC",38.4,3,12,72.1090909090909,25.1818181818182,4,"none",13
+"Mario Balotelli","Centre Forward",24,"Liverpool FC",27.5,4,11,72.1090909090909,25.1818181818182,4,"none",14
+"Lazar Markovic","Right Wing",21,"Liverpool FC",27.3,5,10,72.1090909090909,25.1818181818182,4,"none",15
+"Rickie Lambert","Centre Forward",33,"Liverpool FC",24.5,2,9,72.1090909090909,25.1818181818182,4,"none",16
+"Javier Manquillo","Right-Back",21,"Liverpool FC",22.2,2,8,72.1090909090909,25.1818181818182,4,"loan",17
+"Daniel Sturridge","Centre Forward",25,"Liverpool FC",22,5,7,72.1090909090909,25.1818181818182,4,"none",18
+"Kolo Touré","Centre Back",34,"Liverpool FC",20.8,2,6,72.1090909090909,25.1818181818182,4,"none",19
+"Jordon Ibe","Right Wing",19,"Liverpool FC",18,6,5,72.1090909090909,25.1818181818182,4,"none",20
+"Fabio Borini","Centre Forward",24,"Liverpool FC",11.6,3,4,72.1090909090909,25.1818181818182,4,"none",21
+"José Enrique","Left-Back",29,"Liverpool FC",6,2,3,72.1090909090909,25.1818181818182,4,"none",22
+"Jerome Sinclair","Centre Forward",18,"Liverpool FC",0.8,1,1,72.1090909090909,25.1818181818182,4,"none",23
+"David Silva","Attacking Midfield",29,"Manchester City",77.4,5,23,71.0181818181818,29.0909090909091,3.81818181818182,"none",1
+"Pablo Zabaleta","Right-Back",30,"Manchester City",75.6,3,22,71.0181818181818,29.0909090909091,3.81818181818182,"none",2
+"Martín Demichelis","Centre Back",34,"Manchester City",74.9,2,21,71.0181818181818,29.0909090909091,3.81818181818182,"none",3
+"Sergio Agüero","Centre Forward",26,"Manchester City",74,5,20,71.0181818181818,29.0909090909091,3.81818181818182,"none",4
+"Yaya Touré","Central Midfield",32,"Manchester City",68.8,3,19,71.0181818181818,29.0909090909091,3.81818181818182,"none",5
+"Fernandinho","Central Midfield",30,"Manchester City",66.3,3,18,71.0181818181818,29.0909090909091,3.81818181818182,"none",6
+"Jesús Navas","Right Wing",29,"Manchester City",65.9,3,17,71.0181818181818,29.0909090909091,3.81818181818182,"none",7
+"Eliaquim Mangala","Centre Back",24,"Manchester City",64,5,16,71.0181818181818,29.0909090909091,3.81818181818182,"none",8
+"Gaël Clichy","Left-Back",29,"Manchester City",60.1,3,15,71.0181818181818,29.0909090909091,3.81818181818182,"none",9
+"Vincent Kompany","Centre Back",29,"Manchester City",59.5,5,14,71.0181818181818,29.0909090909091,3.81818181818182,"none",10
+"Fernando","Defensive Midfield",27,"Manchester City",54.9,5,13,71.0181818181818,29.0909090909091,3.81818181818182,"none",11
+"James Milner","Right Midfield",29,"Manchester City",51.1,1,12,71.0181818181818,29.0909090909091,3.81818181818182,"none",12
+"Samir Nasri","Left Wing",27,"Manchester City",45.9,5,11,71.0181818181818,29.0909090909091,3.81818181818182,"none",13
+"Aleksandar Kolarov","Left-Back",29,"Manchester City",43.5,4,10,71.0181818181818,29.0909090909091,3.81818181818182,"none",14
+"Frank Lampard","Central Midfield",36,"Manchester City",29.3,1,9,71.0181818181818,29.0909090909091,3.81818181818182,"loan",15
+"Edin Dzeko","Centre Forward",29,"Manchester City",27.3,4,8,71.0181818181818,29.0909090909091,3.81818181818182,"none",16
+"Stevan Jovetic","Secondary Striker",25,"Manchester City",22.9,4,7,71.0181818181818,29.0909090909091,3.81818181818182,"none",17
+"Bacary Sagna","Right-Back",32,"Manchester City",21.7,3,6,71.0181818181818,29.0909090909091,3.81818181818182,"none",18
+"Wilfried Bony","Centre Forward",26,"Manchester City",8.8,5,5,71.0181818181818,29.0909090909091,3.81818181818182,"none",19
+"José Pozo","Centre Forward",19,"Manchester City",4,1,3,71.0181818181818,29.0909090909091,3.81818181818182,"none",20
+"Dedryck Boyata","Centre Back",24,"Manchester City",2.7,2,2,71.0181818181818,29.0909090909091,3.81818181818182,"none",21
+"Scott Sinclair","Left Wing",26,"Manchester City",0.1,1,1,71.0181818181818,29.0909090909091,3.81818181818182,"none",22
+"Wayne Rooney","Secondary Striker",29,"Manchester United",84,5,32,66.1,26.7272727272727,3.36363636363636,"none",1
+"Antonio Valencia","Right-Back",29,"Manchester United",75.4,3,31,66.1,26.7272727272727,3.36363636363636,"none",2
+"Juan Mata","Attacking Midfield",27,"Manchester United",67.3,4,30,66.1,26.7272727272727,3.36363636363636,"none",3
+"Daley Blind","Defensive Midfield",25,"Manchester United",63.4,4,29,66.1,26.7272727272727,3.36363636363636,"none",4
+"Robin van Persie","Centre Forward",31,"Manchester United",61.6,2,28,66.1,26.7272727272727,3.36363636363636,"none",5
+"Ashley Young","Left Wing",29,"Manchester United",60.4,2,27,66.1,26.7272727272727,3.36363636363636,"none",6
+"Chris Smalling","Centre Back",25,"Manchester United",54.9,5,25.5,66.1,26.7272727272727,3.36363636363636,"none",7
+"Phil Jones","Centre Back",23,"Manchester United",54.9,2,25.5,66.1,26.7272727272727,3.36363636363636,"none",8
+"Ander Herrera","Central Midfield",25,"Manchester United",54.7,4,24,66.1,26.7272727272727,3.36363636363636,"none",9
+"Marouane Fellaini","Central Midfield",27,"Manchester United",53.6,4,23,66.1,26.7272727272727,3.36363636363636,"none",10
+"Marcos Rojo","Centre Back",25,"Manchester United",51.5,5,22,66.1,26.7272727272727,3.36363636363636,"none",11
+"Ángel Di María","Right Wing",27,"Manchester United",47.9,5,21,66.1,26.7272727272727,3.36363636363636,"none",12
+"Michael Carrick","Defensive Midfield",33,"Manchester United",42.6,2,20,66.1,26.7272727272727,3.36363636363636,"none",13
+"Falcao","Centre Forward",29,"Manchester United",37.7,1,19,66.1,26.7272727272727,3.36363636363636,"loan",14
+"Luke Shaw","Left-Back",19,"Manchester United",32.8,4,18,66.1,26.7272727272727,3.36363636363636,"none",15
+"Jonny Evans","Centre Back",27,"Manchester United",31.9,2,17,66.1,26.7272727272727,3.36363636363636,"none",16
+"Patrick McNair","Centre Back",20,"Manchester United",30,3,16,66.1,26.7272727272727,3.36363636363636,"none",17
+"Adnan Januzaj","Left Wing",20,"Manchester United",25,4,15,66.1,26.7272727272727,3.36363636363636,"none",18
+"Tyler Blackett","Centre Back",21,"Manchester United",19.1,3,14,66.1,26.7272727272727,3.36363636363636,"none",19
+"Rafael","Right-Back",24,"Manchester United",17.3,2,13,66.1,26.7272727272727,3.36363636363636,"none",20
+"Darren Fletcher","Central Midfield",31,"Manchester United",10.8,1,12,66.1,26.7272727272727,3.36363636363636,"none",21
+"James Wilson","Centre Forward",19,"Manchester United",10.4,1,11,66.1,26.7272727272727,3.36363636363636,"none",22
+"Tom Cleverley","Central Midfield",25,"Manchester United",2.6,1,9,66.1,26.7272727272727,3.36363636363636,"none",23
+"Michael Keane","Centre Back",22,"Manchester United",1.4,1,8,66.1,26.7272727272727,3.36363636363636,"none",24
+"Chicharito","Centre Forward",26,"Manchester United",1.3,2,6,66.1,26.7272727272727,3.36363636363636,"none",27
+"Danny Welbeck","Centre Forward",24,"Manchester United",1.3,1,6,66.1,26.7272727272727,3.36363636363636,"none",25
+"Nani","Left Wing",28,"Manchester United",1.3,4,6,66.1,26.7272727272727,3.36363636363636,"none",26
+"Jesse Lingard","Left Wing",22,"Manchester United",0.7,4,4,66.1,26.7272727272727,3.36363636363636,"none",28
+"Anderson","Central Midfield",27,"Manchester United",0.6,1,3,66.1,26.7272727272727,3.36363636363636,"none",29
+"Andreas Pereira","Attacking Midfield",19,"Manchester United",0.4,1,2,66.1,26.7272727272727,3.36363636363636,"none",30
+"Tom Thorpe","Centre Back",22,"Manchester United",0,1,1,66.1,26.7272727272727,3.36363636363636,"none",31
+"Daryl Janmaat","Right-Back",25,"Newcastle United",95.1,6,27,72.2272727272727,26.0909090909091,3.81818181818182,"none",1
+"Jack Colback","Central Midfield",25,"Newcastle United",91.5,5,26,72.2272727272727,26.0909090909091,3.81818181818182,"none",2
+"Moussa Sissoko","Attacking Midfield",25,"Newcastle United",88.6,5,25,72.2272727272727,26.0909090909091,3.81818181818182,"none",3
+"Fabricio Coloccini","Centre Back",33,"Newcastle United",82.9,2,24,72.2272727272727,26.0909090909091,3.81818181818182,"none",4
+"Mike Williamson","Centre Back",31,"Newcastle United",70.8,2,22,72.2272727272727,26.0909090909091,3.81818181818182,"none",5
+"Ayoze Pérez","Centre Forward",21,"Newcastle United",69.3,5,21,72.2272727272727,26.0909090909091,3.81818181818182,"none",6
+"Paul Dummett","Left-Back",23,"Newcastle United",61.6,4,20,72.2272727272727,26.0909090909091,3.81818181818182,"none",7
+"Yoan Gouffran","Left Wing",29,"Newcastle United",57.5,3,19,72.2272727272727,26.0909090909091,3.81818181818182,"none",8
+"Rémy Cabella","Right Wing",25,"Newcastle United",56.8,6,18,72.2272727272727,26.0909090909091,3.81818181818182,"none",9
+"Sam Ameobi","Left Wing",23,"Newcastle United",41.5,1,17,72.2272727272727,26.0909090909091,3.81818181818182,"none",10
+"Vurnon Anita","Defensive Midfield",26,"Newcastle United",37,3,16,72.2272727272727,26.0909090909091,3.81818181818182,"none",11
+"Emmanuel Rivière","Centre Forward",25,"Newcastle United",35.3,3,15,72.2272727272727,26.0909090909091,3.81818181818182,"none",12
+"Papiss Demba Cissé","Centre Forward",29,"Newcastle United",33.9,3,14,72.2272727272727,26.0909090909091,3.81818181818182,"none",13
+"Massadio Haidara","Left-Back",22,"Newcastle United",32.2,4,13,72.2272727272727,26.0909090909091,3.81818181818182,"none",14
+"Ryan Taylor","Right-Back",30,"Newcastle United",26.5,1,12,72.2272727272727,26.0909090909091,3.81818181818182,"none",15
+"Cheik Tioté","Defensive Midfield",28,"Newcastle United",26.2,3,11,72.2272727272727,26.0909090909091,3.81818181818182,"none",16
+"Mehdi Abeid","Central Midfield",22,"Newcastle United",19.4,2,10,72.2272727272727,26.0909090909091,3.81818181818182,"none",17
+"Gabriel Obertan","Right Wing",26,"Newcastle United",19.1,2,8.5,72.2272727272727,26.0909090909091,3.81818181818182,"none",18
+"Steven Taylor","Centre Back",29,"Newcastle United",19.1,2,8.5,72.2272727272727,26.0909090909091,3.81818181818182,"none",19
+"Jonás Gutiérrez","Left Midfield",31,"Newcastle United",18.7,1,7,72.2272727272727,26.0909090909091,3.81818181818182,"none",20
+"Adam Armstrong","Centre Forward",18,"Newcastle United",6.2,1,4,72.2272727272727,26.0909090909091,3.81818181818182,"none",21
+"Siem de Jong","Attacking Midfield",26,"Newcastle United",4.4,6,3,72.2272727272727,26.0909090909091,3.81818181818182,"none",22
+"Rolando Aarons","Left Wing",19,"Newcastle United",3.9,2,2,72.2272727272727,26.0909090909091,3.81818181818182,"none",23
+"Haris Vuckic","Attacking Midfield",22,"Newcastle United",0.3,2,1,72.2272727272727,26.0909090909091,3.81818181818182,"none",24
+"Charlie Austin","Centre Forward",25,"Queens Park Rangers",89.6,2,31,69.1181818181818,29,1.90909090909091,"none",1
+"Steven Caulker","Centre Back",23,"Queens Park Rangers",88.2,4,30,69.1181818181818,29,1.90909090909091,"none",2
+"Karl Henry","Defensive Midfield",32,"Queens Park Rangers",73.2,1,29,69.1181818181818,29,1.90909090909091,"none",3
+"Leroy Fer","Central Midfield",25,"Queens Park Rangers",69,3,28,69.1181818181818,29,1.90909090909091,"none",4
+"Joey Barton","Central Midfield",32,"Queens Park Rangers",68.7,1,27,69.1181818181818,29,1.90909090909091,"none",5
+"Mauricio Isla","Right-Back",26,"Queens Park Rangers",62.3,1,26,69.1181818181818,29,1.90909090909091,"loan",6
+"Nedum Onuoha","Centre Back",28,"Queens Park Rangers",56.3,2,25,69.1181818181818,29,1.90909090909091,"none",7
+"Richard Dunne","Centre Back",35,"Queens Park Rangers",54.7,1,24,69.1181818181818,29,1.90909090909091,"none",8
+"Matt Phillips","Right Wing",24,"Queens Park Rangers",53.2,3,23,69.1181818181818,29,1.90909090909091,"none",9
+"Bobby Zamora","Centre Forward",34,"Queens Park Rangers",52,1,22,69.1181818181818,29,1.90909090909091,"none",10
+"Suk-Young Yoon","Left-Back",25,"Queens Park Rangers",50.4,2,21,69.1181818181818,29,1.90909090909091,"none",11
+"Clint Hill","Centre Back",36,"Queens Park Rangers",41.1,1,20,69.1181818181818,29,1.90909090909091,"none",12
+"Eduardo Vargas","Right Wing",25,"Queens Park Rangers",40.4,1,19,69.1181818181818,29,1.90909090909091,"loan",13
+"Sandro","Defensive Midfield",26,"Queens Park Rangers",35.4,3,18,69.1181818181818,29,1.90909090909091,"none",14
+"Niko Kranjcar","Attacking Midfield",30,"Queens Park Rangers",32.7,1,17,69.1181818181818,29,1.90909090909091,"loan",15
+"Rio Ferdinand","Centre Back",36,"Queens Park Rangers",28.9,1,16,69.1181818181818,29,1.90909090909091,"none",16
+"Junior Hoilett","Left Wing",24,"Queens Park Rangers",25.9,2,15,69.1181818181818,29,1.90909090909091,"none",17
+"Armand Traoré","Left-Back",25,"Queens Park Rangers",23,2,14,69.1181818181818,29,1.90909090909091,"none",18
+"Jordon Mutch","Central Midfield",23,"Queens Park Rangers",15.2,1,13,69.1181818181818,29,1.90909090909091,"none",19
+"Adel Taarabt","Secondary Striker",26,"Queens Park Rangers",8.7,2,12,69.1181818181818,29,1.90909090909091,"none",20
+"Darnell Furlong","Right-Back",19,"Queens Park Rangers",6.6,1,10,69.1181818181818,29,1.90909090909091,"none",21
+"Loïc Rémy","Centre Forward",28,"Queens Park Rangers",5.3,1,9,69.1181818181818,29,1.90909090909091,"none",22
+"Reece Grego-Cox","Mittelfeld",18,"Queens Park Rangers",4.2,1,8,69.1181818181818,29,1.90909090909091,"none",23
+"Shaun Wright-Phillips","Right Wing",33,"Queens Park Rangers",3.8,1,7,69.1181818181818,29,1.90909090909091,"none",24
+"Alejandro Faurlín","Central Midfield",28,"Queens Park Rangers",2.7,1,6,69.1181818181818,29,1.90909090909091,"none",25
+"Mauro Zárate","Secondary Striker",28,"Queens Park Rangers",2.2,1,5,69.1181818181818,29,1.90909090909091,"loan",26
+"Danny Simpson","Right-Back",28,"Queens Park Rangers",2,1,4,69.1181818181818,29,1.90909090909091,"none",27
+"Michael Doughty","Left Midfield",22,"Queens Park Rangers",1.6,1,3,69.1181818181818,29,1.90909090909091,"none",28
+"Brandon Comley","Mittelfeld",19,"Queens Park Rangers",0.3,1,2,69.1181818181818,29,1.90909090909091,"none",29
+"Cole Kpekawa","Left-Back",19,"Queens Park Rangers",0.2,1,1,69.1181818181818,29,1.90909090909091,"none",30
+"José Fonte","Centre Back",31,"Southampton FC",97.4,3,29,77.2545454545455,26.2727272727273,3.27272727272727,"none",1
+"Graziano Pellè","Centre Forward",29,"Southampton FC",95,3,28,77.2545454545455,26.2727272727273,3.27272727272727,"none",2
+"Nathaniel Clyne","Right-Back",24,"Southampton FC",92,2,27,77.2545454545455,26.2727272727273,3.27272727272727,"none",3
+"Ryan Bertrand","Left-Back",25,"Southampton FC",89.3,5,26,77.2545454545455,26.2727272727273,3.27272727272727,"none",4
+"Steven Davis","Central Midfield",30,"Southampton FC",77.1,4,25,77.2545454545455,26.2727272727273,3.27272727272727,"none",5
+"Victor Wanyama","Defensive Midfield",23,"Southampton FC",69,3,23,77.2545454545455,26.2727272727273,3.27272727272727,"none",6
+"Toby Alderweireld","Centre Back",26,"Southampton FC",66.1,1,22,77.2545454545455,26.2727272727273,3.27272727272727,"loan",7
+"Morgan Schneiderlin","Defensive Midfield",25,"Southampton FC",63.9,3,21,77.2545454545455,26.2727272727273,3.27272727272727,"none",8
+"Sadio Mané","Left Wing",23,"Southampton FC",62.3,4,20,77.2545454545455,26.2727272727273,3.27272727272727,"none",9
+"Dusan Tadic","Right Wing",26,"Southampton FC",61,4,19,77.2545454545455,26.2727272727273,3.27272727272727,"none",10
+"Maya Yoshida","Centre Back",26,"Southampton FC",49.5,4,18,77.2545454545455,26.2727272727273,3.27272727272727,"none",11
+"Shane Long","Centre Forward",28,"Southampton FC",45.2,4,17,77.2545454545455,26.2727272727273,3.27272727272727,"none",12
+"James Ward-Prowse","Central Midfield",20,"Southampton FC",43.2,6,16,77.2545454545455,26.2727272727273,3.27272727272727,"none",13
+"Eljero Elia","Left Wing",28,"Southampton FC",23,1,15,77.2545454545455,26.2727272727273,3.27272727272727,"loan",14
+"Florin Gardos","Centre Back",26,"Southampton FC",16.8,4,13,77.2545454545455,26.2727272727273,3.27272727272727,"none",15
+"Jack Cork","Defensive Midfield",25,"Southampton FC",14,1,12,77.2545454545455,26.2727272727273,3.27272727272727,"none",16
+"Harrison Reed","Central Midfield",20,"Southampton FC",13.5,5,11,77.2545454545455,26.2727272727273,3.27272727272727,"none",17
+"Filip Djuricic","Attacking Midfield",23,"Southampton FC",9.6,1,10,77.2545454545455,26.2727272727273,3.27272727272727,"loan",18
+"Matt Targett","Left-Back",19,"Southampton FC",6.6,5,9,77.2545454545455,26.2727272727273,3.27272727272727,"none",19
+"Emmanuel Mayuka","Centre Forward",24,"Southampton FC",1.6,3,7,77.2545454545455,26.2727272727273,3.27272727272727,"none",20
+"Jake Hesketh","Central Midfield",19,"Southampton FC",1.5,1,6,77.2545454545455,26.2727272727273,3.27272727272727,"none",21
+"Gastón Ramírez","Attacking Midfield",24,"Southampton FC",0.7,2,5,77.2545454545455,26.2727272727273,3.27272727272727,"none",22
+"Lloyd Isgrove","Right Wing",22,"Southampton FC",0.3,3,4,77.2545454545455,26.2727272727273,3.27272727272727,"none",23
+"Dominic Gape","Central Midfield",20,"Southampton FC",0.1,1,2.5,77.2545454545455,26.2727272727273,3.27272727272727,"none",24
+"Jason McCarthy","Centre Back",19,"Southampton FC",0.1,1,2.5,77.2545454545455,26.2727272727273,3.27272727272727,"none",25
+"Ryan Seager","Centre Forward",19,"Southampton FC",0,1,1,77.2545454545455,26.2727272727273,3.27272727272727,"none",26
+"Steven N'Zonzi","Defensive Midfield",26,"Stoke City",98.7,2,25,72.5363636363636,27.8181818181818,2.81818181818182,"none",1
+"Ryan Shawcross","Centre Back",27,"Stoke City",82.8,4,23,72.5363636363636,27.8181818181818,2.81818181818182,"none",2
+"Erik Pieters","Left-Back",26,"Stoke City",74.9,3,22,72.5363636363636,27.8181818181818,2.81818181818182,"none",3
+"Mame Diouf","Centre Forward",27,"Stoke City",71.1,4,21,72.5363636363636,27.8181818181818,2.81818181818182,"none",4
+"Jonathan Walters","Right Wing",31,"Stoke City",70.7,1,20,72.5363636363636,27.8181818181818,2.81818181818182,"none",5
+"Glenn Whelan","Defensive Midfield",31,"Stoke City",66,3,19,72.5363636363636,27.8181818181818,2.81818181818182,"none",6
+"Geoff Cameron","Right-Back",29,"Stoke City",62.5,4,18,72.5363636363636,27.8181818181818,2.81818181818182,"none",7
+"Marc Wilson","Centre Back",27,"Stoke City",62.1,2,17,72.5363636363636,27.8181818181818,2.81818181818182,"none",8
+"Phil Bardsley","Right-Back",29,"Stoke City",60.9,3,16,72.5363636363636,27.8181818181818,2.81818181818182,"none",9
+"Marko Arnautovic","Left Wing",26,"Stoke City",56.1,3,15,72.5363636363636,27.8181818181818,2.81818181818182,"none",10
+"Peter Crouch","Centre Forward",34,"Stoke City",49.3,3,14,72.5363636363636,27.8181818181818,2.81818181818182,"none",11
+"Charlie Adam","Attacking Midfield",29,"Stoke City",44.1,2,13,72.5363636363636,27.8181818181818,2.81818181818182,"none",12
+"Victor Moses","Left Wing",24,"Stoke City",42.2,1,12,72.5363636363636,27.8181818181818,2.81818181818182,"loan",13
+"Marc Muniesa","Left-Back",23,"Stoke City",40.6,3,11,72.5363636363636,27.8181818181818,2.81818181818182,"none",14
+"Bojan Krkic","Secondary Striker",24,"Stoke City",35.2,4,10,72.5363636363636,27.8181818181818,2.81818181818182,"none",15
+"Philipp Wollscheid","Centre Back",26,"Stoke City",29.4,1,9,72.5363636363636,27.8181818181818,2.81818181818182,"none",16
+"Stephen Ireland","Attacking Midfield",28,"Stoke City",27.3,3,8,72.5363636363636,27.8181818181818,2.81818181818182,"none",17
+"Steve Sidwell","Central Midfield",32,"Stoke City",13.2,2,7,72.5363636363636,27.8181818181818,2.81818181818182,"none",18
+"Oussama Assaidi","Left Wing",26,"Stoke City",6.8,1,5,72.5363636363636,27.8181818181818,2.81818181818182,"none",19
+"Peter Odemwingie","Right Wing",33,"Stoke City",5.7,1,4,72.5363636363636,27.8181818181818,2.81818181818182,"none",20
+"Dionatan","Centre Back",22,"Stoke City",0.1,3,2.5,72.5363636363636,27.8181818181818,2.81818181818182,"none",21
+"Robert Huth","Centre Back",30,"Stoke City",0.1,2,2.5,72.5363636363636,27.8181818181818,2.81818181818182,"none",22
+"Oliver Shenton","Central Midfield",17,"Stoke City",0,1,1,72.5363636363636,27.8181818181818,2.81818181818182,"none",23
+"John O'Shea","Centre Back",34,"Sunderland AFC",95.6,3,25,70.9545454545455,28.1818181818182,2.72727272727273,"none",1
+"Sebastian Larsson","Central Midfield",29,"Sunderland AFC",89.2,3,24,70.9545454545455,28.1818181818182,2.72727272727273,"none",2
+"Connor Wickham","Centre Forward",22,"Sunderland AFC",80.9,5,23,70.9545454545455,28.1818181818182,2.72727272727273,"none",3
+"Santiago Vergini","Centre Back",26,"Sunderland AFC",76.6,1,22,70.9545454545455,28.1818181818182,2.72727272727273,"loan",4
+"Lee Cattermole","Defensive Midfield",27,"Sunderland AFC",68.9,2,20,70.9545454545455,28.1818181818182,2.72727272727273,"none",5
+"Patrick van Aanholt","Left-Back",24,"Sunderland AFC",67.5,4,19,70.9545454545455,28.1818181818182,2.72727272727273,"none",6
+"Adam Johnson","Right Wing",27,"Sunderland AFC",60.8,2,18,70.9545454545455,28.1818181818182,2.72727272727273,"none",7
+"Wes Brown","Centre Back",35,"Sunderland AFC",58.3,1,17,70.9545454545455,28.1818181818182,2.72727272727273,"none",8
+"Jordi Gómez","Attacking Midfield",30,"Sunderland AFC",56.8,3,16,70.9545454545455,28.1818181818182,2.72727272727273,"none",9
+"Steven Fletcher","Centre Forward",28,"Sunderland AFC",52.2,2,15,70.9545454545455,28.1818181818182,2.72727272727273,"none",10
+"Jack Rodwell","Central Midfield",24,"Sunderland AFC",43.4,5,14,70.9545454545455,28.1818181818182,2.72727272727273,"none",11
+"Jermain Defoe","Centre Forward",32,"Sunderland AFC",42.4,4,13,70.9545454545455,28.1818181818182,2.72727272727273,"none",12
+"Anthony Réveillère","Right-Back",35,"Sunderland AFC",38.8,1,12,70.9545454545455,28.1818181818182,2.72727272727273,"none",13
+"Billy Jones","Right-Back",28,"Sunderland AFC",36.6,4,11,70.9545454545455,28.1818181818182,2.72727272727273,"none",14
+"Liam Bridcutt","Defensive Midfield",26,"Sunderland AFC",26.7,3,10,70.9545454545455,28.1818181818182,2.72727272727273,"none",15
+"Will Buckley","Left Wing",25,"Sunderland AFC",25.6,3,8,70.9545454545455,28.1818181818182,2.72727272727273,"none",16
+"Sebastián Coates","Centre Back",24,"Sunderland AFC",24.1,1,7,70.9545454545455,28.1818181818182,2.72727272727273,"loan",17
+"Danny Graham","Centre Forward",29,"Sunderland AFC",18.3,2,6,70.9545454545455,28.1818181818182,2.72727272727273,"none",18
+"Ricardo Álvarez","Attacking Midfield",27,"Sunderland AFC",14.5,1,5,70.9545454545455,28.1818181818182,2.72727272727273,"none",19
+"Jozy Altidore","Centre Forward",25,"Sunderland AFC",9.1,1,4,70.9545454545455,28.1818181818182,2.72727272727273,"none",20
+"Emanuele Giaccherini","Right Wing",30,"Sunderland AFC",9,3,3,70.9545454545455,28.1818181818182,2.72727272727273,"none",21
+"Valentin Roberge","Centre Back",27,"Sunderland AFC",2.6,2,2,70.9545454545455,28.1818181818182,2.72727272727273,"none",22
+"Mikael Mandron","Centre Forward",20,"Sunderland AFC",0.1,1,1,70.9545454545455,28.1818181818182,2.72727272727273,"none",23
+"Ashley Williams","Centre Back",30,"Swansea City",97.4,4,28,73.8636363636364,27.6363636363636,3.54545454545455,"none",1
+"Neil Taylor","Left-Back",26,"Swansea City",87.7,2,26,73.8636363636364,27.6363636363636,3.54545454545455,"none",2
+"Sung-Yong Ki","Defensive Midfield",26,"Swansea City",78.6,4,25,73.8636363636364,27.6363636363636,3.54545454545455,"none",3
+"Gylfi Sigurdsson","Attacking Midfield",25,"Swansea City",78.4,4,24,73.8636363636364,27.6363636363636,3.54545454545455,"none",4
+"Federico Fernández","Centre Back",26,"Swansea City",72.4,4,23,73.8636363636364,27.6363636363636,3.54545454545455,"none",5
+"Jonjo Shelvey","Central Midfield",23,"Swansea City",71.6,3,22,73.8636363636364,27.6363636363636,3.54545454545455,"none",6
+"Wayne Routledge","Left Wing",30,"Swansea City",67.5,4,21,73.8636363636364,27.6363636363636,3.54545454545455,"none",7
+"Ángel Rangel","Right-Back",32,"Swansea City",59.6,3,20,73.8636363636364,27.6363636363636,3.54545454545455,"none",8
+"Nathan Dyer","Right Wing",27,"Swansea City",54.4,3,19,73.8636363636364,27.6363636363636,3.54545454545455,"none",9
+"Bafetimbi Gomis","Centre Forward",29,"Swansea City",48.2,4,18,73.8636363636364,27.6363636363636,3.54545454545455,"none",10
+"Jefferson Montero","Left Wing",25,"Swansea City",46.1,4,17,73.8636363636364,27.6363636363636,3.54545454545455,"none",11
+"Jack Cork","Defensive Midfield",25,"Swansea City",38.7,4,16,73.8636363636364,27.6363636363636,3.54545454545455,"none",12
+"Wilfried Bony","Centre Forward",26,"Swansea City",37.9,1,15,73.8636363636364,27.6363636363636,3.54545454545455,"none",13
+"Kyle Naughton","Right-Back",26,"Swansea City",25,4,14,73.8636363636364,27.6363636363636,3.54545454545455,"none",14
+"Tom Carroll","Central Midfield",23,"Swansea City",20.2,1,13,73.8636363636364,27.6363636363636,3.54545454545455,"loan",15
+"Ashley Richards","Right-Back",24,"Swansea City",18.6,2,12,73.8636363636364,27.6363636363636,3.54545454545455,"none",16
+"Kyle Bartley","Centre Back",24,"Swansea City",18.4,3,11,73.8636363636364,27.6363636363636,3.54545454545455,"none",17
+"Jordi Amat","Centre Back",23,"Swansea City",17.2,4,10,73.8636363636364,27.6363636363636,3.54545454545455,"none",18
+"Leon Britton","Central Midfield",32,"Swansea City",15.6,3,9,73.8636363636364,27.6363636363636,3.54545454545455,"none",19
+"Marvin Emnes","Centre Forward",27,"Swansea City",15,3,8,73.8636363636364,27.6363636363636,3.54545454545455,"none",20
+"Nélson Oliveira","Centre Forward",23,"Swansea City",11.4,1,7,73.8636363636364,27.6363636363636,3.54545454545455,"loan",21
+"Modou Barrow","Right Wing",22,"Swansea City",8.4,4,6,73.8636363636364,27.6363636363636,3.54545454545455,"none",22
+"Dwight Tiendalli","Right-Back",29,"Swansea City",3.8,2,5,73.8636363636364,27.6363636363636,3.54545454545455,"none",23
+"Jay Fulton","Attacking Midfield",21,"Swansea City",3.4,1,4,73.8636363636364,27.6363636363636,3.54545454545455,"none",24
+"Matt Grimes","Central Midfield",19,"Swansea City",1.3,5,2,73.8636363636364,27.6363636363636,3.54545454545455,"none",25
+"Kenji Gorre","Sturm",20,"Swansea City",0.2,1,1,73.8636363636364,27.6363636363636,3.54545454545455,"none",26
+"Christian Eriksen","Attacking Midfield",23,"Tottenham Hotspur",91.5,4,27,72.3909090909091,24,4.45454545454545,"none",1
+"Jan Vertonghen","Centre Back",28,"Tottenham Hotspur",82.2,2,25,72.3909090909091,24,4.45454545454545,"none",2
+"Harry Kane","Centre Forward",21,"Tottenham Hotspur",75.5,6,24,72.3909090909091,24,4.45454545454545,"none",3
+"Nacer Chadli","Left Wing",25,"Tottenham Hotspur",70.4,4,23,72.3909090909091,24,4.45454545454545,"none",4
+"Danny Rose","Left-Back",24,"Tottenham Hotspur",69.2,5,22,72.3909090909091,24,4.45454545454545,"none",5
+"Ryan Mason","Central Midfield",23,"Tottenham Hotspur",67.6,6,21,72.3909090909091,24,4.45454545454545,"none",6
+"Érik Lamela","Right Wing",23,"Tottenham Hotspur",67.2,4,20,72.3909090909091,24,4.45454545454545,"none",7
+"Eric Dier","Centre Back",21,"Tottenham Hotspur",67,5,19,72.3909090909091,24,4.45454545454545,"none",8
+"Nabil Bentaleb","Defensive Midfield",20,"Tottenham Hotspur",64.1,4,18,72.3909090909091,24,4.45454545454545,"none",9
+"Federico Fazio","Centre Back",28,"Tottenham Hotspur",52,4,17,72.3909090909091,24,4.45454545454545,"none",10
+"Kyle Walker","Right-Back",25,"Tottenham Hotspur",38.2,5,16,72.3909090909091,24,4.45454545454545,"none",11
+"Moussa Dembélé","Central Midfield",27,"Tottenham Hotspur",33.5,3,15,72.3909090909091,24,4.45454545454545,"none",12
+"Younès Kaboul","Centre Back",29,"Tottenham Hotspur",28.9,2,14,72.3909090909091,24,4.45454545454545,"none",13
+"Ben Davies","Left-Back",22,"Tottenham Hotspur",26.2,5,12.5,72.3909090909091,24,4.45454545454545,"none",15
+"Étienne Capoue","Defensive Midfield",26,"Tottenham Hotspur",26.2,3,12.5,72.3909090909091,24,4.45454545454545,"none",14
+"Emmanuel Adebayor","Centre Forward",31,"Tottenham Hotspur",23.7,2,11,72.3909090909091,24,4.45454545454545,"none",16
+"Roberto Soldado","Centre Forward",30,"Tottenham Hotspur",23.6,3,10,72.3909090909091,24,4.45454545454545,"none",17
+"Andros Townsend","Right Wing",23,"Tottenham Hotspur",21.9,3,9,72.3909090909091,24,4.45454545454545,"none",18
+"Vlad Chiriches","Centre Back",25,"Tottenham Hotspur",20.7,4,8,72.3909090909091,24,4.45454545454545,"none",19
+"Paulinho","Central Midfield",26,"Tottenham Hotspur",14.3,4,7,72.3909090909091,24,4.45454545454545,"none",20
+"Benjamin Stambouli","Defensive Midfield",24,"Tottenham Hotspur",13.4,5,6,72.3909090909091,24,4.45454545454545,"none",21
+"Kyle Naughton","Right-Back",26,"Tottenham Hotspur",9.5,1,4,72.3909090909091,24,4.45454545454545,"none",22
+"Aaron Lennon","Right Wing",28,"Tottenham Hotspur",8.2,2,3,72.3909090909091,24,4.45454545454545,"none",23
+"Lewis Holtby","Attacking Midfield",24,"Tottenham Hotspur",0.9,1,2,72.3909090909091,24,4.45454545454545,"none",24
+"DeAndre Yedlin","Right-Back",21,"Tottenham Hotspur",0.4,4,1,72.3909090909091,24,4.45454545454545,"none",25
+"Joleon Lescott","Centre Back",32,"West Bromwich Albion",89.5,2,26,70.6272727272727,28.3636363636364,2.45454545454545,"none",1
+"Saido Berahino","Centre Forward",21,"West Bromwich Albion",85.5,3,25,70.6272727272727,28.3636363636364,2.45454545454545,"none",2
+"Chris Brunt","Left Midfield",30,"West Bromwich Albion",84.5,3,24,70.6272727272727,28.3636363636364,2.45454545454545,"none",3
+"Craig Gardner","Central Midfield",28,"West Bromwich Albion",78.3,3,23,70.6272727272727,28.3636363636364,2.45454545454545,"none",4
+"Craig Dawson","Centre Back",25,"West Bromwich Albion",75.7,3,22,70.6272727272727,28.3636363636364,2.45454545454545,"none",5
+"James Morrison","Attacking Midfield",29,"West Bromwich Albion",74.6,2,21,70.6272727272727,28.3636363636364,2.45454545454545,"none",6
+"Gareth McAuley","Centre Back",35,"West Bromwich Albion",60.6,1,19,70.6272727272727,28.3636363636364,2.45454545454545,"none",7
+"Andre Wisdom","Right-Back",22,"West Bromwich Albion",57.7,1,18,70.6272727272727,28.3636363636364,2.45454545454545,"loan",8
+"Stéphane Sessègnon","Attacking Midfield",30,"West Bromwich Albion",51.5,2,17,70.6272727272727,28.3636363636364,2.45454545454545,"none",9
+"Graham Dorrans","Central Midfield",28,"West Bromwich Albion",46.4,3,16,70.6272727272727,28.3636363636364,2.45454545454545,"none",10
+"Claudio Yacob","Defensive Midfield",27,"West Bromwich Albion",40.7,2,15,70.6272727272727,28.3636363636364,2.45454545454545,"none",11
+"Darren Fletcher","Central Midfield",31,"West Bromwich Albion",39.5,3,14,70.6272727272727,28.3636363636364,2.45454545454545,"none",12
+"Brown Ideye","Centre Forward",26,"West Bromwich Albion",38,3,13,70.6272727272727,28.3636363636364,2.45454545454545,"none",13
+"Sébastien Pocognoli","Left-Back",27,"West Bromwich Albion",35.4,3,12,70.6272727272727,28.3636363636364,2.45454545454545,"none",14
+"Victor Anichebe","Centre Forward",27,"West Bromwich Albion",30.3,3,11,70.6272727272727,28.3636363636364,2.45454545454545,"none",15
+"Youssuf Mulumbu","Defensive Midfield",28,"West Bromwich Albion",26.4,1,9,70.6272727272727,28.3636363636364,2.45454545454545,"none",16
+"Jonas Olsson","Centre Back",32,"West Bromwich Albion",24.2,2,8,70.6272727272727,28.3636363636364,2.45454545454545,"none",17
+"Chris Baird","Defensive Midfield",33,"West Bromwich Albion",23.6,1,7,70.6272727272727,28.3636363636364,2.45454545454545,"none",18
+"Callum McManaman","Right Wing",24,"West Bromwich Albion",10.1,4,6,70.6272727272727,28.3636363636364,2.45454545454545,"none",19
+"Silvestre Varela","Left Wing",30,"West Bromwich Albion",9.8,2,5,70.6272727272727,28.3636363636364,2.45454545454545,"loan",20
+"Cristian Gamboa","Right-Back",25,"West Bromwich Albion",7.1,3,4,70.6272727272727,28.3636363636364,2.45454545454545,"none",21
+"Jason Davidson","Left-Back",23,"West Bromwich Albion",3,2,3,70.6272727272727,28.3636363636364,2.45454545454545,"none",22
+"Georgios Samaras","Left Wing",30,"West Bromwich Albion",2.1,1,2,70.6272727272727,28.3636363636364,2.45454545454545,"none",23
+"Sebastián Blanco","Attacking Midfield",27,"West Bromwich Albion",1.1,2,1,70.6272727272727,28.3636363636364,2.45454545454545,"none",24
+"Aaron Cresswell","Left-Back",25,"West Ham United",100,5,28,75.3090909090909,26.7272727272727,3.81818181818182,"none",1
+"Stewart Downing","Attacking Midfield",30,"West Ham United",96.8,3,26,75.3090909090909,26.7272727272727,3.81818181818182,"none",2
+"Carl Jenkinson","Right-Back",23,"West Ham United",78,1,25,75.3090909090909,26.7272727272727,3.81818181818182,"loan",3
+"Cheikhou Kouyaté","Defensive Midfield",25,"West Ham United",77.7,4,24,75.3090909090909,26.7272727272727,3.81818181818182,"none",4
+"Winston Reid","Centre Back",26,"West Ham United",73.2,7,23,75.3090909090909,26.7272727272727,3.81818181818182,"none",5
+"Mark Noble","Central Midfield",28,"West Ham United",67.3,6,22,75.3090909090909,26.7272727272727,3.81818181818182,"none",6
+"Alex Song","Defensive Midfield",27,"West Ham United",65.6,1,21,75.3090909090909,26.7272727272727,3.81818181818182,"loan",7
+"Enner Valencia","Centre Forward",25,"West Ham United",61.4,5,20,75.3090909090909,26.7272727272727,3.81818181818182,"none",8
+"James Collins","Centre Back",31,"West Ham United",55,2,19,75.3090909090909,26.7272727272727,3.81818181818182,"none",9
+"James Tomkins","Centre Back",26,"West Ham United",54.2,6,18,75.3090909090909,26.7272727272727,3.81818181818182,"none",10
+"Diafra Sakho","Centre Forward",25,"West Ham United",51.3,4,17,75.3090909090909,26.7272727272727,3.81818181818182,"none",11
+"Kevin Nolan","Attacking Midfield",32,"West Ham United",51.1,2,16,75.3090909090909,26.7272727272727,3.81818181818182,"none",12
+"Morgan Amalfitano","Right Wing",30,"West Ham United",34.6,3,15,75.3090909090909,26.7272727272727,3.81818181818182,"none",13
+"Andy Carroll","Centre Forward",26,"West Ham United",29.9,5,14,75.3090909090909,26.7272727272727,3.81818181818182,"none",14
+"Carlton Cole","Centre Forward",31,"West Ham United",26.7,1,13,75.3090909090909,26.7272727272727,3.81818181818182,"none",15
+"Joey O'Brien","Right-Back",29,"West Ham United",15.4,2,12,75.3090909090909,26.7272727272727,3.81818181818182,"none",16
+"Matt Jarvis","Left Wing",29,"West Ham United",12.2,3,11,75.3090909090909,26.7272727272727,3.81818181818182,"none",17
+"Reece Burke","Centre Back",18,"West Ham United",12.1,3,10,75.3090909090909,26.7272727272727,3.81818181818182,"none",18
+"Mauro Zárate","Secondary Striker",28,"West Ham United",12,3,9,75.3090909090909,26.7272727272727,3.81818181818182,"none",19
+"Guy Demel","Right-Back",33,"West Ham United",7.6,1,8,75.3090909090909,26.7272727272727,3.81818181818182,"none",20
+"Ricardo Vaz Tê","Right Wing",28,"West Ham United",6.5,1,7,75.3090909090909,26.7272727272727,3.81818181818182,"none",21
+"Nenê","Left Wing",33,"West Ham United",3.9,1,6,75.3090909090909,26.7272727272727,3.81818181818182,"none",22
+"Diego Poyet","Central Midfield",20,"West Ham United",2.7,4,5,75.3090909090909,26.7272727272727,3.81818181818182,"none",23
+"Mohamed Diamé","Central Midfield",27,"West Ham United",1.7,1,4,75.3090909090909,26.7272727272727,3.81818181818182,"none",24
+"Ravel Morrison","Attacking Midfield",22,"West Ham United",1,1,3,75.3090909090909,26.7272727272727,3.81818181818182,"none",25
+"Elliot Lee","Centre Forward",20,"West Ham United",0.4,1,1,75.3090909090909,26.7272727272727,3.81818181818182,"none",26

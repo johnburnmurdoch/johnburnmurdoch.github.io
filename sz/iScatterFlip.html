@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+	<meta name="viewport" content="width=device-width">
+  	<head>
+    <title></title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="saveSvgAsPng.js"></script>
+	    <style media="screen">
+	    	@font-face{
+		          font-family: "BentonSans";
+		          src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+		          src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+		          url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+		          url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+		          font-style: normal;
+		          font-weight: normal;
+	      	}
+    	  	@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: bold;
+	      	}
+	      	body{
+		        background-color:#fff1e0;
+		        margin:0;
+	      	}
+	        section,span,text,a{font-family:"BentonSans",sans-serif;cursor:default;}
+
+	        #ft-header {height: 50px;background-color: #fff1e0;width: 100%;position: fixed;top: 0;z-index: 2000;overflow: hidden;text-align:center;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);}
+	      	#ft-header a{background-color:#fff1e0;}
+	      	#ft-header a>img {margin-top: 13px;opacity: .8;transition: opacity .3s;height:20px;}
+
+	      	#ft-footer {background-color: #fff1e0;width: 100%;position: fixed;bottom: 0;z-index: 2000;overflow: hidden;text-align:left;border-top: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);padding-left:5px;/*display:none;*/}
+	      	#ft-footer a{background-color:#fff1e0;font-size:11px;color: #2e6e9e;transition: 0.3s;pointer-events: all;cursor: pointer;text-decoration: none;/*vertical-align:top;*/}
+	      	#ft-footer a:hover{color: #000;background-color: #fff1e0;}
+	      	/*#ft-footer a>img {margin-top: 0px;opacity: .8;transition: opacity .3s;height:16px;}*/
+	      	#ft-footer span{background-color:#fff1e0;font-size:11px;color:#000;/*vertical-align:top;*/}
+
+	      	#viz{display:inline-block;position:fixed;margin-left:0px;margin-right:auto;left:0;right:0;width:100%;height:100%;top:0;}
+	      	#sections {
+		        position: relative;
+		        top: 0px;
+		        z-index: 90;
+		        background-color: none;
+		        overflow:hidden;
+	      	}
+	      	#plot{margin-left:auto;margin-right:auto;text-align:center;}
+	      	.textBox {visibility:hidden;fill:#43423e;font-size:18px;position:absolute;top:50px;width:100%;display:block;padding:4px;line-height:24px;/*background-color:#cec6b9;border-radius:5px;*/margin-top:5px;margin-left:auto;margin-right:auto;left:0;right:0;max-width:700px;}
+	      	#slidetext{fill:#43423e;font-size:36px;display:block;padding:8px;font-family: "MillerDisplay","Clarion";margin-left:0px;margin-right:auto;left:0;right:0;text-align:center;transition:0.5s;}
+	      	#slidetext.first{position:relative;top:50px;}
+	      	#guidetext.first{position:relative;top:40px;}
+	      	#guidetext{fill:#43423e;font-size:18px;position:relative;top:0px;width:99%;display:block;padding:4px;line-height:24px;/*background-color:#cec6b9;border-radius:5px;*/margin-top:5px;margin-left:auto;margin-right:auto;left:0;right:0;max-width:700px;transition:0.5s;}
+
+	        #resetButton{position:relative;background-color:#F6E9D8;padding: 5px;border-radius: 5px;color: #74736c;border: 1px solid #74736c;transition: 0.3s;cursor: pointer;pointer-events: all;float: right;top:30px;font-size:14px;opacity:0;}
+	        #resetButton:hover{background-color:#74736c;color:#fff1e0;}
+	      	#resetButton.hidden{display:none;pointer-events:none;}
+
+	      	#graphic{margin-left:auto;margin-right:auto;text-align:center;}
+	      	#backdrop{fill:#fff1e0;}
+	      	.marker{stroke:none;fill:#ffffff;}
+	      	.line13{stroke-width:2px;fill:none;stroke:#76acb8;}
+	      	.line14{stroke-width:2px;fill:none;stroke:#af516c;}
+	      	text{cursor:default;font-size:10px;}
+	      	.tick text{font-size:11px;fill:#74736c;}
+	      	.axis path{fill:none;stroke:#74736c;stroke-width:1px;shape-rendering:crispEdges;}
+	      	.tick line{stroke:#74736c;shape-rendering:crispEdges;}
+	      	.title{font-size:10px;}
+	      	.axisTitle{font-size:12px;fill:#74736c;}
+	      	/*g.y.axis line{display:none;}*/
+	      	/*g.y.axis path{display:none;}*/
+	      	.yGridLine{stroke:#74736c;stroke-width:1px;shape-rendering:crispEdges;}
+	      	g.y.axis line.yGridExtend{display:block;stroke:#74736c;stroke-width:1px;shape-rendering:crispEdges;}
+	      	.refLine{stroke:#cec6b9;stroke-dasharray:2px 2px;stroke-width:2px;}
+
+	      	.playerRect{stroke:#fff1e0;stroke-width:0.5px;}
+	      	.playerBar{stroke:#cec6b9;fill:none;stroke-width:1px;shape-rendering:crispEdges;}
+	      	/*.playerCircle{fill:#ecafaf;fill-opacity:0.7;stroke:#ecafaf;}*/
+	      	.dot{stroke:#9e2f50;fill:#af516c;fill-opacity:0.8;}
+
+	      	.in_XI .playerCircle{fill:#af516c;fill-opacity:0.7;stroke:#af516c;}
+	      	.in_XI.pos_Keeper .playerCircle{fill:#d7706c;fill-opacity:0.7;stroke:#d7706c;}
+
+	      	.clickArea{stroke:none;fill-opacity:0;}
+
+	      	g.club{opacity:1;transition:1s;}
+	      	g.clubText{opacity:1;transition:1s;}
+
+	      	@media screen and (max-width: 800px) {
+	      		g.club{opacity:1;transition:0s;}
+	      		g.clubText{opacity:1;transition:0s;}
+		      	#ft-header {height: 40px;}
+		      	#ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
+		      	.nomobile{display:none;}
+	      	}
+
+	      	@media screen and (max-width: 800px) and (orientation : landscape){
+		        .nomobile{display:none;}
+		        #slidetext{font-size:20px;}
+		        #guidetext,.textBox{font-size:14px;line-height:20px}
+		        #slidetext.first{top:45px;}
+		        .textBox{top:75px;}
+		        
+	      	}
+
+	      	@media screen and (max-width: 480px) {
+		      	.nomobile{display:none;}
+		      	#ft-header {height: 40px;}
+		      	#ft-header a>img {margin-top: 11px;opacity: .8;transition: opacity .3s;height:18px;}		      
+		      	#slidetext{font-size:22px;padding:4px;}
+		      	#guidetext,.textBox{font-size:14px;line-height:18px;}
+		      	#slidetext.first{top:45px;}
+		      	.textBox{top:75px;}
+		      	#mobilePad{height:650px;position:relative;pointer-events:none;}
+		      	#resetButton{margin-right:2px;}
+	      	}
+	  	</style>
+	</head>
+  	<body>
+		<header id="ft-header" class="stickable">
+	      <a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+	    </header>
+  		<div id="sections"></div>
+  		<div id='viz'></div>
+  		<footer id="ft-footer" class="stickable">
+        	<span>By </span><a href="https://twitter.com/jburnmurdoch" target="_blank">John Burn-Murdoch</a>
+        	<span>&nbsp;&nbsp;&nbsp;&nbsp;Source: FT research</span>
+    	</footer>
+	<body>
+		<script charset="utf-8">
+			var titletexts = ["Title goes here"];
+
+    		var guidetexts = ["A historic vote saw Ed Miliband, Nick Clegg and Nigel Farage all resign from party leadership, while victorious Prime Minister David Cameron <a class='FTlink' href='http://www.ft.com/cms/s/2/51887240-f6eb-11e4-a9c0-00144feab7de.html' target='_blank' title='David Cameron promises renewal with familiar faces - FT.com'>wasted no time reshuffling his cabinet</a>. Read more at <a class='FTlink' href='http://elections.ft.com/' target='_blank' title='UK election results - FT.com'>elections.ft.com</a>"];
+
+    		var bounds = d3.select('#viz').node().getBoundingClientRect();
+		    console.log(bounds);
+		    var orient = window.orientation;
+		    
+		    var width = Math.floor(bounds.height*.9), height = Math.floor(bounds.height)-5;
+		    if(width > Math.floor(bounds.width))width = Math.floor(bounds.width);
+
+		    var slidetext = d3.select('#viz').append("span")
+		      .attr({
+		        "id":"slidetext",
+		        "class":'first',
+		        x:0,
+		        y:10
+		      })
+		      .text(titletexts[0]);
+
+		    var sections = d3.select('#sections')
+	    		// .selectAll('section.textBox')
+		      //.data(d3.range(0,guidetexts.length,1)).enter()
+		      .append('section')
+		      .attr({
+		        'class':'textBox'
+		      })
+		      .html(function(d){return guidetexts[0]});
+
+		    var sectionHeights = [];
+		    sections.each(function(){return sectionHeights.push(8+d3.select(this).node().getBoundingClientRect().bottom-d3.select(this).node().getBoundingClientRect().top)});
+		    var maxSectionHeight = d3.max(sectionHeights);
+		    var titleHeight = slidetext.node().getBoundingClientRect().bottom-slidetext.node().getBoundingClientRect().top;
+		    var heightOffset = maxSectionHeight+titleHeight;
+		    console.log('heightOffset',heightOffset);
+
+		    var guidetextHolder = d3.select('#viz').append("span")
+		      .attr({
+		        "id":"guidetext",
+		        'class':'first'
+		      })
+		      .style({
+		        'height':heightOffset + 'px'
+		      })
+
+		      guidetextHolder.append('span')
+		      .attr({
+		        'class':'innerText'
+		      })
+		      .html(guidetexts[0]);
+
+		    var height = Math.floor(bounds.height-heightOffset)-5,
+		    width = height*.9;
+		    if(width > Math.floor(bounds.width))width = Math.floor(bounds.width);
+		    if(width < 800){height = width*1.1}else{height = Math.floor(bounds.height-heightOffset)-50};
+		    var stackColumnWidth = 240;
+		    if(width > 800){stackColumnWidth = 510}else if(width > 500){stackColumnWidth = 400};    
+		    if(orient != 0)(height=width);
+		    var pauseLength = 750;
+		    var barWidth;
+		    var transitionsOnOff = 'off';
+		    if(bounds.width > 800)transitionsOnOff = 'on';
+		    if(bounds.width < 800)duration = 0;
+		    if(bounds.width < 800)pauseLength = 250;
+
+			var	zoomIn,
+				zoomOut,
+				dataset,
+				rowNum,
+				playerShapes
+				margin = { top:20, left:38, bottom:35, right:10 },
+				chartmargin = { top:5, left:5, bottom:2, right:5 },
+				rows = 6,
+				columns = 4,
+				textIndentLeft = 88,
+				textIndentRight = 20,
+				plotHeight = (height-chartmargin.bottom)/rows,
+				plotWidth = (width-chartmargin.right)/columns,
+				colourRange = ['#ffbb31','#E25050'];
+
+			graphicHeight = height;
+			height=height-(margin.bottom*2+16);
+
+            function toTitleCase(str)
+			{
+			    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+			};
+
+			function sortByScoreDescending(a, b) {
+	            return b.values[0].careernpgR - a.values[0].careernpgR;
+	        };
+
+        	function dropNAs(data){
+        		if(data == "NA"){
+        			return ""
+        		}else return data
+        	};
+
+			var viz = d3.select('#viz');
+			var graphic = viz.append('div').attr({
+		      width:width,
+		      height:height,
+		      'id':'graphic'  
+		    });
+			var svg = graphic.append('svg').attr({
+	    		id:'thesvg',
+	          	width:width,
+	          	height:graphicHeight
+	        });
+			var chartHolder = svg.append('g').attr({
+				'id':'chartHolder',
+				'transform':'translate(0,0)'
+			});
+			chartHolder.append('rect').attr({
+				'id':'backdrop',
+				x:0,
+				y:0,
+				'width':width,
+				'height':graphicHeight
+			});
+
+
+			d3.csv("baseline280515i.csv", function(error, rawdata) {
+            rawdata = rawdata.map(function (d){return{
+            			name: d.name,
+            			pos: d.pos,
+            			age: d.age,
+            			club: d.club,
+            			minsRatio: d.minsRatio,
+            			contract: d.contract,
+            			newRank: d.newRank,
+	                    aveX: d.aveX,
+	                    aveY: +d.aveY,
+	                    aveZ: +d.aveZ
+                	}
+        	});
+        	rawdata = d3.nest().key(function(d) { return d.club; }).entries(rawdata);
+        	console.log(rawdata);
+        	dataset = rawdata;
+
+        	var x = d3.scale.linear()
+        		.range([margin.left,width-margin.right])
+        		.domain([23.5,33.5]);
+
+    		var y = d3.scale.linear()
+        		.range([height,margin.top])
+        		.domain([63,85]);
+
+            var xScaleMax = x.domain()[1];
+            var xPxMin = x(xScaleMax);
+            console.log(xPxMin);
+
+    		var xAxis = d3.svg.axis()
+	            .scale(x)
+	            .orient("bottom")
+	            .ticks(5)
+	            .tickSize(5);
+            var theXAxis = chartHolder.append('g')
+	            .attr({
+	            	"transform": function(d){return 'translate(0,' + (height) + ')'},
+	            	'class':'x axis'
+	            })
+	            .call(xAxis);
+            chartHolder.append('text').attr({
+            	'class':'x axisTitle',
+            	x:x(d3.mean(x.domain())),
+            	y:graphicHeight-(margin.bottom+19),
+            	'text-anchor':'middle'
+            })
+            .text('Player age, first XI average');
+
+            var yAxis = d3.svg.axis()
+	            .scale(y)
+	            .orient("left")
+	            .ticks(5)
+	            .tickSize(5);
+            var theYaxis = chartHolder.append('g')
+	            .attr({
+	            	"transform": function(d){return 'translate(' + margin.left + ',' + 0 + ')'},
+	            	'class':'y axis'
+	            })
+	            .call(yAxis);
+            chartHolder.append('text').attr({
+            	'class':'y axisTitle',
+            	'text-anchor':'middle',
+            	'transform':'translate(10,' + y(d3.mean(y.domain())) + ') rotate(-90)'
+            })
+            .text('Share of maximum minutes played, first XI average');            
+
+    		var defs = d3.select('#thesvg').append('defs');
+
+			var gradient = defs.append('linearGradient').attr({
+			'id':'grad1',
+			'x1':'100%',
+			'y1':'0%',
+			'x2':'0%',
+			'y2':'0%'
+			});
+
+			gradient.append('stop').attr('offset','0%').style({
+			'stop-color':'#af516c',
+			'stop-opacity':'0.05'
+			});
+
+			gradient.append('stop').attr('offset','100%').style({
+			'stop-color':'#af516c',
+			'stop-opacity':'0.7'
+			});
+
+			var marker = defs.append('marker').attr({
+				'id':'arrow',
+				'markerWidth':width/100,
+				'markerHeight':width/100,
+				'refx':0,
+				'refy':0,
+				'orient':'auto'
+			});
+
+			//marker.append('path').attr('d','M')
+
+            var clubShapes = chartHolder.selectAll('g.club')
+            	//console.log(rawdata)
+	        	.data(rawdata).enter()
+	        	.append('g').attr({
+	        		'class':function(d){return 'club ' + 'name_' + d.key.replace(/ /g,'_')},
+	        		'transform':function(d){
+	        			return 'translate(' + x(d.values[0].aveY) + ',' + y(d.values[0].aveX) + ')'
+	        		}
+        	})
+    		.on('click',function(d){
+    			console.log(d.key.replace(/ /g,'_'))
+    			zoomIn(d.key.replace(/ /g,'_'))
+    		});
+        	console.log('clubShapes',clubShapes)
+
+        	var clubText = chartHolder.selectAll('g.clubText')
+            	//console.log(rawdata)
+	        	.data(rawdata).enter()
+	        	.append('g').attr({
+	        		'class':function(d){return 'clubText ' + 'name_' + d.key.replace(/ /g,'_')},
+	        		'transform':function(d){
+	        			return 'translate(' + x(d.values[0].aveY) + ',' + y(d.values[0].aveX) + ')'
+	        		}
+        	})
+    		.on('click',function(d){
+    			console.log(d.key.replace(/ /g,'_'))
+    			zoomIn(d.key.replace(/ /g,'_'))
+    		});
+
+    		var labels = clubText.append('text').attr({
+    			'class':'label',
+    			'x':0,
+    			'y':-5,
+    			'text-anchor':'start'
+    		})
+    		.text(function(d){
+    			if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
+    			return d.key
+    			.replace(/ FC/g,'')
+    			.replace(/ AFC/g,'')
+    		});
+
+        	var tails = clubShapes.append('rect').attr({
+    			'class':'playerCircle',
+    			'y':-3,
+    			'x':function(d){
+                    return 0},
+    			'width':function(d){return-1*( x(xScaleMax-d.values[0].aveZ)-xPxMin)},
+                //'height':10,
+                'height':6,
+                'rx':3,
+                'ry':3
+    		})
+    		.style('fill','url(#grad1)');
+
+    		var dots = clubShapes.append('circle').attr({
+    			'class':'dot',
+    			'cx':0,
+    			'cy':0,
+    			'r':3
+    		});
+
+    		var clubClicks = clubShapes.append('rect').attr({
+    			'class':'clickArea',
+    			'y':-10,
+    			'x':function(d){
+                    return -5},
+    			'width':function(d){return-1*( x(xScaleMax-d.values[0].aveZ)-xPxMin) + 10},
+                //'height':10,
+                'height':20,
+                'rx':10,
+                'ry':10
+    		});
+
+
+
+            function playerAxes(){
+		        y.domain([0,100]);
+		        yAxis.ticks(5);
+		        x.domain([16,42]);
+		        xAxis.tickValues([16,20,24,28,32,36,40,42]);
+		        xScaleMax = x.domain()[1];
+            	xPxMin = x(xScaleMax);
+		        theYaxis
+		            .transition().duration(1000)
+		            .call(yAxis);
+	            theXAxis
+		            .transition().duration(1000)
+		            .call(xAxis);
+		        };
+
+	        function clubAxes(){
+		        y.domain([63,85]);
+		        yAxis.ticks(5);
+		        x.domain([23.5,33.5]);
+		        xAxis.tickValues([24,26,28,30,32]);
+		        xScaleMax = x.domain()[1];
+            	xPxMin = x(xScaleMax);
+		        theYaxis
+		            .transition().duration(1000)
+		            .call(yAxis);
+	            theXAxis
+		            .transition().duration(1000)
+		            .call(xAxis);
+		        };
+
+	        zoomIn = function(club){
+	        	d3.select('#resetButton').style('opacity','1')
+	        	var Sclub = club.replace(/_/g,' ');
+	        	var Uclub = club;
+	        	var clubData = rawdata.filter(function(d){ return d.key == Sclub; })[0];
+	        	clubData = clubData.values
+	        	console.log('done',clubData);
+
+    			d3.selectAll('g.club').style('opacity',0);
+    			d3.selectAll('g.clubText').style('opacity',0);
+    			//d3.selectAll('g.club:not(.name_'+Uclub+')').style('opacity',0);
+
+    			var playerShapes = chartHolder.selectAll('g.player')
+	        	.data(clubData)
+	        	console.log('playerShapes',playerShapes)
+	        	playerShapes.enter()
+	        	.append('g').attr({
+	        		'class':function(d){
+	        			console.log(d.name)
+	        			return 'player ' + 'name_' + d.name.replace(/ /g,'_')},
+	        		'transform':function(d){
+	        			return 'translate(' + x(d.aveY) + ',' + y(d.aveX) + ')'
+	        		}
+        		});
+
+    			playerAxes();
+
+        		playerShapes.transition()
+        		.duration(1000).attr({
+	        		'transform':function(d){
+	        			return 'translate(' + x(d.age) + ',' + y(d.minsRatio) + ')'
+	        		}
+        		});
+
+	    	 	var playerTails = playerShapes.append('rect').attr({
+	    			'class':'playerCircle',
+	    			'y':-3,
+	    			'x':function(d){
+	                    return 0},
+	    			'width':function(d){return-1*( x(xScaleMax-d.aveZ)-xPxMin)},
+	                //'height':10,
+	                'height':6,
+	                'rx':3,
+	                'ry':3
+	    		})
+    			.style('fill','url(#grad1)')
+        		.transition()
+        		.duration(1000).attr({
+	    			'width':function(d){return-1*( x(xScaleMax-d.contract)-xPxMin)},
+	    		});
+
+	    		var playerDots = playerShapes.append('circle').attr({
+	    			'class':'dot',
+	    			'cx':0,
+	    			'cy':0,
+	    			'r':3
+	    		});
+
+	    		var playerClicks = playerShapes.append('rect').attr({
+	    			'class':'clickArea',
+	    			'y':-10,
+	    			'x':function(d){
+	                    return -5},
+	    			'width':function(d){return-1*( x(xScaleMax-d.aveZ)-xPxMin) + 10},
+	                //'height':10,
+	                'height':20,
+	                'rx':10,
+	                'ry':10
+	    		}).transition()
+        		.duration(1000).attr({
+	    			'width':function(d){return-1*( x(xScaleMax-d.contract)-xPxMin) + 10},
+	    		});
+
+
+        		setTimeout(function(){
+        			var playerText = chartHolder.selectAll('g.playerText')
+		        	.data(clubData)
+
+		        	playerText.enter()
+		        	.append('g').attr({
+		        		'class':function(d){
+		        			return 'playerText ' + 'name_' + d.name.replace(/ /g,'_')},
+		        		'transform':function(d){
+		        			return 'translate(' + x(d.age) + ',' + y(d.minsRatio) + ')'
+		        		}
+		        	});
+
+		    		var playerLabels = playerText.append('text').attr({
+		    			'class':'label',
+		    			'x':0,
+		    			'y':-5,
+		    			'text-anchor':'start'
+		    		})
+		    		.text(function(d,i){
+		    			if(d.newRank == 1 || d.newRank == 4 || d.newRank == 7 || d.newRank == 10)
+		    			return d.name
+		    		});
+        		},1000);
+    		}
+
+    		zoomOut = function(club){
+    			d3.select('#resetButton').style('opacity','0')
+
+    			clubAxes();
+
+    			playerShapes = chartHolder.selectAll('g.player')
+    			playerShapes.transition()
+        		.duration(1000).attr({
+	        		'transform':function(d){
+	        			return 'translate(' + x(d.aveY) + ',' + y(d.aveX) + ')'
+	        		}
+        		}).remove();
+
+        		playerShapes = chartHolder.selectAll('g.playerText').remove();
+
+    			d3.selectAll('g.club').style('opacity',1);
+    			d3.selectAll('g.clubText').style('opacity',1);
+			}
+
+            var resetButton = guidetextHolder.append('a').attr('id','resetButton').text('Reset view').on('click',function(){
+            	zoomOut();
+            });
+
+	        });
+
+			
+		</script>
+</html>
