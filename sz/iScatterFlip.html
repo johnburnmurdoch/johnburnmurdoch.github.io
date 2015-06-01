@@ -5,6 +5,7 @@
   	<head>
     <title></title>
     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="touchDetect.js"></script>
     <script src="saveSvgAsPng.js"></script>
 	    <style media="screen">
 	    	@font-face{
@@ -192,8 +193,14 @@
 		      })
 		      .html(guidetexts[0]);
 
+
+		    console.log('width',width)
+
 		    var height = Math.floor(bounds.height-heightOffset)-5,
 		    width = height*.9;
+
+
+		    console.log('width',width)
 		    if(width > Math.floor(bounds.width))width = Math.floor(bounds.width);
 		    if(width < 800){height = width*1.1}else{height = Math.floor(bounds.height-heightOffset)-50};
 		    var stackColumnWidth = 240;
@@ -365,7 +372,7 @@
             	//console.log(rawdata)
 	        	.data(rawdata).enter()
 	        	.append('g').attr({
-	        		'class':function(d){return 'club ' + 'name_' + d.key.replace(/ /g,'_')},
+	        		'class':function(d){return 'club ' + 'name_' + d.key.replace(/ /g,'_').replace(/\'/g,'')},
 	        		'transform':function(d){
 	        			return 'translate(' + x(d.values[0].aveY) + ',' + y(d.values[0].aveX) + ')'
 	        		}
@@ -376,7 +383,7 @@
             	//console.log(rawdata)
 	        	.data(rawdata).enter()
 	        	.append('g').attr({
-	        		'class':function(d){return 'clubText ' + 'name_' + d.key.replace(/ /g,'_')},
+	        		'class':function(d){return 'clubText ' + 'name_' + d.key.replace(/ /g,'_').replace(/\'/g,'')},
 	        		'transform':function(d){
 	        			return 'translate(' + x(d.values[0].aveY) + ',' + y(d.values[0].aveX) + ')'
 	        		}
@@ -431,8 +438,10 @@
                 'ry':10
     		});
 
+
     		clubClicks.on('touchstart',function(d){
-    			var thisClub = d.key.replace(/ /g,'_')
+    			d3.event.preventDefault();
+    			var thisClub = d.key.replace(/ /g,'_').replace(/\'/g,'')
     			d3.selectAll('g.clubText text').style('opacity',0);
     			console.log(thisClub)
     			d3.select('g.clubText.name_' + thisClub + ' text')
@@ -446,8 +455,9 @@
     			//animate();
     		})
 
+
     		clubClicks.on('mouseover',function(d){
-    			var thisClub = d.key.replace(/ /g,'_')
+    			var thisClub = d.key.replace(/ /g,'_').replace(/\'/g,'')
     			d3.selectAll('g.clubText text').style('opacity',0);
     			console.log(thisClub)
     			d3.select('g.clubText.name_' + thisClub + ' text').style('opacity',1);
@@ -463,12 +473,10 @@
     		});
 
 
-    		function animate(){
-	    		d3.selectAll('.selected').on('click',function(d){
-	    			console.log(d.key.replace(/ /g,'_'))
-	    			zoomIn(d.key.replace(/ /g,'_'))
-	    		});
-    		}
+    		clubClicks.on('click',function(d){
+    			console.log(d.key.replace(/ /g,'_').replace(/\'/g,''))
+    			zoomIn(d.key.replace(/ /g,'_').replace(/\'/g,''))
+    		});
 
 
 
@@ -522,7 +530,7 @@
 	        	.append('g').attr({
 	        		'class':function(d){
 	        			console.log(d.name)
-	        			return 'player ' + 'name_' + d.name.replace(/ /g,'_')},
+	        			return 'player ' + 'name_' + d.name.replace(/ /g,'_').replace(/\'/g,'')},
 	        		'transform':function(d){
 	        			return 'translate(' + x(d.aveY) + ',' + y(d.aveX) + ')'
 	        		}
@@ -584,7 +592,7 @@
 		        	playerText.enter()
 		        	.append('g').attr({
 		        		'class':function(d){
-		        			return 'playerText ' + 'name_' + d.name.replace(/ /g,'_')},
+		        			return 'playerText ' + 'name_' + d.name.replace(/ /g,'_').replace(/\'/g,'')},
 		        		'transform':function(d){
 		        			return 'translate(' + x(d.age) + ',' + y(d.minsRatio) + ')'
 		        		}
@@ -597,10 +605,29 @@
 		    			'text-anchor':'start'
 		    		})
 		    		.text(function(d,i){
-		    			if(d.newRank == 1 || d.newRank == 4 || d.newRank == 7 || d.newRank == 10)
+		    			// if(d.newRank == 1 || d.newRank == 4 || d.newRank == 7 || d.newRank == 10)
 		    			return d.name
+		    		})
+		    		.style('opacity',function(d){
+		    			if(d.newRank == 1 || d.newRank == 4 || d.newRank == 7 || d.newRank == 10){return 1}else{return 0}
 		    		});
         		},1000);
+
+        		d3.selectAll('.clickArea.player').on('mouseover',function(d){
+	    			var thisPlayer = d.name.replace(/ /g,'_').replace(/\'/g,'')
+	    			d3.selectAll('g.playerText text').style('opacity',0);
+	    			console.log(thisPlayer)
+	    			d3.select('g.playerText.name_' + thisPlayer + ' text').style('opacity',1);
+	    			d3.select('g.player.name_' + thisPlayer + ' .playerCircle').classed('highlit',true);
+
+	    		})
+	    		.on('mouseout',function(d){
+	    			d3.selectAll('g.playerText text').style('opacity',function(d){
+	    				if(d.newRank == 1 || d.newRank == 4 || d.newRank == 7 || d.newRank == 10)
+	    				{return 1}else{return 0}
+	    				});
+					d3.selectAll('g.player .playerCircle').classed('highlit',false);
+	    		});
     		}
 
     		zoomOut = function(club){
@@ -623,6 +650,11 @@
     			d3.selectAll('.club').style('pointer-events','all');
     			d3.selectAll('.selected').classed('selected',false);
     			d3.selectAll('g.club .playerCircle').classed('highlit',false);
+
+    			d3.selectAll('g.clubText text').style('opacity',function(d){
+    				if(d.key == 'Chelsea FC' || d.key == 'Burnley FC' || d.key == 'Manchester City' || d.key == 'Tottenham Hotspur' || d.key == 'Arsenal FC' || d.key == 'Manchester United' || d.key == 'Crystal Palace')
+    				{return 1}else{return 0}
+    				});
 			}
 
             var resetButton = guidetextHolder.append('a').attr('id','resetButton').text('Reset view').on('click',function(){
