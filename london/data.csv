@@ -1,38 +1,38 @@
-title,lineone,linetwo,order,image
-Who is this guy?,Generalist journalist,A specialist in failure,1,s1.png
-The team:,"Journalists, developers, designers",Audio,2,s2.png
-What does the interactive team do?,FT produces 150+ graphics per week,New ways of telling the news,3,s3.png
-"Srsly tho, the FT? Cool stuff?",Who here likes lifts/elevators?,Must have taken ages?,4,s4.png
-Sitting on a gold mine,Data is everywhere,More true of financial news than anywhere else,5,s5.png
-A graphic about graphics,Templating,Capacity for new challenges,6,snull.png
-How are they produced?,Lots of talking,Technical side,7,s7.png
-Goals and guidelines,Attracting new readers while adding to FT's offering for existing subscribers,Expanding horizons,8,s8.png
-The story remains front and centre,"Data as foundation, not facade","Our work is built on databases, but the reader doesn't need to know that",9,s9.png
-Case studies,ft.com/interactive,"If you like them, subscribe :-)",10,s10.png
-Exhibit A: personalising the story,London's property market,Just how screwed are London's millennials?,11,snull.png
-Broadening the audience,Putting the FT in front of new pairs of eyes,Challenging perceptions of what the FT does and who it's for,12,snull.png
-Exhibit B: a labour of love,The Most Granular EU Unemployment Map You Will See Today,,13,snull.png
-Granularity,Averages obscure stories, ,14,snull.png
-Without obscuring bigger picture,But need both macro and micro, ,15,snull.png
-Time and space,Few data stories are static,Multidmensional narrative,16,snull.png
-Toolkit,R and d3,Wonderful online community,17,snull.png
-The pay-off,Reader feedback, ,18,snull.png
-Templating,Now takes mere minutes to update, ,19,snull.png
-Meeting and expanding expectations,Our readers are very smart,And very numerate,20,snull.png
-"If you can't beat them, join them",Working with the IMF,Communicating uncertainty,21,snull.png
-Play Finance Minister for the day,Immerse the reader in the story, ,22,snull.png
-Interactives can serve multiple purposes,Storytelling,Story-finding,23,snull.png
-Longevity,Still editorially useful today, ,24,snull.png
-Animation,Not a new narrative technique,Gains through use of data,25,snull.png
-Attention grabbing without sacrificing rigour,"""Be like a tabloid up front, but the Academy of Science in the back""",Hans Rosling,26,snull.png
-Increases reader engagement,Draws the reader in more than text,More memorable,27,snull.png
-Conversation starter,Strong social media response,Direct contact though emails,28,snull.png
-From complex or abstract to clear and intuitive,More intuitive approach to communicating a narrative, ,29,snull.png
-Introducing new graphic form,Cartogram,Why should readers only get choropleths?,30,snull.png
-Natural process,Visual transition matches verbal/logical transition, ,31,snull.png
-Bridging gaps between charts,Connects data points across time,Gives the story a smoother flow,32,snull.png
-Highighting key elements,Draw attention to different key points at different times,Time as a metric,33,snull.png
-Watch this space,Elections,Disunited Kingdom,34,snull.png
-How do we know if it's working?,"New subscriptions, time on page",Seeking constructive criticism,35,snull.png
-Unique value of interactive graphics,"""You can't reblog Snowfall""",Interactives as revenue protection,36,snull.png
-Questions?, , ,37,snull.png
+title,lineone,linetwo,order,image,href
+Who is this person?,Generalist journalist,Do you even code?,1,visualoop_4.png,
+The team:,"Journalists, developers, designers",Audio,2,snull.png,
+What does the interactive team do?,FT produces 150+ graphics per week,New ways of telling the news,3,snull.png,
+"Srsly tho, the FT? Cool stuff?",Who here likes lifts/elevators?,Must have taken ages?,4,visualoop_1.png,
+Sitting on a gold mine,Data is everywhere,More true of financial news than anywhere else,5,snull.png,
+A graphic about graphics,Templating,Capacity for new challenges,6,snull.png,
+How are they produced?,Lots of talking,Technical side,7,snull.png,
+Goals and guidelines,Attracting new readers while adding to FT's offering for existing subscribers,Expanding horizons,8,visualoop_2.png,
+The story remains front and centre,"Data as foundation, not facade","Our work is built on databases, but the reader doesn't need to know that",9,snull.png,
+Case studies,ft.com/interactive,"If you like them, subscribe :-)",10,snull.png,
+Exhibit A: personalising the story,London's property market,Just how screwed are London's millennials?,11,s10.png,http://www.ft.com/ig/features/2015-01-11_two-speed-housing-market/
+Broadening the audience,Putting the FT in front of new pairs of eyes,Challenging perceptions of what the FT does and who it's for,12,snull.png,
+Exhibit B: a labour of love,The Most Granular EU Unemployment Map You Will See Today,,13,s5.png,http://blogs.ft.com/ftdata/2015/04/17/eu-unemployment-tracker/
+Granularity,Averages obscure stories, ,14,snull.png,
+Without obscuring bigger picture,But need both macro and micro, ,15,snull.png,
+Time and space,Few data stories are static,Multidmensional narrative,16,visualoop_7.png,http://www.ft.com/cms/s/0/6c91dad6-f579-11e4-8c83-00144feab7de.html
+Toolkit,R and d3,Wonderful online community,17,visualoop_10.png,http://www.ft.com/cms/s/0/6c72731e-6116-11e4-b935-00144feabdc0.html
+Templating,Now takes mere minutes to update, ,19,snull.png,
+The pay-off,Reader feedback, ,18,tweets.png,
+Meeting and expanding expectations,Our readers are very smart,And very numerate,20,snull.png,
+"If you can't beat them, join them",Working with the IMF,Communicating uncertainty,21,snull.png,
+Play Finance Minister for the day,Immerse the reader in the story, ,22,debt.png,http://www.ft.com/ig/sites/2014/debt-to-gdp-ratio/#usa
+Interactives can serve multiple purposes,Storytelling,Story-finding,23,snull.png,
+Longevity,Still editorially useful today, ,24,snull.png,
+Animation,Not a new narrative technique,Gains through use of data,25,snull.png,
+Attention grabbing without sacrificing rigour,"""Be like a tabloid up front, but the Academy of Science in the back""",Hans Rosling,26,snull.png,
+Increases reader engagement,Draws the reader in more than text,More memorable,27,snull.png,
+Conversation starter,Strong social media response,Direct contact though emails,28,snull.png,
+From complex or abstract to clear and intuitive,More intuitive approach to communicating a narrative, ,29,visualoop_5.png,http://ig.ft.com/features/uk-election-results-explained-animation/
+Using new graphic forms,Cartogram,Why should readers only get choropleths?,30,snull.png,
+Natural process,Visual transition matches verbal/logical transition, ,31,snull.png,
+Bridging gaps between charts,Connects data points across time,Gives the story a smoother flow,32,snull.png,
+Highighting key elements,Draw attention to different key points at different times,Time as a metric,33,snull.png,
+Watch this space,Elections,,34,snull.png,
+How do we know if it's working?,"New subscriptions, time on page",Seeking constructive criticism,35,snull.png,
+Unique value of interactive graphics,"""You can't reblog Snowfall""",Interactives as revenue protection,36,snull.png,
+Questions?, , ,37,snull.png,
