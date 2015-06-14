@@ -79,7 +79,8 @@
 	      	.animatebutton{position:relative;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
 	      	.animatebutton:hover{background-color:#74736c;color:#fff1e0;}
 	      	.animatebutton.hidden{display:none;pointer-events:none;}
-	      	.surfaceButton{position:relative;padding:5px 8px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;margin-right:5px;}
+	      	.surfaceButton{position:relative;padding:5px 8px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;margin-right:5px;opacity:1;}
+	      	.surfaceButton.hidden{opacity:0;pointer-events:none;}
 	      	#grassButton.active,#grassButton:hover{background-color:#7ea800;color:#fff1e0;}
 	      	#clayButton.active,#clayButton:hover{background-color:#db3e3e;color:#fff1e0;}
 	      	#hardButton.active,#hardButton:hover{background-color:#235dba;color:#fff1e0;}
@@ -149,6 +150,12 @@
 	      	line.grass{stroke:#7ea800;}
 	      	line.hard{stroke:#235dba;}
 
+	      	text.crosstext{font-size:12px;}
+	      	text.clay{fill:#db3e3e;}
+	      	text.grass{fill:#7ea800;}
+	      	text.hard{fill:#235dba;}
+	      	text.all{fill:none;}
+
 	      	text.player{font-size:11px;/*font-weight:bold;*/}
 
 	      	@media screen and (max-width: 800px) {
@@ -217,7 +224,7 @@
 		      		function() {doGrass()},
 		      		function() {doClay()},
 		      		function() {doHard()},
-			      	function() {doAll();forBtn.html('Restart &raquo;');},
+			      	function() {doAll();setTimeout(function(){showSurfButtons()},300);forBtn.html('Restart &raquo;');},
 			      	function() {swipeIndex = 0;backBtn.classed('hidden',true);forBtn.html('Next &raquo;',true);}
 		      	];
 
@@ -551,7 +558,6 @@
 		        	var crossSrv = chartHolder.selectAll('line.crosshair.srv').data(['clay','grass','hard']).enter();
 		        	crossSrv.append('line').attr({
 		        		'class':function(d){
-		        			console.log(d)
 		        			return 'crosshair srv hidden ' + d},
 		        		'x1':function(d){return x(crosshairData[0].sG)},
 		        		'x2':function(d){return x(crosshairData[0].sG)},
@@ -562,13 +568,29 @@
 		        	var crossRet = chartHolder.selectAll('line.crosshair.ret').data(['clay','grass','hard']).enter();
 		        	crossRet.append('line').attr({
 		        		'class':function(d){
-		        			console.log(d)
 		        			return 'crosshair ret hidden ' + d},
 		        		'y1':function(d){return y(crosshairData[0].rG)},
 		        		'y2':function(d){return y(crosshairData[0].rG)},
 		        		'x1':x(x.domain()[0]),
 		        		'x2':x(x.domain()[1])
 		        	});
+
+		        	var textSrv = chartHolder.append('text').attr({
+		        		'class':function(d){
+		        			return 'crosstext srv hidden ' + 'all'},
+		        		//'x':function(d){return x(crosshairData[0].sG)},
+		        		//'y':y(y.domain()[0]),
+		        		'transform':'translate(' + (x(crosshairData[0].sG)-3) + ',' + (y(y.domain()[0])-3) + ') rotate(-90)'
+		        	})
+		        	.text('grass' + ' average');
+		        	var textRet = chartHolder.append('text').attr({
+		        		'class':function(d){
+		        			return 'crosstext ret hidden ' + 'all'},
+		        		//'x':function(d){return x(crosshairData[0].sG)},
+		        		//'y':y(y.domain()[0]),
+		        		'transform':'translate(' + (x(x.domain()[0])+3) + ',' + (y(crosshairData[0].rG)-3) + ')'
+		        	})
+		        	.text('All' + ' average');
 
 
 
@@ -621,7 +643,9 @@
 
       				function activateCrosshair(surface){
       					if(surface == 'all'){
-      						chartHolder.selectAll('line.crosshair:not(.'+surface+')').classed({'active':false,'hidden':true})	
+      						chartHolder.selectAll('line.crosshair:not(.'+surface+')').classed({'active':false,'hidden':true});
+      						chartHolder.selectAll('text.crosstext').classed('hard clay grass all',false);
+		        			chartHolder.selectAll('text.crosstext').classed(surface,true);
       					}else{    					
       					chartHolder.selectAll('line.crosshair:not(.'+surface+')').classed('active',false)
 
@@ -634,7 +658,24 @@
 		        			'y1':y(crosshairData[0]['r' + surface.charAt(0).toUpperCase()]),
 		        			'y2':y(crosshairData[0]['r' + surface.charAt(0).toUpperCase()])
 		        		});
+
+		        			chartHolder.selectAll('text.crosstext').classed('hard clay grass all',false);
+		        			chartHolder.selectAll('text.crosstext').classed(surface,true);
+
+		        			d3.select('text.crosstext.srv').transition().duration(1000).attr({
+				        		'transform':'translate(' + (x(crosshairData[0]['s' + surface.charAt(0).toUpperCase()])-3) + ',' + (y(y.domain()[0])-3) + ') rotate(-90)'
+				        	})
+				        	.text(toTitleCase(surface) + ' average');
+				        	d3.select('text.crosstext.ret').transition().duration(1000).attr({
+				        		'transform':'translate(' + (x(x.domain()[0])+3) + ',' + (y(crosshairData[0]['r' + surface.charAt(0).toUpperCase()])-3) + ')'
+				        	})
+				        	.text(toTitleCase(surface) + ' average');
+
 						}
+      				};
+
+      				function showSurfButtons(){
+      					d3.selectAll('.surfaceButton').classed('hidden',false)
       				};
 
       				function doAll(){
