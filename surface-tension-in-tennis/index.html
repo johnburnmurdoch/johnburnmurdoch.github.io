@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+  	<head>
+    <title>Interactive graphic: the impact of different surfaces on tennis playing styles</title>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ft">
+    <meta name="twitter:creator" content="@jburnmurdoch">
+    <meta name='twitter:url' content="http://ft.com/ig/features/baseline/surface-tension-in-tennis"/>
+    <meta name="twitter:title" content="Interactive graphic: the impact of different surfaces on tennis playing styles">
+    <meta name="twitter:description" content="Explore how the characteristic of clay, grass and hard courts favour different types of player">
+    <meta name="twitter:image" content="http://ft.com/ig/features/baseline/surface-tension-in-tennis/promo.png">
+    <script src="d3.v3.min.js"></script>
+    <script src="touchDetect.js"></script>
+    <script charset="utf-8" src="queue.js"></script>
+    <//script src="saveSvgAsPng.js"></script>
+    <script charset="utf-8" src="jquery-2.1.4.min.js"></script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+	    <style media="screen">
+	    	@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: normal;
+	      	}
+	      	@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: bold;
+	      	}
+	      	@font-face{
+	      	font-family: "MillerDisplay";
+	      	src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot');
+	      	src: url('http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.eot?#iefix') format('embedded-opentype'),
+	           	url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.woff") format("woff"),
+          	 	url("http://interactivegraphics.ft-static.com/inc/fonts/MillerDisplay-Roman.ttf") format("truetype");
+	      	font-style: normal;
+	      	font-weight: normal;
+	      	}
+	      	@font-face{
+	      	font-family: "Clarion";
+	      	src: url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.woff") format("woff"),
+		          url("http://interactivegraphics.ft-static.com/inc/fonts/Clarion.ttf") format("truetype");
+	      	font-style: normal;
+	      	font-weight: normal;
+	      	}
+
+	      	body{
+		        background-color:#fff1e0;
+		        margin:0;
+	      	}
+
+	      	.ui-mobile {
+		       -moz-box-shadow: none !important;
+		       -webkit-box-shadow: none !important;
+		       box-shadow: none !important;
+		       outline:none;
+	      	}.ui-page{outline:none;}
+      		.ui-loader.ui-corner-all.ui-body-a.ui-loader-default{display:none;}
+	        section,span,text,a{font-family:"BentonSans",sans-serif;cursor:default;}
+
+	        #ft-header {height: 50px;background-color: #fff1e0;width: 100%;position: fixed;top: 0;z-index: 2000;overflow: hidden;text-align:center;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);}
+	      	#ft-header a{background-color:#fff1e0;}
+	      	#ft-header a>img {margin-top: 13px;opacity: .8;transition: opacity .3s;height:20px;cursor:pointer;}
+
+	      	#progressbar {position: absolute;float: left;background-color: #af516c;top: 50px;height: 4px;}
+	      	#navintro{visibility:hidden;position:absolute;z-index:10000;margin-left:1px;margin-right:1px;left:0;right:0;text-align:center;background-color:white;border:1px solid #b8b1a9;white-space:nowrap;border-radius:5px;display:block;transition:0.5s;}
+
+	      	.buttonHolder{position:absolute;display:inline-block;width:100%;margin-left:0px;margin-right:auto;left:0;right:0;text-align:center;font-size:16px;}
+
+	      	.animatebutton{position:relative;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
+	      	.animatebutton:hover{background-color:#74736c;color:#fff1e0;}
+	      	.animatebutton.hidden{display:none;pointer-events:none;}
+	      	.surfaceButton{position:relative;padding:5px 8px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;margin-right:5px;}
+	      	#grassButton.active,#grassButton:hover{background-color:#7ea800;color:#fff1e0;}
+	      	#clayButton.active,#clayButton:hover{background-color:#db3e3e;color:#fff1e0;}
+	      	#hardButton.active,#hardButton:hover{background-color:#235dba;color:#fff1e0;}
+	      	#allButton.active,#allButton:hover{background-color:#74736c;color:#fff1e0;}
+	      	/*.animatebutton{display:none;}*/
+
+	      	.backbutton{position:relative;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;}
+	      	.backbutton:hover{background-color:#74736c;color:#fff1e0;}
+	      	.backbutton.hidden{display:none;pointer-events:none;}
+
+	      	#ft-footer {background-color: #fff1e0;width: 100%;position: fixed;bottom: 0;z-index: 2000;overflow: hidden;text-align:left;border-top: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);padding-left:5px;/*display:none;*/}
+	      	#ft-footer a{background-color:#fff1e0;font-size:11px;color: #2e6e9e;transition: 0.3s;pointer-events: all;cursor: pointer;text-decoration: none;/*vertical-align:top;*/}
+	      	#ft-footer a:hover{color: #000;background-color: #fff1e0;}
+	      	/*#ft-footer a>img {margin-top: 0px;opacity: .8;transition: opacity .3s;height:16px;}*/
+	      	#ft-footer span{background-color:#fff1e0;font-size:11px;color:#000;/*vertical-align:top;*/}
+
+	      	#viz{display:inline-block;position:fixed;margin-left:0px;margin-right:auto;left:0;right:0;width:100%;height:100%;top:0;}
+	      	#sections {
+		        position: relative;
+		        top: 0px;
+		        z-index: 90;
+		        background-color: none;
+		        overflow:hidden;
+	      	}
+	      	#plot{margin-left:auto;margin-right:auto;text-align:center;}
+	      	.textBox {visibility:hidden;fill:#43423e;font-size:18px;position:absolute;top:50px;width:100%;display:block;padding:4px;line-height:24px;/*background-color:#cec6b9;border-radius:5px;*/margin-top:5px;margin-left:auto;margin-right:auto;left:0;right:0;max-width:700px;}
+	      	#slidetext{fill:#43423e;font-size:36px;display:block;padding:8px;font-family: "MillerDisplay","Clarion";margin-left:0px;margin-right:auto;left:0;right:0;text-align:center;transition:0.5s;}
+	      	#slidetext.first{position:relative;top:50px;}
+	      	#guidetext.first{position:relative;top:40px;}
+	      	#guidetext{fill:#43423e;font-size:18px;position:relative;top:0px;width:99%;display:block;padding:4px;line-height:24px;/*background-color:#cec6b9;border-radius:5px;*/margin-top:5px;margin-left:auto;margin-right:auto;left:0;right:0;max-width:700px;transition:0.5s;pointer-events:none;}
+	      	.innerText{pointer-events:all;}
+
+	        #resetButton{position:relative;background-color:#F6E9D8;padding: 5px;border-radius: 5px;color: #74736c;border: 1px solid #74736c;transition: 0.3s;cursor: pointer;pointer-events: all;float: right;top:0px;opacity:0;margin-right:5px;}
+	        #resetButton:hover{background-color:#74736c;color:#fff1e0;}
+	      	#resetButton.hidden{display:none;pointer-events:none;}
+
+	      	.FTlink{color:#2e6e9e;transition:0.3s;pointer-events:all;cursor:pointer;text-decoration:none;}
+    	  	.FTlink:hover{color:#000;background-color:#fff1e0;}
+
+	      	#graphic{margin-left:auto;margin-right:auto;text-align:center;}
+	      	#backdrop{fill:#fff1e0;transition:1s;}
+	      	#backdrop.grass{fill:#ece6bf}
+	      	#backdrop.clay{fill:#f9d6c5}
+	      	#backdrop.hard{fill:#dedfe4}
+	      	.tick text{font-size:11px;fill:#74736c;}
+	      	.axis path{fill:none;stroke:none;stroke-width:1px;shape-rendering:crispEdges;}
+	      	.tick line{stroke:#cec6b9;stroke-dasharray:1px 1px;shape-rendering:crispEdges;}
+	      	.tick:nth-of-type(1) line{stroke:#74736c;stroke-dasharray:0px;shape-rendering:crispEdges;}
+	      	.title{font-size:10px;}
+	      	.axisTitle{font-size:12px;fill:#74736c;}
+
+	      	.nodesktop{display:none;}
+
+	      	.label{font-size:11px;font-weight:normal;fill:#43423e;}
+	      	.label.highlit{font-weight:bold;}
+
+	      	circle.player{fill:#b8b1a9;stroke:#b8b1a9;stroke-width:2px;fill-opacity:0.7;}
+	      	circle.player.Andy_Murray{fill:#76acb8;stroke:#76acb8;stroke-width:1px;fill-opacity:0.7;}
+	      	circle.player.Novak_Djokovic{fill:#3d7ab3;stroke:#3d7ab3;stroke-width:1px;fill-opacity:0.7;}
+	      	circle.player.Rafael_Nadal{fill:#d7706c;stroke:#d7706c;stroke-width:1px;fill-opacity:0.7;}
+	      	circle.player.Roger_Federer{fill:#af516c;stroke:#af516c;stroke-width:1px;fill-opacity:0.7;}
+
+	      	line.crosshair.hidden{opacity:0;transition:0.5s;}
+	      	line.crosshair.active{stroke-dasharray:0px 0px;stroke-width:2px;}
+	      	line.crosshair{stroke-dasharray:3px 3px;stroke-width:2px;shape-rendering:crispEdges;}
+	      	line.clay{stroke:#db3e3e;}
+	      	line.grass{stroke:#7ea800;}
+	      	line.hard{stroke:#235dba;}
+
+	      	text.player{font-size:11px;/*font-weight:bold;*/}
+
+	      	@media screen and (max-width: 800px) {
+	      		circle.player{stroke-width:1px;}
+	      		#progressbar {top: 40px;height: 3px;}
+	      		#navintro{visibility:visible;padding:6px;font-size:16px;}
+		      	#ft-header {height: 40px;}
+		      	#ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
+		      	.nomobile{display:none;}
+		      	.nodesktop{display:block;}
+	      	}
+
+	      	@media screen and (max-width: 800px) and (orientation : landscape){
+	      		#progressbar {top: 40px;height: 3px;}
+	      		#navintro{visibility:visible;padding:4px;font-size:13px;}
+		        .nomobile{display:none;}
+		        #slidetext{font-size:20px;}
+		        #guidetext,.textBox{font-size:15px;line-height:20px}
+		        #slidetext.first{top:45px;}
+		        .textBox{top:75px;}
+		        .camoselect,select:focus,textarea:focus,input:focus{font-size:14px;}
+		        
+	      	}
+
+	      	@media screen and (max-width: 480px) {
+		      	.nomobile{display:none;}
+		      	#ft-header {height: 40px;}
+		      	#ft-header a>img {margin-top: 11px;opacity: .8;transition: opacity .3s;height:18px;}		      
+		      	#slidetext{font-size:22px;padding:4px;}
+		      	#guidetext,.textBox{font-size:15px;line-height:19px;}
+		      	#slidetext.first{top:45px;}
+		      	.textBox{top:75px;}
+		      	#mobilePad{height:650px;position:relative;pointer-events:none;}
+		      	#resetButton{margin-right:8px;width:40px;}
+		      	#ft-footer a{font-size:7px;}
+	      		#ft-footer span{font-size:7px;}
+		      	#navintro{visibility:visible;padding:4px;font-size:13px;}
+
+	      	}
+      	</style>
+	</head>
+	<body>
+		<header id="ft-header" class="stickable">
+	      <a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+	    </header>
+	    <div id="progressbar"></div>
+  		<div id="sections"></div>
+  		<div id='viz'></div>
+  		<footer id="ft-footer" class="stickable">
+        	<span>By <a href="https://twitter.com/jburnmurdoch" target="_blank">John Burn-Murdoch</a></span>
+        	<span>&nbsp;&nbsp;&nbsp;Source: <a href="http://tennis.matchstat.com/" target="_blank">MatchStat</a>&nbsp;&nbsp;&nbsp;Part of <a href="http://blogs.ft.com/ftdata/category/baseline/" target="_blank">FT Baseline</a>&nbsp;&nbsp;&nbsp;</span>
+    	</footer>
+	</body>
+			<script charset="utf-8">
+				var titletexts = ["Surface tension in tennis"];
+
+	    		var oldGuidetexts = ["The points on this scatter plot represent the serving and returning abilities across all surfaces of the 491 male tennis players to have finished in the year-end top 100 since detailed performance data first became available in 1991. Highlighted are four of the modern greats - Roger Federer, Rafael Nadal, Novak Djokovic and Andy Murray","On 9 November the top eight players of 2014 compete in the ATP Tour Finals, though Nadal will miss out to undergo surgery. The tournament is played on a hard court which sits between clay and grass in terms of speed, but if a grass and a clay specialist faced off, whose game would the supposedly neutral surface suit best?","On grass, the quickest surface in tennis, the returning player has less time to react to their opponent's serve than on other surfaces, boosting the chances of the serving player winning the point. On average, playing on grass a top 100 player wins 65 per cent of their service points, and 36 per cent when returning serve","Clay courts are at the opposite end of the spectrum. The ball loses a considerable amount of speed on contact with the surface and has a high bounce, favouring the receiving player compared to other surfaces. Relative to grass, a top 100 player gains 4.3 percentage points when returning, and loses the same amount when serving","Hard courts, such as those used at the Tour Finals in London's O2 Arena, can vary in speed but typically dampen the serving and returning advantages offered by grass and clay. We can see; however, that the playing style favoured on hard courts is closer to that of grass than clay, suggesting grass specialists have the advantage","So we've seen the overall effect of each surface on playing styles as measured across 491 players, but what can the same data show us about individuals? For that and more insights from tennis data on the men's and women's tours, visit our sporting statistics series <a class='FTlink' href='http://blogs.ft.com/ftdata/category/baseline/' target='_blank'>FT Baseline</a>"];
+
+	    		var guidetexts = ["The points on this scatter plot represent the serving and returning abilities across all surfaces of the 491 male tennis players to have finished in the year-end top 100 since detailed performance data first became available","Tennis is played on three sufaces, with hard court lying between clay and grass in terms of speed, but if a grass and a clay specialist faced off, whose game would the supposedly neutral surface suit best?","On grass, the quickest surface in tennis, the returning player has little time to react to the serve, boosting the chances of the serving player winning the point. On grass a top player wins 65 per cent of their service points, and 36 per cent when returning","On clay the ball loses speed on contact with the surface and has a high bounce, favouring the receiving player. Relative to grass, a top 100 player gains 4.3 percentage points when returning, and loses the same amount when serving","Hard courts can vary in speed but typically dampen the serving and returning advantages offered by grass and clay. We can see; however, that the playing style favoured on hard courts is closer to that of grass than clay","So we've seen the overall effect of each surface on playing styles, but what can the same data show us about individuals? For that and more insights from tennis data on the men's and women's tours, visit our sporting statistics series <a class='FTlink' href='http://blogs.ft.com/ftdata/category/baseline/' target='_blank'>FT Baseline</a>"];
+
+	    		 // Then a dropdown: <select class='camoselect'></select> followed by some more text. Then <a class='FTlink' href='http://elections.ft.com/' target='_blank' title='UK election results - FT.com'>some text here</a>
+
+	    		var animations = [
+		      		function() {backBtn.classed('hidden',true);},
+		      		function() {doAll();backBtn.classed('hidden',false);},
+		      		function() {doGrass()},
+		      		function() {doClay()},
+		      		function() {doHard()},
+			      	function() {doAll();forBtn.html('Restart &raquo;');},
+			      	function() {swipeIndex = 0;backBtn.classed('hidden',true);forBtn.html('Next &raquo;',true);}
+		      	];
+
+				var bounds = d3.select('#viz').node().getBoundingClientRect();
+			    console.log(bounds);
+			    var orient = window.orientation;
+			    
+			    var width = Math.floor(bounds.height*.9), height = Math.floor(bounds.height)-5;
+			    if(width > Math.floor(bounds.width))width = Math.floor(bounds.width);
+
+			    var slidetext = d3.select('#viz').append("span")
+			      .attr({
+			        "id":"slidetext",
+			        "class":'first',
+			        x:0,
+			        y:10
+			      })
+			      .text(titletexts[0]);
+
+			    var sections = d3.select('#sections')
+		    		.selectAll('section.textBox')
+			      	.data(d3.range(0,guidetexts.length,1)).enter()
+			      .append('section')
+			      .attr({
+			        'class':'textBox'
+			      })
+			      .html(function(d){return guidetexts[d]});
+
+			    var sectionHeights = [];
+			    sections.each(function(){return sectionHeights.push(8+d3.select(this).node().getBoundingClientRect().bottom-d3.select(this).node().getBoundingClientRect().top)});
+			    var maxSectionHeight = d3.max(sectionHeights);
+			    var titleHeight = slidetext.node().getBoundingClientRect().bottom-slidetext.node().getBoundingClientRect().top;
+			    var heightOffset = maxSectionHeight+titleHeight;
+			    console.log('heightOffset',heightOffset);
+
+			    var guidetextHolder = d3.select('#viz').append("span")
+			      .attr({
+			        "id":"guidetext",
+			        'class':'first'
+			      })
+			      .style({
+			        'height':heightOffset + 'px'
+			      })
+
+			      guidetextHolder.append('span')
+			      .attr({
+			        'class':'innerText'
+			      })
+			      .html(guidetexts[0]);
+
+
+			    console.log('width',width)
+
+			    var height = Math.floor(bounds.height-heightOffset)-5,
+			    width = height*.9;
+
+
+			    console.log('width',width)
+			    if(width > Math.floor(bounds.width))width = Math.floor(bounds.width);
+			    if(width < 800){height = width*1.1}else{height = Math.floor(bounds.height-heightOffset)-50};
+			    var stackColumnWidth = 240;
+			    if(width > 800){stackColumnWidth = 510}else if(width > 500){stackColumnWidth = 400};    
+			    if(orient != 0)(height=width);
+			    var pauseLength = 750;
+			    var barWidth;
+			    var transitionsOnOff = 'off';
+			    if(bounds.width > 800)transitionsOnOff = 'on';
+			    if(bounds.width < 800)duration = 0;
+			    if(bounds.width < 800)pauseLength = 250;
+
+				var	dataset,
+					crosshairData,
+					rowNum,
+					margin = { top:35, left:38, bottom:35, right:40 },
+					chartmargin = { top:5, left:5, bottom:2, right:5 },
+					colourRange = ['#ffbb31','#E25050'],
+					hardServe = [63.31];
+    				hardReturn = [37.22];
+    				grassServe = [65.03];
+    				grassReturn = [35.65];
+    				clayServe = [60.73];
+    				clayReturn = [39.91];;
+
+				graphicHeight = height;
+				height=height-(margin.bottom*3+16);
+
+				function doProgressBar(){
+			      barWidth = Math.floor(bounds.width);
+			      d3.select('#progressbar').transition().duration(500).style('width',((swipeIndex+1)/(guidetexts.length))*barWidth + 'px')
+			    };
+
+				function changetext(newguide){
+		      		// d3.select("#slidetext")
+			       //  	.style("opacity",0)
+			      	d3.select("#guidetext .innerText")
+			        	.style("opacity",0)
+			      	setTimeout(function(){
+			        	// d3.select("#slidetext").style("opacity",1).html(newtext);
+			        	d3.select("#guidetext .innerText").style("opacity",1).html(newguide);
+			        },500)
+			    };
+
+			    function oc(a)
+			    {
+			      var o = {};
+			      for(var i=0;i<a.length;i++)
+			      {
+			        o[a[i]]='';
+			      }
+			      return o;
+			    }
+
+			    var currentIndex = -1;
+			    var containerStart = 0;
+			    var sectionIndex = 0;
+
+			    var swipeIndex = 0;
+
+			    addEventListener("keydown", function(event) {
+			      if(event.keyCode == 39){
+			        swipeForward();
+			      }
+			    });
+
+			    addEventListener("keydown", function(event) {
+			      if(event.keyCode == 37){
+			        swipeBack();
+			      }
+			    });
+
+			    function swipeForward(){
+			      if(swipeIndex == guidetexts.length){        
+			        swipeIndex = 0;
+			        animations[swipeIndex]();
+			        //changetext(titletexts[swipeIndex],guidetexts[swipeIndex]);
+			        changetext(guidetexts[swipeIndex]);
+			        doProgressBar();
+			      }else
+			        swipeIndex = swipeIndex + 1;
+			        animations[swipeIndex]();
+			        changetext(guidetexts[swipeIndex]);
+			        doProgressBar();
+			    };
+
+			    function swipeBack(){
+			      if(swipeIndex == 0){
+			        console.log('start');
+			      }else
+			        swipeIndex = swipeIndex - 1;
+			        animations[swipeIndex]();
+			        changetext(guidetexts[swipeIndex]);
+			        doProgressBar();
+			    };
+
+
+			    $('body').on("swipeleft",swipeForward);
+			    $('body').on("swiperight",swipeBack);
+
+	            function toTitleCase(str)
+				{
+				    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+				};
+
+				function sortByScoreDescending(a, b) {
+		            return b.values[0].careernpgR - a.values[0].careernpgR;
+		        };
+
+	        	function dropNAs(data){
+	        		if(data == "NA"){
+	        			return ""
+	        		}else return data
+	        	};
+
+				var viz = d3.select('#viz');
+
+				var swipeMessage = d3.select("body").append("span")
+			      .attr("id","navintro")
+			      .style("top",heightOffset+20 + 'px')
+			      .html("Swipe right-to-left to progress, opposite to go back &nbsp;&#10006;")
+			      .on('click',function(){
+			      	d3.select('#navintro').style({
+			      		'opacity':0,
+			      		'pointer-events':'none'
+			      	})
+			      });
+
+				var graphic = viz.append('div').attr({
+			      width:width,
+			      height:height,
+			      'id':'graphic'  
+			    });
+			    console.log('heightDiff',maxSectionHeight)
+
+			    d3.select("#guidetext").append("span").attr("class","buttonHolder").style('top',maxSectionHeight + 'px');
+			    var backBtn = d3.select(".buttonHolder").append("span").attr("class","backbutton nomobile hidden").html("&laquo; Back");
+			    var forBtn = d3.select(".buttonHolder").append("span").attr("class","animatebutton nomobile").html("Next &raquo;");
+	            
+	            var clayButton = d3.select(".buttonHolder").append('span').attr('id','clayButton').attr('class','surfaceButton hidden').text('Clay');
+	            var hardButton = d3.select(".buttonHolder").append('span').attr('id','hardButton').attr('class','surfaceButton hidden').text('Hard');
+	            var grassButton = d3.select(".buttonHolder").append('span').attr('id','grassButton').attr('class','surfaceButton hidden').text('Grass');
+	            var allButton = d3.select(".buttonHolder").append('span').attr('id','allButton').attr('class','surfaceButton hidden active').text('All');
+
+			    forBtn.on("click",swipeForward);
+			    backBtn.on("click",swipeBack);
+
+			    doProgressBar();
+
+				var svg = graphic.append('svg').attr({
+		    		id:'thesvg',
+		          	width:width,
+		          	height:graphicHeight
+		        });
+				var chartHolder = svg.append('g').attr({
+					'id':'chartHolder',
+					'transform':'translate(0,0)'
+				});
+				var backdrop = chartHolder.append('rect').attr({
+					'id':'backdrop',
+					x:margin.left,
+					y:margin.top,
+					'width':width-(margin.left+margin.right),
+					'height':height-margin.top
+				});
+
+				var x = d3.scale.linear()
+                 	.domain([30, 75])
+                 	.range([margin.left,width-margin.right]);
+
+			    var y = d3.scale.linear()
+                 	.domain([10, 50])
+                 	.range([height,margin.top]);
+
+			    var xAxis = d3.svg.axis()
+                  	.scale(x)
+                  	.orient("bottom")
+                  	.tickValues(d3.range(30,76,5))
+                  	.tickSize(-1*(height-margin.top));
+
+			    var yAxis = d3.svg.axis()
+                  	.scale(y)
+    	          	.orient("left")
+                  	.tickValues(d3.range(10,51,5))
+                  	.tickSize(-1*(width-(margin.left+margin.right)));
+
+	            var theXAxis = chartHolder.append('g')
+		            .attr({
+		            	"transform": function(d){return 'translate(0,' + (height) + ')'},
+		            	'class':'x axis'
+		            })
+		            .call(xAxis);
+	            chartHolder.append('text').attr({
+	            	'class':'x axisTitle',
+	            	x:x(d3.mean(x.domain())),
+	            	y:graphicHeight-(margin.bottom*2+19),
+	            	'text-anchor':'middle'
+	            })
+	            .text('Percentage of points won when serving');
+
+	            var theYaxis = chartHolder.append('g')
+		            .attr({
+		            	"transform": function(d){return 'translate(' + margin.left + ',' + 0 + ')'},
+		            	'class':'y axis'
+		            })
+		            .call(yAxis);
+	            chartHolder.append('text').attr({
+	            	'class':'y axisTitle',
+	            	'text-anchor':'middle',
+	            	'transform':'translate(10,' + y(d3.mean(y.domain())) + ') rotate(-90)'
+	            })
+	            .text('Percentage of points won when returning');
+
+	            queue()
+		      		.defer(d3.csv, 'surface-tension.csv')
+		      		.await(initialise);
+
+	      		function initialise(error, data){
+      				if (error) return console.error(error);
+
+  					rawdata = data.map(function (d){return{
+            			name: d.name,
+            			sA: +d.sA,
+            			rA: +d.rA,
+            			sC: +d.sC,
+            			rC: +d.rC,
+            			sG: +d.sG,
+            			rG: +d.rG,
+	                    sH: +d.sH,
+	                    rH: +d.rH
+                	}
+		        	});
+  					
+  					crosshairData = rawdata.filter(function(d){return d.name == 'All'});
+  					// clay = [];
+  					// grass = [];
+  					// hard = [];
+  					// clay.push(crosshairData[0].sC,crosshairData[0].rC);
+  					// grass.push(crosshairData[0].sG,crosshairData[0].rG);
+  					// hard.push(crosshairData[0].sH,crosshairData[0].rH);
+  					// crosshairData = [];
+  					// crosshairData.push(clay,grass,hard);
+
+		        	rawdata = rawdata.filter(function(d){return d.name != 'All'});
+		        	//rawdata = d3.nest().key(function(d) { return d.club; }).entries(rawdata);
+		        	//console.log(rawdata);
+		        	dataset = rawdata;
+
+		        	// var crossSrv = chartHolder.selectAll('line.crosshair.srv').data(crosshairData).enter();
+		        	// crossSrv.append('line').attr({
+		        	// 	'class':function(d,i){
+		        	// 		console.log(d)
+		        	// 		return 'crosshair srv ' + ['clay','grass','hard'][i]},
+		        	// 	'x1':function(d){return x(d[0])},
+		        	// 	'x2':function(d){return x(d[0])},
+		        	// 	'y1':y(y.domain()[0]),
+		        	// 	'y2':y(y.domain()[1])
+		        	// });
+
+		        	// var crossRet = chartHolder.selectAll('line.crosshair.ret').data(crosshairData).enter();
+		        	// crossRet.append('line').attr({
+		        	// 	'class':function(d,i){
+		        	// 		console.log(d)
+		        	// 		return 'crosshair ret ' + ['clay','grass','hard'][i]},
+		        	// 	'y1':function(d){return y(d[1])},
+		        	// 	'y2':function(d){return y(d[1])},
+		        	// 	'x1':x(x.domain()[0]),
+		        	// 	'x2':x(x.domain()[1])
+		        	// });
+
+
+
+		        	var crossSrv = chartHolder.selectAll('line.crosshair.srv').data(['clay','grass','hard']).enter();
+		        	crossSrv.append('line').attr({
+		        		'class':function(d){
+		        			console.log(d)
+		        			return 'crosshair srv hidden ' + d},
+		        		'x1':function(d){return x(crosshairData[0].sG)},
+		        		'x2':function(d){return x(crosshairData[0].sG)},
+		        		'y1':y(y.domain()[0]),
+		        		'y2':y(y.domain()[1])
+		        	});
+
+		        	var crossRet = chartHolder.selectAll('line.crosshair.ret').data(['clay','grass','hard']).enter();
+		        	crossRet.append('line').attr({
+		        		'class':function(d){
+		        			console.log(d)
+		        			return 'crosshair ret hidden ' + d},
+		        		'y1':function(d){return y(crosshairData[0].rG)},
+		        		'y2':function(d){return y(crosshairData[0].rG)},
+		        		'x1':x(x.domain()[0]),
+		        		'x2':x(x.domain()[1])
+		        	});
+
+
+
+
+		        	var circles = chartHolder.selectAll('circle.player').data(rawdata).enter();
+		        	circles.append('circle').attr({
+		        		'class':function(d){
+		        			if(d.name in oc(['Novak Djokovic','Andy Murray','Rafael Nadal','Roger Federer'])){return 'player key ' + d.name.replace(/ /g,'_')}
+		        			else{return 'player'}
+		        		},
+		        		'cx':function(d){return x(d.sA)},
+		        		'cy':function(d){return y(d.rA)},
+		        		'r':function(d){
+		        			if(d.name in oc(['Novak Djokovic','Andy Murray','Rafael Nadal','Roger Federer'])){return 3}
+		        			else{return 1}
+		        		},
+		        	});
+
+		        	var text = chartHolder.selectAll('text.player').data(rawdata).enter();
+		        	circles.append('text').attr({
+		        		'class':function(d){
+		        			if(d.name in oc(['Novak Djokovic','Andy Murray','Rafael Nadal','Roger Federer'])){return 'player key ' + d.name.replace(/ /g,'_')}
+		        			else{return 'player'}
+		        		},
+		        		'x':function(d){
+		        			if(d.name == 'Andy Murray')
+		        			{return x(d.sA) - 5}
+		        			else{return x(d.sA) + 5}
+		        		},
+		        		'y':function(d){return y(d.rA) + 4}
+		        	})
+		        	.style({
+		        		'display':function(d){
+		        			if(d.name in oc(['Novak Djokovic','Andy Murray','Rafael Nadal','Roger Federer'])){return 'block'}
+		        			else{return 'none'}
+		        		},
+		        		'text-anchor':function(d){
+		        			if(d.name == 'Andy Murray')
+		        			{return 'end'}
+		        			else{return 'start'}
+		        		}
+		        	})
+		        	.text(function(d){return d.name});
+
+
+
+		        	
+		        	
+      			}
+
+      				function activateCrosshair(surface){
+      					if(surface == 'all'){
+      						chartHolder.selectAll('line.crosshair:not(.'+surface+')').classed({'active':false,'hidden':true})	
+      					}else{    					
+      					chartHolder.selectAll('line.crosshair:not(.'+surface+')').classed('active',false)
+
+      					chartHolder.selectAll('line.crosshair.' + surface).classed({'hidden':false,'active':true})
+						chartHolder.selectAll('line.crosshair.srv.hidden,line.crosshair.srv.' + surface).transition().duration(1000).attr({
+		        			'x1':x(crosshairData[0]['s' + surface.charAt(0).toUpperCase()]),
+		        			'x2':x(crosshairData[0]['s' + surface.charAt(0).toUpperCase()])
+		        		});
+						chartHolder.selectAll('line.crosshair.ret.hidden,line.crosshair.ret.' + surface).transition().duration(1000).attr({
+		        			'y1':y(crosshairData[0]['r' + surface.charAt(0).toUpperCase()]),
+		        			'y2':y(crosshairData[0]['r' + surface.charAt(0).toUpperCase()])
+		        		});
+						}
+      				};
+
+      				function doAll(){
+		        		d3.selectAll('.surfaceButton').classed('active',false)
+		        		allButton.classed('active',true);
+		        		backdrop.classed('grass clay hard',false);
+
+		        		activateCrosshair('all');
+
+		        		chartHolder.selectAll('circle.player').transition().duration(1000).attr({
+		        			'cx':function(d){return x(d.sA)},
+		        			'cy':function(d){return y(d.rA)},
+		        		})
+		        		.style({
+		        			'display':function(d){
+		        				if(d.sA != 0){return 'block'}
+		        				else{return 'none'}
+		        			},
+		        		});
+		        		chartHolder.selectAll('text.player').transition().duration(1000).attr({
+		        			'x':function(d){
+		        			if(d.name == 'Andy Murray')
+		        			{return x(d.sA) - 5}
+		        			else{return x(d.sA) + 5}
+		        		},
+		        			'y':function(d){return y(d.rA) + 4},
+		        		})
+		        	};
+
+		        	function doGrass(){
+		        		d3.selectAll('.surfaceButton').classed('active',false)
+		        		grassButton.classed('active',true);
+		        		backdrop.classed('clay hard',false);
+						backdrop.classed('grass',true);
+
+						activateCrosshair('grass');
+
+						chartHolder.selectAll('circle.player').transition().duration(1000).attr({
+		        			'cx':function(d){return x(d.sG)},
+		        			'cy':function(d){return y(d.rG)},
+		        		})
+		        		.style({
+		        			'display':function(d){
+		        				if(d.sG != 0){return 'block'}
+		        				else{return 'none'}
+		        			},
+		        		});
+		        		chartHolder.selectAll('text.player').transition().duration(1000).attr({
+		        			'x':function(d){
+		        			if(d.name == 'Andy Murray')
+		        			{return x(d.sG) - 5}
+		        			else{return x(d.sG) + 5}
+		        		},
+		        			'y':function(d){return y(d.rG) + 4},
+		        		})
+		        	}
+
+		        	function doClay(){
+		        		d3.selectAll('.surfaceButton').classed('active',false)
+		        		clayButton.classed('active',true);
+		        		backdrop.classed('grass hard',false);
+						backdrop.classed('clay',true);
+
+						activateCrosshair('clay');
+
+		        		chartHolder.selectAll('circle.player').transition().duration(1000).attr({
+		        			'cx':function(d){return x(d.sC)},
+		        			'cy':function(d){return y(d.rC)},
+		        		})
+		        		.style({
+		        			'display':function(d){
+		        				if(d.sC != 0){return 'block'}
+		        				else{return 'none'}
+		        			},
+		        		});
+		        		chartHolder.selectAll('text.player').transition().duration(1000).attr({
+		        			'x':function(d){
+		        			if(d.name == 'Andy Murray')
+		        			{return x(d.sC) - 5}
+		        			else{return x(d.sC) + 5}
+		        		},
+		        			'y':function(d){return y(d.rC) + 4},
+		        		})
+		        	}
+
+		        	function doHard(){
+		        		d3.selectAll('.surfaceButton').classed('active',false)
+		        		hardButton.classed('active',true);
+		        		backdrop.classed('clay grass',false);
+						backdrop.classed('hard',true);
+
+						activateCrosshair('hard');
+
+		        		chartHolder.selectAll('circle.player').transition().duration(1000).attr({
+		        			'cx':function(d){return x(d.sH)},
+		        			'cy':function(d){return y(d.rH)},
+		        		})
+		        		.style({
+		        			'display':function(d){
+		        				if(d.sH != 0){return 'block'}
+		        				else{return 'none'}
+		        			},
+		        		});
+		        		chartHolder.selectAll('text.player').transition().duration(1000).attr({
+		        			'x':function(d){
+		        			if(d.name == 'Andy Murray')
+		        			{return x(d.sH) - 5}
+		        			else{return x(d.sH) + 5}
+		        		},
+		        			'y':function(d){return y(d.rH) + 4},
+		        		})
+		        	}
+
+				    allButton.on("click",doAll);
+				    grassButton.on("click",doGrass);
+				    clayButton.on("click",doClay);
+				    hardButton.on("click",doHard);
+
+			</script>
+</html>
