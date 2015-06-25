@@ -5,14 +5,14 @@
  * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
  */
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
-  color: #fff; }
+  color: #fff1e0; }
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #fff;
-  background-color: #fff; }
+  background: #fff1e0;
+  background-color: #fff1e0; }
 
 .reveal {
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
@@ -21,7 +21,7 @@ body {
   color: #222; }
 
 ::selection {
-  color: #fff;
+  color: #fff1e0;
   background: #98bdef;
   text-shadow: none; }
 
@@ -54,6 +54,15 @@ body {
 
 .reveal h4 {
   font-size: 1em; }
+
+.reveal h5 {
+  font-size: 0.8em; }
+
+.reveal p.minor {
+  font-size: 0.8em; }
+
+.reveal p.superminor {
+  font-size: 0.7em; }
 
 .reveal h1 {
   text-shadow: none; }
@@ -181,19 +190,19 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #2a76dd;
+  color: #af516c;
   text-decoration: none;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 .reveal a:hover {
-  color: #6ca2e8;
+  color: #9e2f50;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
-  color: #fff;
+  color: #fff1e0;
   background: #1a54a1; }
 
 /*********************************************
@@ -213,35 +222,35 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #2a76dd;
+  border-color: #af516c;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
 .reveal .controls div.navigate-left, .reveal .controls div.navigate-left.enabled {
-  border-right-color: #2a76dd; }
+  border-right-color: #af516c; }
 
 .reveal .controls div.navigate-right, .reveal .controls div.navigate-right.enabled {
-  border-left-color: #2a76dd; }
+  border-left-color: #af516c; }
 
 .reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #2a76dd; }
+  border-bottom-color: #af516c; }
 
 .reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
-  border-top-color: #2a76dd; }
+  border-top-color: #af516c; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #6ca2e8; }
+  border-right-color: #9e2f50; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #6ca2e8; }
+  border-left-color: #9e2f50; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #6ca2e8; }
+  border-bottom-color: #9e2f50; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #6ca2e8; }
+  border-top-color: #9e2f50; }
 
 /*********************************************
  * PROGRESS BAR
@@ -250,7 +259,7 @@ body {
   /*background: rgba(0, 0, 0, 0.2);*/ }
 
 .reveal .progress span {
-  background: #2a76dd;
+  background: #af516c;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
@@ -259,4 +268,4 @@ body {
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: #2a76dd; }
+  color: #af516c; }
