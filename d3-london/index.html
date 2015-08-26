@@ -138,21 +138,21 @@
 			// 	alert('thing')
 			// })
 
-			d3.select('h1').on('click',function(){
-					var current = d3.select('#b1').attr('src');
-					var currentIndex = urls.indexOf(current)+1;
-					var to = 'a'+currentIndex;
-					// alert("thing")		
-				    ramjet.transform( b1, eval(to), {
-						// easing: eases[ this.get( 'easing' ) ],
-						duration: 1000,
-						// setTimeout(function(){
-						// 	addClass( b, 'visible' );
-						// },400)
-					});
-			    	d3.select('#b1').classed('visible',false);
-					d3.select('#a1').classed('visible',true);
-			});
+			// d3.select('h1').on('click',function(){
+			// 		var current = d3.select('#b1').attr('src');
+			// 		var currentIndex = urls.indexOf(current)+1;
+			// 		var to = 'a'+currentIndex;
+			// 		// alert("thing")		
+			// 	    ramjet.transform( b1, eval(to), {
+			// 			// easing: eases[ this.get( 'easing' ) ],
+			// 			duration: 1000,
+			// 			// setTimeout(function(){
+			// 			// 	addClass( b, 'visible' );
+			// 			// },400)
+			// 		});
+			//     	d3.select('#b1').classed('visible',false);
+			// 		d3.select('#a1').classed('visible',true);
+			// });
 
 		    // to repeat, run this from the console!
 		    // d3.select('#b').attr({
@@ -165,7 +165,8 @@
 				'target':'_blank'
 			});
 
-		    d3.selectAll('.a').on('click',function(){
+		    setTimeout(function(){
+		    // d3.selectAll('.a').on('click',function(){
 		    	var from = d3.select(this).attr('id');
 		    	var index = +(from.replace(/[a-z]/g,"")-1);
 		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
@@ -182,7 +183,7 @@
 				d3.select('#b1').attr({
 					'src':urls[index]
 				}).classed('visible',true);
-		    });
+		    },2000);
 
 		</script>
 
