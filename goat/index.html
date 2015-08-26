@@ -59,6 +59,7 @@
     #container{height:950px;width:100%;margin-left:auto;margin-right:auto;background-color:transparent;text-align:center;max-width:1000px;}
     #thesvg{position:relative;top:200px;height:640px;width:100%;max-width:1000px;}
     #thesvg.inactive{pointer-events:none;}
+    #thesvg.intro{pointer-events:none;}
     #textholder{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;width:95%;background-color:transparent;height:100%;max-width:900px;z-index:1000;pointer-events:none;}
     #captionhold1{position:absolute;margin-left:auto;margin-right:auto;left:0;right:0;top:110px;width:100%;height:44px;max-width:900px;z-index:1000;text-align:left;font-size:18px;line-height:24px;background-color:#fff1e0;}
     .hovertext_{opacity:0;pointer-events:none;}
@@ -69,20 +70,23 @@
     .hovermarker{fill:transparent;}
     #animatebutton{position:relative;top:165px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:right;}
     #animatebutton:hover{background-color:#74736c;color:#fff1e0;}
+    #animatebutton.hidden{display:none;}
 
     #backbutton{position:relative;top:165px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;}
     #backbutton:hover{background-color:#74736c;color:#fff1e0;}
+    #backbutton.hidden{display:none;}
 
     #topbuttontext{position:relative;top:167px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
     #dropdowntext{position:relative;top:167px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:14px;}
 
+    #topbuttontext.intro{display:none;}
+    #dropdowntext.intro{display:none;}
     /*#dropdowntext.hidden{display:none;}*/
 
-    #topbutton{position:relative;top:172px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
-    #topbutton:hover{background-color:#74736c;color:#fff1e0;}
-
-    #dropbutton{position:relative;top:172px;background-color:#F6E9D8;padding:5px;border-radius:5px;color:#74736c;border:1px solid #74736c;transition:0.3s;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
-    #dropbutton:hover{background-color:#74736c;color:#fff1e0;}
+    #topbutton{position:relative;top:172px;padding:5px;border-radius:5px;border:1px solid #74736c;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
+    #dropbutton{position:relative;top:172px;padding:5px;border-radius:5px;border:1px solid #74736c;cursor:pointer;pointer-events:all;float:left;margin-left:4px;}
+    #topbutton.intro{display:none;}
+    #dropbutton.intro{display:none;}
 
     #slidetitle{position:absolute;top:60px;left:0;right:0;margin-left:auto;margin-right:auto;font-size:32px;font-family:"MillerDisplay","Clarion",Georgia,serif;}
     #navintro{position:relative;background-color:white;padding:10px;font-size:18px;border-radius:5px;border:1px solid #b8b1a9;white-space:nowrap;display: block;margin: 0 auto;width: 355px;top:0px;z-index:2000;visibility:hidden;}
@@ -230,19 +234,30 @@
     .namelabel{font-size:11px;opacity:0;fill:#43423e;alignment-baseline:middle;}
     .namelabel.backed{opacity:0!important;}
 
-    .hoverlabel{font-size:11px;opacity:1;fill:#43423e;alignment-baseline:middle;overflow:visible;}
-    .hoverrect{opacity:0.7;fill:white;stroke:#b8b1a9;}
-    .hoverlabeltwo{font-size:11px;opacity:1;fill:#43423e;alignment-baseline:middle;overflow:visible;}
-    .hoverrecttwo{opacity:0.7;fill:white;stroke:#b8b1a9;}
+    .hoverlabel{font-size:14px;opacity:1;fill:#9e2f50;alignment-baseline:middle;overflow:visible;}
+    .hoverrect{opacity:0;fill:white;stroke:#b8b1a9;}
+    .hoverlabeltwo{font-size:14px;opacity:1;fill:#2B93A8;alignment-baseline:middle;overflow:visible;}
+    .hoverrecttwo{opacity:0;fill:white;stroke:#b8b1a9;}
+
+    .hoverlabel.mobile{font-size:16px;opacity:1;fill:#9e2f50;alignment-baseline:middle;overflow:visible;}
+    .hoverrect.mobile{opacity:0.5;fill:white;stroke:#b8b1a9;}
+    .hoverlabeltwo.mobile{font-size:16px;opacity:1;fill:#76acb8;alignment-baseline:middle;overflow:visible;}
+    .hoverrecttwo.mobile{opacity:0.5;fill:white;stroke:#b8b1a9;}
+
+    .mobile{display:none;}
 
     .playercircle{opacity:0.5;fill:#b8b1a9;}
 
     .ylabel{font-size:12px;}
     .xlabel{font-size:12px;}
 
-    .dropdown{position:relative;top:172px;z-index:2000;float:left;pointer-events:all;margin-left:7px;}
+    .dropdown{position:relative;top:172px;z-index:2000;float:left;pointer-events:all;margin-left:7px;max-width:151px;}
+    .dropdowndummy{position:relative;top:198px;z-index:2000;float:left;pointer-events:all;margin-left:7px;width:147px;text-align:left;font-size:12px;padding:2px;color:#fff1e0;display:none;}
+    .dropdowndummy.one{background-color:#9e2f50;}
+    .dropdowndummy.two{background-color:#76acb8;}
     .dropdown.hidden{display:none;}
     .dropdown.off{display:none;}
+    .inactivetip{display:none;}
 
     #selector{}
     #selector0{}
@@ -256,20 +271,21 @@
     }
 
     @media screen and (max-width: 768px) {
-    #thesvg.inactive{pointer-events:all;}
+    #thesvg.inactive{pointer-events:none;}
+    #thesvg.inactive.intro{pointer-events:none;}
     #progressbar{display:block;top:41px;height:3px;opacity:1;}
     #progressbarwide{display:none;}
     .hovertip{visibility:hidden;}
     #ft-header {height: 40px;}
     #ft-header a>img {margin-top: 12px;opacity: .8;transition: opacity .3s;height:18px;}
-    #thesvg{position:relative;top:175px;height:700px;width:100%;max-width:900px;}
+    #thesvg{position:relative;top:175px;height:700px;width:100%;max-width:900px;pointer-events:none;}
     .hovertext{opacity:0;pointer-events:none;font-size:20px;}
     #captionhold1{height:44px;font-size:18px;line-height:24px;top:85px;}
     #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
     #slidetitle{font-size:26px;top:48px;}
     #textholder{height:690px;}
     #container{height:950px;}
-    #navintro{position:absolute;padding:10px;font-size:20px;white-space:nowrap;width:325px;top:750px;left:0;right:0;visibility:visible;}
+    #navintro{position:absolute;padding:10px;font-size:20px;white-space:nowrap;width:450px;top:780px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:1.25px;}
     #animatebutton{display:none;}
     #backbutton{display:none;}
@@ -280,27 +296,32 @@
     #otherlabeltop{fill:#fff1e0;font-size:18px;}
     #otherlabelbottom{fill:#fff1e0;font-size:18px;}
     #dropdowndesktop{display:none;}
+    #selector,#selector0{clear:left;}
+    #dropbutton.intro{display:none;}
+    #dropbutton{display:none;}
     }
 
     @media only screen and (min-device-width: 801px) and (max-device-width :1024px) and (orientation : landscape) {
     #thesvg{top:190px;height:330px;}
-    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:210px;top:520px;left:0;right:0;visibility:visible;}
+    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:280px;top:520px;left:0;right:0;visibility:visible;}
     #scrollpoint{position:absolute;top:77px;}
     #navpoint{position:absolute;top:520px;}
     #animatebutton{display:none;}
     #backbutton{display:none;}
     #dropdowndesktop{display:none;}
+    #dropbutton.intro{display:none;}
     }
 
     @media only screen and (min-device-width: 768px) and (max-device-width : 800px) and (orientation : landscape) {
     #thesvg{top:190px;height:330px;}
-    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:210px;top:520px;left:0;right:0;visibility:visible;}
+    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:280px;top:520px;left:0;right:0;visibility:visible;}
     #scrollpoint{position:absolute;top:41px;}
     #navpoint{position:absolute;top:520px;}
     #progressbar{position:absolute;top:41px;height:3px;opacity:1;display:block;}
     #animatebutton{display:none;}
     #backbutton{display:none;}
     #dropdowndesktop{display:none;}
+    #dropbutton.intro{display:none;}
     }
 
     @media screen and (max-width: 605px) {
@@ -317,39 +338,49 @@
     #legendscroll{top:190px;}
     .legendtext{font-size:12px;position:absolute;left:0;top:170px;}
     #dropdowndesktop{display:none;}
+    #topbutton{top:215px;}
+    #dropbutton{top:215px;}
+    #topbuttontext{top:210px;}
+    #dropdowntext{top:210px;}
+    .dropdowndummy{top:236;}
+    .dropdown{top:210px}
     }
 
     @media screen and (max-width: 480px) {
-    #selector{background-color:#9e2f50;color:#fff1e0;}
-    #selector0{background-color:#9e2f50;color:#fff1e0;}
+    .dropdowndummy{display:block;}
+    #selector{background-color:#9e2f50;color:#fff1e0;clear:none;}
+    #selector0{background-color:#9e2f50;color:#fff1e0;clear:none;}
     #selector2{background-color:#76acb8;color:#fff1e0;}
     #selector20{background-color:#76acb8;color:#fff1e0;}
     .hoverrect,.hoverrecttwo,.hoverlabel,.hoverlabeltwo{display:none;}
+    .hoverrect.mobile,.hoverrecttwo.mobile,.hoverlabel.mobile,.hoverlabeltwo.mobile{display:block;}
+    .mobilehidden{display:none;}
 
     #progressbar{position:absolute;top:41px;height:3px;opacity:1;}
     #ft-header {height: 40px;}
     #ft-header a>img {margin-top: 11px;opacity: .8;transition: opacity .3s;height:18px;}
-    #thesvg{position:relative;top:165px;height:365px;width:100%;max-width:900px;pointer-events:none;}
+    #thesvg{position:relative;top:160px;height:365px;width:100%;max-width:900px;pointer-events:none;}
+    #thesvg.inactive{pointer-events:none;}
     .hovertext{opacity:0;pointer-events:none;font-size:20px;}
     #captionhold1{height:44px;font-size:13px;line-height:17px;top:80px;}
     #animatebutton{top:170px;padding:4px;border-radius:4px;font-size:14px;}
-    #slidetitle{font-size:22px;top:48px;}
+    #slidetitle{font-size:22px;top:48px;white-space:nowrap;}
     #textholder{height:690px;}
     #container{height:690px;}
     #textholder.introstate{opacity:1;}
     #thesvg.introstate{opacity:1;}
-    #navintro{padding:6px;font-size:12px;white-space:nowrap;width:210px;top:450px;left:0;right:0;visibility:visible;}
+    #navintro{padding:5px;font-size:12px;white-space:nowrap;width:280px;top:460px;left:0;right:0;visibility:visible;}
     .axis line{stroke-width:2px;}
     #scrollpoint{position:absolute;top:42px;}
     #scrollpointtwo{position:absolute;top:42px;}
     #animatebutton{visibility:hidden;}
-    #navpoint{visibility:visible;position:absolute;top:530px;}
+    #navpoint{visibility:visible;position:absolute;top:540px;}
     #toryline{stroke-width:3px;stroke:#3C5F5E;}
     #labourline{stroke-width:3px;stroke:#b1493f;}
     #allline{stroke-width:3px;stroke:#b8b1a9;}
     #legendscroll{top:175px;}
     .legendtext{font-size:9px;position:absolute;float:left;top:150px;}
-    #footer{padding-bottom:3px;width:100%;z-index:0;background-color:#fff1e0;box-shadow: 2px 0px 0px 2px rgba(0,0,0,.1);padding-top:3px;right:0;font-size:12px;}
+    #footer{padding-bottom:3px;width:100%;z-index:0;background-color:#fff1e0;box-shadow: 2px 0px 0px 2px rgba(0,0,0,.1);padding-top:3px;right:0;font-size:10px;white-space:nowrap;}
     #footer.introstate{opacity:1;}
 
     #smallcircle{padding:2px;border-radius:3px;border:solid 1px #b8b1a9;display:inline-block;}
@@ -368,7 +399,31 @@
     #otherlabeltop{fill:#fff1e0;font-size:20px;}
     #otherlabelbottom{fill:#fff1e0;font-size:20px;}
 
-    #dropdowndesktop{display:none;}
+    #dropdowndesktop{display:none;font-size:12px;}
+
+    #topbuttontext{position:relative;top:159px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:0px;font-size:12px;}
+    #dropdowntext{position:relative;top:159px;padding:6px 0px 6px 6px;color:#74736c;float:left;margin-left:4px;font-size:12px;}
+    .axis text{font-size:18px;}
+    .xlabel,.ylabel{font-size:20px;}
+
+    #topbutton{top:164px;}
+    #dropbutton{top:164px;display:none;}
+    .dropdowndummy{top:190px;}
+    .dropdown{top:164px;}
+    }
+
+    @media screen and (max-width: 340px) {
+    #thesvg{top:165px;}
+    .dropdowndummy{display:block;margin-left:0px;}
+    .dropdown{margin-left:0px;}
+    #slidetitle{font-size:19px;}
+
+    #topbuttontext{top:164px;}
+    #dropdowntext{top:164px;}
+    #topbutton{top:169px;}
+    #dropbutton{top:169px;}
+    .dropdowndummy{top:195px;}
+    .dropdown{top:169px;}
     }
     </style>
   </head>
@@ -406,23 +461,27 @@
     .html();
     };
 
-    thetext.append("span").attr("id","slidetitle").text("The greatest tennis players of all time");
+    thetext.append("span").attr("id","slidetitle").text("The greatest men's tennis players ever");
 
     thetext.append("div").attr({"id":"captionhold1"}).append("span").html("156 players have reached the top ten of the ATP rankings since they were established in 1973. How do they compare on success and longevity?");
 
     thetext.append("span").attr("id","backbutton").text("« Back").attr("class","hidden");
 
-    thetext.append("span").attr("id","topbuttontext").text("Top 25 only").attr("class","hidden");
+    thetext.append("span").attr("id","topbuttontext").text("Top 50 only").attr("class","intro");
 
-    var check = thetext.append("input").attr("type","checkbox").attr("id","topbutton").attr("class","hidden");
+    var check = thetext.append("input").attr("type","checkbox").attr("id","topbutton").attr("class","intro");
 
-    thetext.append("span").attr("id","dropdowntext").text("Compare players using dropdown").attr("class","hidden").append("span").attr("id","dropdowndesktop").text(" (disables hover)");
+    thetext.append("span").attr("id","dropdowntext").text("Compare players using dropdown").attr("class","intro").append("span").attr("id","dropdowndesktop").text(" (disables hover)");
 
-    var check2 = thetext.append("input").attr("type","checkbox").attr("id","dropbutton").attr("class","hidden");
+    var check2 = thetext.append("input").attr("type","checkbox").attr("id","dropbutton").attr("class","intro");
+
+    thetext.append("span").attr("class","dropdowndummy one").text("Roger Federer");
+
+    thetext.append("span").attr("class","dropdowndummy two").text("Jimmy Connors");
 
     thetext.append("span").attr("id","animatebutton").text("Next »");
 
-    var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"0 0 1000 640","class":"introstate","xml:space":"preserve"});
+    var svg = cont.append("svg").attr({"id":"thesvg","viewBox":"0 0 1000 640","class":"intro inactive","xml:space":"preserve"});
 
     thetext.append("div").attr({"id":"scrollpoint"});
 
@@ -434,7 +493,7 @@
 
     cont.append("span")
       .attr("id","navintro")
-      .text("Swipe right-to-left to continue");
+      .text("Swipe right-to-left to continue, opposite to go back");
 
     cont.append("div").attr({"id":"navpoint"});
 
@@ -442,14 +501,18 @@
 
     cont.append("div").attr({"id":"legendscroll"});
 
-    cont.append("span").attr({"id":"footer","class":"introstate"}).html("By " + '<a href="https://twitter.com/jburnmurdoch" title="John Burn-Murdoch" target="_blank" id="authorlink">' + "John Burn-Murdoch" + "</a>" + '&nbsp;&nbsp;&nbsp;&nbsp;' + "Source: " + '<a href="http://www.atpworldtour.com/" title="ATP World Tour" target="_blank" id="sourcelink">' + "ATP World Tour" + "</a>");
+    cont.append("span").attr({"id":"footer","class":"introstate"}).html("By " + '<a href="https://twitter.com/jburnmurdoch" title="John Burn-Murdoch" target="_blank" id="authorlink">' + "John Burn-Murdoch" + "</a>" + '&nbsp;&nbsp;&nbsp;&nbsp;' + "Source: " + '<a href="http://www.atpworldtour.com/" title="ATP World Tour" target="_blank" id="sourcelink">' + "ATP World Tour" + "</a>" + '&nbsp;&nbsp;&nbsp;&nbsp;' + "More of " + '<a href="http://blogs.ft.com/ftdata/category/baseline/" title="FT Baseline, on sporting statistics" target="_blank" id="sectionlink">' + "FT Baseline" + "</a>");
 
     function moveintro(){return d3.select("#navintro").transition().duration(2000).style("top",function(){return d3.select("#navpoint").style("top")})};
 
     function movesvg(){return d3.select("#thesvg").style("top",function(){return d3.select("#legendscroll").style("top")})};
 
-    function progress(){return d3.select("#progressbar").transition().duration(250).style("width",function(){return ((slidenum) * ($("#textholder").width())/6) + "px"}),
-        d3.select("#progressbarwide").transition().duration(250).style("width",function(){return ((slidenum) * 150) + "px"});
+    function progress(){return d3.select("#progressbar").transition().duration(500).style("width",function(){return ((slidenum+1) * ($("#textholder").width())/4) + "px"}),
+        d3.select("#progressbarwide").transition().duration(500).style("width",function(){return ((slidenum+1) * 225) + "px"});
+    };
+
+    function regress(){return d3.select("#progressbar").transition().duration(500).style("width",function(){return ((slidenum+1) * ($("#textholder").width())/4) + "px"}),
+        d3.select("#progressbarwide").transition().duration(500).style("width",function(){return ((slidenum+1) * 225) + "px"});
     };
 
     /* ADD INTERACTIVITY HERE! */
@@ -566,7 +629,7 @@
     console.log("second",data3);
 
     x.domain([d3.min(data, function(d) { return d3.min(d.values, function (d) { return d.match; }); }),
-             d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.match+95; }); })]);
+             d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.match+105; }); })]);
     x2.domain([d3.min(data, function(d) { return d3.min(d.values, function (d) { return d.year; }); }),
              d3.max(data, function(d) { return d3.max(d.values, function (d) { return d.year+4; }); })]);
     x3.domain([d3.min(data, function(d) { return d3.min(d.values, function (d) { return d.age; }); }),
@@ -688,7 +751,8 @@
       d3.selectAll(".hoverrecttwo").remove()
     })
 
-    d3.selectAll("g.player").filter(function(d,i) { return i > 123 }).classed("top50",true);
+    d3.selectAll("g.player").filter(function(d,i) { return i > 105 }).classed("top50",true);
+    d3.selectAll("g.tooltip").filter(function(d,i) { return i > 105 }).classed("top50",true);
 
     function highlightplayer(name){        
         var xpos = d3.select("." + name + " " + "circle").attr("cx")
@@ -696,12 +760,16 @@
         var playersname = name.replace(/_/g," ")
         d3.selectAll(".hoverlabel").remove()
         d3.selectAll(".hoverrect").remove()
-        d3.selectAll("*:not(.player2).player").classed('backed',true)
+        d3.selectAll("*:not(.activetip2).tooltip").classed("inactivetip",true)
+        d3.selectAll("*:not(.player2).player").classed('backed',true).classed("player1",false)
         d3.selectAll('.namelabel').classed('backed',true)
         d3.selectAll('g.player').classed('hovered',false)
         d3.select('g.player.' + name).classed('hovered player1',true).classed('backed',false)
+        d3.select('g.tooltip.' + name).classed('activetip1',true).classed('inactivetip',false)
         d3.select('g.tooltip.' + name).append("rect").attr("x",0).attr("y",-11).attr("class","hoverrect " + name).attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
         d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",0).attr("y",0).attr("class","hoverlabel " + name).text(" " + playersname)
+        // d3.select('g.tooltip.' + name).append("rect").attr("x",-25).attr("y",-11).attr("class","hoverrect mobile " + name).attr("width",155).attr("height",20).attr("rx",5).attr("ry",5)
+        // d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",-25).attr("y",0).attr("class","hoverlabel mobile " + name).text(" " + playersname)
         $("g.player").insertBefore($("g.player." + name),null)
     };
 
@@ -711,14 +779,52 @@
         var playersname = name.replace(/_/g," ")
         d3.selectAll(".hoverlabeltwo").remove()
         d3.selectAll(".hoverrecttwo").remove()
-        d3.selectAll("*:not(.player1).player").classed('backed',true)
+        d3.selectAll("*:not(.activetip1).tooltip").classed("inactivetip",true)
+        d3.selectAll("*:not(.player1).player").classed('backed',true).classed("player2",false)
         d3.selectAll('.namelabel').classed('backed',true)
         d3.selectAll('g.player').classed('hoveredtwo',false)
         d3.select('g.player.' + name).classed('hoveredtwo player2',true).classed('backed',false)
+        d3.select('g.tooltip.' + name).classed('activetip2',true).classed('inactivetip',false)
         d3.select('g.tooltip.' + name).append("rect").attr("x",0).attr("y",-11).attr("class","hoverrecttwo " + name).attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
         d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",0).attr("y",0).attr("class","hoverlabeltwo " + name).text(" " + playersname)
+        // d3.select('g.tooltip.' + name).append("rect").attr("x",-25).attr("y",-11).attr("class","hoverrecttwo mobile " + name).attr("width",155).attr("height",20).attr("rx",5).attr("ry",5)
+        // d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",-25).attr("y",0).attr("class","hoverlabeltwo mobile " + name).text(" " + playersname)
         $("g.player").insertBefore($("g.player." + name),null)
     };
+
+    // function storyplayer(name){        
+    //     var xpos = d3.select("." + name + " " + "circle").attr("cx")
+    //     var ypos = d3.select("." + name + " " + "circle").attr("cy")
+    //     var playersname = name.replace(/_/g," ")
+    //     d3.selectAll(".hoverlabel").remove()
+    //     d3.selectAll(".hoverrect").remove()
+    //     d3.selectAll("*:not(.storyplayer2).player").classed('backed',true)
+    //     d3.selectAll('.namelabel').classed('backed',true)
+    //     d3.selectAll('g.player').classed('hovered',false)
+    //     d3.select('g.player.' + name).classed('hovered storyplayer1',true).classed('backed',false)
+    //     d3.select('g.tooltip.' + name).append("rect").attr("x",0).attr("y",-11).attr("class","hoverrect storyplayer " + name).attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
+    //     d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",0).attr("y",0).attr("class","hoverlabel storyplayer " + name).text(" " + playersname)
+    //     d3.select('g.tooltip.' + name).append("rect").attr("x",-25).attr("y",-11).attr("class","hoverrect mobile storyplayer " + name).attr("width",155).attr("height",20).attr("rx",5).attr("ry",5)
+    //     d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",-25).attr("y",0).attr("class","hoverlabel mobile storyplayer " + name).text(" " + playersname)
+    //     $("g.player").insertBefore($("g.player." + name),null)
+    // };
+
+    // function storyplayertwo(name){        
+    //     var xpos = d3.select("." + name + " " + "circle").attr("cx")
+    //     var ypos = d3.select("." + name + " " + "circle").attr("cy")
+    //     var playersname = name.replace(/_/g," ")
+    //     d3.selectAll(".hoverlabeltwo").remove()
+    //     d3.selectAll(".hoverrecttwo").remove()
+    //     d3.selectAll("*:not(.storyplayer1).player").classed('backed',true)
+    //     d3.selectAll('.namelabel').classed('backed',true)
+    //     d3.selectAll('g.player').classed('hoveredtwo',false)
+    //     d3.select('g.player.' + name).classed('hoveredtwo storyplayer2',true).classed('backed',false)
+    //     d3.select('g.tooltip.' + name).append("rect").attr("x",0).attr("y",-11).attr("class","hoverrecttwo storyplayer " + name).attr("width",115).attr("height",20).attr("rx",5).attr("ry",5)
+    //     d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",0).attr("y",0).attr("class","hoverlabeltwo storyplayer " + name).text(" " + playersname)
+    //     d3.select('g.tooltip.' + name).append("rect").attr("x",-25).attr("y",-11).attr("class","hoverrecttwo mobile storyplayer " + name).attr("width",155).attr("height",20).attr("rx",5).attr("ry",5)
+    //     d3.select('g.tooltip.' + name).append("text").attr("xml:space","preserve").attr("x",-25).attr("y",0).attr("class","hoverlabeltwo mobile storyplayer " + name).text(" " + playersname)
+    //     $("g.player").insertBefore($("g.player." + name),null)
+    // };
 
     function change() {
             highlightplayer((this.value).replace(/ /g, '_'));
@@ -736,6 +842,7 @@
             highlightplayertwo((this.value).replace(/ /g, '_'));
         };
 
+    document.getElementById("dropbutton").checked = true;
 
     var select  = thetext.append("select").attr("class","dropdown hidden").attr("id","selector").on("change", change),
     options = select.selectAll('option').data(data2);
@@ -883,9 +990,9 @@
             .call(yAxisright);};
 
     function tominiyaxis(){
-        y.domain([60,90])
-        yAxis.tickValues([70,80,90])
-        yAxisright.tickValues([70,80,90])
+        y.domain([55,90])
+        yAxis.tickValues([60,70,80,90])
+        yAxisright.tickValues([60,70,80,90])
         d3.select("#yaxis")
             .transition().duration(2000)
             .call(yAxis);
@@ -907,9 +1014,28 @@
         d3.select("#yaxisright .tick:nth-of-type(1)").classed("hidden",true);};
 
     function switchdropdowns(){
+        var p1 = d3.select(".player1").attr("class").split(" ")[1].replace("_"," ");
+        var p2 = d3.select(".player2").attr("class").split(" ")[1].replace("_"," ");
         d3.selectAll(".dropdown.off").classed("on",true)
         d3.selectAll("*:not(.off).dropdown").classed("off",true)
         d3.selectAll(".dropdown.on").classed("off on",false)
+        $('#selector').val(p1);
+        $('#selector0').val(p1);
+        $('#selector2').val(p2);
+        $('#selector20').val(p2);
+        d3.selectAll("*:not(.top50).tooltip text").remove();
+        d3.selectAll("*:not(.top50).tooltip rect").remove();
+        d3.selectAll('.namelabel').classed('backed',true);
+        d3.selectAll("*:not(.top50).player").classed('hovered',false).classed("backed",true);
+        if($(".player1").is(".top50") === true){console.log("yep")}else{$('#selector0').val("Player 1");}
+        if($(".player2").is(".top50") === true){console.log("yep")}else{$('#selector20').val("Player 2");}
+    };
+
+    function addnon50() {
+        var p1 = d3.select(".player1").attr("class").split(" ")[1];
+        var p2 = d3.select(".player2").attr("class").split(" ")[1];
+        highlightplayer(p1);
+        highlightplayertwo(p2);
     };
 
     function fifty0(){
@@ -950,6 +1076,7 @@
         tolongyaxis();
         tomatchline();
         d3.selectAll(".topplayer").classed("added",false);
+        addnon50();
     };
 
     function nofifty1(){
@@ -958,6 +1085,7 @@
         toshortyaxis();
         tomatchline();
         d3.selectAll(".topplayer").classed("added",false);
+        addnon50();
     };
 
     function nofifty2(){
@@ -966,6 +1094,7 @@
         toshortyaxis();
         toyearsline();
         d3.selectAll(".topplayer").classed("added",false);
+        addnon50();
     };
 
     function nofifty3(){
@@ -974,6 +1103,7 @@
         toshortyaxis();
         toageline();
         d3.selectAll(".topplayer").classed("added",false);
+        addnon50();
     };      
 
     function dotop11() {
@@ -987,49 +1117,84 @@
         else {if (document.getElementById('topbutton').checked === false && slidenum == 3) nofifty3()}}}}}}}     
     };
 
+    var slideone = "Here are Roger Federer and Jimmy Connors, record-holders in terms of success and longevity. But they played decades apart. Let's look at those different eras";
+
+    var slidetwo = "Connors turned pro the year before our graph starts, so he hit the ground running. 25 years on, many forget how long it took Federer to develop into the seventeen time major champion";
+
+    var slidethree = "But looking at age, Federer's greatest strength may be his staying power. By 33, most players are on the slide, but he marches on. Explore how different plairings look from each of the three perspectives:";
+
+    progress();  
+    $('#selector').val("Roger Federer");
+    $('#selector2').val("Jimmy Connors");
+
     function upto1() {
+        newtext(slideone,"","","","");
         toshortyaxis();
         tomatchline();
         d3.select("#backbutton").classed("hidden",false);
         // d3.selectAll("*:not(.top50).player").style("display","none");
         slidenum = 1;
+        progress();
     };
 
     function downto0() {
+        newtext("156 players have reached the top ten of the ATP rankings since they were established in 1973. How do they compare on success and longevity?","","","","");
         tolongyaxis();
         tomatchline();
         d3.select("#backbutton").classed("hidden",true);
         // d3.selectAll("*:not(.top50).player").style("display","block");
         slidenum = 0;
+        regress();
     };
 
     function upto2() {
+        newtext(slidetwo,"","","","");
         toyearsline();
         d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Year").attr("transform","translate(0,0)");
         slidenum = 2;
+        progress();
     };    
 
     function downto1() {
+        newtext(slideone,"","","","");
         d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Matches played").attr("transform","translate(0,0)");
         tomatchline();
         slidenum = 1;
+        regress();
     };
 
     function upto3() {
+        d3.select("#animatebutton").classed("hidden",true);
+        newtext(slidethree,"","","","");
+        d3.selectAll(".dropdowndummy").style("display","none")   
+        d3.selectAll(".dropdown").classed("hidden",false)
         d3.select("#topbutton").classed("hidden",false);
+        d3.select("#topbuttontext").classed("intro",false);
+        d3.select("#dropdowntext").classed("intro",false);
+        d3.select("#dropdowndesktop").classed("intro",false);
+        d3.select("#topbutton").classed("intro",false);
+        d3.select("#dropbutton").classed("intro",false);
+        d3.select("#thesvg").classed("intro",false);
         d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Age").attr("transform","translate(0,0)");
         toageline();
         slidenum = 3;
+        slideone = "Here are win rates developing with the number of matches played. Early in a career, rates are often very high or low, due largely in part to small sample sizes and part to less consistent performances";
+        slidetwo = "Now the x-axis shows the years in which people played. We can clearly see the cases (top-left) where players were already professional when our time series starts: Nastase, Laver, Ashe and others";
+        slidethree = "Here the x-axis shows age. Few modern players continue after their early 30s, but many of Connors' contemporaries played on much later, including Ken Rosewall who beat a top 50 player when aged 46";
+        progress();
     };
 
     function downto2() {
+        d3.select("#animatebutton").classed("hidden",false);
+        newtext(slidetwo,"","","","");
         toyearsline();
         d3.select(".xlabel").transition().duration(1000).attr("transform","translate(-1500,0)")
         .transition().delay(1000).duration(1000).text("Year").attr("transform","translate(0,0)");
         slidenum = 2;
+        regress();
     };
 
     function dropped(){
@@ -1038,6 +1203,10 @@
     };
 
     function todropdown(){
+        $('#selector').val("Player 1");
+        $('#selector0').val("Player 1");
+        $('#selector2').val("Player 2");
+        $('#selector20').val("Player 2");
         d3.selectAll(".dropdown").classed("hidden",false)
         svg.classed("inactive",true)
     };
@@ -1053,18 +1222,25 @@
     d3.select('#dropbutton')
     .on('click', dropped)
 
+    highlightplayer("Roger_Federer");
+    highlightplayertwo("Jimmy_Connors");
+
     // d3.select('#top50button')
     // .on('click', filtertop50)
 
     // d3.select('#resetfilter')
     // .on('click', showall)
 
+    function newtext(part1,link,linktitle,linktext,part2){return d3.select("#captionhold1 span")
+      .html(part1  + ' ' + '<a href="' + link + '" title="' + linktitle + '" target="_blank" id="storylink">' + linktext + "</a>" + ' ' + part2).style("opacity","0")
+      .transition().duration(1000).style("opacity","1")};
+
     addEventListener("keydown", function(event) {
     if (event.keyCode == 34 && slidenum == -1) toslide0()
         else {if (event.keyCode == 34 && slidenum == 0) upto1()
         else {if (event.keyCode == 34 && slidenum == 1) upto2()
         else {if (event.keyCode == 34 && slidenum == 2) upto3()
-        else {if (event.keyCode == 34 && slidenum == 3) upto3()
+        else {if (event.keyCode == 34 && slidenum == 3) upto4()
         else {if (event.keyCode == 34 && slidenum == 4) backtomap()
         else {if (event.keyCode == 34 && slidenum == 5) animate()
         else {if (event.keyCode == 34 && slidenum == 6) animatesteptwo()
@@ -1090,7 +1266,7 @@
         else {if (event.keyCode == 39 && slidenum == 0) upto1()
         else {if (event.keyCode == 39 && slidenum == 1) upto2()
         else {if (event.keyCode == 39 && slidenum == 2) upto3()
-        else {if (event.keyCode == 39 && slidenum == 3) upto3()
+        else {if (event.keyCode == 39 && slidenum == 3) upto4()
         else {if (event.keyCode == 39 && slidenum == 4) backtomap()
         else {if (event.keyCode == 39 && slidenum == 5) animate()
         else {if (event.keyCode == 39 && slidenum == 6) animatesteptwo()
@@ -1113,7 +1289,7 @@
 
     addEventListener("keydown", function(event) {
         if (event.keyCode == 37 && slidenum == -1) toslide0()
-        else {if (event.keyCode == 37 && slidenum == 0) downto0()
+        else {if (event.keyCode == 37 && slidenum == 0) downto-1()
         else {if (event.keyCode == 37 && slidenum == 1) downto0()
         else {if (event.keyCode == 37 && slidenum == 2) downto1()
         else {if (event.keyCode == 37 && slidenum == 3) downto2()
@@ -1142,7 +1318,7 @@
         else {if (slidenum == 0) upto1()
         else {if (slidenum == 1) upto2()
         else {if (slidenum == 2) upto3()
-        else {if (slidenum == 3) upto3()
+        else {if (slidenum == 3) upto4()
         else {if (slidenum == 4) backtomap()
         else {if (slidenum == 5) animate()
         else {if (slidenum == 6) animatesteptwo()
@@ -1165,7 +1341,7 @@
 
     $("body").on("swiperight",function(){
       if (slidenum == -1) toslide0()
-        else {if (slidenum == 0) downto0()
+        else {if (slidenum == 0) downto-1()
         else {if (slidenum == 1) downto0()
         else {if (slidenum == 2) downto1()
         else {if (slidenum == 3) downto2()
@@ -1192,6 +1368,11 @@
   
         
     });});});
+
+        // function top50test(){
+        //   ($(".player1").is(".top50"))
+        // };
+        // top50test();
     </script>
     
   </body>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width,user-scalable=no">
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+	    <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1.8.2" />
+        <style>
+        .ramjet{opacity:0.1;visibility:hidden;transition:1s;}
+        .ramjet.visible{opacity:1;visibility:visible;transition:1s;}
+        #outer{width:100%;text-align:center;}
+        #holder{max-width:800px;text-align:center;left:0;right:0;margin:auto;}
+        .a{border:1px solid #cec6b9;position:relative;width:25%;background-color:#e9decf;margin:5px 5px;display:inline-block;overflow:hidden;}
+        .b{position:absolute;width:95%;height:100%;top:200px;top:4%;left:0;right:0;margin:auto;}
+        .a img{width:100%;cursor:pointer;}
+        .a p{text-align:left;height:3em;padding:5px;-webkit-margin-before:0;-webkit-margin-after:0;}
+        body{font-family:'MetricWeb';background-color:#fff1e0;font-size:16px}
+        h1{font-size:36px;font-weight:bold;color:#9e2f50;-webkit-margin-before:0;-webkit-margin-after:0;padding-top:1em;}
+        h2{font-size:24px;font-weight:normal;}
+        h2.red{font-size:24px;font-weight:normal;color:#9e2f50;}
+        .left{text-align:left;}
+        p a, h2 a{text-decoration:none;color:#2e6e9e;}
+        p a:hover, h2 a:hover{color:#000;}
+        </style>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script> -->
+        <div id="outer">
+        	<div id="holder">
+        		<h1>d3 @ ft</h1>
+        		<h2 class='red'><a href="https://twitter.com/alignedleft" target="_blank">@jburnmurdoch</a>, interactive data journalist</h2>
+        		<h2>How the Financial Times uses d3.js for interactive and animated data visualisations</h2>
+		        <div id='a1' class='ramjet a visible'>
+		        	<p>Animation to bring life to a story</p>
+		        	<img src="1.png"><img>
+		        </div>
+		        <div id='a2' class='ramjet a visible'>
+		        	<p>Using animation to illustrate a statistical concept</p>
+		        	<img src="2.png"><img>
+	        	</div>
+		        <div id='a3' class='ramjet a visible'>
+		        	<p>Animation as an indicator of magnitude, severity</p>
+		        	<img src="3.png"><img>
+		        </div>
+		        <div id='a4' class='ramjet a visible'>
+		        	<p>Using transitions to connect narratives and graphical forms</p>
+		        	<img src="4.png"><img>
+		        </div>
+		        <div id='a5' class='ramjet a visible'>
+		        	<p>Animation as a storytelling medium</p>
+		        	<img src="5.png"><img>
+		        </div>
+		        <div id='a6' class='ramjet a visible'>
+		        	<p>Signalling to the user that a change has taken place</p>
+		        	<img src="6.png"><img>
+		        </div>
+		        <div id='a7' class='ramjet a visible'>
+		        	<p>Optimising transitions for mobile</p>
+		        	<img src="7.png"><img>
+		        </div>
+		        <div id='a8' class='ramjet a visible'>
+		        	<p>Trick: SVG filters</p>
+		        	<img src="8.png"><img>
+		        </div>
+		        <div id='a9' class='ramjet a visible'>
+		        	<p>Trick: the SVG <em>use</em> element</p>
+		        	<img src="9.png"><img>
+		        </div>
+
+				<iframe id='b1' class='ramjet b' src="//ig.ft.com/features/2014-11-04_elevators/lifts_test.html"></iframe>
+				<!-- iframe id='b2' class='ramjet b' src="//ig.ft.com/features/2014-09-28_baseline-epl/d3_epl3.html"></iframe>
+				<iframe id='b3' class='ramjet b' src="//ig.ft.com/features/2014-10-10_ebola/ebola.html"></iframe>
+				<iframe id='b4' class='ramjet b' src="//ig.ft.com/features/2015-01-11_two-speed-housing-market/"></iframe>
+				<iframe id='b5' class='ramjet b' src="//ig.ft.com/features/baseline/surface-tension-in-tennis/"></iframe>
+				<iframe id='b6' class='ramjet b' src="//ig.ft.com/sites/2015/local-cuts-checker/"></iframe>
+				<iframe id='b7' class='ramjet b' src="//ig.ft.com/features/uk-election-results-explained-animation/"></iframe>
+				<iframe id='b8' class='ramjet b' src="//ig.ft.com/features/baseline/every-premier-league-squad-compared-graphic/"></iframe>
+				<iframe id='b9' class='ramjet b' src="//im.ft-static.com/content/images/f37e61bc-3922-11e5-8613-07d16aad2152.img"></iframe> -->
+	        	<h2 class='left'>Resources</h2>
+	        	<p class='left'><a href="https://twitter.com/alignedleft" target="_blank">Scott Murray</a>'s brilliant <a href="http://alignedleft.com/tutorials/d3/" target="_blank">tutorials</a></p>
+	        	<p class='left'>...and introduction to <a href="http://alignedleft.com/projects/2014/easy-as-pi/" target="_blank">transitions</a></p>
+	        	<p class='left'><a href="https://twitter.com/SaraSoueidan" target="_blank">Sara Soueidan</a> on <a href="http://sarasoueidan.com/articles/index.html" target="_blank">SVG</a></p>
+	        	<p class='left'>Thanks to <a href="https://twitter.com/richjharris" target="_blank">Rich Harris</a> for <a href="https://github.com/Rich-Harris/ramjet" target="_blank">ramjet.js</a></p>
+        	</div>
+        </div>
+
+		<script src='ramjet.js'></script>
+		<script>
+		var urls = ["//ig.ft.com/features/2014-11-04_elevators/lifts_test.html","//ig.ft.com/features/2014-09-28_baseline-epl/d3_epl3.html","//ig.ft.com/features/2014-10-10_ebola/ebola.html","//ig.ft.com/features/2015-01-11_two-speed-housing-market/","//ig.ft.com/features/baseline/surface-tension-in-tennis/","//ig.ft.com/sites/2015/local-cuts-checker/","//ig.ft.com/features/uk-election-results-explained-animation/","//ig.ft.com/features/baseline/every-premier-league-squad-compared-graphic/","tdf-prezi.png"];
+
+			var body = document.body,
+			    html = document.documentElement;
+
+			var height = Math.max( body.scrollHeight, body.offsetHeight, 
+			                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+
+			d3.selectAll('.a').style({
+				'height':height*0.15 + 'px'
+			});
+
+			d3.selectAll('.a,.b').on("mousedown", function() { d3.event.stopPropagation(); });
+
+			d3.select('h1').on('mousedown',function(){
+					var current = d3.select('#b1').attr('src');
+					var currentIndex = urls.indexOf(current)+1;
+					var to = 'a'+currentIndex;
+					// alert("thing")		
+				    ramjet.transform( b1, eval(to), {
+						// easing: eases[ this.get( 'easing' ) ],
+						duration: 1000,
+						// setTimeout(function(){
+						// 	addClass( b, 'visible' );
+						// },400)
+					});
+			    	d3.select('#b1').classed('visible',false);
+					d3.select('#a1').classed('visible',true);
+			});
+
+		    // to repeat, run this from the console!
+		    // d3.select('#b').attr({
+		    // 	src:'//ig.ft.com/sites/2015/the-fastest-men-in-the-world/'
+		    // });;
+
+		    d3.selectAll('.a').on('click',function(){
+		    	var from = d3.select(this).attr('id');
+		    	var index = +(from.replace(/[a-z]/g,"")-1);
+		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
+		    	var to = "b1";
+		    	console.log(from,to);
+			    ramjet.transform( eval(from), eval(to), {
+					// easing: eases[ this.get( 'easing' ) ],
+					duration: 1000,
+					// setTimeout(function(){
+					// 	addClass( b, 'visible' );
+					// },400)
+				});
+		    	d3.select('#a1').classed('visible',false);
+				d3.select('#b1').attr({
+					'src':urls[index]
+				}).classed('visible',true);
+		    });
+
+		</script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script> -->
+    </body>
+</html>
