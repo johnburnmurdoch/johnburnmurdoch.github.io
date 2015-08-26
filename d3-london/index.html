@@ -12,8 +12,9 @@
         .ramjet.visible{opacity:1;visibility:visible;transition:1s;}
         #outer{width:100%;text-align:center;}
         #holder{max-width:800px;text-align:center;left:0;right:0;margin:auto;}
-        .a{border:1px solid #cec6b9;position:relative;width:25%;background-color:#e9decf;margin:5px 5px;display:inline-block;overflow:hidden;vertical-align:top;}
-        .b{position:absolute;width:95%;height:100%;top:200px;top:4%;left:0;right:0;margin:auto;}
+        div.row{margin-bottom:10px;}
+        .a{border:1px solid #cec6b9;position:relative;width:25%;background-color:#e9decf;margin:0px 5px;display:inline-block;overflow:hidden;vertical-align:top;}
+        .b{position:absolute;width:95%;height:100%;top:4%;left:0;right:0;margin:auto;}
         .a img{width:100%;cursor:pointer;}
         .a p{text-align:left;height:3em;padding:5px;-webkit-margin-before:0;-webkit-margin-after:0;}
         body{font-family:'MetricWeb';background-color:#fff1e0;font-size:16px}
@@ -40,41 +41,47 @@
         		<h1>d3 @ ft</h1>
         		<h2 class='red'><a href="https://twitter.com/alignedleft" target="_blank">@jburnmurdoch</a>, interactive data journalist</h2>
         		<h2>How the Financial Times uses d3.js for interactive and animated data visualisations</h2>
-		        <div id='a1' class='ramjet a visible'>
-		        	<p>Animation to bring life to a story</p>
-		        	<img src="1.png"><img>
+		        <div class='row'>
+			        <div id='a1' class='ramjet a visible'>
+			        	<p>Animation to bring life to a story</p>
+			        	<img src="1.png"><img>
+			        </div>
+			        <div id='a2' class='ramjet a visible'>
+			        	<p>Using animation to illustrate a statistical concept</p>
+			        	<img src="2.png"><img>
+		        	</div>
+			        <div id='a3' class='ramjet a visible'>
+			        	<p>Animation as an indicator of magnitude, severity</p>
+			        	<img src="3.png"><img>
+			        </div>
 		        </div>
-		        <div id='a2' class='ramjet a visible'>
-		        	<p>Using animation to illustrate a statistical concept</p>
-		        	<img src="2.png"><img>
-	        	</div>
-		        <div id='a3' class='ramjet a visible'>
-		        	<p>Animation as an indicator of magnitude, severity</p>
-		        	<img src="3.png"><img>
+		        <div class='row'>
+			        <div id='a4' class='ramjet a visible'>
+			        	<p>Using transitions to connect narratives and graphical forms</p>
+			        	<img src="4.png"><img>
+			        </div>
+			        <div id='a5' class='ramjet a visible'>
+			        	<p>Animation as a storytelling medium</p>
+			        	<img src="5.png"><img>
+			        </div>
+			        <div id='a6' class='ramjet a visible'>
+			        	<p>Signalling to the user that a change has taken place</p>
+			        	<img src="6.png"><img>
+			        </div>
 		        </div>
-		        <div id='a4' class='ramjet a visible'>
-		        	<p>Using transitions to connect narratives and graphical forms</p>
-		        	<img src="4.png"><img>
-		        </div>
-		        <div id='a5' class='ramjet a visible'>
-		        	<p>Animation as a storytelling medium</p>
-		        	<img src="5.png"><img>
-		        </div>
-		        <div id='a6' class='ramjet a visible'>
-		        	<p>Signalling to the user that a change has taken place</p>
-		        	<img src="6.png"><img>
-		        </div>
-		        <div id='a7' class='ramjet a visible'>
-		        	<p>Optimising transitions for mobile</p>
-		        	<img src="7.png"><img>
-		        </div>
-		        <div id='a8' class='ramjet a visible'>
-		        	<p>Trick: SVG filters</p>
-		        	<img src="8.png"><img>
-		        </div>
-		        <div id='a9' class='ramjet a visible'>
-		        	<p>Trick: the SVG <em>use</em> element</p>
-		        	<img src="9.png"><img>
+		        <div class='row'>
+			        <div id='a7' class='ramjet a visible'>
+			        	<p>Optimising transitions for mobile</p>
+			        	<img src="7.png"><img>
+			        </div>
+			        <div id='a8' class='ramjet a visible'>
+			        	<p>Trick: SVG filters</p>
+			        	<img src="8.png"><img>
+			        </div>
+			        <div id='a9' class='ramjet a visible'>
+			        	<p>Trick: the SVG <em>use</em> element</p>
+			        	<img src="9.png"><img>
+			        </div>
 		        </div>
 
 				<iframe id='b1' class='ramjet b'></iframe>
@@ -109,7 +116,11 @@
 
 			d3.select('#outer').style({
 				'max-width':width + 'px'
-			})
+			});
+
+			d3.selectAll('.row').style({
+				'height':height*0.15 + 'px'
+			});
 
 			d3.selectAll('.a').style({
 				'height':height*0.15 + 'px'
@@ -121,7 +132,7 @@
 					var current = d3.select('#b1').attr('src');
 					var currentIndex = urls.indexOf(current)+1;
 					var to = 'a'+currentIndex;
-					// alert("thing")		
+					alert("thing")		
 				    ramjet.transform( b1, eval(to), {
 						// easing: eases[ this.get( 'easing' ) ],
 						duration: 1000,
@@ -143,6 +154,7 @@
 		    	var index = +(from.replace(/[a-z]/g,"")-1);
 		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
 		    	var to = "b1";
+		    	alert("thing")
 		    	console.log(from,to);
 			    ramjet.transform( eval(from), eval(to), {
 					// easing: eases[ this.get( 'easing' ) ],
