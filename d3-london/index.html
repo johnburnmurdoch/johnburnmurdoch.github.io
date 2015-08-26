@@ -8,22 +8,22 @@
         <script src="http://d3js.org/d3.v3.min.js"></script>
 	    <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1.8.2" />
         <style media="screen">
-        .ramjet{opacity:0.1;visibility:hidden;transition:1s;pointer-events:none;}
-        .ramjet.visible{opacity:1;visibility:visible;transition:1s;pointer-events:all;}
-        #outer{width:100%;text-align:center;}
-        #holder{max-width:800px;text-align:center;left:0;right:0;margin:auto;}
-        div.row{margin-bottom:10px;}
-        .a{border:1px solid #cec6b9;position:relative;width:25%;background-color:#e9decf;margin:0px 5px;display:inline-block;overflow:hidden;vertical-align:top;}
-        .b{position:absolute;width:95%;height:100%;top:4%;left:0;right:0;margin:auto;}
-        .a img{width:100%;cursor:pointer;}
-        .a p{text-align:left;height:3em;padding:5px;-webkit-margin-before:0;-webkit-margin-after:0;}
-        body{font-family:'MetricWeb';background-color:#fff1e0;font-size:16px}
-        h1{font-size:36px;font-weight:bold;color:#9e2f50;-webkit-margin-before:0;-webkit-margin-after:0;padding-top:1em;}
-        h2{font-size:24px;font-weight:normal;}
-        h2.red{font-size:24px;font-weight:normal;color:#9e2f50;}
-        .left{text-align:left;}
-        p a, h2 a{text-decoration:none;color:#2e6e9e;}
-        p a:hover, h2 a:hover{color:#000;}
+	        .ramjet{opacity:0.1;visibility:hidden;transition:1s;pointer-events:none;}
+	        .ramjet.visible{opacity:1;visibility:visible;transition:1s;pointer-events:all;}
+	        #outer{width:100%;text-align:center;}
+	        #holder{max-width:800px;text-align:center;left:0;right:0;margin:auto;}
+	        div.row{margin-bottom:10px;}
+	        .a{border:1px solid #cec6b9;position:relative;width:25%;background-color:#e9decf;margin:0px 5px;display:inline-block;overflow:hidden;vertical-align:top;}
+	        .b{position:absolute;width:95%;height:100%;top:4%;left:0;right:0;margin:auto;}
+	        .a img{width:100%;cursor:pointer;}
+	        .a p{text-align:left;height:3em;padding:5px;-webkit-margin-before:0;-webkit-margin-after:0;}
+	        body{font-family:'MetricWeb';background-color:#fff1e0;font-size:16px}
+	        h1{font-size:36px;font-weight:bold;color:#9e2f50;-webkit-margin-before:0;-webkit-margin-after:0;padding-top:1em;}
+	        h2{font-size:24px;font-weight:normal;}
+	        h2.red{font-size:24px;font-weight:normal;color:#9e2f50;}
+	        .left{text-align:left;}
+	        p a, h2 a{text-decoration:none;color:#2e6e9e;}
+	        p a:hover, h2 a:hover{color:#000;}
         </style>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
@@ -153,7 +153,7 @@
 		    // 	src:'//ig.ft.com/sites/2015/the-fastest-men-in-the-world/'
 		    // });;
 
-		    d3.selectAll('.a').on('click',function(){
+		    d3.selectAll('.a').on('touchstart',function(){
 		    	var from = d3.select(this).attr('id');
 		    	var index = +(from.replace(/[a-z]/g,"")-1);
 		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
