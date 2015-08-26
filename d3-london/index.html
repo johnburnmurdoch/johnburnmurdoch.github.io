@@ -167,12 +167,13 @@
 
 		    setTimeout(function(){
 		    // d3.selectAll('.a').on('click',function(){
-		    	var from = d3.select(this).attr('id');
-		    	var index = +(from.replace(/[a-z]/g,"")-1);
+		    	// var from = d3.select(this).attr('id');
+		    	// var index = +(from.replace(/[a-z]/g,"")-1);
 		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
-		    	var to = "b1";
-		    	console.log(from,to);
-			    ramjet.transform( eval(from), eval(to), {
+		    	// var to = "b1";
+		    	// console.log(from,to);
+			    // ramjet.transform( eval(from), eval(to), {
+		    	ramjet.transform( a1, b1, {
 					// easing: eases[ this.get( 'easing' ) ],
 					duration: 1000,
 					// setTimeout(function(){
@@ -181,7 +182,8 @@
 				});
 		    	d3.select('#a1').classed('visible',false);
 				d3.select('#b1').attr({
-					'src':urls[index]
+					// 'src':urls[index]
+					'src':urls[0]
 				}).classed('visible',true);
 		    },2000);
 
