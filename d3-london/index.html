@@ -148,12 +148,16 @@
 					d3.select('#a1').classed('visible',true);
 			});
 
+			d3.select('#b1').on('touchstart',function(){
+				alert("touched")
+			})
+
 		    // to repeat, run this from the console!
 		    // d3.select('#b').attr({
 		    // 	src:'//ig.ft.com/sites/2015/the-fastest-men-in-the-world/'
 		    // });;
 
-		    d3.selectAll('.a').on('touchstart',function(){
+		    d3.selectAll('.a').on('click',function(){
 		    	var from = d3.select(this).attr('id');
 		    	var index = +(from.replace(/[a-z]/g,"")-1);
 		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
