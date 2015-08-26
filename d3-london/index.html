@@ -8,8 +8,8 @@
         <script src="http://d3js.org/d3.v3.min.js"></script>
 	    <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1.8.2" />
         <style media="screen">
-        .ramjet{opacity:0.1;visibility:hidden;transition:1s;}
-        .ramjet.visible{opacity:1;visibility:visible;transition:1s;}
+        .ramjet{opacity:0.1;visibility:hidden;transition:1s;pointer-events:none;}
+        .ramjet.visible{opacity:1;visibility:visible;transition:1s;pointer-events:all;}
         #outer{width:100%;text-align:center;}
         #holder{max-width:800px;text-align:center;left:0;right:0;margin:auto;}
         div.row{margin-bottom:10px;}
@@ -128,9 +128,9 @@
 
 			// d3.selectAll('.a,.b').on("mousedown", function() { d3.event.stopPropagation(); });
 
-			d3.select('h1').on('touchstart',function(){
-				alert('thing')
-			})
+			// d3.select('h1').on('touchstart',function(){
+			// 	alert('thing')
+			// })
 
 			d3.select('h1').on('click',function(){
 					var current = d3.select('#b1').attr('src');
