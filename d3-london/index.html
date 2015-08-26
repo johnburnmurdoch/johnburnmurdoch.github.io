@@ -108,9 +108,9 @@
 				'height':height*0.15 + 'px'
 			});
 
-			d3.selectAll('.a,.b').on("mousedown", function() { d3.event.stopPropagation(); });
+			// d3.selectAll('.a,.b').on("mousedown", function() { d3.event.stopPropagation(); });
 
-			d3.select('h1').on('mousedown',function(){
+			d3.select('h1').on('click',function(){
 					var current = d3.select('#b1').attr('src');
 					var currentIndex = urls.indexOf(current)+1;
 					var to = 'a'+currentIndex;
