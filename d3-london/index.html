@@ -6,6 +6,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width,user-scalable=no">
         <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src='ramjet.js'></script>
 	    <link rel="stylesheet" href="//build.origami.ft.com/bundles/css?modules=o-fonts@^1.8.2" />
         <style media="screen">
 	        .ramjet{opacity:0.1;visibility:hidden;transition:1s;pointer-events:none;}
@@ -24,6 +25,7 @@
 	        .left{text-align:left;}
 	        p a, h2 a{text-decoration:none;color:#2e6e9e;}
 	        p a:hover, h2 a:hover{color:#000;}
+	        a.mobile_link{position:absolute;top:0;left:0;height:100%;width:100%;display:none;}
         </style>
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     </head>
@@ -101,7 +103,7 @@
         	</div>
         </div>
 
-		<script src='ramjet.js'></script>
+		
 		<script>
 		var urls = ["//ig.ft.com/features/2014-11-04_elevators/lifts_test.html","//ig.ft.com/features/2014-09-28_baseline-epl/d3_epl3.html","//ig.ft.com/features/2014-10-10_ebola/ebola.html","//ig.ft.com/features/2015-01-11_two-speed-housing-market/","//ig.ft.com/features/baseline/surface-tension-in-tennis/","//ig.ft.com/sites/2015/local-cuts-checker/","//ig.ft.com/features/uk-election-results-explained-animation/","//ig.ft.com/features/baseline/every-premier-league-squad-compared-graphic/","tdf-prezi.png"];
 
@@ -148,14 +150,16 @@
 					d3.select('#a1').classed('visible',true);
 			});
 
-			d3.select('#b1').on('touchstart',function(){
-				alert("touched")
-			})
-
 		    // to repeat, run this from the console!
 		    // d3.select('#b').attr({
 		    // 	src:'//ig.ft.com/sites/2015/the-fastest-men-in-the-world/'
 		    // });;
+
+			d3.selectAll('.a').data(urls).append('a').attr({
+				'href':function(d,i){return d},
+				class:'mobile_link',
+				'target':'_blank'
+			})
 
 		    d3.selectAll('.a').on('click',function(){
 		    	var from = d3.select(this).attr('id');
