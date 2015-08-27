@@ -158,7 +158,7 @@
 						// },400)
 					});
 			    	d3.select('#b1').classed('visible',false);
-					d3.select('#a1').classed('visible',true);
+					d3.select('#' + to).classed('visible',true);
 					d3.select('#close-button').classed('visible',false);
 			});
 
@@ -191,7 +191,7 @@
 				d3.select('#b1').attr({
 					'src':urls[index]
 				})
-				// .classed('visible',false);
+				.classed('visible',true);
 
 				d3.select('#close-button').classed('visible',true);
 		    });
