@@ -30,7 +30,7 @@
 	        a.mobile_link{position:absolute;top:0;left:0;height:100%;width:100%;}
 
 	        @media screen and (min-width: 769px) {
-				a.mobile_link{display:none;}
+				a.mobile_link{/*display:none;*/}
 	      	}
 			
 			@media screen and (max-width: 768px) {
@@ -110,7 +110,7 @@
 	        	<p class='left'><a href="https://twitter.com/alignedleft" target="_blank">Scott Murray</a>'s brilliant <a href="http://alignedleft.com/tutorials/d3/" target="_blank">tutorials</a></p>
 	        	<p class='left'>...and introduction to <a href="http://alignedleft.com/projects/2014/easy-as-pi/" target="_blank">transitions</a></p>
 	        	<p class='left'><a href="https://twitter.com/SaraSoueidan" target="_blank">Sara Soueidan</a> on <a href="http://sarasoueidan.com/articles/index.html" target="_blank">SVG</a></p>
-	        	<p class='left'>Thanks to <a href="https://twitter.com/richjharris" target="_blank">Rich Harris</a> for <a href="https://github.com/Rich-Harris/ramjet" target="_blank">ramjet.js</a></p>
+	        	<!-- <p class='left'>Thanks to <a href="https://twitter.com/richjharris" target="_blank">Rich Harris</a> for <a href="https://github.com/Rich-Harris/ramjet" target="_blank">ramjet.js</a></p> -->
         	</div>
         </div>
 
@@ -145,22 +145,22 @@
 			// 	alert('thing')
 			// })
 
-			d3.select('#close-button').on('click',function(){
-					var current = d3.select('#b1').attr('src');
-					var currentIndex = urls.indexOf(current)+1;
-					var to = 'a'+currentIndex;
-					// alert("thing")		
-				    ramjet.transform( b1, eval(to), {
-						// easing: eases[ this.get( 'easing' ) ],
-						duration: 1000,
-						// setTimeout(function(){
-						// 	addClass( b, 'visible' );
-						// },400)
-					});
-			    	d3.select('#b1').classed('visible',false);
-					d3.select('#' + to).classed('visible',true);
-					d3.select('#close-button').classed('visible',false);
-			});
+			// d3.select('#close-button').on('click',function(){
+			// 		var current = d3.select('#b1').attr('src');
+			// 		var currentIndex = urls.indexOf(current)+1;
+			// 		var to = 'a'+currentIndex;
+			// 		// alert("thing")		
+			// 	    ramjet.transform( b1, eval(to), {
+			// 			// easing: eases[ this.get( 'easing' ) ],
+			// 			duration: 1000,
+			// 			// setTimeout(function(){
+			// 			// 	addClass( b, 'visible' );
+			// 			// },400)
+			// 		});
+			//     	d3.select('#b1').classed('visible',false);
+			// 		d3.select('#' + to).classed('visible',true);
+			// 		d3.select('#close-button').classed('visible',false);
+			// });
 
 		    // to repeat, run this from the console!
 		    // d3.select('#b').attr({
@@ -173,28 +173,28 @@
 				'target':'_blank'
 			});
 
-		    d3.selectAll('.a').on('click',function(){
-		    	var from = d3.select(this).attr('id');
-		    	var index = +(from.replace(/[a-z]/g,"")-1);
-		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
-		    	var to = "b1";
-		    	console.log(from,to);
+		  //   d3.selectAll('.a').on('click',function(){
+		  //   	var from = d3.select(this).attr('id');
+		  //   	var index = +(from.replace(/[a-z]/g,"")-1);
+		  //   	// var to = d3.select(this).attr('id').replace(/a/g,"b");
+		  //   	var to = "b1";
+		  //   	console.log(from,to);
 			    
-			    ramjet.transform( eval(from), eval(to), {
-					// easing: eases[ this.get( 'easing' ) ],
-					// duration: 1000,
-					// setTimeout(function(){
-					// 	addClass( b, 'visible' );
-					// },400)
-				});
-		    	d3.select('#' + from).classed('visible',false);
-				d3.select('#b1').attr({
-					'src':urls[index]
-				})
-				.classed('visible',true);
+			 //    ramjet.transform( eval(from), eval(to), {
+				// 	// easing: eases[ this.get( 'easing' ) ],
+				// 	// duration: 1000,
+				// 	// setTimeout(function(){
+				// 	// 	addClass( b, 'visible' );
+				// 	// },400)
+				// });
+		  //   	d3.select('#' + from).classed('visible',false);
+				// d3.select('#b1').attr({
+				// 	'src':urls[index]
+				// })
+				// .classed('visible',true);
 
-				d3.select('#close-button').classed('visible',true);
-		    });
+				// d3.select('#close-button').classed('visible',true);
+		  //   });
 
 		</script>
 
