@@ -181,6 +181,7 @@
 		    	console.log(from,to);
 
 		    	d3.select('#' + to).classed('visible',true);
+				alert(urls[index])
 			    
 			    ramjet.transform( eval(from), eval(to), {
 			    	done: function () {
