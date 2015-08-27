@@ -13,6 +13,8 @@
 	        .ramjet.visible{opacity:1;visibility:visible;transition:1s;pointer-events:all;}
 	        #outer{width:100%;text-align:center;}
 	        #holder{max-width:800px;text-align:center;left:0;right:0;margin:auto;}
+	        #close-button{position:absolute;left:0;right:0;margin:auto;font-weight:bold;top:5px;font-size:30px;opacity:0.1;visibility:hidden;transition:1s;cursor:pointer;}
+	        #close-button.visible{font-size:30px;opacity:1;visibility:visible;transition:1s;}
 	        div.row{margin-bottom:10px;}
 	        .a{border:1px solid #cec6b9;position:relative;width:25%;background-color:#e9decf;margin:0px 5px;display:inline-block;overflow:hidden;vertical-align:top;}
 	        .b{position:absolute;width:95%;height:100%;top:4%;left:0;right:0;margin:auto;}
@@ -48,6 +50,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script> -->
         <div id="outer">
         	<div id="holder">
+        		<span id='close-button'>x</span>
         		<h1>d3 @ ft</h1>
         		<h2 class='red'><a href="https://twitter.com/jburnmurdoch" target="_blank">@jburnmurdoch</a>, interactive data journalist</h2>
         		<h2>How the Financial Times uses d3.js for interactive and animated data visualisations</h2>
@@ -142,7 +145,7 @@
 			// 	alert('thing')
 			// })
 
-			d3.select('h1').on('click',function(){
+			d3.select('#close-button').on('click',function(){
 					var current = d3.select('#b1').attr('src');
 					var currentIndex = urls.indexOf(current)+1;
 					var to = 'a'+currentIndex;
@@ -156,6 +159,7 @@
 					});
 			    	d3.select('#b1').classed('visible',false);
 					d3.select('#a1').classed('visible',true);
+					d3.select('#close-button').classed('visible',false);
 			});
 
 		    // to repeat, run this from the console!
@@ -186,6 +190,7 @@
 				d3.select('#b1').attr({
 					'src':urls[index]
 				}).classed('visible',true);
+				d3.select('#close-button').classed('visible',true);
 		    });
 
 		</script>
