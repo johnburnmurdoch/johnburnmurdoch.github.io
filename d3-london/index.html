@@ -179,17 +179,20 @@
 		    	// var to = d3.select(this).attr('id').replace(/a/g,"b");
 		    	var to = "b1";
 		    	console.log(from,to);
+			    
 			    ramjet.transform( eval(from), eval(to), {
 					// easing: eases[ this.get( 'easing' ) ],
-					duration: 1000,
+					// duration: 1000,
 					// setTimeout(function(){
 					// 	addClass( b, 'visible' );
 					// },400)
 				});
-		    	d3.select('#a1').classed('visible',false);
+		    	d3.select('#' + from).classed('visible',false);
 				d3.select('#b1').attr({
 					'src':urls[index]
-				}).classed('visible',true);
+				})
+				// .classed('visible',false);
+
 				d3.select('#close-button').classed('visible',true);
 		    });
 
