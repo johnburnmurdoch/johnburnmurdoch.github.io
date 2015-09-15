@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+        <style>
+		#svg{width:400px;height:400px;background-color:#fff1e0;}
+
+		path.domain{fill:none;stroke:black;}
+
+		circle{clip-path:url(#plotClip);fill:#af516c;}
+
+		text{font-size:13px;font-family:Arial,sans-serif;}
+        </style>
+    </head>
+    <body>
+
+    <script type="text/javascript">
+
+	// Config
+	var	width = 400,
+		height = 400,
+		margin = 35;
+
+	// Draw and store SVG
+	var svg = d3.select('body').append('svg').attr('id','svg');
+
+	// Add 'defs' to store things we can then reference later on
+	var defs = svg.append('defs');
+
+	// Add a clip path to our 'defs' which tells d3 where not to draw objects, or where to clip off their edges
+	var clip = defs.append('clipPath').attr('id','plotClip');
+
+	// Define our clip path based on the dimensions of our svg and chart
+	var plotClip = clip.append('rect').attr({
+        'x':margin,
+        'y':margin,
+        'width':width-2*margin,
+        'height':height-2*margin
+    });
+
+	// Define a normal distribution for our x values
+	var genX = d3.random.normal(100, 40);
+	
+	// Generate a given number of x values
+	function xData(length){
+		var out = [];
+		for(i=0;i < length;i++){
+			out.push(~~Math.max(0, Math.min(genX(), 200)));
+			// out.push(Math.random()*200)
+		}
+		return out;
+	};
+
+	// Generate y values from our values, with a given correlation to the x values (hacky approach)
+	function yData(series,r){
+		var tempArray = [];
+		var out = [];
+		var r2 = Math.pow(r,2);
+		var ve = 1-r2;
+		var sd = Math.pow(ve,0.5);
+		var genY = d3.random.normal(0,sd);
+		for(i=0;i < series.length;i++){
+			tempArray.push(genY()*100);
+		}
+		for(i=0;i < series.length;i++){
+			out.push((series[i])+(tempArray[i]));
+		}
+		console.log(tempArray)
+		return out;
+	};
+
+	// Group our data points so each is a single point with a pair of values (x and y)
+	function groupData(x){
+		var groupedData = [];
+		for(i=0;i < x[0].length; i++){
+			var thisGroup = [];
+			for(j=0; j < x.length; j++){
+				thisGroup.push(x[j][i]);
+			}
+			groupedData.push(thisGroup);
+		}
+		return groupedData;
+	};
+
+	// Use the above functions to generate 100 x values, 100 y values, and then group them 
+	var xd = xData(100);
+	var yd = yData(xd,0.99);
+	var data = groupData([xd,yd]);
+
+	// Draw a 'g' - our plot area - to hold the plot and data points
+	var plotArea = svg.append('g')
+		.attr({
+			'transform':'translate(' + 0 + ',' + 0 + ')'
+		});
+
+	// Define our x scale
+	var x = d3.scale.linear()
+		.range([margin,width-margin])
+		.domain([0,200]);
+
+	// Define our x axis, using our x scale
+	var xAx = d3.svg.axis()
+		.scale(x)
+		.orient('bottom')
+		.ticks(5)
+		.tickSize(5);
+
+	// Draw the x axis onto our plot area
+	var txAx = plotArea.append('g')
+        .attr({
+            "transform": function(d){return 'translate(0,' + (height-margin) + ')'},
+            'class':'x axis'
+        })
+        .call(xAx);
+
+
+    // Repeat all of the above for the y scale and axis
+	var y = d3.scale.linear()
+		.range([height-margin,margin])
+		.domain([0,200]);
+
+	var yAx = d3.svg.axis()
+		.scale(y)
+		.orient('left')
+		.ticks(5)
+		.tickSize(5);
+
+	var tyAx = plotArea.append('g')
+        .attr({
+            "transform": function(d){return 'translate(' + margin + ',0)'},
+            'class':'y axis'
+        })
+        .call(yAx);
+
+
+    // Tell d3 we're going to draw a number of circles equal to the number of data points we generated
+	var points = plotArea.selectAll('circle.point').data(data);
+
+	// Now let's actually draw them and give them some geometric attributes: an x position, y position and radius
+	points.enter().append('circle')
+		.attr({
+			'cx':function(d){
+				console.log(d[0],d[1]);
+				return x(d[0])},
+			'cy':function(d){
+				return y(d[1])},
+			'r':function(){
+					return 1+Math.random()*4
+				}
+		});
+			
+	// Now some fun: introducing enter, exit and update
+	svg.on('click',function(){
+		var clickY = d3.mouse(this)[1];
+
+		var xd2 = xData(Math.ceil(50+Math.random()*100));
+		var yd2 = yData(xd2,(300-clickY)/300);
+		var data2 = groupData([xd2,yd2]);
+
+		var points = plotArea.selectAll('circle').data(data2);
+
+		points.enter().append('circle')
+			.attr({
+				'cx':x(250),
+				'cy':y(250),
+				'r':0
+			});
+
+		points.exit()
+			.transition()
+			.duration(1000)
+			.attr({
+				'cx':x(-50),
+				'cy':y(-50),
+				'r':0
+			})
+			.remove();
+
+		points
+			.transition()
+			.duration(1000)
+			.attr({
+				'cx':function(d){
+					console.log(d[0],d[1]);
+					return x(d[0])},
+				'cy':function(d){
+					return y(d[1])},
+				'r':function(){
+					return 1+Math.random()*4
+				}
+			});
+	});
+
+
+    </script>
+
+    </body>
+</html>
