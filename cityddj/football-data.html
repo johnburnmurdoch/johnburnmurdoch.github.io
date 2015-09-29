@@ -179,11 +179,11 @@
 
 
 		<script charset="utf-8">
-			$.getJSON("http://sheetsu.com/apis/5b80bbc7").success(function(data){
-				console.log(data.result);
-			    data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
-			    d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").append('h3').html(function(d,i){return d.Name});
-			})
+			// $.getJSON("http://sheetsu.com/apis/5b80bbc7").success(function(data){
+			// 	console.log(data.result);
+			//     data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
+			//     d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").append('h3').html(function(d,i){return d.Name});
+			// })
 		</script>
 
 		<script src="lib/js/head.min.js"></script>
