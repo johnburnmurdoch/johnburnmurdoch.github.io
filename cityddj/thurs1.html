@@ -113,13 +113,16 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section style="text-align: left;">
-					<h3 class='centered'>Sports data journalism at the Financial Times</h3>
-					<p>The FT has a complex relationship with sport</p>
-					<p>It all started with a labour of love for <a href='http://blogs.ft.com/ftdata/2014/06/11/interactive-explore-the-statistical-identity-of-every-team-at-the-world-cup/' target='_blank'>the World Cup</a></p>
-					<p>...from which was born <a href='http://blogs.ft.com/ftdata/category/baseline/' target='_blank'><em class='red'>FT Baseline</em></a></p>
+					<h3 class='centered'>Week 1: an introduction to data journalism</h3>
+					<p>House rules, misc. advice <a href="#/2">&raquo;</a></p>
+					<p>What is data journalism? <a href="#/5">&raquo;</a></p>
+					<p><strike>Course objectives</strike> What cool shit are we going to learn, and what awesome jobs do people go on to? <a href="#/3">&raquo;</a></p>
+					<p>Course outline (subject to minor changes) <a href="#/3">&raquo;</a></p>
+					<p>Assignments <a href="#/3">&raquo;</a></p>
+					<p>Show and tell <a href="#/3">&raquo;</a></p>
 				</section>
 
-				<section style="text-align: left;">
+				<!-- <section style="text-align: left;">
 					<h5 class='centered'>Sports data journalism at the Financial Times</h5>
 					<h4>What is FT Baseline?</h4>
 					<p>A weekly column online and in print</p>
@@ -166,7 +169,7 @@
 					<p class='minor'>@jburnmurdoch</p>
 					<p class='minor'>john.burn-murdoch@ft.com</p>
 					<p class='minor'>ft.com/baseline</p>
-				</section>
+				</section> -->
 
 			</div>
 
@@ -174,11 +177,15 @@
 
 
 		<script charset="utf-8">
-			// $.getJSON("http://sheetsu.com/apis/5b80bbc7").success(function(data){
-			// 	console.log(data.result);
-			//     data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
-			//     d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").append('h3').html(function(d,i){return d.Name});
-			// })
+			$.getJSON("http://sheetsu.com/apis/34638b57").success(function(data){
+				console.log(data.result);
+			    // data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
+			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").style({"text-align":"left"});
+
+			    var headers = slides.append('h4').html(function(d,i){return d.header});
+
+			    var pars = slides.append('p').html(function(d,i){return d.text});
+			})
 		</script>
 
 		<script src="lib/js/head.min.js"></script>

@@ -1,0 +1,291 @@
+<html>
+<head>
+	<title>Control patch</title>
+</head>
+<style type="text/css">
+	body{
+		font-family: sans-serif;	
+	}
+	.ui-patch{
+		fill-opacity:0;
+		stroke-width:1px;
+		stroke:gray;
+		cursor: url(editcursor.png);
+	}
+	.bar{
+		stroke:#fff;
+		stroke-width:1px;
+	}
+
+	text{
+		stroke:#000;
+		font-family: sans-serif;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.container{
+		position: relative;
+		width:100%;
+	}
+	h1{position:relative;left:20px;}
+	.inner{
+		position:relative;
+		margin:auto;
+		width:100%;
+		height:100%;
+		left:0;
+		right:0;
+		max-width:800px;
+		max-height:600px;
+	}
+	.prompt{
+		background-image: url(editicon.png);
+		width: 64px;
+		height: 44px;
+		position: absolute;
+		right:20;
+		top:0;
+		z-index: -100;
+	}
+	#meanLine,#medianLine{
+		stroke:black;
+		stroke-width:2px;
+		shape-rendering:crispEdges;
+	}
+	#meanLine{
+		stroke-dasharray:3px 3px;
+	}
+	#medianLine{
+		stroke-dasharray:5px 5px;
+	}
+	#meanLabel,#medianLabel{
+		text-shadow:2px 2px 5px white, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px white;
+	}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<body>
+<div class="container">
+	
+	<div class="inner">
+	<h1>Mean vs median calculator</h1>
+		<div class="prompt"></div>
+	</div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+var width = d3.select(".inner").node().getBoundingClientRect().width;
+var height = d3.select(".inner").node().getBoundingClientRect().height;
+
+var svg = d3.select(".inner").append("svg")
+	.attr({
+		"id":"ui"
+	})
+	.style({
+		"width":width + 'px',
+		"height":height + 'px'
+	});
+
+function makePatch(xScale, yScale, parent, callback){
+	var parent = d3.select(parent);
+	var xRange = xScale.range(),
+		yRange = yScale.range();
+
+	var container = parent.append('g');
+
+	if(!callback){
+		var callback = function(x,y){
+			console.log(x,y);
+		}
+	}
+
+	var drag = d3.behavior.drag()
+		.origin(patch)
+		.on("drag", function(d){
+			console.log("dragged");
+			callback(Math.min(xScale.invert(d3.event.x),xScale.domain()[1]-1), yScale.invert(d3.event.y));
+		})
+
+	var patch = container.append('rect')
+		.attr('x', Math.min(xRange[0], xRange[1]) )
+		.attr('y', Math.min(yRange[0], yRange[1]) )
+		.attr('width', Math.abs(xRange[1] - xRange[0]))
+		.attr('height', Math.abs(yRange[1] - yRange[0]))
+		.attr('class', 'ui-patch')
+		.on('click', function(d){
+			// console.log(d3.event.x,d3.event.y);
+			console.log(d3.mouse(this));
+			callback(Math.min(xScale.invert(d3.mouse(this)[0]),xScale.domain()[1]-1), yScale.invert(d3.mouse(this)[1]))
+		})
+		.call(drag);
+}
+
+var xScale = d3.scale.linear()
+				.domain([0, 20])
+				.range([20, width-20])
+				.clamp(true);
+
+var yScale = d3.scale.linear()
+				.domain([-100, 100])
+				.range([height-20,20])
+				.clamp(true);
+
+var barData = [80,75,70,60,40,10,-10,-40,-60,-70,-75,-80,-82,-80,-75,-60,-40,-10,10,40];
+
+d3.select('#ui').append('g').attr('id','bar-chart');
+
+makePatch(xScale, yScale, '#ui', function(index, percent){
+	barData[Math.floor(index)] = percent;
+	drawData();
+});
+
+drawData();
+
+function drawData(){
+	var chart = d3.select('#bar-chart').selectAll('rect')
+		.data(barData);
+
+	var labels = d3.select('#bar-chart').selectAll('text')
+		.data(barData);
+
+	var meanLine = d3.select("#ui").selectAll("line#meanLine").data([d3.mean(barData)]);
+
+	meanLine.enter().append("line")
+		.attr({
+			'id':'meanLine',
+			'x1':20,
+			'x2':width-20,
+			'y1':function(d,i){return yScale(d)},
+			'y2':function(d,i){return yScale(d)}
+		});
+
+	meanLine.transition()
+		.duration(50)
+		.attr({
+			'y1':yScale(d3.mean(barData)),
+			'y2':yScale(d3.mean(barData))
+		});
+
+	var meanLabel = d3.select("#ui").selectAll("text#meanLabel").data([d3.mean(barData)]);
+
+	meanLabel.enter().append("text")
+		.attr({
+			'id':'meanLabel',
+			'x':21,
+			'y':function(d,i){return yScale(d)-3}
+		})
+		.html(function(d,i){return "Mean: " + d3.format(".2f")(d)});
+
+	meanLabel.transition()
+		.duration(50)
+		.attr({
+			'y':function(d,i){return yScale(d)-3}
+		});
+
+	meanLabel.html(function(d,i){return "Mean: " + d3.format(".2f")(d)});
+
+	var medianLine = d3.select("#ui").selectAll("line#medianLine").data([d3.median(barData)]);
+
+	medianLine.enter().append("line")
+		.attr({
+			'id':'medianLine',
+			'x1':20,
+			'x2':width-20,
+			'y1':function(d,i){return yScale(d)},
+			'y2':function(d,i){return yScale(d)}
+		});
+
+	medianLine.transition()
+		.duration(50)
+		.attr({
+			'y1':yScale(d3.median(barData)),
+			'y2':yScale(d3.median(barData))
+		});
+
+	var medianLabel = d3.select("#ui").selectAll("text#medianLabel").data([d3.median(barData)]);
+
+	medianLabel.enter().append("text")
+		.attr({
+			'id':'medianLabel',
+			'x':21,
+			'y':function(d,i){return yScale(d)-3}
+		})
+		.html(function(d,i){return "Median: " + d3.format(".2f")(d)});
+
+	medianLabel.transition()
+		.duration(50)
+		.attr({
+			'y':function(d,i){return yScale(d)-3}
+		});
+
+	medianLabel.html(function(d,i){return "Median: " + d3.format(".2f")(d)});
+
+	chart.enter()
+		.append('rect')
+			.attr('x', function(d,i){
+				return xScale(i);	
+			})
+			.attr('y', function(d){
+				return yScale(Math.max(0, d));
+			})
+			.attr('width', function(){
+				return xScale(1)-20;
+			})
+			.attr('height', 0)
+			.attr('class', 'bar')
+			.attr('fill',function(d){
+				if(d<0){
+					return '#466289';
+				}
+				return '#FA6121';
+			});
+
+	chart.transition()
+		.duration(50)
+		.attr('height', function(d){
+			return Math.abs(yScale(d)-yScale(0));
+		})
+		.attr('y', function(d){
+			return yScale(Math.max(0, d));
+		})
+		.attr('fill',function(d){
+			if(d<0){
+				return '#466289';
+			}
+			return '#FA6121';
+		});
+
+	labels.enter()
+		.append('text')
+			.text(function(d){
+				return(-d)
+			})
+			.attr('x', function(d,i){
+				return xScale(i) + xScale(0.5)-20;
+			})
+			.attr('y', function(d,i){
+				var adj = (d<0) ? 11:-1;
+				return yScale(d) + adj;
+			})
+			.attr('text-anchor','middle');
+
+	labels.transition()
+		.duration(50)
+			.text(function(d){
+				return(Math.round(d));
+			})
+			.attr('y', function(d,i){
+				var adj = (d<0) ? 11:-1;
+				return yScale(d) + adj;
+			});
+
+}
+
+</script>
+</html>

@@ -41,7 +41,8 @@ body {
   letter-spacing: normal;
   text-transform: uppercase;
   text-shadow: none;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  padding-bottom:0.8em!important; }
 
 .reveal h1 {
   font-size: 2.5em; }
@@ -224,6 +225,8 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border-color: #FFB739;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+  span.diff{color:#26354a;}
 
 /*********************************************
  * NAVIGATION CONTROLS
