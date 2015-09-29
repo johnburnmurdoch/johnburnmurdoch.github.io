@@ -78,7 +78,7 @@
 	}
 	#meanLine{
 		/*stroke:#FA6121;*/
-		stroke:red;
+		stroke:#627894;
 		stroke-dasharray:8px 8px;
 		stroke-width:3px;
 	}
@@ -91,7 +91,7 @@
 	}
 	#meanLabel{
 		/*fill:#FA6121;*/
-		fill:red;
+		fill:#627894;
 	}
 
 	@media screen and (max-width: 800px) {
@@ -292,8 +292,9 @@ function drawData(){
 			.attr('class', 'bar')
 			.attr('fill',function(d){
 				if(d<0){
-					return '#627894';
+					return '#FFB739';
 				}
+				// return '#FFB739';
 				return '#FFB739';
 			});
 
@@ -307,8 +308,9 @@ function drawData(){
 		})
 		.attr('fill',function(d){
 			if(d<0){
-				return '#627894';
+				return '#FFB739';
 			}
+			// return '#FFB739';
 			return '#FFB739';
 		});
 
