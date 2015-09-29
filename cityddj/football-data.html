@@ -106,11 +106,6 @@
 	</head>
 
 	<body>
-		<script charset="utf-8">
-			$.getJSON("http://sheetsu.com/apis/5b80bbc7").success(function(data){
-			    data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
-			})
-		</script>
 		<header id="jbm-header" class="stickable">
 	    	<!-- <a class='myheadshot' href="https://twitter.com/jburnmurdoch" target="_blank"><img src="headshot2.png" alt="@jburnmurdoch - Twitter"></a> -->
 	    	<a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
@@ -181,6 +176,15 @@
 			</div>
 
 		</div>
+
+
+		<script charset="utf-8">
+			$.getJSON("http://sheetsu.com/apis/5b80bbc7").success(function(data){
+				console.log(data.result);
+			    data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
+			    d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").append('h3').html(function(d,i){return d.Name});
+			})
+		</script>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
