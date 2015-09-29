@@ -1,16 +1,27 @@
 <html>
 <head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
 	<title>Control patch</title>
 </head>
 <style type="text/css">
+	#jbm-header {height: 40px;background-color:#466289;width: 100%;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #74736c;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+  	#jbm-header a{background-color:#466289;text-decoration: none;}
+  	#jbm-header a.myName{color:#fff;font-size:20px;display:inline-block;position:absolute;left:5px;padding:9px;}
+  	#jbm-header a.homeLink{color:#fff;font-size:20px;display:inline-block;position:absolute;padding:9px;margin:auto;left:0;right:0;max-width:200px;}
+  	#jbm-header a.myTitle{color:#fff;font-size:20px;display:inline-block;position:absolute;right:0px;padding:9px;}
+  	#jbm-header a.myName:hover,#jbm-header a.homeLink:hover,#jbm-header a.myTitle:hover{color:#FFB739!important;}
+  	#jbm-header span{color:#fff;padding:0px 0px;}
+  	#jbm-header span:hover{color:#FFB739;}
+
 	body{
-		font-family: sans-serif;	
+		font-family: sans-serif;
+		margin:0;
 	}
 	.ui-patch{
 		fill-opacity:0;
 		stroke-width:1px;
 		stroke:gray;
-		cursor: url(editcursor.png);
+		cursor:crosshair;
 	}
 	.bar{
 		stroke:#fff;
@@ -18,7 +29,7 @@
 	}
 
 	text{
-		stroke:#000;
+		fill:#000;
 		font-family: sans-serif;
 		-webkit-touch-callout: none;
 		-webkit-user-select: none;
@@ -27,16 +38,25 @@
 		-ms-user-select: none;
 		user-select: none;
 	}
+	.bar-label{
+		font-size:11px;
+	}
 	.container{
 		position: relative;
 		width:100%;
 	}
-	h1{position:relative;left:20px;}
+	/*h1{
+		-webkit-margin-before:10px;
+		-webkit-margin-before:10px;
+	}*/
+	h1,p{padding:0px 20px;color:#466289;}
+	p a{text-decoration:none;color:#FA6121;}
+	p a:hover{color:#FFB739;}
 	.inner{
 		position:relative;
 		margin:auto;
 		width:100%;
-		height:100%;
+		height:calc(100% - 55px);
 		left:0;
 		right:0;
 		max-width:800px;
@@ -57,22 +77,52 @@
 		shape-rendering:crispEdges;
 	}
 	#meanLine{
-		stroke-dasharray:3px 3px;
+		/*stroke:#FA6121;*/
+		stroke:red;
+		stroke-dasharray:8px 8px;
+		stroke-width:3px;
 	}
 	#medianLine{
 		stroke-dasharray:5px 5px;
 	}
 	#meanLabel,#medianLabel{
+		font-weight:bold;
 		text-shadow:2px 2px 5px white, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px white;
+	}
+	#meanLabel{
+		/*fill:#FA6121;*/
+		fill:red;
+	}
+
+	@media screen and (max-width: 800px) {
+		h1{padding:0px 60px 0px 20px}
+    	#jbm-header{height: 32px;}
+    	#jbm-header a{font-size:14px!important;}
+    }
+
+	@media screen and (max-width: 600px) {
+    	#jbm-header a{font-size:13px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+	@media screen and (max-width: 350px) {
+    	#jbm-header a{font-size:11px!important;}
+		.bar-label{font-size:9px;}
 	}
 
 </style>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <body>
+<header id="jbm-header" class="stickable">
+	<a class='homeLink'  href="http://johnburnmurdoch.github.io/cityddj/">Interactive journalism</a>
+  	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+  	<a class='myTitle' href="https://twitter.com/search?q=%23cityddj&src=typd" target="_blank"><span>#cityddj</span></a>
+</header>
 <div class="container">
 	
 	<div class="inner">
 	<h1>Mean vs median calculator</h1>
+	<p>Based on Tom Pearson's <a href="http://bl.ocks.org/tomgp/6794267" target="_blank"><em>Control Patch</em> block</a></p>
 		<div class="prompt"></div>
 	</div>
 </div>
@@ -81,7 +131,7 @@
 <script type="text/javascript">
 
 var width = d3.select(".inner").node().getBoundingClientRect().width;
-var height = d3.select(".inner").node().getBoundingClientRect().height;
+var height = (d3.select(".inner").node().getBoundingClientRect().height-d3.select("#jbm-header").node().offsetHeight)-(d3.select("p").node().offsetHeight+d3.select("h1").node().offsetHeight+42);
 
 var svg = d3.select(".inner").append("svg")
 	.attr({
@@ -177,7 +227,7 @@ function drawData(){
 	meanLabel.enter().append("text")
 		.attr({
 			'id':'meanLabel',
-			'x':21,
+			'x':23,
 			'y':function(d,i){return yScale(d)-3}
 		})
 		.html(function(d,i){return "Mean: " + d3.format(".2f")(d)});
@@ -213,10 +263,11 @@ function drawData(){
 	medianLabel.enter().append("text")
 		.attr({
 			'id':'medianLabel',
-			'x':21,
+			'x':width-23,
 			'y':function(d,i){return yScale(d)-3}
 		})
-		.html(function(d,i){return "Median: " + d3.format(".2f")(d)});
+		.html(function(d,i){return "Median: " + d3.format(".2f")(d)})
+		.style({"text-anchor":"end"});
 
 	medianLabel.transition()
 		.duration(50)
@@ -241,9 +292,9 @@ function drawData(){
 			.attr('class', 'bar')
 			.attr('fill',function(d){
 				if(d<0){
-					return '#466289';
+					return '#627894';
 				}
-				return '#FA6121';
+				return '#FFB739';
 			});
 
 	chart.transition()
@@ -256,9 +307,9 @@ function drawData(){
 		})
 		.attr('fill',function(d){
 			if(d<0){
-				return '#466289';
+				return '#627894';
 			}
-			return '#FA6121';
+			return '#FFB739';
 		});
 
 	labels.enter()
@@ -273,7 +324,8 @@ function drawData(){
 				var adj = (d<0) ? 11:-1;
 				return yScale(d) + adj;
 			})
-			.attr('text-anchor','middle');
+			.attr('text-anchor','middle')
+			.attr('class','bar-label');
 
 	labels.transition()
 		.duration(50)
