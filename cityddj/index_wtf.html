@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>John Burn-Murdoch - presentation</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jbm.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+
+		#jbm-header {height: 40px;background-color:#fff1e0;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+	  	#jbm-header a{background-color:#fff1e0;text-decoration: none;}
+	  	#jbm-header img {margin-top:13px; opacity: .8;transition: opacity .3s;height:20px;}
+	  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+	  	#jbm-header a.myName{color:#43423e;font-size:20px;display:inline-block;position:absolute;left:2px;bottom:6px;padding-left:0px;}
+	  	#jbm-header a.myTitle{color:#43423e;font-size:20px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;   /*display:none;*/}
+
+	  	.newsection.left{text-align: left;}
+	  	.newsection.center{text-align: center;}
+
+	    @media screen and (max-width: 800px) {
+	    	#jbm-header {height: 30px;background-color:#fff1e0;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #ccc;box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);}
+		  	#jbm-header a{background-color:#fff1e0;text-decoration: none;display:table;}
+		  	#jbm-header img {opacity: .8;transition: opacity .3s;height:35px;border-radius:18px;}
+		  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+		  	#jbm-header a.myName{color:#43423e;font-size:20px;display:inline-block;position:absolute;left:51px;bottom:6px;padding-left:0px;}
+		  	#jbm-header a.myTitle{color:#43423e;font-size:16px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;   /*display:none;*/}
+		  	.reveal .progress {top:37px!important;}
+	    }
+
+	    @media screen and (max-width: 480px) {
+	    	#jbm-header {height: 25px;background-color:#fff1e0;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #ccc;box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);}
+		  	#jbm-header a{background-color:#fff1e0;text-decoration: none;display:table;}
+		  	#jbm-header img {opacity: .8;transition: opacity .3s;height:30px;border-radius:20px;}
+		  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+		  	#jbm-header a.myName{color:#43423e;font-size:16px;display:inline-block;position:absolute;left:46px;bottom:6px;padding-left:0px;}
+		  	#jbm-header a.myTitle{color:#43423e;font-size:16px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;display:none;}
+		  	.reveal .progress {top:32px!important;}
+	    }
+
+	    body{font-family: arial,sans-serif!important;}
+
+	    
+	    .ui-page.ui-page-theme-a.ui-page-active {
+  		-moz-box-shadow: none !important;
+  		-webkit-box-shadow: none !important;
+  		box-shadow: none !important;
+  		outline: none;
+		}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<script charset="utf-8">
+			var bounds = d3.select('body').node().getBoundingClientRect();
+			console.log(bounds.height,bounds.width);
+			
+			window.onload = function(){
+				d3.csv("slidesdata.csv", function(error, data){
+					console.log(data)
+
+				var zoom = +d3.select('div.slides').style('zoom');
+				var padTop = +d3.select('.slides section').style('padding-top').replace(/px/g,'');
+				var headHeight = +d3.select('#jbm-header').style('height').replace(/px/g,'');
+				console.log(zoom,padTop,headHeight)
+
+				d3.selectAll('iframe').attr({
+					'height':((bounds.height/zoom)-(padTop+headHeight+10)) + 'px',
+					'width':(bounds.width) + 'px',
+					'src':'http://ig.ft.com/features/baseline/every-premier-league-squad-compared-graphic/'
+					//'src':'http://ig.ft.com/features/uk-election-results-explained-animation/'
+				});
+
+
+				var newSlides = d3.select('.slides').selectAll('newsection').data(data).enter().append('section').attr('class',function(d,i){return 'newsection ' + d.slideALIGN});
+				newSlides.append('h2').html(function(d,i){return d.slideTitle});
+				newSlides.append('p').html(function(d,i){return d.slideLine1});
+				newSlides.append('p').html(function(d,i){return d.slideLine2});
+				newSlides.append('p').html(function(d,i){return d.slideLine3});
+				newSlides.append('p').html(function(d,i){return d.slideIMG});
+				newSlides.append('iframe').attr('src',function(d,i){return d.slideIFRAME});
+				})
+			}
+			
+		</script>
+		<header id="jbm-header" class="stickable">
+	    	<!-- <a class='myheadshot' href="https://twitter.com/jburnmurdoch" target="_blank"><img src="headshot2.png" alt="@jburnmurdoch - Twitter"></a> -->
+	    	<a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+	      	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+	      	<a class='myTitle' ><span>Interactive data journalist</span></a>
+	    </header>
+	    <div id="progressbar"></div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section style="text-align: center;">
+					<!-- <h2>Visual Journalism update - May 2015</h2>
+					<h4>Responding to increased editorial demand</h4>
+					<h4>Better effort/reward management</h4>
+					<h4>Tablet app update</h4> -->
+					<iframe src=""></iframe>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<!-- <section>
+					<section style="text-align: left;">
+						<h3>Responding to increased editorial demand</h3>
+						<h4>Training courses going well</h4>
+						<p>Everyone on the team is doing well with the d3 MOOC and some are now well into the animations phase</p>
+						<p>We're almost there with our customised style for chart production in R - meeting design again tomorrow</p>
+						<p>From past experience expecting a 75% drop in production-time for routine static graphics</p>
+						<br>
+					</section>
+					<section style="text-align: left;">
+						<h4>Impact of streamlining on quality</h4>
+						<p>I know we had concerns about this, but early signs are that increased speed of routine graphics is allowing more time for creative thinking. Seen some great additive work on existing templates for 2-3 day projects</p>
+					</section>
+				</section>
+
+				<section>
+					<section style="text-align: left;">
+						<h3>Better effort/reward management</h3>
+						<h4>Suspicions confirmed by analytics</h4>
+						<p>As you rightly surmised, visual complexity perhaps turned off a lot of our audience</p>
+						<p>We think initial spike on social was more a result of the "ooh that's cool" factor than a deeper engagement. Click-through and time-on-page both well below what we'd expect for something with much social traffic</p>
+						<br>
+					</section>
+					<section style="text-align: left;">
+						<h4>Solution?</h4>
+						<p>Now having weekly VJ team meetings to try to better match up personal talents and passions with editorial demand</p>
+						<p>Should see first hard evidence later this month - paired up our resident 3D geeek with BBC World for a really striking piece on Nepal, 3D animations showing why its seismology makes it vulnerable to these continued aftershocks</p>
+					</section>
+					<section style="text-align: left;">
+						<h4>Analytics-informed decisions</h4>
+						<p>We're rowing back slightly on the Wimbledon piece so as to give more effort to Women's World Cup</p>
+						<p>Analytics showing a lot of excitement around WWC and very important for our drive to increase visibility of women's sport</p>
+					</section>
+				</section>
+
+				<section>
+					<section style="text-align: left;">
+						<h3>Tablet app update</h3>
+						<h4>New features</h4>
+						<p>Competitor analysis report showed some innovations we're keen to add in:</p>
+						<ol>
+							<li>Make sure shorter clips work without sound</li>
+							<li>Adding HTML5 overlays to increase longevity</li>
+							<li>Using location within individual pieces of content</li>
+						</ol>
+						<br>
+					</section>
+					<section style="text-align: left;">
+						<h4>Next steps</h4>
+						<p>Keen to run user tests on the Al Jazeera features</p>
+						<p>Still discussing Snapchat Discover integration</p>
+					</section>
+				</section>
+ -->
+				
+
+
+
+				
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				touch: true,
+				loop: true,
+				hideAddressBar: true,
+				previewLinks: true,
+
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

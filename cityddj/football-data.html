@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>John Burn-Murdoch - presentation</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/jbm.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js "charset="utf-8"></script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+
+		@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: normal;
+	      	}
+	      	@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: bold;
+	      	}
+
+      	span,text,a,h1,h2,h3,h4,h5,p{font-family:"BentonSans",sans-serif!important;}
+
+      	p a{color:#2e6e9e!important;}
+      	p a:hover{color: #000;}
+
+		#jbm-header {height: 40px;background-color:#fff1e0;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #cec6b9;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+	  	#jbm-header a{background-color:#fff1e0;text-decoration: none;}
+	  	#jbm-header img {margin-top:13px; opacity: .8;transition: opacity .3s;height:20px;max-width:70%;}
+	  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+	  	#jbm-header a.myName{color:#43423e;font-size:20px;display:inline-block;position:absolute;left:5px;bottom:6px;padding-left:0px;}
+	  	#jbm-header a.myTitle{color:#43423e;font-size:20px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;   /*display:none;*/}
+
+	  	.newsection.left{text-align: left;}
+	  	.newsection.center{text-align: center;}
+	  	.reveal .progress {top:42px!important;}
+
+	    @media screen and (max-width: 800px) {
+	    	#jbm-header {height: 30px;background-color:#fff1e0;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #ccc;box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);}
+		  	#jbm-header a{background-color:#fff1e0;text-decoration: none;display:table;}
+		  	#jbm-header img {opacity: .8;transition: opacity .3s;height:35px;/*border-radius:18px;*/}
+		  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+		  	#jbm-header a.myName{color:#43423e;font-size:20px;display:inline-block;position:absolute;left:51px;bottom:6px;padding-left:0px;}
+		  	#jbm-header a.myTitle{color:#43423e;font-size:16px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;   /*display:none;*/}
+		  	.reveal .progress {top:37px!important;}
+	    }
+
+	    @media screen and (max-width: 480px) {
+	    	#jbm-header {height: 25px;background-color:#fff1e0;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #ccc;box-shadow: 0 3px 3px 0 rgba(0,0,0,.1);}
+		  	#jbm-header a{background-color:#fff1e0;text-decoration: none;display:table;}
+		  	#jbm-header img {opacity: .8;transition: opacity .3s;height:30px;/*border-radius:20px;*/}
+		  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+		  	#jbm-header a.myName{color:#43423e;font-size:16px;display:inline-block;position:absolute;left:46px;bottom:6px;padding-left:0px;display:none;}
+		  	#jbm-header a.myTitle{color:#43423e;font-size:16px;display:inline-block;position:absolute;right:0px;bottom:7px;padding-right:10px;display:none;}
+		  	.reveal .progress {top:32px!important;}
+	    }
+
+	    body{font-family: arial,sans-serif!important;}
+
+	    
+	    .ui-page.ui-page-theme-a.ui-page-active {
+  		-moz-box-shadow: none !important;
+  		-webkit-box-shadow: none !important;
+  		box-shadow: none !important;
+  		outline: none;
+		}
+
+		.centered{/*text-align:center!important;*/padding-bottom:0.8em!important;}
+		.red{color:#af516c;}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<script charset="utf-8">
+			$.getJSON("http://sheetsu.com/apis/5b80bbc7").success(function(data){
+			    data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
+			})
+		</script>
+		<header id="jbm-header" class="stickable">
+	    	<!-- <a class='myheadshot' href="https://twitter.com/jburnmurdoch" target="_blank"><img src="headshot2.png" alt="@jburnmurdoch - Twitter"></a> -->
+	    	<a href="//www.ft.com/"><img src="//interactivegraphics.ft-static.com/sites/2014/deficit-calculator/images/content/ft.svg" alt="Financial Times"></a>
+	      	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+	      	<a class='myTitle' ><span>Interactive data journalist</span></a>
+	    </header>
+	    <div id="progressbar"></div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section style="text-align: left;">
+					<h3 class='centered'>Sports data journalism at the Financial Times</h3>
+					<p>The FT has a complex relationship with sport</p>
+					<p>It all started with a labour of love for <a href='http://blogs.ft.com/ftdata/2014/06/11/interactive-explore-the-statistical-identity-of-every-team-at-the-world-cup/' target='_blank'>the World Cup</a></p>
+					<p>...from which was born <a href='http://blogs.ft.com/ftdata/category/baseline/' target='_blank'><em class='red'>FT Baseline</em></a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h5 class='centered'>Sports data journalism at the Financial Times</h5>
+					<h4>What is FT Baseline?</h4>
+					<p>A weekly column online and in print</p>
+					<p>Using numbers and visuals to tell stories, test hypotheses and bust stereotypes</p>
+					<p>Two core writers plus some squad rotation</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4 class='centered'>Sports data journalism at the Financial Times</h4>
+					<h4>Gimme an example</h4>
+					<p><a href="http://ig.ft.com/features/baseline/every-premier-league-squad-compared-graphic/" target='_blank'>Premier League squad usage and composition</a></p>
+					<p>Inspired by work in the blogging community</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4 class='centered'>Sports data journalism at the Financial Times</h4>
+					<h4>Something from the archives</h4>
+					<p><a href="http://blogs.ft.com/ftdata/2014/09/28/interactive-is-the-early-season-premier-league-table-a-good-predictor-of-future-success/" target='_blank'>Early season vs wages as predictor</a></p>
+					<p>Doubles as visual explanation of </p>
+					<p>Rightly called out for an error</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4 class='centered'>Sports data journalism at the Financial Times</h4>
+					<h4>Mythbusting</h4>
+					<p><a href="http://ig.ft.com/features/baseline/football-christmas-suspensions/" target='_blank'>The Christmas suspension myth</a></p>
+					<p>Example of the clear narrative structure we aim for, even when the groundwork has been data-heavy</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4 class='centered'>Sports data journalism at the Financial Times</h4>
+					<h4>Who else should I be reading?</h4>
+					<p><a href="http://fivethirtyeight.com/features/lionel-messi-is-impossible/" target='_blank'><em>FiveThirtyEight</em></a></p>
+					<p><a href="http://www.nytimes.com/interactive/2014/06/03/upshot/world-cup-draw-simulation.html" target='_blank'><em>The Upshot (New York Times)</em></a></p>
+					<p>Notable individuals:</p>
+					<p class='superminor'><a href='https://twitter.com/kirkgoldsberry' target='_blank'>Kirk Goldsberry</a>, <a href='https://twitter.com/altmandaniel' target='_blank'>Daniel Altman</a>, <a href='https://twitter.com/jonathanliew' target='_blank'>Jonathan Liew</a>, <a href='https://twitter.com/seaningle' target='_blank'>Sean Ingle</a>, loads more</p>
+					<p>Brilliant blogs</p>
+					<p><a href='http://www.minto.net/sport-geek-newsletter/' target='_blank'><em>Sports Geek</em> email newsletter</a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h3 class='centered'>Sports data journalism at the Financial Times</h3>
+					<p>Questions?</p><br>
+					<p class='minor'>@jburnmurdoch</p>
+					<p class='minor'>john.burn-murdoch@ft.com</p>
+					<p class='minor'>ft.com/baseline</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+				slideNumber: true,
+				touch: true,
+				loop: true,
+				hideAddressBar: true,
+				previewLinks: false,
+
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
