@@ -1,0 +1,450 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Control patch</title>
+</head>
+<style type="text/css">
+	#jbm-header {height: 40px;background-color:#466289;width: 100%;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #74736c;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+  	#jbm-header a{background-color:#466289;text-decoration: none;}
+  	#jbm-header a.myName{color:#fff;font-size:20px;display:inline-block;position:absolute;left:5px;padding:9px;}
+  	#jbm-header a.homeLink{color:#fff;font-size:20px;display:inline-block;position:absolute;padding:9px;margin:auto;left:0;right:0;max-width:200px;}
+  	#jbm-header a.myTitle{color:#fff;font-size:20px;display:inline-block;position:absolute;right:0px;padding:9px;}
+  	#jbm-header a.myName:hover,#jbm-header a.homeLink:hover,#jbm-header a.myTitle:hover{color:#FFB739!important;}
+  	#jbm-header span{color:#fff;padding:0px 0px;}
+  	#jbm-header span:hover{color:#FFB739;}
+
+	body{
+		font-family: sans-serif;
+		margin:0;
+	}
+	#plotHolder{
+		position:relative;
+	}
+	svg,#overlay{position:absolute;}
+	#overlay{pointer-events:none;}
+	.plotBack{fill:#DBE8F9;}
+	.tick text{font-size:12px;}
+	.tick line{stroke:white;stroke-dasharray:1px 1px;}
+	.tick:nth-of-type(1) line{stroke:black;stroke-dasharray:0px 0px;shape-rendering:crispEdges;}
+	.ui-patch{
+		fill-opacity:0;
+		stroke-width:1px;
+		stroke:gray;
+		cursor:crosshair;
+	}
+	.bar{
+		stroke:#fff;
+		stroke-width:1px;
+	}
+
+	text{
+		fill:#000;
+		font-family: sans-serif;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.bar-label{
+		font-size:11px;
+	}
+	.container{
+		position: relative;
+		width:100%;
+	}
+	/*h1{
+		-webkit-margin-before:10px;
+		-webkit-margin-before:10px;
+	}*/
+	h1,p{padding:0px 20px;color:#466289;}
+	p a{text-decoration:none;color:#FA6121;}
+	p a:hover{color:#FFB739;}
+	.inner{
+		position:relative;
+		margin:auto;
+		width:100%;
+		height:calc(100% - 55px);
+		left:0;
+		right:0;
+		max-width:800px;
+		max-height:800px;
+	}
+	.prompt{
+		background-image: url(editicon.png);
+		width: 64px;
+		height: 44px;
+		position: absolute;
+		right:20;
+		top:0;
+		z-index: -100;
+	}
+	#meanLine,#medianLine{
+		stroke:black;
+		stroke-width:2px;
+		shape-rendering:crispEdges;
+	}
+	#meanLine{
+		/*stroke:#FA6121;*/
+		stroke:#627894;
+		stroke-dasharray:8px 8px;
+		stroke-width:3px;
+	}
+	#medianLine{
+		stroke-dasharray:5px 5px;
+	}
+	#meanLabel,#medianLabel{
+		font-weight:bold;
+		text-shadow:2px 2px 5px white, -2px -2px 5px white, 2px -2px 5px white, -2px 2px 5px white;
+	}
+	#meanLabel{
+		/*fill:#FA6121;*/
+		fill:#627894;
+	}
+
+	@media screen and (max-width: 800px) {
+		h1{padding:0px 60px 0px 20px}
+    	#jbm-header{height: 32px;}
+    	#jbm-header a{font-size:14px!important;}
+    }
+
+	@media screen and (max-width: 600px) {
+    	#jbm-header a{font-size:13px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+	@media screen and (max-width: 350px) {
+    	#jbm-header a{font-size:11px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+	circle.aq{
+		fill:#FFB739;
+		stroke:#FA6121;
+		cursor:crosshair;
+		clip-path:url(#clip-rect);
+	}
+	circle.aq:hover{
+		fill:#FA6121;
+	}
+	.summarytext{
+		padding:0px 30px;
+		position:absolute;
+		-webkit-margin-before:0;
+		-webkit-margin-after:0;
+	}
+	path.domain{fill:none;stroke:none;stroke-width:1px;}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/2.3.0/math.min.js"></script>
+<body>
+<header id="jbm-header" class="stickable">
+	<a class='homeLink' href="http://johnburnmurdoch.github.io/cityddj/thurs1.html" target="_blank">Interactive journalism</a>
+  	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+  	<a class='myTitle' href="https://twitter.com/search?q=%23cityddj&src=typd" target="_blank"><span>#cityddj</span></a>
+</header>
+<div class="container">
+	
+	<div class="inner">
+	<h1>Anscombe's quartet</h1>
+	<p id="summaryText">Built using <a href="http://mathjs.org/" target="_blank">math.js</a> and <a href="https://twitter.com/mattantwest" target="_blank">Matt West</a>'s <a href="https://gist.github.com/matt-west/6500993" target="_blank">pearson-correlation.js</a>, plus some smart stuff from <a href="http://bl.ocks.org/mbostock/1557377" target="_blank">Bostock</a></p>
+		<div class="prompt"></div>
+	</div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+function pearsonCorrelation(prefs, p1, p2) {
+  var si = [];
+
+  for (var key in prefs[p1]) {
+    if (prefs[p2][key]) si.push(key);
+  }
+
+  var n = si.length;
+
+  if (n == 0) return 0;
+
+  var sum1 = 0;
+  for (var i = 0; i < si.length; i++) sum1 += prefs[p1][si[i]];
+
+  var sum2 = 0;
+  for (var i = 0; i < si.length; i++) sum2 += prefs[p2][si[i]];
+
+  var sum1Sq = 0;
+  for (var i = 0; i < si.length; i++) {
+    sum1Sq += Math.pow(prefs[p1][si[i]], 2);
+  }
+
+  var sum2Sq = 0;
+  for (var i = 0; i < si.length; i++) {
+    sum2Sq += Math.pow(prefs[p2][si[i]], 2);
+  }
+
+  var pSum = 0;
+  for (var i = 0; i < si.length; i++) {
+    pSum += prefs[p1][si[i]] * prefs[p2][si[i]];
+  }
+
+  var num = pSum - (sum1 * sum2 / n);
+  var den = Math.sqrt((sum1Sq - Math.pow(sum1, 2) / n) *
+      (sum2Sq - Math.pow(sum2, 2) / n));
+
+  if (den == 0) return 0;
+
+  return num / den;
+}
+
+function linearRegression(y,x){
+
+        var lr = {};
+        var n = y.length;
+        var sum_x = 0;
+        var sum_y = 0;
+        var sum_xy = 0;
+        var sum_xx = 0;
+        var sum_yy = 0;
+
+        for (var i = 0; i < y.length; i++) {
+
+            sum_x += x[i];
+            sum_y += y[i];
+            sum_xy += (x[i]*y[i]);
+            sum_xx += (x[i]*x[i]);
+            sum_yy += (y[i]*y[i]);
+        } 
+
+        lr['slope'] = (n * sum_xy - sum_x * sum_y) / (n*sum_xx - sum_x * sum_x);
+        lr['intercept'] = (sum_y - lr.slope * sum_x)/n;
+        lr['r2'] = Math.pow((n*sum_xy - sum_x*sum_y)/Math.sqrt((n*sum_xx-sum_x*sum_x)*(n*sum_yy-sum_y*sum_y)),2);
+
+        return lr;
+
+};
+
+function pairUp(x,y,parentIndex){
+	var arrayOut = [];
+	x.forEach(function(d,i){
+		var pair = [x[i],y[i],parentIndex];
+		arrayOut.push(pair)
+	});
+	return arrayOut
+}
+
+function summarise(x,y,precision){
+    var data = new Array(x,y);
+	var vX = math.round(math.var(data[0]),1);
+	var vY = math.round(math.var(data[1]),1);
+	var mX = math.round(math.mean(data[0]),1);
+	var mY = math.round(math.mean(data[1]),1);
+	var r = math.round(pearsonCorrelation(data,0,1),3);
+	var eq = linearRegression(data[1],data[0]);
+    var slope = math.round(eq.slope,1);
+    var intercept = math.round(eq.intercept,1);
+    return "&sigma;<sup>2</sup> " + vX + " and " + vY + "<br>x&#772; " + mX + " and " + mY + "<br>r = " + r + "<br>y = " + slope + "x+" + intercept
+};
+
+var radius = 8;
+
+var x0 = [10, 8, 13, 9, 11, 14, 6, 4, 12, 7, 5];
+var y0 = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68];
+
+var x1 = [10,8,13,9,11,14,6,4,12,7,5];
+var y1 = [9.14,8.14,8.74,8.77,9.26,8.1,6.13,3.1,9.13,7.26,4.74];
+
+var x2 = [10,8,13,9,11,14,6,4,12,7,5];
+var y2 = [7.46,6.77,12.74,7.11,7.81,8.84,6.08,5.39,8.15,6.42,5.73];
+
+var x3 = [8,8,8,8,8,8,8,19,8,8,8];
+var y3 = [6.58,5.76,7.71,8.84,8.47,7.04,5.25,12.5,5.56,7.91,6.89];
+
+var q0 = pairUp(x0,y0,0);
+var q1 = pairUp(x1,y1,1);
+var q2 = pairUp(x2,y2,2);
+var q3 = pairUp(x3,y3,3);
+
+var qData = [q0,q1,q2,q3];
+
+var width = d3.select(".inner").node().getBoundingClientRect().width;
+var height = (d3.select(".inner").node().getBoundingClientRect().height-d3.select("#jbm-header").node().offsetHeight)-(d3.select("p").node().offsetHeight+d3.select("h1").node().offsetHeight+42);
+
+var plotHolder = d3.select(".inner").append("div")
+	.attr({
+		"id":"plotHolder"
+	})
+	.style({
+		"width":width + 'px',
+		"height":height + 'px'
+	});
+
+var svg = d3.select("#plotHolder").append("svg")
+	.attr({
+		"id":"ui"
+	})
+	.style({
+		"width":width + 'px',
+		"height":height + 'px'
+	});
+
+var overlay = d3.select("#plotHolder").append("div")
+	.attr({
+		"id":"overlay"
+	})
+	.style({
+		"width":width + 'px',
+		"height":height + 'px'
+	});
+
+var defs = svg.append("defs");
+var clip = defs.append("clipPath").attr({"id":"clip-rect"});
+
+var quartet = svg.selectAll('g.quartet').data(qData);
+quartet.enter().append('g').attr({
+	class:"quartet",
+	"transform":function(d,i){
+		var xPos = (i % 2 == 0) ? 0:width/2;
+		var yPos = (i < 2) ? 0:height/2;
+		return "translate(" + xPos + "," + yPos + ")"
+	}
+});
+
+quartet.append("rect").attr({
+	class:'plotBack',
+	'x':25,
+	'y':10,
+	'width':width/2-35,
+	'height':height/2-35
+});
+
+var miniX = d3.scale.linear()
+	.range([25,width/2-10])
+	.domain([0,20])
+	.clamp(true);
+
+var miniY= d3.scale.linear()
+	.range([height/2-25,10])
+	.domain([0,15])
+	.clamp(true);
+
+var clipRect = clip.append("rect").attr({
+	'x':25,
+	'y':10,
+	'width':width/2-35,
+	'height':height/2-35
+});
+
+var miniXa = d3.svg.axis()
+	.orient("bottom")
+	.scale(miniX)
+	.ticks(5)
+	.tickSize(-1*(height/2-35));
+
+var miniYa = d3.svg.axis()
+	.orient("left")
+	.scale(miniY)
+	.ticks(5)
+	.tickSize(-1*(width/2-35));
+
+var miniXaX = quartet.append('g').attr({
+	class:"axis x",
+	"transform":"translate(" + 0 + "," + (height/2-25) + ")"
+}).call(miniXa);
+
+var miniYaX = quartet.append('g').attr({
+	class:"axis y",
+	"transform":"translate(" + 25 + "," + 0 + ")"
+}).call(miniYa);
+
+var drag = d3.behavior.drag()
+    .origin(function(d) { return d; })
+    .on("drag", dragmove);
+
+function dragmove(d,i) {
+	// console.log(d,i,eval("x" + d[2])[i],miniX.invert(d3.mouse(this)[0]),miniY.invert(d3.mouse(this)[1]));
+	eval("x" + d[2])[i] = miniX.invert(d3.mouse(this)[0]);
+	eval("y" + d[2])[i] = miniY.invert(d3.mouse(this)[1]);
+	// y0[i] = y.invert(d3.mouse(this)[1]);
+	d3.select("#st" + d[2]).html(summarise(eval("x" + d[2]),eval("y" + d[2]),2))
+  	d3.select(this)
+      	// .attr("cx", d.x = Math.max(radius, Math.min(width - radius, d3.event.x)))
+      	// .attr("cy", d.y = Math.max(radius, Math.min(height - radius, d3.event.y)));
+      	.attr("cx", Math.max(miniX(0)+radius, Math.min(miniX(20)-radius,d3.mouse(this)[0])) )
+      	.attr("cy", Math.max(miniY(15)+radius, Math.min(miniY(0)-radius,d3.mouse(this)[1])));
+};
+
+var circles = quartet.selectAll("circle.aq").data(function(d){return d});
+circles.enter().append("circle").attr({
+	class:"aq",
+	cx:function(d,i){return miniX(d[0])},
+	cy:function(d,i){return miniY(d[1])},
+	r:8
+}).call(drag);
+
+var summText = overlay.selectAll("p.summaryText").data(qData)
+summText.enter().append("p").attr({
+	class:"summarytext",
+	id:function(d,i){return 'st' + i}
+}).style({
+	"left":function(d,i){return (i % 2 == 0) ? 0:width/2;},
+	"top":function(d,i){return (i < 2) ? 10:height/2+10;},
+	"max-width":width/2-50
+})
+.html(function(d,i){
+	return summarise(eval("x" + i),eval("y" + i),2)}
+);
+
+
+
+
+
+var x = d3.scale.linear()
+	.range([25,width-20])
+	.domain([0,18]);
+
+var y = d3.scale.linear()
+	.range([height-20,20])
+	.domain([0,12]);
+
+var xA = d3.svg.axis()
+	.scale(x)
+	.orient("bottom")
+	.ticks(5)
+	.tickSize(5);
+
+// var xAx = svg.append("g")
+// 	.attr({
+// 		class:"axis x",
+// 		transform:"translate(" + 0 + "," +  (height-20) + ")"
+// 	})
+// 	.call(xA);
+
+var yA = d3.svg.axis()
+	.scale(y)
+	.orient("left")
+	.ticks(5)
+	.tickSize(5);
+
+// var yAx = svg.append("g")
+// 	.attr({
+// 		class:"axis y",
+// 		transform:"translate(" + 25 + "," +  0 + ")"
+// 	})
+// 	.call(yA);
+
+// var circles = svg.selectAll("circle.aq").data(x0);
+// circles.enter().append("circle").attr({
+// 	class:"aq",
+// 	cx:function(d,i){return x(x0[i])},
+// 	cy:function(d,i){return y(y0[i])},
+// 	r:10
+// })
+// .call(drag);
+
+// var summarytext = d3.select("#summarytext");
+
+
+</script>
+</html>
