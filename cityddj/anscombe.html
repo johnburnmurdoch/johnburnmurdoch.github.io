@@ -248,8 +248,6 @@ function summarise(x,y,precision){
     return "&sigma;<sup>2</sup> " + vX + " and " + vY + "<br>x&#772; " + mX + " and " + mY + "<br>r = " + r + "<br>y = " + slope + "x+" + intercept
 };
 
-var radius = 8;
-
 var x0 = [10, 8, 13, 9, 11, 14, 6, 4, 12, 7, 5];
 var y0 = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68];
 
@@ -271,6 +269,8 @@ var qData = [q0,q1,q2,q3];
 
 var width = d3.select(".inner").node().getBoundingClientRect().width;
 var height = (d3.select(".inner").node().getBoundingClientRect().height-d3.select("#jbm-header").node().offsetHeight)-(d3.select("p").node().offsetHeight+d3.select("h1").node().offsetHeight+42);
+
+var radius = width > 600 ? 8:6;
 
 var plotHolder = d3.select(".inner").append("div")
 	.attr({
@@ -381,7 +381,7 @@ circles.enter().append("circle").attr({
 	class:"aq",
 	cx:function(d,i){return miniX(d[0])},
 	cy:function(d,i){return miniY(d[1])},
-	r:8
+	r:radius
 }).call(drag);
 
 var summText = overlay.selectAll("p.summaryText").data(qData)
