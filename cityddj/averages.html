@@ -50,6 +50,8 @@
 		-webkit-margin-before:10px;
 	}*/
 	h1,p{padding:0px 20px;color:#466289;}
+	p{-webkit-margin-after:0;}
+	span.sources{font-size:0.8em;}
 	p a{text-decoration:none;color:#FA6121;}
 	p a:hover{color:#FFB739;}
 	.inner{
@@ -115,7 +117,7 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <body>
 <header id="jbm-header" class="stickable">
-	<a class='homeLink' href="http://johnburnmurdoch.github.io/cityddj/thurs1.html" target="_blank">Data journalism</a>
+	<!-- <a class='homeLink' href="http://johnburnmurdoch.github.io/cityddj/thurs1.html" target="_blank">Data journalism</a> -->
   	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
   	<a class='myTitle' href="https://twitter.com/search?q=%23cityddj&src=typd" target="_blank"><span>#cityddj</span></a>
 </header>
@@ -123,7 +125,7 @@
 	
 	<div class="inner">
 	<h1>Mean vs median calculator</h1>
-	<p>Based on Tom Pearson's <a href="http://bl.ocks.org/tomgp/6794267" target="_blank">block</a></p>
+	<p>Drag across the bars to draw your own distribution of data points, and see how they affect the two different measure of the aveage<br><br><span class="sources">Bar slider functionality based on Tom Pearson's <a href="http://bl.ocks.org/tomgp/6794267" target="_blank">block</a></span></p>
 		<div class="prompt"></div>
 	</div>
 </div>
@@ -183,11 +185,11 @@ var xScale = d3.scale.linear()
 				.clamp(true);
 
 var yScale = d3.scale.linear()
-				.domain([-100, 100])
+				.domain([0, 100])
 				.range([height-20,20])
 				.clamp(true);
 
-var barData = [80,75,70,60,40,10,-10,-40,-60,-70,-75,-80,-82,-80,-75,-60,-40,-10,10,40];
+var barData = [3,8,11,14,16,18,19,20,20,21,21,22,24,28,32,38,47,55,65,95];
 
 d3.select('#ui').append('g').attr('id','bar-chart');
 
