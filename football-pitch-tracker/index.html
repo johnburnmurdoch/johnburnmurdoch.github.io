@@ -222,7 +222,8 @@ var results = d3.select("#table tbody");
 var keyCount = 0;
 
 d3.select("#download").on("click",function(){
-	var csvContent = "data:text/csv;charset=utf-8,";
+	var csvContent = "data:text/csv;charset=utf-8,x,y,outcome,assist,play,type,state";
+	csvContent += "\n";
 	shots.forEach(function(infoArray, index){
    		dataString = infoArray.join(",");
    		csvContent += dataString + "\n";
