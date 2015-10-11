@@ -156,6 +156,19 @@
 		background-color: #DBE8F9;
 	}
 
+	table{
+		margin-bottom: 1em;
+	}
+
+	#download{
+		background-color:#FA6121;
+		color:white;
+		font-weight:bold;
+		cursor:pointer;
+		padding:5px;
+		border-radius:10px;
+	}
+
 </style>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <body>
@@ -191,6 +204,7 @@
 				<tbody>
 				</tbody>
 			</table>
+			<span id="download">Download data as CSV (opens in new window)</span>
 		</div>
 	</div>
 
@@ -206,6 +220,21 @@ var shot = [];
 var results = d3.select("#table tbody");
 
 var keyCount = 0;
+
+d3.select("#download").on("click",function(){
+	var csvContent = "data:text/csv;charset=utf-8,";
+	shots.forEach(function(infoArray, index){
+   		dataString = infoArray.join(",");
+   		csvContent += dataString + "\n";
+	});
+	var encodedUri = encodeURI(csvContent);
+	// window.open(encodedUri);
+	var link = document.createElement("a");
+	link.setAttribute("href", encodedUri);
+	link.setAttribute("download", "my_data.csv");
+
+	link.click();
+});
 
 optsData = [
 	["miss","save","block","goal"],
