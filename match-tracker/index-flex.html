@@ -1,0 +1,121 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Mean vs median explorer</title>
+</head>
+<style type="text/css">
+	#jbm-header {height: 40px;background-color:#466289;width: 100%;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #74736c;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+  	#jbm-header a{background-color:#466289;text-decoration: none;}
+  	#jbm-header a.myName{color:#fff;font-size:20px;display:inline-block;position:absolute;left:5px;padding:9px;}
+  	#jbm-header a.homeLink{color:#fff;font-size:20px;display:inline-block;position:absolute;padding:9px;margin:auto;left:0;right:0;max-width:200px;}
+  	#jbm-header a.myTitle{color:#fff;font-size:20px;display:inline-block;position:absolute;right:0px;padding:9px;}
+  	#jbm-header a.myName:hover,#jbm-header a.homeLink:hover,#jbm-header a.myTitle:hover{color:#FFB739!important;}
+  	#jbm-header span{color:#fff;padding:0px 0px;}
+  	#jbm-header span:hover{color:#FFB739;}
+
+	body{
+		font-family: sans-serif;
+		margin:0;
+	}
+
+	.container{
+		position: relative;
+		width:100%;
+		height:calc(100% - 65px);
+	}
+
+	#pitch{
+		cursor:crosshair;		
+	}
+
+	#controls{
+		flex-grow:2;
+		min-width:300px;
+		background-color:#DBE8F9;
+	}
+
+	#pitch img{
+		height:100%;
+	}
+
+	.inflex{
+		height:100%;
+	}
+
+	h1,p{padding:0px 20px;color:#466289;}
+	p{-webkit-margin-after:0;}
+	span.sources{font-size:0.8em;}
+	p a{text-decoration:none;color:#FA6121;}
+	p a:hover{color:#FFB739;}
+	.inner{
+		position:relative;
+		margin:auto;
+		width:100%;
+		height:100%;
+		left:0;
+		right:0;
+		max-width:1000px;
+		max-height:600px;
+	}
+
+	.flex-container{
+		width:100%;
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content:center;
+		align-items:flex-start;
+		align-content:flex-start;
+	}
+
+	@media screen and (max-width: 800px) {
+		#jbm-header a.myName,#jbm-header a.homeLink,#jbm-header a.myTitle{padding:8px;}
+		h1{padding:0px 60px 0px 20px}
+    	#jbm-header{height: 32px;}
+    	#jbm-header a{font-size:14px!important;}
+    }
+
+	@media screen and (max-width: 600px) {
+    	#jbm-header a{font-size:13px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+	@media screen and (max-width: 350px) {
+    	#jbm-header a{font-size:11px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<body>
+<header id="jbm-header" class="stickable">
+	<!-- <a class='homeLink' href="http://johnburnmurdoch.github.io/cityddj/thurs1.html" target="_blank">Data journalism</a> -->
+  	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+  	<a class='myTitle' href="https://twitter.com/search?q=%23cityddj&src=typd" target="_blank"><span>#cityddj</span></a>
+</header>
+<div class="container">
+	
+	<div class="inner">	
+		<h1>Football (soccer) pitch tracker</h1>
+		<p>Intro text here</p>
+
+		<div class="flex-container">
+			<div id="pitch" class="inflex">
+				<img src="half.png"></img>
+			</div>
+			<div id="controls" class="inflex"></div>
+		</div>
+
+		<div id="table">Results</div>
+	</div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+
+var width = d3.select(".inner").node().getBoundingClientRect().width;
+var height = d3.select(".inner").node().getBoundingClientRect().height;
+
+</script>
+</html>

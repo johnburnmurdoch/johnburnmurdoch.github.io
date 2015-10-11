@@ -1,0 +1,325 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Mean vs median explorer</title>
+</head>
+<style type="text/css">
+	#jbm-header {height: 40px;background-color:#466289;width: 100%;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #74736c;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+  	#jbm-header a{background-color:#466289;text-decoration: none;}
+  	#jbm-header a.myName{color:#fff;font-size:20px;display:inline-block;position:absolute;left:5px;padding:9px;}
+  	#jbm-header a.homeLink{color:#fff;font-size:20px;display:inline-block;position:absolute;padding:9px;margin:auto;left:0;right:0;max-width:200px;}
+  	#jbm-header a.myTitle{color:#fff;font-size:20px;display:inline-block;position:absolute;right:0px;padding:9px;}
+  	#jbm-header a.myName:hover,#jbm-header a.homeLink:hover,#jbm-header a.myTitle:hover{color:#FFB739!important;}
+  	#jbm-header span{color:#fff;padding:0px 0px;}
+  	#jbm-header span:hover{color:#FFB739;}
+
+	body{
+		font-family: sans-serif;
+		margin:0;
+	}
+
+	.container{
+		position: relative;
+		width:100%;
+		height:calc(100% - 65px);
+	}
+
+	#pitch{
+		cursor:crosshair;
+		position: relative;
+	}
+
+	#table{
+		-webkit-margin-before:10px;
+	}
+
+	#pitch img{
+		height:100%;
+		width:calc(100% - 40px);
+	}
+
+	.inflex{
+		height:100%;
+	}
+
+	h1,p,#pitch img,#table{padding:0px 20px;color:#466289;}
+	p{-webkit-margin-after:10px;}
+	span.sources{font-size:0.8em;}
+	p a{text-decoration:none;color:#FA6121;}
+	p a:hover{color:#FFB739;}
+	.inner{
+		position:relative;
+		margin:auto;
+		width:100%;
+		height:100%;
+		left:0;
+		right:0;
+		max-width:1000px;
+		max-height:600px;
+	}
+
+	.flex-container{
+		width:100%;
+	}
+
+	@media screen and (max-width: 800px) {
+		#jbm-header a.myName,#jbm-header a.homeLink,#jbm-header a.myTitle{padding:8px;}
+		h1{padding:0px 60px 0px 20px}
+    	#jbm-header{height: 32px;}
+    	#jbm-header a{font-size:14px!important;}
+    }
+
+	@media screen and (max-width: 600px) {
+    	#jbm-header a{font-size:13px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+	@media screen and (max-width: 350px) {
+    	#jbm-header a{font-size:11px!important;}
+		.bar-label{font-size:9px;}
+	}
+
+	.pitch-marker{
+		position: absolute;
+		width:20px;
+		height:20px;
+		background-color:red;
+		border-radius:20px;
+	}
+
+	.popup{
+		position:absolute;
+		margin:auto;
+		left:0;
+		right:0;
+		top:20;
+		background-color:white;
+		max-width:300px;
+		padding:10px;
+		border-radius:10px;
+		cursor:default;
+	}
+
+	.popup > div{
+		padding:10px 0px;
+	}
+
+	.popup div:nth-child(odd) span{
+		background-color:#627894;
+		color:white;
+	}
+
+	.popup span{
+		/*line-height:1.5em;*/
+		cursor:pointer;
+		background-color:#DBE8F9;
+		margin-left:5px;
+		border-radius:2px;
+		padding:5px 10px;
+	}
+
+	.popup span:hover{
+		background-color:#A0AEC1;
+	}
+
+	.popup span.selected{
+		background-color: #FFB739!important;
+		color:black!important;
+	}
+
+	.done span{
+		background-color: #FA6121;
+		margin-left:0;
+		border-radius:10px;
+	}
+
+	th{
+		border-bottom:solid 1px black;
+	}
+
+	tr:nth-child(odd) td{
+		background-color: #DBE8F9;
+	}
+
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<body>
+<header id="jbm-header" class="stickable">
+	<!-- <a class='homeLink' href="http://johnburnmurdoch.github.io/cityddj/thurs1.html" target="_blank">Data journalism</a> -->
+  	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+  	<a class='myTitle' href="https://twitter.com/search?q=%23cityddj&src=typd" target="_blank"><span>#cityddj</span></a>
+</header>
+<div class="container">
+	
+	<div class="inner">	
+		<h1>Football (soccer) pitch tracker</h1>
+		<p>Begin by marking an event on the pitch</p>
+
+		<div class="flex-container">
+			<div id="pitch" class="inflex">
+				<img src="half.png"></img>
+			</div>
+		</div>
+
+		<div id="table">Recorded events:
+			<table>
+				<tr>
+					<th>x</th>
+					<th>y</th>
+					<th>Outcome</th>
+					<th>Assist</th>
+					<th>Play</th>
+					<th>Type</th>
+					<th>State</th>
+				</tr>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+
+var shots = [];
+
+var results = d3.select("#table tbody");
+
+function doEvent(coords){
+	
+	var shot = [d3.format(".1f")(x.invert(coords[0])),d3.format(".1f")(y.invert(coords[1]))];
+
+	pitch.append('div').attr({
+		class:'pitch-marker'
+	}).style({
+		'left':coords[0]-10 + 'px',
+		'top':coords[1]-10 + 'px'
+	});
+
+	var opts = pitch.append("div").attr({
+		class:"popup opts"
+	});
+
+	var outcome = opts.append("div").attr({
+		class:"outcome"
+	}).html("Outcome:");
+
+	var outcomes = outcome.selectAll("span").data(["miss","save","block","goal"])
+		.enter().append("span").html(function(d,i){return d})
+		.on("click",function(d,i){
+			d3.event.preventDefault();
+			d3.event.stopPropagation();
+			d3.select(this).attr({
+				class:'selected'
+			})
+			shot.push(d)
+		});
+
+
+
+	var assist = opts.append("div").attr({
+		class:"assist"
+	}).html("Assist:");
+
+	var assists = assist.selectAll("span").data(["self","cross","pass","other"])
+		.enter().append("span").html(function(d,i){return d})
+		.on("click",function(d,i){
+			d3.event.preventDefault();
+			d3.event.stopPropagation();
+			d3.select(this).attr({
+				class:'selected'
+			})
+			shot.push(d)
+		});
+
+
+
+	var shotType = opts.append("div").attr({
+		class:"shotType"
+	}).html("Shot type:");
+
+	var shotTypes = shotType.selectAll("span").data(["right","left","header"])
+		.enter().append("span").html(function(d,i){return d})
+		.on("click",function(d,i){
+			d3.event.preventDefault();
+			d3.event.stopPropagation();
+			d3.select(this).attr({
+				class:'selected'
+			})
+			shot.push(d)
+		});
+
+
+
+	var play = opts.append("div").attr({
+		class:"play"
+	}).html("Play type:");
+
+	var plays = play.selectAll("span").data(["open","set-piece"])
+		.enter().append("span").html(function(d,i){return d})
+		.on("click",function(d,i){
+			d3.event.preventDefault();
+			d3.event.stopPropagation();
+			d3.select(this).attr({
+				class:'selected'
+			})
+			shot.push(d)
+		});
+
+
+
+	var state = opts.append("div").attr({
+		class:"state"
+	}).html("Game state:");
+
+	var states = state.selectAll("span").data([">+1","+1","0","-1","<-1"])
+		.enter().append("span").html(function(d,i){return d})
+		.on("click",function(d,i){
+			d3.event.preventDefault();
+			d3.event.stopPropagation();
+			d3.select(this).attr({
+				class:'selected'
+			})
+			shot.push(d)
+		});
+
+
+
+	var done = opts.append("div").attr({
+		class:"done"
+	});
+
+	done.append("span").html("Done").on("click",function(){
+		d3.event.preventDefault();
+		d3.event.stopPropagation();
+		opts.remove();
+		shots.push(shot);
+
+		results.append("tr").selectAll("td").data(shot)
+		.enter().append("td").html(function(d,i){return d});
+	});
+
+};
+
+
+
+var width = d3.select("#pitch").node().getBoundingClientRect().width;
+var height = d3.select("#pitch").node().getBoundingClientRect().height;
+
+var x = d3.scale.linear()
+	.range([width*0.01,width])
+	.domain([0,50]);
+
+var y = d3.scale.linear()
+	.range([0,height])
+	.domain([0,50]);
+
+var pitch = d3.select("#pitch").on("click",function(){
+	var coordinates = d3.mouse(this);
+	doEvent(coordinates);
+});
+
+</script>
+</html>
