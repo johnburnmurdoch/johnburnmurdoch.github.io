@@ -62,11 +62,23 @@
 		width:100%;
 	}
 
+	.desktop{display:block;}
+	.mobile{display:none;}
+
 	@media screen and (max-width: 800px) {
 		#jbm-header a.myName,#jbm-header a.homeLink,#jbm-header a.myTitle{padding:8px;}
 		h1{padding:0px 60px 0px 20px}
     	#jbm-header{height: 32px;}
     	#jbm-header a{font-size:14px!important;}
+    	.desktop{display:none;}
+    	.mobile{display:block;}
+    	.popup{
+    		right:0!important;
+    		top:auto!important;
+    		bottom:10;
+    		left:0;
+    		font-size:0.9em;
+    	}
     }
 
 	@media screen and (max-width: 600px) {
@@ -88,12 +100,14 @@
 	}
 
 	.popup{
+		background-color: #f5f5f5;
+		border:2px solid #cccccc;
 		position:absolute;
 		margin:auto;
 		/*left:0;*/
 		right:30;
 		top:10;
-		background-color:white;
+		/*background-color:white;*/
 		max-width:300px;
 		padding:10px;
 		border-radius:10px;
@@ -119,7 +133,8 @@
 	}
 
 	.popup span:hover{
-		background-color:#A0AEC1;
+		background-color:#A0AEC1!important;
+		color:white!important;
 	}
 
 	.popup span.selected{
@@ -153,11 +168,12 @@
 	
 	<div class="inner">	
 		<h1>Football (soccer) pitch tracker</h1>
-		<p>Begin by marking an event on the pitch</p>
+		<p>Begin by marking an event on the pitch<br>Then, either:<br>1. Click/tap to select shot characteristics and hit "done" to store them in the table below, or<br>2. Use your keyboard for speedy data entry: type a number to indicate an option on each row, where 1,1,1,1,1 would mean the first option in each case. Then hit the enter key to store the event</p>
 
 		<div class="flex-container">
 			<div id="pitch" class="inflex">
-				<img src="half.png"></img>
+				<img class="desktop" src="half.png"></img>
+				<img class="mobile" src="half-rotate.png"></img>
 			</div>
 		</div>
 
@@ -185,11 +201,72 @@
 
 var shots = [];
 
+var shot = [];
+
 var results = d3.select("#table tbody");
 
+var keyCount = 0;
+
+optsData = [
+	["miss","save","block","goal"],
+	["self","cross","pass","other"],
+	["right","left","head"],
+	["open","set-piece"],
+	[">+1","+1","0","-1","<-1"]
+];
+
+function selectKey(row,col){
+	d3.select(".opts div:nth-child(" + row + ") span:nth-child(" + col + ")")
+	.attr({
+		class:"selected"
+	});
+}
+
+window.onkeydown = function(event){
+	var x = event.keyCode;
+	var datum;
+	// console.log(x)
+	if(x == 49){
+		shot.push(optsData[keyCount][0]);
+		selectKey(keyCount+1,1);
+	}else
+	if(x == 50){
+		shot.push(optsData[keyCount][1]);
+		selectKey(keyCount+1,2);
+	}else
+	if(x == 51){
+		shot.push(optsData[keyCount][2]);
+		selectKey(keyCount+1,3);
+	}else
+	if(x == 52){
+		shot.push(optsData[keyCount][3]);
+		selectKey(keyCount+1,4);
+	}else
+	if(x == 53){
+		shot.push(optsData[keyCount][4]);
+		selectKey(keyCount+1,5);
+	}else
+	if(x == 13){
+		d3.select(".popup.opts").remove();
+		shots.push(shot);
+
+		results.append("tr").selectAll("td").data(shot)
+		.enter().append("td").html(function(d,i){return d});
+
+		shot = [];
+
+		keyCount = -1;			
+	}
+
+	keyCount+=1;
+}
+
+
+
 function doEvent(coords){
-	
-	var shot = [d3.format(".1f")(x.invert(coords[0])),d3.format(".1f")(y.invert(coords[1]))];
+
+	shot.push(d3.format(".1f")(x.invert(coords[0])));
+	shot.push(d3.format(".1f")(y.invert(coords[1])));
 
 	pitch.append('div').attr({
 		class:'pitch-marker'
@@ -299,6 +376,8 @@ function doEvent(coords){
 
 		results.append("tr").selectAll("td").data(shot)
 		.enter().append("td").html(function(d,i){return d});
+
+		shot = [];
 	});
 
 };
@@ -319,6 +398,8 @@ var y = d3.scale.linear()
 var pitch = d3.select("#pitch").on("click",function(){
 	var coordinates = d3.mouse(this);
 	doEvent(coordinates);
+	// d3.select(".inner > p")
+	// .html('Either:<br>1. Click/tap to select shot characteristics and hit "done" to store them in the table below, or<br>Use your keyboard for speedy data entry: type a number to indicate an option on each row, where 1,1,1,1,1 would mean the first option in each case. Then hit the enter key')
 });
 
 </script>
