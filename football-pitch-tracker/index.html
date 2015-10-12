@@ -65,7 +65,7 @@
 	.desktop{display:block;}
 	.mobile{display:none;}
 
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 770px) {
 		#jbm-header a.myName,#jbm-header a.homeLink,#jbm-header a.myTitle{padding:8px;}
 		h1{padding:0px 60px 0px 20px}
     	#jbm-header{height: 32px;}
@@ -166,8 +166,9 @@
 		color:white;
 		font-weight:bold;
 		cursor:pointer;
-		padding:5px;
+		padding:5px 10px;
 		border-radius:10px;
+		display:inline-block;
 	}
 
 </style>
@@ -297,8 +298,13 @@ window.onkeydown = function(event){
 
 function doEvent(coords){
 
-	shot.push(d3.format(".1f")(x.invert(coords[0])));
-	shot.push(d3.format(".1f")(y.invert(coords[1])));
+	if(screen.width < 770){
+		shot.push(d3.format(".1f")(y.invert(coords[1])));
+		shot.push(d3.format(".1f")(50-x.invert(coords[0])));
+	}else{
+		shot.push(d3.format(".1f")(x.invert(coords[0])));
+		shot.push(d3.format(".1f")(y.invert(coords[1])));	
+	};
 
 	pitch.append('div').attr({
 		class:'pitch-marker'
@@ -419,16 +425,23 @@ function doEvent(coords){
 var width = d3.select("#pitch").node().getBoundingClientRect().width;
 var height = d3.select("#pitch").node().getBoundingClientRect().height;
 
-var x = d3.scale.linear()
-	.range([width*0.01,width])
+var x,y;
+
+screen.width > 770 ? x = d3.scale.linear()
+	.range([width*0.01+20,width-20])
+	.domain([0,50]):x = d3.scale.linear()
+	.range([20,width-20])
 	.domain([0,50]);
 
-var y = d3.scale.linear()
+screen.width > 770 ? y = d3.scale.linear()
 	.range([0,height])
+	.domain([0,50]):y = d3.scale.linear()
+	.range([0.01*height,height])
 	.domain([0,50]);
 
 var pitch = d3.select("#pitch").on("click",function(){
 	var coordinates = d3.mouse(this);
+
 	doEvent(coordinates);
 	// d3.select(".inner > p")
 	// .html('Either:<br>1. Click/tap to select shot characteristics and hit "done" to store them in the table below, or<br>Use your keyboard for speedy data entry: type a number to indicate an option on each row, where 1,1,1,1,1 would mean the first option in each case. Then hit the enter key')
