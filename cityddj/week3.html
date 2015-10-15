@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>MA Data Journalism: Week 1 Thursday</title>
+		<title>MA Data Journalism: Week 3</title>
 
 		<meta name="description" content="MA Data Journalism: Week 3">
 		<meta name="author" content="John Burn-Murdoch">
@@ -32,6 +32,11 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 		<style>
+
+		.a-center{
+			text-align:center;
+			display:block;
+		}
 
 		.faded{opacity:0.5;}
 
@@ -118,14 +123,14 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section style="text-align: left;">
-					<h3 class='centered'>Week 1: an introduction to data journalism</h3>
-					<p>House rules, misc. advice <a href="#/2">&raquo;</a></p>
-					<p>What is data journalism? <a href="#/5">&raquo;</a></p>
-					<p><strike>Course objectives</strike> What cool shit are we going to learn, and what awesome jobs do people go on to? <a href="#/18">&raquo;</a></p>
-					<p>Course outline (subject to minor changes) <a href="#/20">&raquo;</a></p>
-					<p>Assignments <a href="#/31">&raquo;</a></p>
-					<p>Show and tell <a href="#/34">&raquo;</a></p>
-					<p>Contact details <a href="#/35">&raquo;</a></p>
+					<h3 class='centered'>Week 3: more on combining datasets, plus an intro to mapping</h3>
+					<p>Recap <a href="#/1">&raquo;</a></p>
+					<p>Show and tell <a href="#/2">&raquo;</a></p>
+					<p>The ten commandments <a href="#/13">&raquo;</a></p>
+					<p>Bit of fun <a href="#/21">&raquo;</a></p>
+					<p>Friday's session <a href="#/14">&raquo;</a></p>
+					<p>Vlookup <a href="#/15">&raquo;</a></p>
+					<p>CartoDB <a href="#/20">&raquo;</a></p>
 				</section>
 
 			</div>
@@ -134,7 +139,7 @@
 
 
 		<script charset="utf-8">
-			$.getJSON("https://sheetsu.com/apis/34638b57").success(function(data){
+			$.getJSON("https://sheetsu.com/apis/ddd5ba82").success(function(data){
 				console.log(data.result);
 			    // data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
 			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").style({"text-align":"left"});
