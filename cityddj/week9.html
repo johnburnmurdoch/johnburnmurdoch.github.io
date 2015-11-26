@@ -1,0 +1,187 @@
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>MA Data Journalism: Week 9</title>
+
+		<meta name="description" content="MA Data Journalism: Week 9">
+		<meta name="author" content="John Burn-Murdoch">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/cityddj.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js "charset="utf-8"></script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+
+		.a-center{
+			text-align:center;
+			display:block;
+		}
+
+		.faded{opacity:0.5;}
+
+		@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-regular.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansRegular.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: normal;
+	      	}
+	      	@font-face{
+	          	font-family: "BentonSans";
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot");
+	          	src: url("http://s1.ft-static.com/m/font/ft-velcro/bentonsans-bold.eot?#iefix") format("embedded-opentype"), 
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.woff") format("woff"),
+	          	url("http://interactivegraphics.ft-static.com/inc/fonts/BentonSansBold.ttf") format("truetype");
+	          	font-style: normal;
+	          	font-weight: bold;
+	      	}
+
+      	span,text,a,h1,h2,h3,h4,h5,p{font-family:"BentonSans",sans-serif!important;}
+
+      	p a{color:#FA6121;}
+      	p a:hover{color: #FFB739;}
+
+		#jbm-header {height: 40px;background-color:#466289;width: 100%;position: fixed;top: 0;z-index: 100;overflow: hidden;display:table;border-bottom: 1px solid #74736c;box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);text-align: center;}
+	  	#jbm-header a{background-color:#466289;text-decoration: none;}
+	  	#jbm-header img {margin-top:13px; opacity: .8;transition: opacity .3s;height:20px;max-width:70%;}
+	  	#jbm-header a.myheadshot{display:inline-block;float:left;padding:3px 3px 0px 10px;}
+	  	#jbm-header a.myName{color:#fff;font-size:20px;display:inline-block;position:absolute;left:5px;padding:10px;}
+	  	#jbm-header a.homeLink{color:#fff;font-size:20px;display:inline-block;position:absolute;padding:10px;margin:auto;left:0;right:0;max-width:200px;}
+	  	#jbm-header a.myTitle{color:#fff;font-size:20px;display:inline-block;position:absolute;right:0px;padding:10px;}
+	  	#jbm-header a.myName:hover,#jbm-header a.homeLink:hover,#jbm-header a.myTitle:hover{color:#FFB739;}
+
+	  	.newsection.left{text-align: left;}
+	  	.newsection.center{text-align: center;}
+	  	.reveal .progress {top:41px!important;}
+
+	    @media screen and (max-width: 800px) {
+	    	#jbm-header a.myName,#jbm-header a.homeLink,#jbm-header a.myTitle{padding:8px;}
+	    	#jbm-header{height: 30px;}
+	    	#jbm-header a{font-size:14px!important;}
+		  	.reveal .progress {top:31px!important;}
+	    }
+
+	    @media screen and (max-width: 480px) {
+	    	#jbm-header{height: 32px;}
+	    	#jbm-header a{font-size:13px!important;}
+		  	.reveal .progress {top:31px!important;}
+	    }
+
+	    body{font-family: arial,sans-serif!important;}
+
+	    
+	    .ui-page.ui-page-theme-a.ui-page-active {
+  		-moz-box-shadow: none !important;
+  		-webkit-box-shadow: none !important;
+  		box-shadow: none !important;
+  		outline: none;
+		}
+
+		.centered{/*text-align:center!important;*/padding-bottom:0.8em!important;}
+		.red{color:#fa6121;}
+		.red:hover{color:#FFB739;}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<header id="jbm-header" class="stickable">
+	    	<!-- <a class='myheadshot' href="https://twitter.com/jburnmurdoch" target="_blank"><img src="headshot2.png" alt="@jburnmurdoch - Twitter"></a> -->
+	    	<a class='homeLink' href="#">Data journalism</a>
+	      	<a class='myName' href="https://twitter.com/jburnmurdoch" target="_blank"><span>@jburnmurdoch</span></a>
+	      	<a class='myTitle' href="https://twitter.com/search?q=%23cityddj&src=typd" target="_blank"><span>#cityddj</span></a>
+	    </header>
+	    <div id="progressbar"></div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section style="text-align: left;">
+					<h3 class='centered'>Week 9: evaluating data journalism [revisited]</h3>
+					<p>Today's exercise <a href="#/1">&raquo;</a></p>
+					<p>Accompanying video <a href="#/4">&raquo;</a></p>
+					<p>Information is Beautiful Awards <a href="#/1">&raquo;</a></p>
+					<p>Google Form <a href="#/3">&raquo;</a></p>
+					<p>Friday and next week <a href="#/5">&raquo;</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+
+		<script charset="utf-8">
+			$.getJSON("https://sheetsu.com/apis/74bf63a2").success(function(data){
+				console.log(data.result);
+			    // data.result.forEach(function(d,i){console.log(d.Name)}); // will contain all data (and display it in console)
+			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data.result).enter().append("section").style({"text-align":"left"});
+
+			    var headers = slides.append('h4').html(function(d,i){return d.header});
+
+			    var pars = slides.append('p').html(function(d,i){return d.text});
+			})
+		</script>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				touch: true,
+				loop: true,
+				hideAddressBar: true,
+				previewLinks: false,
+
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
