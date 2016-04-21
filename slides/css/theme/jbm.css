@@ -59,6 +59,10 @@ body {
   font-size: 0.8em;
   text-transform:none;}
 
+.reveal h6 {
+  font-size: 1em;
+  text-transform:none;}
+
 .reveal p.minor {
   font-size: 0.8em; }
 
