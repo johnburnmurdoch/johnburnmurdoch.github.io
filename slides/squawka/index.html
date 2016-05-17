@@ -115,12 +115,16 @@
 					<h5>Follow these slides at <a href='http://bit.ly/polis-dataviz' target='_blank'>bit.ly/polis-dataviz</a></h5>
 				</section>
 
+				<section style="text-align: left;">
+					<h4></h4>
+				</section>
+
 			</div>
 
 		</div>
 
 
-		<script charset="utf-8">
+		<!-- <script charset="utf-8">
 			$.getJSON("https://sheetsu.com/apis/v1.0/09371869").success(function(data){
 				console.log(data);
 			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data).enter().append("section").style({"text-align":"left"});
@@ -129,7 +133,7 @@
 
 			    var pars = slides.append('p').html(function(d,i){return d.text});
 			})
-		</script>
+		</script> -->
 
 		<script src="../lib/js/head.min.js"></script>
 		<script src="../js/reveal.js"></script>
