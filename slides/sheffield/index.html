@@ -1,0 +1,373 @@
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Quantitative journalism: finding and creating(!) data, and using it to tell stories</title>
+
+		<meta name="description" content="Quantitative journalism: finding and creating(!) data, and using it to tell stories">
+		<meta name="author" content="John Burn-Murdoch">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/jbm.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://build.origami.ft.com/v2/bundles/css?modules=o-fonts@^1.6.7,o-typography@^1.16.2,o-grid@^3.1.3,o-header@^3.0.3,o-footer@^3.0.1" />
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js "charset="utf-8"></script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+
+		.a-center{
+			text-align:center;
+			display:block;
+		}
+
+		.faded{opacity:0.5;}
+
+	    body{
+	    	font-family: arial,sans-serif!important;
+	    	font-size:18px;
+	    }
+
+	    .o-header{
+	    	background-image: none;
+	    	min-height: auto;
+	    	max-height: auto;
+	    }
+
+	    
+	    .ui-page.ui-page-theme-a.ui-page-active {
+  		-moz-box-shadow: none !important;
+  		-webkit-box-shadow: none !important;
+  		box-shadow: none !important;
+  		outline: none;
+		}
+
+		.centered{padding-bottom:0.8em!important;}
+		.red{color:#fa6121;}
+		.red:hover{color:#FFB739;}
+
+		#twitter-widget-0{
+			position: absolute!important;
+		    visibility: visible!important;
+		    width: 179px!important;
+		    right: 0!important;
+		    top: 0!important;
+		    padding: 0.6em!important;
+		}
+
+		@media screen and (max-width: 480px) {
+			.o-header__ft-masthead.demo__hide-on-mobile.demo__fix-svg-logo-position{
+				display:none;
+			}
+
+		}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<header data-o-component="o-header" class="o-header" data-o-header--js="">
+		<div class="o-header__container">
+			<div class="o-header__inner">
+				<div class="o-header__primary">
+					<div class="o-header__primary__left">
+						<a href="http://www.ft.com" class="o-header__logo o-header__logo--ft"><abbr title="Financial Times" class="demo__mobile-only">FT</abbr><h1 class="o-header__ft-masthead demo__hide-on-mobile demo__fix-svg-logo-position"><i></i></h1></a>
+					</div>
+				</div>
+
+					<a href="https://twitter.com/jburnmurdoch" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @jburnmurdoch</a>
+				<!--<div class="o-header__secondary">
+					<h2 class="o-header__tagline" style="margin-left:"><a href="http://www.ft.com/interactive">Interactive News</a></h2>
+				</div>-->
+			</div>
+		</div>
+	</header>
+	    <div id="progressbar"></div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section style="text-align: left;">
+					<h2 class='centered'>Quantitative journalism: finding and creating(!) data, and using it to tell stories</h2>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+						<a href='http://blogs.ft.com/ftdata/2016/04/20/what-is-el-nino-impact-crop-yields/' target='_blank'><img src='http://blogs.ft.com/ftdata/files/2016/04/elNinoStory.gif' style='width:100%;float:left'/></a>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Contents</h4>
+					<p>&bullet; Creating, collecting and curating datasets</p>
+					<p>&bullet; Planning ahead</p>
+					<p>&bullet; Using data to tell stories in compelling ways</p>
+					<p>&bullet; How does this fit into the big picture?</p>
+					<p>&bullet; Resources</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>What even <em>is</em> data journalism?</h4>
+					<p class=fragment>Just a buzzword?<span class=fragment style=color:#74736c> In some cases, perhaps</span></p>
+					<p class=fragment>But it can also be much more powerful</p>
+					<a class=fragment href='http://datajournalismhandbook.org/1.0/en/introduction_0.html' target='_blank'><img src='ddj-def.png' style='float:left;width:100%'/></a>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Data as source</h4>
+					<p>This is increasingly where the value lies</p>
+					<p class=fragment>More and more journalists of all descriptions are capable of locating and working with published datasets</p>
+					<code class='fragment hljs' style='font-size:0.85em'>// Spreadsheet journalism != data journalism</code>
+					<p class='fragment'>That should now be expected of any digital journalist. Writing stories based on the same numbers sitting in front of every reporter on your beat leaves you playing the speed game once again</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Data as source</h4>
+					<p>So...</p>
+					<p class=fragment>The real value is to be found in developing your own datasets. Broadly speaking, this can be done in three ways:</p>
+					<p class=fragment>&bullet; Creating a dataset <em>ex nihilo</em></p>
+					<p class=fragment>&bullet; Collecting or curating datasets to create something worth more than the sum of its parts</p>
+					<p class=fragment>&bullet; Working with data in cruel and unusual formats</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating a dataset</h4>
+					<p>Case study: <a href='http://qz.com/600590/we-brought-an-antenna-to-davos-to-track-private-air-travel-and-heres-what-we-found/' target=_blank>QZ | We brought an antenna to Davos to track private air travel, and here’s what we found</a></p>
+					<img src='qz-davos-choppers.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating a dataset</h4>
+					<p>Case study: <a href='https://www.washingtonpost.com/graphics/politics/donald-trump-vs-hillary-clinton-in-media/' target=_blank>Washington Post | A visual history of Donald Trump dominating the news cycle</a></p>
+					<img src='washPo.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating a dataset: text analysis</h4>
+					<p>Case study: <a href='http://graphics.wsj.com/hamilton/' target=_blank>Wall Street Journal | We Wrote an Algorithm to Unravel the Rhymes of Hit Musical ‘Hamilton’</a></p>
+					<img src='wsjHamilton.gif' style='float:left;max-height:45vh'/>
+					<p><a class=fragment href='http://graphics.wsj.com/hamilton-methodology/' target='_blank'>Methodology (yup)</a> <span class=fragment >cites <a href='http://www.ebire.org/hcnlab/papers/WoodsJASA2010.pdf' target='_blank'>three</a></span> <a class=fragment href='https://kb.osu.edu/dspace/bitstream/handle/1811/48548/EMR000091a-Hirjee_Brown.pdf' target='_blank'>scientific</a> <a class=fragment href='http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3432912/' target='_blank'>papers</a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/1ce1a720-ce94-3c32-a689-8d2356388a1f' target=_blank>FT | The demographics that drove Brexit</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/06/brexit-big-five.png' style='float:left;max-height:50vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/1ce1a720-ce94-3c32-a689-8d2356388a1f' target=_blank>FT | The demographics that drove Brexit</a></p>
+					<p><a href='journalistsresource.org/skills/research/research-chat-steve-doig-data-journalism-social-science-deadline' target=_blank><em>&ldquo;Social science done on deadline&rdquo;</em></a>, but seriously</p>
+					<p class=fragment>&bullet; Planning is crucial</p>
+					<p class=fragment>&bullet; <a href='https://www.r-project.org/' target=_blank>R</a> made this possible</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/1ce1a720-ce94-3c32-a689-8d2356388a1f' target=_blank>FT | The demographics that drove Brexit</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/06/brexit-education-regions.png' style='float:left;max-height:50vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/1ce1a720-ce94-3c32-a689-8d2356388a1f' target=_blank>FT | The demographics that drove Brexit</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/06/brexit-exports.png' style='float:left;max-height:50vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/2994afe4-43b0-3763-a80c-92351473496f' target=_blank>FT | Youth turnout</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/07/Screen-Shot-2016-07-01-at-01.56.28.png' style='float:left;max-height:45vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/2994afe4-43b0-3763-a80c-92351473496f' target=_blank>FT | Youth turnout</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/07/Screen-Shot-2016-07-01-at-02.39.41.png' style='float:left;max-height:45vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study: <a href='https://next.ft.com/content/2994afe4-43b0-3763-a80c-92351473496f' target=_blank>FT | Youth turnout</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/07/Screen-Shot-2016-07-01-at-02.56.26.png' style='float:left;max-height:45vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating/collecting</h4>
+					<p>Case study: <a href='http://www.nytimes.com/interactive/2015/10/01/business/cost-of-mobile-ads.html' target=_blank>New York Times | The Cost of Mobile Ads on 50 News Websites</a></p>
+					<img src='nty-js-ads.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Collecting data through lateral thinking</h4>
+					<p>Case study: <a href='http://www.bloomberg.com/graphics/2016-amazon-same-day/' target=_blank>Bloomberg | Amazon Doesn’t Consider the Race of Its Customers. Should It?</a></p>
+					<img src='bbg-amazon-race.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Curating data<span class=fragment style=color:#74736c> ... okay web scraping</span></h4>
+					<p>Case study: <a href='https://www.buzzfeed.com/heidiblake/the-tennis-racket' target=_blank>BuzzFeed | The Tennis Racket</a></p>
+					<img src='buzzfeed-tennis-racket.png' style='float:left;max-height:45vh'/>
+					<p class=fragment>&nbsp;However... <a class=fragment href='https://medium.com/@rkaplan/finding-the-tennis-suspects-c2d9f198c33d#.v1lgxvxpb' target=_blank>this</a> <span class=fragment>and <a href='http://www.sportdw.com/2016/01/tennis-fixing-buzzfeed-hewitt-innocent.html' target=_blank>this</a></span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Specialist data formats</h4>
+					<p>Case study: <a href='http://blogs.ft.com/ftdata/2016/04/20/what-is-el-nino-impact-crop-yields/' target=_blank>FT | What is El Niño and how does it affect global crop yields?</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/04/maizeMap.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Specialist data formats</h4>
+					<p>Case study: <a href='https://ig.ft.com/sites/invasive-insects/' target=_blank>FT | Invasive insects</a></p>
+					<img src='https://ig.ft.com/sites/invasive-insects/maps/eab.png?a' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Telling stories</h4>
+					<p>&bullet; Quick scoops</p>
+					<p>&bullet; Big investigations</p>
+					<p>&bullet; Features</p>
+					<p class=fragment>&bullet; Myth-busting/legitimising</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4><span>People</span> <span class=fragment>want</span> <span class=fragment>interactivity</span></h4>
+					<img class=fragment src='leics-interactive-wish.png' style='float:left;max-height:50vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Using data to add quality</h4>
+					<p>Case study: <a href='https://ig.ft.com/sites/invasive-insects/' target=_blank>FT | Invasive species</a></p>
+					<img src='hornets.gif' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Using data to add quality</h4>
+					<p>Case study: <a href='http://www.theguardian.com/uk-news/2015/sep/02/housing-market-gulf-salaries-house-prices' target=_blank>Guardian | Unaffordable country</a></p>
+					<img src='guardian-text.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Using data to add quality</h4>
+					<p>Case study: <a href='http://www.theguardian.com/society/ng-interactive/2015/sep/02/unaffordable-country-where-can-you-afford-to-buy-a-house' target=_blank>Guardian | Unaffordable country</a></p>
+					<img src='guardian-map.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Using data to add quality</h4>
+					<p>Case study: <a href='https://ig.ft.com/sites/japan-tsunami/' target=_blank>FT | Japan: the next big quake</a></p>
+					<img src='japan-sdb.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Justification</h4>
+					<p>&bullet; Quality and experience of reporting and visuals unmatched elsewhere</p>
+					<p>&bullet; 'You can't reblog snowfall'</p>
+					<p>&bullet; Rewarded both editorially and commercially</p>
+					<p class=fragment>&bullet; People will recognise the value of quality over speed</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Automation</h4>
+					<p>Case study: <a href='https://ig.ft.com/sites/numbers/economies' target=_blank>FT | EU referendum poll-tracker</a></p>
+					<img src='brexit-polltracker.png' style='float:left;max-height:45vh'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Automation</h4>
+					<p>&bullet; Automate quantity<span class=fragment style=color:#74736c> to free up time and resources for quality</span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Resources</h4>
+					<p>&bullet; Get started with <a href='https://www.r-project.org/' target=_blank>R</a> or <a href='https://www.python.org/' target=_blank>Python</a></p>
+					<p>&bullet; <a href='http://blog.webkid.io/nodejs-scraping-libraries/' target=_blank>Overview of web-scraping libraries</a>, plus the new kid on the block, <a href='http://www.nightmarejs.org/' target='_blank'>Nightmare.js</a></p>
+					<p>&bullet; <a href='https://d3js.org/' target=_blank>D3</a> javascript library for all things data-visualisation: from 5 minute charts to 5 month interactive masterpieces</p>
+					<p>&bullet; Working with geographical data: <a href='http://www.qgis.org/en/site/' target=_blank>QGIS</a> for the <a href='https://www.youtube.com/playlist?list=PL7HotvlLKHCs9nD1fFUjSOsZrsnctyV2R' target=_blank>fundamentals of digital cartography</a> and styling, <a href='https://www.blender.org/' target=_blank>Blender</a> for 3D maps, animations, or if time is short try <a href='https://carto.com/solutions/journalism/' target=_blank>CartoDB</a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Data sources</h4>
+					<p>Census data for <a href='https://www.nomisweb.co.uk/' target=_blank>England & Wales</a>, <a href='http://www.scotlandscensus.gov.uk/ods-web/home.html target=_blank'>Scotland</a>, the <a href='http://www.census.gov/data.html' target=_blank>US</a>, <a href='http://www.insee.fr/fr/themes/' target=_blank>France</a>...</p>
+					<p>NOAA <a href='http://www.esrl.noaa.gov/psd/data/gridded/' target=_blank>gridded climate datasets</a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Any questions?</h4>
+					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
+					<p>These slides are at <a href='http://johnburnmurdoch.github.io/slides/sheffield/' target='_blank'>bit.ly/qstep-dataviz</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+
+		<!-- <script charset="utf-8">
+			$.getJSON("https://sheetsu.com/apis/v1.0/09371869").success(function(data){
+				console.log(data);
+			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data).enter().append("section").style({"text-align":"left"});
+
+			    var headers = slides.append('h4').html(function(d,i){return d.header});
+
+			    var pars = slides.append('p').html(function(d,i){return d.text});
+			})
+		</script> -->
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				touch: true,
+				loop: true,
+				hideAddressBar: true,
+				previewLinks: false,
+
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
