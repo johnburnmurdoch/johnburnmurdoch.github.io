@@ -68,6 +68,9 @@
 		.centered.nomargin{padding-bottom:0!important}
 		.indented{margin-left:1em!important;}
 
+		a{color:#27757b!important;}
+		a:hover{color:#43423e!important;}
+
 		.curve > span:nth-child(1){
 			display:inline-block;
 			-webkit-transform:rotate(-20deg) translateY(-0px);
@@ -518,8 +521,9 @@
 
 				<section style="text-align: left;">
 					<h4>Any questions?</h4>
-					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
+					<p>Tweet <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or email <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
 					<p>These slides are at <a href='http://johnburnmurdoch.github.io/slides/r-ggplot/' target='_blank'>bit.ly/ggplot-dataviz</a></p>
+					<img class=graphic style='max-height:45vh;' id='greatest-hits' src='greatest-hits-0.png'/>
 				</section>
 
 			</div>
@@ -527,16 +531,26 @@
 		</div>
 
 
-		<!-- <script charset="utf-8">
-			$.getJSON("https://sheetsu.com/apis/v1.0/09371869").success(function(data){
-				console.log(data);
-			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data).enter().append("section").style({"text-align":"left"});
+		<script charset="utf-8">
+			var images = d3.select('#greatest-hits'),
+				imageIndex = 0;
+			setInterval(function(){
+				images.attr({src:'greatest-hits-' + imageIndex + '.png'});
+				if(imageIndex < 11){
+					imageIndex++
+				}else{
+					imageIndex=0;
+				}
+			}, 2000);
+			// $.getJSON("https://sheetsu.com/apis/v1.0/09371869").success(function(data){
+			// 	console.log(data);
+			//     var slides = d3.select(".slides").selectAll('section.newSlide').data(data).enter().append("section").style({"text-align":"left"});
 
-			    var headers = slides.append('h4').html(function(d,i){return d.header});
+			//     var headers = slides.append('h4').html(function(d,i){return d.header});
 
-			    var pars = slides.append('p').html(function(d,i){return d.text});
-			})
-		</script> -->
+			//     var pars = slides.append('p').html(function(d,i){return d.text});
+			// })
+		</script>
 
 		<script src="../lib/js/head.min.js"></script>
 		<script src="../js/reveal.js"></script>
