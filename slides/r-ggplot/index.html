@@ -117,6 +117,17 @@
 			max-height:55vh;
 		}
 
+		code {
+			padding:10px!important;
+			background-color:#041752!important;
+			color:#fff;
+			font-size:0.9em!important;
+		}
+
+		code .highlight{
+			background-color:rgba(172, 85, 27, 0.85);
+		}
+
 		@media screen and (max-width: 480px) {
 			.o-header__ft-masthead.demo__hide-on-mobile.demo__fix-svg-logo-position,.twitter-follow-button{
 				display:none;
@@ -251,104 +262,124 @@
 
 				<section style="text-align: left;">
 					<h4>1. Which countries have the best teams? </h4>
-					<img class='graphic fragment' src='football-tide-1.png'/>
-					<img class='graphic fragment' src='football-tide-2.png'/>
-				</section>
-
-				<section style="text-align: left;">
 					<code class="hljs hljs javascript hljs">
 #1<br>
-ggplot(data %>% <br>&nbsp;&nbsp;
-filter(year==2016)
-,aes(x=1,score,col=country)) + <br>&nbsp;&nbsp;
-geom_point(size=3) + <br>&nbsp;&nbsp;
-facet_wrap(~year, ncol=4) + <br>&nbsp;&nbsp;
-theme_bw() + <br>&nbsp;&nbsp;
-theme(legend.position="right", legend.direction="vertical") + <br>&nbsp;&nbsp;
-xlab('')
+<span class=fragment>ggplot(oneSeason, <br>&nbsp;&nbsp; </span>
+<span class=fragment><span class=highlight>aes(x=1,score,col=country)) + </span><br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>geom_point(size=3) + </span></span><br>&nbsp;&nbsp;</span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>theme(legend.position="right", legend.direction="vertical") +</span> <br>&nbsp;&nbsp;</span>
+<span class=fragment>xlab('')</span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
+					<h4>1. Which countries have the best teams? </h4>
+					<img class=graphic src='football-tide-1.png'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>1.1. Which countries have the best teams?</h4>
+					<p>(with room to breathe)</p>
 					<code class="hljs hljs javascript hljs">
 #2<br>
-ggplot(data %>% <br>&nbsp;&nbsp;
-filter(year==2016)
-,aes(rank,score,col=country)) + <br>&nbsp;&nbsp;
-geom_point(size=3) + <br>&nbsp;&nbsp;
-facet_wrap(~year, ncol=4) + <br>&nbsp;&nbsp;
-theme_bw() + <br>&nbsp;&nbsp;
-theme(legend.position="none", legend.direction="vertical") + <br>&nbsp;&nbsp;
-xlab('')
+<span class=fragment>ggplot(oneSeason<br>&nbsp;&nbsp;</span>
+<span class=fragment>,aes(rank,<span class=highlight>score</span>,col=country)) + <br>&nbsp;&nbsp;</span>
+<span class=fragment>geom_point(size=3) + <br>&nbsp;&nbsp;</span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>theme(legend.position="top")</span></span>
+					</code>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>1.1. Which countries have the best teams? </h4>
+					<p>(with room to breathe)</p>
+					<img class='graphic' src='football-tide-2.png'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>2. Which leagues are the most/least balanced? </h4>
+					<code class="hljs hljs javascript hljs">
+#3<br>
+<span class=fragment>ggplot(oneSeason <br>&nbsp;&nbsp;</span>
+<span class=fragment>,aes(rank,score,col=country)) +  <br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>geom_path()</span> +  <br>&nbsp;&nbsp;</span>
+<span class=fragment>geom_point(size=3) +  <br>&nbsp;&nbsp;</span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp;</span>
+<span class=fragment>theme(legend.position="top")</span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>2. Which leagues are the most/least balanced? </h4>
-					<img class='graphic fragment' src='football-tide-3.png'/>
+					<img class='graphic' src='football-tide-3.png'/>
 				</section>
 
 				<section style="text-align: left;">
+					<h4>3. What is the 'quality gap' between a given pair of leagues? </h4>
 					<code class="hljs hljs javascript hljs">
-#3<br>
-ggplot(data %>%  <br>&nbsp;&nbsp;
-filter(year==2016) <br>&nbsp;&nbsp;
-,aes(rank,score,col=country)) +  <br>&nbsp;&nbsp;
-geom_path() +  <br>&nbsp;&nbsp;
-geom_point(size=3) +  <br>&nbsp;&nbsp;
-facet_wrap(~year, ncol=4) +  <br>&nbsp;&nbsp;
-theme_bw() + <br>&nbsp;&nbsp;
-theme(legend.position="top") + <br>&nbsp;&nbsp;
-xlab('')
+#4 step 1: preparing the data<br>
+<span class=fragment>engEsp <- oneSeason %>% <br>&nbsp;&nbsp;</span>
+<span class=fragment>filter(<span class=highlight>country %in% c('ENG','ESP')</span>) %>% <br>&nbsp;&nbsp;</span>
+<span class=fragment>dplyr::select(score, rank, country) %>%  <br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>spread</span>(., country, score) %>%  <br>&nbsp;&nbsp;</span>
+<span class=fragment>rowwise() %>% <br>&nbsp;&nbsp;</span>
+<span class=fragment>mutate( <br>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class=fragment>gap = ESP-ENG, <br>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class=fragment>max = max(ESP,ENG), <br>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class=fragment>min = min(ESP,ENG) <br>&nbsp;&nbsp;</span>
+<span class=fragment>)</span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>3. What is the 'quality gap' between a given pair of leagues? </h4>
-					<img class='graphic fragment' src='football-tide-4.png'/>
-				</section>
-
-				<section style="text-align: left;">
 					<code class="hljs hljs javascript hljs">
-#4 step 1: preparing the data<br>
-engEsp <- data %>% <br>&nbsp;&nbsp;
-filter(year==2016 & country %in% c('ENG','ESP')) %>% <br>&nbsp;&nbsp;
-dplyr::select(score, year, rank, country) %>%  <br>&nbsp;&nbsp;
-spread(., country, score) %>%  <br>&nbsp;&nbsp;
-rowwise() %>% <br>&nbsp;&nbsp;
-mutate( <br>&nbsp;&nbsp;&nbsp;&nbsp;
-gap = ESP-ENG, <br>&nbsp;&nbsp;&nbsp;&nbsp;
-max = max(ESP,ENG), <br>&nbsp;&nbsp;&nbsp;&nbsp;
-min = min(ESP,ENG) <br>&nbsp;&nbsp;
-)
+#4 step 2: the plot<br>
+<span class=fragment>ggplot(<span class=highlight>engEsp</span>, <br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score<span class=highlight>,fill=gap>0</span>)) + <br>&nbsp;&nbsp; </span>
+<span class=fragment><span class=highlight>geom_rect(aes(xmin = rank-0.5, xmax=rank+0.5, ymin=min, ymax=max), alpha=0.5) + </span><br>&nbsp;&nbsp;</span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp;</span>
+<span class=fragment>theme(legend.position="none")</span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
+					<h4>3. What is the 'quality gap' between a given pair of leagues? </h4>
+					<img class='graphic' src='football-tide-4.png'/>
+				</section>
+				
+				<section style="text-align: left;">
+					<h4>4. How does the <em>nth best</em> team in league <em>x</em> today compare to its predecessors? </h4>
 					<code class="hljs hljs javascript hljs">
-#4 step 2: the plot<br>
-ggplot(engEsp, aes(rank,min,fill=gap>0)) + <br>&nbsp;&nbsp; 
-  geom_rect(aes(xmin = rank-0.5, xmax=rank+0.5, ymin=min, ymax=max), alpha=0.5) + <br>&nbsp;&nbsp;
-  theme_bw() + <br>&nbsp;&nbsp;
-  theme(legend.position="top")
+#5<br>
+<span class=fragment>ggplot(oneSeason %>% <br>&nbsp;&nbsp; </span>
+<span class=fragment>filter(<span class=highlight>country == 'ENG'</span>), <br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score,col=country)) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment><span class=highlight>geom_ribbon(aes(ymin=atw, ymax=atb,  <br>&nbsp;&nbsp; fill=country), col='transparent', alpha=0.5) + </span><br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_path(alpha=1, <span class=highlight>size=1.5</span>) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_point(size=3) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme(legend.position="none")</span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>4. How does the <em>nth best</em> team in league <em>x</em> today compare to its predecessors? </h4>
-					<img class='graphic fragment' src='football-tide-5.png'/>
+					<img class='graphic' src='football-tide-5.png'/>
 				</section>
 				
 				<section style="text-align: left;">
+					<h4>4.1. How does the <em>nth best</em> team in league <em>x</em> today compare to its predecessors? </h4>
 					<code class="hljs hljs javascript hljs">
-#5<br>
-ggplot(data %>% <br>&nbsp;&nbsp; 
-filter(year==2016 & country == 'ENG'),aes(rank,score,col=country)) +  <br>&nbsp;&nbsp; 
-geom_ribbon(aes(ymin = atw, ymax = atb,  <br>&nbsp;&nbsp; fill=country),col='transparent', alpha=0.5) + <br>&nbsp;&nbsp; 
-geom_path(alpha=1, size=1.5) +  <br>&nbsp;&nbsp; 
-geom_point(size=3) +  <br>&nbsp;&nbsp; 
-theme_bw() + <br>&nbsp;&nbsp; 
-theme(legend.position="none")
+#6<br>
+<span class=fragment>ggplot(oneSeason %>% <br>&nbsp;&nbsp; </span>
+<span class=fragment>filter(country == 'ENG'),  <br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score,col=country, fill=country)) + <br>&nbsp;&nbsp;  </span>
+<span class=fragment><span class=highlight>geom_rect(aes(xmin=rank-0.5, xmax=rank+0.5, ymin = atw, ymax = atb), col='transparent', alpha=0.5) + </span><br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_point(<span class=highlight>size=5</span>) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme(legend.position="none") </span>
 					</code>
 				</section>
 
@@ -358,14 +389,16 @@ theme(legend.position="none")
 				</section>
 				
 				<section style="text-align: left;">
+					<h4>4.2. How does the <em>nth best</em> team in league <em>x</em> today compare to its predecessors? </h4>
 					<code class="hljs hljs javascript hljs">
-#6<br>
-ggplot(data %>% <br>&nbsp;&nbsp; 
-filter(year==2016 & country == 'ENG'),aes(rank,score,col=country, fill=country)) + <br>&nbsp;&nbsp;  
-geom_rect(aes(xmin=rank-0.5, xmax=rank+0.5, ymin = atw, ymax = atb),col='transparent', alpha=0.5) + <br>&nbsp;&nbsp; 
-geom_point(size=5) +  <br>&nbsp;&nbsp; 
-theme_bw() + <br>&nbsp;&nbsp; 
-theme(legend.position="none")
+#7<br>
+<span class=fragment>ggplot(oneSeason %>% <br>&nbsp;&nbsp; </span>
+<span class=fragment>filter(country == 'ENG'), <br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score,col=country, fill=country)) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_rect(aes(<span class=highlight>xmin=rank-0.45, xmax=rank+0.45</span>, ymin=atw, ymax=atb),col='transparent', alpha=0.5) + <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_point(size=5) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme(legend.position="none") </span>
 					</code>
 				</section>
 
@@ -375,85 +408,84 @@ theme(legend.position="none")
 				</section>
 				
 				<section style="text-align: left;">
+					<h4>5. How have all of the above changed over time? </h4>
+					<p>First, the top teams and balance within each league</p>
 					<code class="hljs hljs javascript hljs">
-#7<br>
-ggplot(data %>% <br>&nbsp;&nbsp; 
-filter(year==2016 & country == 'ENG'),aes(rank,score,col=country, fill=country)) +  <br>&nbsp;&nbsp; 
-geom_rect(aes(xmin=rank-0.45, xmax=rank+0.45, ymin = atw, ymax = atb),col='transparent', alpha=0.5) + <br>&nbsp;&nbsp; 
-geom_point(size=5) +  <br>&nbsp;&nbsp; 
-theme_bw() + <br>&nbsp;&nbsp; 
-theme(legend.position="none")
+#8<br>
+<span class=fragment>ggplot(<span class=highlight>allSeasons</span>, <br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score,col=country)) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_path() +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_point(size=1) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment><span class=highlight>facet_wrap(~year, ncol=4) +  </span><br>&nbsp;&nbsp; </span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme(legend.position="top") </span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>5. How have all of the above changed over time? </h4>
-					<p class=fragment>First, the top teams and balance within each league</p>
-					<img class='graphic fragment' src='football-tide-8.png'/>
+					<p>First, the top teams and balance within each league</p>
+					<img class='graphic' src='football-tide-8.png'/>
 				</section>
 				
 				<section style="text-align: left;">
+					<h4>5.1. How have all of the above changed over time? </h4>
+					<p>Quality gap between a pair of leagues</p>
 					<code class="hljs hljs javascript hljs">
-#8<br>
-ggplot(data,aes(rank,score,col=country)) +  <br>&nbsp;&nbsp; 
-geom_path() +  <br>&nbsp;&nbsp; 
-geom_point(size=1) +  <br>&nbsp;&nbsp;
-facet_wrap(~year, ncol=4) +  <br>&nbsp;&nbsp; 
-theme_bw() + <br>&nbsp;&nbsp; 
-theme(legend.position="top") <br>&nbsp;&nbsp; 
+#9 step 1: preparing the data<br>
+<span class=fragment>engEspAllYears <- allSeasons %>% <br>&nbsp;&nbsp;</span>
+<span class=fragment>filter(<span class=highlight>country %in% c('ENG','ESP')</span>) %>% <br>&nbsp;&nbsp;</span>
+<span class=fragment>dplyr::select(score,<span class=highlight>year</span>,rank,country) %>%  <br>&nbsp;&nbsp;</span>
+<span class=fragment>spread(., country, score) %>%  <br>&nbsp;&nbsp;</span>
+<span class=fragment>rowwise() %>% <br>&nbsp;&nbsp; </span>
+<span class=fragment>mutate( <br>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class=fragment>gap = ESP-ENG, <br>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class=fragment>max = max(ESP,ENG), <br>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span class=fragment>min = min(ESP,ENG) <br>&nbsp;&nbsp; </span>
+<span class=fragment>) </span>
+					</code>
+				</section>
+				
+				<section style="text-align: left;">
+					<h4>5.1. How have all of the above changed over time? </h4>
+					<p>Quality gap between a pair of leagues</p>
+					<code class="hljs hljs javascript hljs">
+#9 step 2: the plot<br>
+<span class=fragment>ggplot(<span class=highlight>engEspAllYears</span>, <br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score,fill=gap>0)) +  <br>&nbsp;&nbsp;</span>
+<span class=fragment>geom_rect(aes(xmin = rank-0.5, xmax=rank+0.5, ymin=min, ymax=max), alpha=0.5) + <br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>facet_wrap(~year, ncol=4) + </span> <br>&nbsp;&nbsp;</span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp;</span>
+<span class=fragment>theme(legend.position="none")</span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>5.1. How have all of the above changed over time? </h4>
-					<p class=fragment>Quality gap between a pair of leagues</p>
-					<img class='graphic fragment' src='football-tide-9.png'/>
+					<p>Quality gap between a pair of leagues</p>
+					<img class='graphic' src='football-tide-9.png'/>
 				</section>
 				
 				<section style="text-align: left;">
+					<h4>5.2. How have all of the above changed over time? </h4>
+					<p>Individual teams in national, historical context</p>
 					<code class="hljs hljs javascript hljs">
-#9 step 1: preparing the data<br>
-engEspAllYears <- data %>% <br>&nbsp;&nbsp;
-filter(country %in% c('ENG','ESP')) %>% <br>&nbsp;&nbsp;
-dplyr::select(score, year, rank, country) %>%  <br>&nbsp;&nbsp;
-spread(., country, score) %>%  <br>&nbsp;&nbsp;
-rowwise() %>% <br>&nbsp;&nbsp;
-mutate( <br>&nbsp;&nbsp;&nbsp;&nbsp;
-gap = ESP-ENG, <br>&nbsp;&nbsp;&nbsp;&nbsp;
-max = max(ESP,ENG), <br>&nbsp;&nbsp;&nbsp;&nbsp;
-min = min(ESP,ENG) <br>&nbsp;&nbsp;
-)
-					</code>
-				</section>
-				
-				<section style="text-align: left;">
-					<code class="hljs hljs javascript hljs">
-#9 step 2: the plot<br>
-ggplot(engEspAllYears ,aes(rank,min,fill=gap>0)) +  <br>&nbsp;&nbsp;
-geom_rect(aes(xmin = rank-0.5, xmax=rank+0.5, ymin=min, ymax=max), alpha=0.5) + <br>&nbsp;&nbsp;
-facet_wrap(~year, ncol=4) +  <br>&nbsp;&nbsp;
-theme_bw() + <br>&nbsp;&nbsp;
-theme(legend.position="none")
+#10<br>
+<span class=fragment>ggplot(allSeasons %>% filter(country=='ENG'),<br>&nbsp;&nbsp; </span>
+<span class=fragment>aes(rank,score,col=country,fill=country))+<br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_rect(aes(xmin=rank-0.45, xmax=rank+0.45, ymin=atw, ymax=atb), col='transparent', alpha=0.5) + <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_path(alpha=1) +  <br>&nbsp;&nbsp; </span>
+<span class=fragment>geom_point(size=1) +  <br>&nbsp;&nbsp;</span>
+<span class=fragment><span class=highlight>facet_wrap(~year, ncol=4) + </span> <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme_bw() + <br>&nbsp;&nbsp; </span>
+<span class=fragment>theme(legend.position="none") </span>
 					</code>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>5.2. How have all of the above changed over time? </h4>
-					<p class=fragment>Individual teams in national, historical context</p>
-					<img class='graphic fragment' src='football-tide-10.png'/>
-				</section>
-				
-				<section style="text-align: left;">
-					<code class="hljs hljs javascript hljs">
-#10<br>
-ggplot(data %>% filter(country == 'ENG'),aes(rank,score,col=country, fill=country)) +  <br>&nbsp;&nbsp; 
-geom_rect(aes(xmin=rank-0.45, xmax=rank+0.45, ymin = atw, ymax = atb),col='transparent', alpha=0.5) + <br>&nbsp;&nbsp; 
-geom_path(alpha=1) +  <br>&nbsp;&nbsp; 
-geom_point(size=1) +  <br>&nbsp;&nbsp;
-facet_wrap(~year, ncol=4) +  <br>&nbsp;&nbsp; 
-theme_bw() + <br>&nbsp;&nbsp; 
-theme(legend.position="none")
-					</code>
+					<p>Individual teams in national, historical context</p>
+					<img class='graphic' src='football-tide-10.png'/>
 				</section>
 
 				<section style="text-align: left;">
