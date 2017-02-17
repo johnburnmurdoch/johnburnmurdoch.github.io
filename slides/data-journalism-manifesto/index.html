@@ -40,6 +40,13 @@
 		    font-style: normal;
 		}
 
+		@font-face {
+		    font-family: "AvenirLight";
+		    src: url("../fonts/Avenir-Light-webfont.woff") format("woff");
+		    font-weight: 200;
+		    font-style: normal;
+		}
+
 		.a-center{
 			text-align:center;
 			display:block;
@@ -81,6 +88,17 @@
 
 		section img{
 			max-height:40vh!important;
+		}
+
+		.reveal h2{
+			/*font-family: AvenirLight;*/
+			/*font-weight: 300;*/
+			line-height: 1.3em;
+		}
+
+		.reveal h4{
+			font-family: AvenirLight;
+			font-weight: 200;
 		}
 
 		@media screen and (max-width: 480px) {
@@ -134,13 +152,13 @@
 				<section style="text-align: left;">
 					<h4>Key themes</h4>
 					<p class=fragment>&bullet; What does data journalism look like in 2017?</p>
-					<p class=fragment>&bullet; Why is it important? How does it support the longer term goals of Nikkei and NAR?</p>
-					<p class=fragment>&bullet; How do we do it?</p>
+					<p class=fragment>&bullet; Why is it important? How does it support the subscription business model for journalism?</p>
+					<p class=fragment>&bullet; What do we need to have in place to do all of this?</p>
 					<p class=fragment>&bullet; How do we know whether or not it’s working?</p>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>What does data journalism look like in 2017?</h4>
+					<h2>What does data journalism look like in 2017?</h2>
 				</section>
 
 				<section style="text-align: left;">
@@ -150,19 +168,19 @@
 
 				<section style="text-align: left;">
 					<h4>Data as an exclusive source</h4>
-					<p>This is increasingly where the value lies</p>
+					<p class=fragment>This is increasingly where the value lies</p>
 					<p class=fragment>More and more journalists of all descriptions are capable of locating and working with published datasets</p>
 					<code class='fragment hljs' style='font-size:0.85em'>// Spreadsheet journalism != data journalism</code>
-					<p class='fragment'>That should now be expected of any digital journalist. Writing stories based on the same numbers sitting in front of every reporter on your beat leaves you playing the speed game once again</p>
+					<p class='fragment'>That should now be expected of any digital journalist. Writing stories based on the same numbers sitting in front of every reporter on your beat reduces your scope to provide unique value for <em>your</em> readers</p>
 				</section>				
 
 				<section style="text-align: left;">
 					<h4>Data as source</h4>
 					<p>So...</p>
 					<p class=fragment>The real value is to be found in developing your own datasets. Broadly speaking, this can be done in three ways:</p>
-					<p class=fragment>&bullet; Creating a dataset <em>ex nihilo</em></p>
+					<p class=fragment>&bullet; Creating a dataset from scratch</p>
 					<p class=fragment>&bullet; Collecting or curating datasets to create something worth more than the sum of its parts</p>
-					<p class=fragment>&bullet; Working with data in cruel and unusual formats</p>
+					<p class=fragment>&bullet; Working with data in extraordinary formats or volumes</p>
 				</section>
 
 				<section style="text-align: left;">
@@ -179,16 +197,16 @@
 				</section>
 
 				<section style="text-align: left;">
-					<h4>Specialist data formats</h4>
+					<h4>Non-standard data formats</h4>
 					<p>Case study: <a href='http://blogs.ft.com/ftdata/2016/04/20/what-is-el-nino-impact-crop-yields/' target=_blank>FT | What is El Niño and how does it affect global crop yields?</a></p>
 					<img src='http://blogs.ft.com/ftdata/files/2016/04/elNinoStory.gif' style='width:100%;float:left;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>How does data journalism support the longer term goals of Nikkei and NAR?</h4>
+					<h2>How does this support the subscription business model for journalism?</h2>
 				</section>
 
-				<section style="text-align: left;">
+				<!-- <section style="text-align: left;">
 					<h4>Digital is growing</h4>
 					<p>&bullet; Both in terms of internet usage as a whole...</p>
 					<img src='internet-usage.png' style='float:left;'/>
@@ -203,31 +221,35 @@
 				<section style="text-align: left;">
 					<h4>And [digital] social is increasingly readers&rsquo; route to your journalism</h4>
 					<img src='sources-for-news.png' style='float:left;'/>
-				</section>
+				</section> -->
 
 				<section style="text-align: left;">
-					<h4>The New York Times just published a fantastic, detailed report</h4>
+					<h4>The New York Times just published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
 					<p>Among the highlights were:</p>
-					<p>&bullet; The success of its subscription model...</p>
+					<p>&bullet; The success of its digital subscription model...</p>
 					<img src='nyt-revenue.png' style='float:left;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>The New York Times just published a fantastic, detailed report</h4>
-					<p>&bullet; Importance of visual elements to its future...</p>
+					<h4>The New York Times just published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>&bullet; The importance of visual elements to its future...</p>
 					<img src='nyt-visuals.png' style='float:left'/>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>The New York Times just published a fantastic, detailed report</h4>
-					<p>&bullet; The need to spend less time on minimal-value-added news, more on unique journalism...</p>
+					<h4>The New York Times just published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>&bullet; The need to spend less time on low-value-added news, more on unique journalism...</p>
 					<img src='nyt-incremental.png' style='float:left;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>The New York Times just published a fantastic, detailed report</h4>
-					<p>&bullet; And the need to be smarter and more strict about efficient use of editorial resources</p>
+					<h4>The New York Times just published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>&bullet; ...and the need to be smarter and more strict about efficient use of editorial resources</p>
 					<img src='nyt-efficient.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>So where do data and graphics come in?</h2>
 				</section>
 
 				<section style="text-align: left;">
@@ -243,58 +265,58 @@
 
 				<section style="text-align: left;">
 					<h4>So where do data and graphics come in?</h4>
-					<p>&bullet; Readers will come to see them as a core part of your premium product</p>
+					<p>&bullet; <a href='https://ig.ft.com/sites/china-ports/' target=_blank>Readers</a> will come to see them as a core part of your premium product</p>
 					<img src='ft-praise.png' style='float:left;'/>
 				</section>
 
-				<section style="text-align: left;">
+				<!-- <section style="text-align: left;">
 					<h4>So where do data and graphics come in?</h4>
-					<p>They present huge opportunities for increasing journalistic efficiency</p>
-				</section>
+					<p>They present huge opportunities for increasing journalistic efficiency, freeing up talented reporters&rsquo; time for deeper work</p>
+				</section> -->
 
 				<section style="text-align: left;">
 					<h4>So where do data and graphics come in?</h4>
-					<p class=fragment><b>Data-driven journalism:</b> Using scripts, tools, APIs to automate part of the process of routine journalism, thus freeing-up reporters’ time to spend on deeper, more complex, more fundamental stories and analysis</p>
-					<br>
-					<p class=fragment><b>Graphics:</b> A showpiece visualisation that might once have required more than a week’s work or more can now be done to the same exquisite standards by one person in a day or two</p>
+					<p class=fragment><b>Data-driven journalism:</b> Using scripts, tools, APIs to <a href='https://ig.ft.com/sites/numbers/economies/us' target=_blank>automate</a> part of the process of <a href='https://ig.ft.com/sites/brexit-polling/' target=_blank>routine journalism</a>, thus freeing-up reporters’ time to spend on deeper, more complex, more fundamental stories and analysis</p>
+					<!-- <br> -->
+					<p class=fragment><b>Graphics:</b> A showpiece graphic whose visual strength and depth will attract, hold and <a href="http://www.recode.net/2017/1/30/14432142/technology-app-addiction-time-well-spent-tristan-harris-recode-podcast" target=_blank><b>reward</b></a> readers&rsquo; attention might once have required several week’s work. Now the <a href='https://www.ft.com/content/d734b074-d9a8-11e6-944b-e7eb37a6aa8e' target=_blank>same impact</a> can be achieved by one person in a day or two</p>
 				</section>
 
 				<section style="text-align: left;">
 					<h4>So where do data and graphics come in?</h4>
 					<p>Graphics and stats are inherently optimised for social</p>
 					<p class=fragment>&bullet; “A picture speaks a thousand words”</p>
-					<p class=fragment>&bullet; People love being able to share something which proves a point, debunks a myth etc. Stats and graphics lend themselves perfectly to this</p>
-					<p class=fragment>&bullet; Social media streams are growing busier and busier. Clear, crisp graphics will stand out in those feeds, and if they tell a clear story or impart a message that taps into people’s emotions, they’ll fly</p>
+					<p class=fragment>&bullet; People love being able to share something which <a href='https://twitter.com/FT/status/746275255354818561' target=_blank>proves a point</a>, debunks a myth etc. Stats and graphics lend themselves perfectly to this</p>
+					<p class=fragment>&bullet; Social media streams are growing busier and busier. Clear, crisp graphics will stand out in those feeds, and if they tell a clear story or impart a message that taps into people’s emotions, <a href='https://twitter.com/FT/status/674894714408185856' target=_blank>they’ll fly</a></p>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>So how do we get this right?</h4>
+					<h2>So what do we need to have in place to do all of this?</h2>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>So how do we get this right?</h4>
-					<p class=fragment>&bullet; Quantitative methods: specialists in areas such as statistical analysis, predictive modelling and social-media analysis</p>
-					<p class=fragment>&bullet; Data-visualisation: specialists in producing rich, non-standard static and animated graphics and interactive pieces, video</p>
-					<p class=fragment>&bullet; Subject knowledge: collaborating with specialists elsewhere in the newsroom is sufficient for deeper pieces, but to for quicker hits — and best results all around — technical specialists should be encouraged to develop or pursue interests in one or two core areas of the news agenda</p>
+					<h4>Where do we start?</h4>
+					<p class=fragment>&bullet; <b>Quantitative methods:</b> in statistical analysts, predictive modellers and "creative data collectors"</p>
+					<p class=fragment>&bullet; <b>Data visualisation:</b> specialist in rich, non-standard graphics across static, interactive and animated forms</p>
+					<p class=fragment>&bullet; <b>Subject knowledge:</b> collaborating with specialists elsewhere in the newsroom is ideal for deeper pieces, but for quicker hits — and best results all around — encourage technical specialists to pursue interests in core areas of the news agenda</p>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>So how do we get this right?</h4>
+					<h4>Where do we start?</h4>
 					<p>Technical specialists should have time built into their schedules to allow for expansion and or honing of their skill-sets</p>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>So what should (and shouldn’t!) you do to get this right?</h4>
-					<p>Use graphics to tell stories. <span class=fragment>Every news organisation in the world could substantially improve the quality of its visual output without making any more charts. Lose the boring ones, lose those which are simply accompaniments to self-sufficient work. Lose the ones used purely “to break up the text”. Never commission a graphic because “we’ll need a graphic to go with that piece”</span></p>
+					<h4>Where do we start?</h4>
+					<p><b>Use graphics to tell stories.</b> <span class=fragment>Every news organisation in the world could substantially improve the quality of its visual output without making any more charts.</span> <span class=fragment>Lose the boring ones, lose those which are simply accompaniments to self-sufficient work.</span> <span class=fragment>Lose the ones used purely “to break up the text”.</span> <span class=fragment>Never commission a graphic because "it&rsquo;s an important story, so it needs a graphic”</span></p>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>So what should (and shouldn’t!) you do to get this right?</h4>
-					<p>Give your visual journalists editorial and creative agency. <span class=fragment>They and you will benefit enormously. The made-to-order bar chart is no better than the 400 word story that all of your competitors — and 50 other websites — has. It’s a low-value use of a high-value skillset, it does nothing to strengthen your journalism or your brand, and it can be demoralising for those involved</span></p>
+					<h4>Where do we start?</h4>
+					<p><b>Give your visual journalists editorial and creative agency.</b> <span class=fragment>They and you will benefit enormously. The made-to-order bar chart is no better than the 400 word story that all of your competitors — and 50 other websites — has.</span> <span class=fragment> It’s a low-value use of a high-value skillset, it does nothing to strengthen your journalism or your brand, and it can be demoralising for those involved</span></p>
 				</section>
 
 				<section style="text-align: left;">
-					<h4>How do we know whether or not it’s working?</h4>
+					<h2>How do we know whether or not it’s working?</h2>
 				</section>
 
 				<section style="text-align: left;">
@@ -307,9 +329,15 @@
 
 				<section style="text-align: left;">
 					<h4>Any questions?</h4>
+					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email at <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
+					<p>These slides are at <a href='http://bit.ly/ddj-manifesto' target='_blank'>bit.ly/ddj-manifesto</a></p>
+				</section>
+
+				<!-- <section style="text-align: left;">
+					<h4>Any questions?</h4>
 					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email at either <a href='mailto:john.burn-murdoch@nex.nikkei.com' target=_top>john.burn-murdoch@nex.nikkei.com</a> or <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
 					<p>These slides are at <a href='http://johnburnmurdoch.github.io/slides/data-journalism-manifesto/' target='_blank'>bit.ly/nar-ddj</a></p>
-				</section>
+				</section> -->
 
 			</div>
 
