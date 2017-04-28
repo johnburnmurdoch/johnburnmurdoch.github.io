@@ -1,0 +1,543 @@
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>FT data journalism in 2017 and beyond</title>
+
+		<meta name="description" content="FT data journalism in 2017 and beyond">
+		<meta name="author" content="John Burn-Murdoch">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/NAR.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://build.origami.ft.com/v2/bundles/css?modules=o-fonts@^1.6.7,o-typography@^1.16.2,o-grid@^3.1.3,o-header@^3.0.3,o-footer@^3.0.1" />
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js "charset="utf-8"></script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+
+		@font-face {
+		    font-family: "Avenir";
+		    src: url("../fonts/Avenir-Medium-webfont.woff") format("woff");
+		    font-weight: 400;
+		    font-style: normal;
+		}
+
+		@font-face {
+		    font-family: "AvenirLight";
+		    src: url("../fonts/avenir-light-webfont.woff") format("woff");
+		    font-weight: 200;
+		    font-style: normal;
+		}
+
+		.a-center{
+			text-align:center;
+			display:block;
+		}
+
+		.faded{opacity:0.5;}
+
+	    body{
+	    	font-family: 'Avenir',sans-serif!important;
+	    	font-size:18px;
+	    }
+
+	    .o-header{
+	    	background-image: none;
+	    	min-height: auto;
+	    	max-height: auto;
+	    }
+
+	    
+	    .ui-page.ui-page-theme-a.ui-page-active {
+  		-moz-box-shadow: none !important;
+  		-webkit-box-shadow: none !important;
+  		box-shadow: none !important;
+  		outline: none;
+		}
+
+		.centered{padding-bottom:0.8em!important;}
+		.red{color:#fa6121;}
+		.red:hover{color:#FFB739;}
+
+		#twitter-widget-0{
+			position: absolute!important;
+		    visibility: visible!important;
+		    width: 179px!important;
+		    right: 0!important;
+		    top: 0!important;
+		    padding: 0.6em!important;
+		}
+
+		section img{
+			max-height:40vh!important;
+		}
+
+		.reveal h2{
+			/*font-family: AvenirLight;*/
+			/*font-weight: 300;*/
+			line-height: 1.3em;
+		}
+
+		.reveal h4{
+			font-family: AvenirLight;
+			font-weight: 200;
+		}
+
+		@media screen and (max-width: 480px) {
+			.o-header__ft-masthead.demo__hide-on-mobile.demo__fix-svg-logo-position{
+				display:none;
+			}
+			.reveal{
+				font-size: 50px!important;
+			}
+			section img{
+				max-height:none!important;
+			}
+
+		}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<header data-o-component="o-header" class="o-header" data-o-header--js="">
+		<div class="o-header__container">
+			<div class="o-header__inner">
+				<div class="o-header__primary">
+					<div class="o-header__primary__left">
+						<a href="http://www.ft.com" class="o-header__logo o-header__logo--ft"><abbr title="Financial Times" class="demo__mobile-only">FT</abbr><h1 class="o-header__ft-masthead demo__hide-on-mobile demo__fix-svg-logo-position"><i></i></h1></a>
+					</div>
+				</div>
+
+					<!-- <a href="https://twitter.com/jburnmurdoch" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @jburnmurdoch</a> -->
+				<!--<div class="o-header__secondary">
+					<h2 class="o-header__tagline" style="margin-left:"><a href="http://www.ft.com/interactive">Interactive News</a></h2>
+				</div>-->
+			</div>
+		</div>
+	</header>
+	    <div id="progressbar"></div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section style="text-align: left;">
+					<h2 class='centered'>FT data journalism in 2017 and beyond</h2>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+						<!-- <a href='http://blogs.ft.com/ftdata/2016/04/20/what-is-el-nino-impact-crop-yields/' target='_blank'><img src='http://blogs.ft.com/ftdata/files/2016/04/elNinoStory.gif' style='width:100%;float:left'/></a> -->
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Key themes</h4>
+					<p class=fragment>&bullet; What does data journalism look like in 2017?</p>
+					<p class=fragment>&bullet; Why is it important? How does it support the subscription business model for journalism?</p>
+					<p class=fragment>&bullet; What do we need to have in place to do all of this?</p>
+					<p class=fragment>&bullet; How do we know whether or not it’s working?</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>What does data journalism look like in 2017?</h2>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Data as an exclusive source</h4>
+					<p>Cutting-edge data journalism increasingly relies on bespoke or technically complex datasets whose creation, curation or comprehension requires either specialist data gathering skills, specialist data analysis skills, or both</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Taking data off diary</h4>
+					<p>A good dataset is a trusted and authoritative source. You rarely quote your sources just because they happen to be in town: you go to them when their insights can be brought to bear on a wider story</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Engaging, data-driven visual journalism</h4>
+					<p>Leading news organisations are increasingly recognising the power of visual formats in communicating key facts and narratives quickly, effectively and memorably</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Data for internal use</h4>
+					<p>Rather than operate on the basis of gut instinct, or follow the same tired stereotypes as the competition, we can use data to guide our reporting</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Data as an exclusive source</h4>
+					<p class=fragment>This is increasingly where the value lies</p>
+					<p class=fragment>More and more journalists of all descriptions are capable of locating and working with published datasets</p>
+					<code class='fragment hljs' style='font-size:0.85em'>// Spreadsheet journalism != data journalism</code>
+					<p class='fragment'>That should now be expected of any digital journalist. Writing stories based on the same numbers sitting in front of every reporter on your beat reduces your scope to provide unique value for <em>your</em> readers</p>
+				</section>				
+
+				<section style="text-align: left;">
+					<h4>Data as source</h4>
+					<p>So...</p>
+					<p class=fragment>The real value is to be found in developing your own datasets. Broadly speaking, this can be done in three ways:</p>
+					<p class=fragment>&bullet; Creating a dataset from scratch</p>
+					<p class=fragment>&bullet; Collecting or curating datasets to create something worth more than the sum of its parts</p>
+					<p class=fragment>&bullet; Working with data in extraordinary formats or volumes</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating a dataset</h4>
+					<p>Case study 1: <a href='https://www.washingtonpost.com/graphics/politics/donald-trump-vs-hillary-clinton-in-media/' target=_blank>Washington Post | A visual history of Donald Trump dominating the news cycle</a></p>
+					<img src='washPo.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating a dataset</h4>
+					<p>Case study 2: <a href='http://www.bloomberg.com/graphics/2016-amazon-same-day/' target=_blank>Bloomberg | Amazon Doesn’t Consider the Race of Its Customers. Should It?</a></p>
+					<img src='bbg-amazon-race.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating a dataset</h4>
+					<p>Case study 3: <a href='https://ig.ft.com/sites/business-jets/' target=_blank>FT | Executive perks: The corporate jet files</a></p>
+					<img src='ft-business-jets.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study 1: <a href='https://next.ft.com/content/1ce1a720-ce94-3c32-a689-8d2356388a1f' target=_blank>FT | The demographics that drove Brexit</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/06/brexit-education-regions.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study 2: <a href='http://www.reuters.com/article/us-france-election-data-analysis-idUSKBN17R1TA' target=_blank>Reuters | Le Pen thrives among French poor, vote analysis shows</a></p>
+					<img src='http://fingfx.thomsonreuters.com/gfx/mkt/2/240/230/lifex.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study 3: <a href='https://fivethirtyeight.com/features/trump-was-stronger-where-the-economy-is-weaker/' target=_blank>FiveThirtyEight | Trump Was Stronger Where The Economy Is Weaker</a></p>
+					<img src='538routine.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Taking data off diary</h4>
+					<p>All of the data used in these post-election analyses was in the open for months or years, but the value comes from knowing where to find it and how to interpret it when the moment comes</p>
+				</section>
+
+				<!-- <section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p>Case study 2: <a href='https://www.ft.com/content/44aee8d6-28d7-11e7-9ec8-168383da43b7' target=_blank>FT | Brexit factor puts election battleground seats in flux</a></p>
+					<img src='http://com.ft.imagepublish.prod-us.s3.amazonaws.com/a458f038-29db-11e7-9ec8-168383da43b7' style='float:left;'/>
+				</section> -->
+
+				<section style="text-align: left;">
+					<h4>Combining datasets</h4>
+					<p><a href='journalistsresource.org/skills/research/research-chat-steve-doig-data-journalism-social-science-deadline' target=_blank><em>&ldquo;Social science done on deadline&rdquo; </em></a>&mdash; Steve Doig</p>
+					<img src='doig.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Non-standard data formats</h4>
+					<p>Case study: <a href='http://blogs.ft.com/ftdata/2016/04/20/what-is-el-nino-impact-crop-yields/' target=_blank>FT | What is El Niño and how does it affect global crop yields?</a></p>
+					<img src='http://blogs.ft.com/ftdata/files/2016/04/elNinoStory.gif' style='width:100%;float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Using our data journalism expertise <a href=https://ft-interactive.github.io/ge17-data/scatter/ target=_blank>internally</a>, to guide reporting</h4>
+					<img src='ft-internal-scatter.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>How does this support the subscription business model for journalism?</h2>
+				</section>
+
+				<!-- <section style="text-align: left;">
+					<h4>Digital is growing</h4>
+					<p>&bullet; Both in terms of internet usage as a whole...</p>
+					<img src='internet-usage.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Digital is growing</h4>
+					<p>&bullet; ...and smartphones in particular</p>
+					<img src='smartphones.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>And [digital] social is increasingly readers&rsquo; route to your journalism</h4>
+					<img src='sources-for-news.png' style='float:left;'/>
+				</section> -->
+
+				<section style="text-align: left;">
+					<h4>The New York Times recently published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>Among the highlights were:</p>
+					<p>&bullet; The success of its digital subscription model...</p>
+					<img src='nyt-revenue.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>The New York Times recently published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>&bullet; The importance of visual elements to its future...</p>
+					<img src='nyt-visuals.png' style='float:left'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>The New York Times recently published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>&bullet; The need to spend less time on low-value-added news, more on unique journalism...</p>
+					<img src='nyt-incremental.png?' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>The New York Times recently published a <a href='https://www.nytimes.com/projects/2020-report/' target=_blank> fantastic, detailed report</a></h4>
+					<p>&bullet; ...and the need to be smarter and more strict about efficient use of editorial resources</p>
+					<img src='nyt-efficient.png?' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>So where do data and graphics come in?</h2>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Generating unique value</h4>
+					<p class=fragment>The products of cutting-edge data journalism are typically deep, detailed analyses and visualisations, as well as quicker pieces in cases where the quality of the visual presentation or the exclusivity of the underlying data generate unique value</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Generating unique value</h4>
+					<p>&bullet; They’re a great vehicle for differentiation through value-added journalism, and for brand-establishment/consolidation</p>
+					<p class=fragment>&bullet; When used intelligently, they set you apart from your competitors and minimise the risk of being seen as “just doing what everyone else is doing”</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Generating unique value</h4>
+					<p>&bullet; <a href='https://ig.ft.com/sites/china-ports/' target=_blank>Readers</a> will come to see them as a core part of your premium product</p>
+					<img src='ft-praise.png' style='float:left;'/>
+				</section>
+
+				<!-- <section style="text-align: left;">
+					<h4>So where do data and graphics come in?</h4>
+					<p>They present huge opportunities for increasing journalistic efficiency, freeing up talented reporters&rsquo; time for deeper work</p>
+				</section> -->
+
+				<section style="text-align: left;">
+					<h4>Creating efficiencies</h4>
+					<p class=fragment><b>Data-driven journalism:</b> Using scripts, tools, APIs to <a href='https://ig.ft.com/sites/numbers/economies/us' target=_blank>automate</a> part of the process of <a href='https://ig.ft.com/elections/uk/2017/polls/' target=_blank>routine journalism</a>, thus freeing-up reporters’ time to spend on deeper, more complex, more fundamental stories and analysis</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating efficiencies</h4>
+					<p>🤖 Robot journalism 😲</p>
+					<img class=fragment src='ge2017buildbot.png' style='float:left; max-height:3em!important; margin-right:1em; '/>
+					<img class=fragment src='ge2017polltracker.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Creating efficiencies</h4>
+					<p><b>Graphics:</b> A showpiece graphic whose visual strength and depth will attract, hold and <a href="http://www.recode.net/2017/1/30/14432142/technology-app-addiction-time-well-spent-tristan-harris-recode-podcast" target=_blank><b>reward</b></a> readers&rsquo; attention might once have required several week’s work. Now the <a href='https://www.ft.com/content/d734b074-d9a8-11e6-944b-e7eb37a6aa8e' target=_blank>same impact</a> can be achieved by one person in a day or two</p>
+				</section>
+
+				<section style="text-align: left;">
+					<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Dow Jones: a flawed measure but with a rich history, making it an ideal candidate for a very tall chart <a href="https://t.co/kcjttN50D3">https://t.co/kcjttN50D3</a> <a href="https://t.co/a9WODEvxnZ">pic.twitter.com/a9WODEvxnZ</a></p>&mdash; Alan Smith (@theboysmithy) <a href="https://twitter.com/theboysmithy/status/820990704210083841">January 16, 2017</a></blockquote>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Increasing engagement</h4>
+					<p class=fragment>Graphics and stats are inherently optimised for social</p>
+					<p class=fragment>&bullet; “A picture speaks a thousand words”</p>
+					<p class=fragment>&bullet; People love being able to share something which <a href='https://twitter.com/FT/status/746275255354818561' target=_blank>proves a point</a>, debunks a myth etc. Stats and graphics lend themselves perfectly to this</p>
+				</section>
+
+				<section style="text-align: left; top: -20px!important;">
+					<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Regions with the biggest votes for Leave are also the most economically dependent on the EU <a href="https://t.co/vL2D3SkEIP">https://t.co/vL2D3SkEIP</a> <a href="https://t.co/gUjDX64OY3">pic.twitter.com/gUjDX64OY3</a></p>&mdash; Financial Times (@FT) <a href="https://twitter.com/FT/status/746275255354818561">June 24, 2016</a></blockquote>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Increasing engagement</h4>
+					<p>&bullet; Social media streams are growing busier and busier. Clear, crisp graphics will stand out in those feeds, and if they tell a clear story or impart a message that taps into people’s emotions, <!-- <a href='https://twitter.com/FT/status/674894714408185856' target=_blank>they’ll fly</a> --><a href='https://twitter.com/marceldirsus/status/856436707608199168' target=_blank>they’ll fly</a></p>
+				</section>
+
+				<section style="text-align: left; top: -20px!important;">
+					<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The collapse of the French Socialist Party in one image <a href="https://t.co/J99m2kdpA2">pic.twitter.com/J99m2kdpA2</a></p>&mdash; Marcel Dirsus (@marceldirsus) <a href="https://twitter.com/marceldirsus/status/856436707608199168">April 24, 2017</a></blockquote>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>So what do newsrooms need to put in place to do all of this?</h2>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Where do we start?</h4>
+					<p class=fragment>&bullet; <b>Quantitative methods:</b> in statistical analysts, predictive modellers and "creative data collectors"</p>
+					<p class=fragment>&bullet; <b>Data visualisation:</b> specialist in rich, non-standard graphics across static, interactive and animated forms</p>
+					<p class=fragment>&bullet; <b>Subject knowledge:</b> collaborating with specialists elsewhere in the newsroom is ideal for deeper pieces, but for quicker hits — and best results all around — encourage technical specialists to pursue interests in core areas of the news agenda</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Where do we start?</h4>
+					<p>Technical specialists should have time built into their schedules to allow for expansion and or honing of their skill-sets</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Where do we start?</h4>
+					<p><b>Use graphics to tell stories.</b> <span class=fragment>Every news organisation could substantially improve the quality of its visual output without making any more charts.</span> <span class=fragment>Lose the boring ones.</span> <span class=fragment>Lose those which are simply accompaniments to self-sufficient work.</span> <span class=fragment>Lose the ones used purely “to break up the text”.</span> <span class=fragment>Never commission a graphic because "it&rsquo;s an important story, so it needs a graphic”</span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Where do we start?</h4>
+					<p><span>See also: <a href='https://twitter.com/Grobern/status/829337904002502657' target=_blank>Brian Boyer&rsquo;s Six Commandments of Data Visualisation</a> (via Martin Stabe)</span></p>
+					<img src='https://pbs.twimg.com/media/C4JmawlWEAA0lQh.jpg' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Where do we start?</h4>
+					<p><b>Give your visual journalists editorial and creative agency.</b> <span class=fragment>They and you will benefit enormously. The made-to-order bar chart is no better than the 400 word story that all of your competitors — and 50 other websites — has.</span> <span class=fragment> It’s a low-value use of a high-value skillset, it does nothing to strengthen your journalism or your brand, and it can be demoralising for those involved</span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h2>How do we know whether or not it’s working?</h2>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>How do we know whether or not it’s working?</h4>
+					<p>Signs of success include:</p>
+					<p class=fragment>&bullet; Direct, verbal reader recognition of the added value provided by this work</p>
+					<p class=fragment>&bullet; New subscriptions from — or first-time visitors to — these pieces of content</p>
+					<p class=fragment>&bullet; High reach and engagement on social media</p>
+					<p class=fragment>&bullet; Evergreen appeal</p>
+				</section>
+
+				<section style="text-align: left;"><!-- 
+					<h2>Too Many Men</h2>
+					<h4><a href=http://asia.nikkei.com/Features/Too-many-men/Culture-and-policy-explain-why-sex-ratios-are-skewed-in-Asia target=_blank>A deep-dive into  Asia&rsquo;s gender divide</a></h4>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Asia has millions more men than women</h4>
+					<img src='asia.gif' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Why?</h4>
+					<p class=fragment>Abortions, infanticide, lethal neglect?</p>
+					<p class=fragment>Why would that lead to more men?</p>
+					<p class=fragment>And what would drive the son preference?</p>
+					<p class=fragment>What might the impacts be?</p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Abortions, infanticide and lethal neglect</h4>
+					<img class=fragment src='NAR-demographics-child-mortality-web.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>On the other hand...</h4>
+					<img class=fragment src='NAR-demographics-missing-girls-web.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>What would drive the son preference?</h4>
+					<p>A still-dominant agricultural sector, and accompanying attitudes to physical labour</p>
+					<img class=fragment src='agricultRural.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>What would drive the son preference?</h4>
+					<p>Entrenched gender roles in society</p>
+					<img class=fragment src='NAR-demographics-indian-society-web.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>What happens next?</h4>
+					<img class=fragment src='NAR-demographics-china-crime-web.png' style='float:left;'/>
+				</section> -->
+
+				<section style="text-align: left;">
+					<h4>Useful resources</h4>
+					<p class=fragment>&bullet; The <a href=https://www.r-project.org/ target=_blank>R</a> statistical programming language</p>
+					<p class=fragment>&bullet; The <a href=http://pandas.pydata.org/ target=_blank>pandas</a> data analysis library for Python</p>
+					<p class=fragment>&bullet; Jeremy Singer-Vine&rsquo;s newsletter, <a href=http://tinyletter.com/data-is-plural/archive target=_blank><em>Data is Plural</em></a></p>
+					<p class=fragment>&bullet; The <a href=https://d3js.org/ target=_blank>d3.js</a> data-visualisation library</p>
+					<p class=fragment>&bullet; <a href=https://www.nytimes.com/section/upshot target=_blank>NYT Upshot</a>, <a href=https://fivethirtyeight.com/ target=_blank>FiveThirtyEight</a>, <a href=http://www.economist.com/blogs/graphicdetail target=_blank>The Economist Graphic Detail</a>, <a href=https://www.ft.com/visual-journalism target=_blank>FT Visual Journalism</a>, <a href=https://www.ft.com/baseline target=_blank>FT Baseline</a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<h4>Any questions?</h4>
+					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email at <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
+					<p>These slides are at <a href='http://bit.ly/ddj-manifesto' target='_blank'>bit.ly/ddj-manifesto</a></p>
+				</section>
+
+				<!-- <section style="text-align: left;">
+					<h4>Any questions?</h4>
+					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email at either <a href='mailto:john.burn-murdoch@nex.nikkei.com' target=_top>john.burn-murdoch@nex.nikkei.com</a> or <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
+					<p>These slides are at <a href='http://johnburnmurdoch.github.io/slides/data-journalism-manifesto/' target='_blank'>bit.ly/nar-ddj</a></p>
+				</section> -->
+
+			</div>
+
+		</div>
+
+
+		<!-- <script charset="utf-8">
+			$.getJSON("https://sheetsu.com/apis/v1.0/09371869").success(function(data){
+				console.log(data);
+			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data).enter().append("section").style({"text-align":"left"});
+
+			    var headers = slides.append('h4').html(function(d,i){return d.header});
+
+			    var pars = slides.append('p').html(function(d,i){return d.text});
+			})
+		</script> -->
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				touch: true,
+				loop: true,
+				hideAddressBar: true,
+				previewLinks: false,
+
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
