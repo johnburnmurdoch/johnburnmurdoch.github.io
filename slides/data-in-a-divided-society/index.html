@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Using data to bridge the gap in a divided society</title>
+
+		<meta name="description" content="Using data to bridge the gap in a divided society">
+		<meta name="author" content="John Burn-Murdoch">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/jbmWhite.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://build.origami.ft.com/v2/bundles/css?modules=o-fonts@^1.6.7,o-typography@^1.16.2,o-grid@^3.1.3,o-header@^3.0.3,o-footer@^3.0.1" />
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js "charset="utf-8"></script>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<style>
+
+		@font-face {
+		    font-family: "Avenir";
+		    src: url("../fonts/Avenir-Medium-webfont.woff") format("woff");
+		    font-weight: 400;
+		    font-style: normal;
+		}
+
+		@font-face {
+		    font-family: "AvenirLight";
+		    src: url("../fonts/avenir-light-webfont.woff") format("woff");
+		    font-weight: 200;
+		    font-style: normal;
+		}
+
+		.a-center{
+			text-align:center;
+			display:block;
+		}
+
+		.faded{opacity:0.5;}
+
+	    body{
+	    	font-family: 'Avenir',sans-serif!important;
+	    	font-size:18px;
+	    }
+
+	    .o-header{
+	    	background-image: none;
+	    	min-height: auto;
+	    	max-height: auto;
+	    }
+	    
+	    .ui-page.ui-page-theme-a.ui-page-active {
+  		-moz-box-shadow: none !important;
+  		-webkit-box-shadow: none !important;
+  		box-shadow: none !important;
+  		outline: none;
+		}
+
+		.centered{padding-bottom:0.8em!important;}
+		.red{color:#fa6121;}
+		.red:hover{color:#FFB739;}
+
+		#twitter-widget-0{
+			position: absolute!important;
+		    visibility: visible!important;
+		    width: 179px!important;
+		    right: 0!important;
+		    top: 0!important;
+		    padding: 0.6em!important;
+		}
+
+		section img{
+			max-height:40vh!important;
+		}
+
+		.reveal h2{
+			/*font-family: AvenirLight;*/
+			/*font-weight: 300;*/
+			line-height: 1.3em;
+		}
+
+		.reveal h4{
+			font-family: AvenirLight;
+			font-weight: 200;
+		}
+
+		span.arch{
+			/*height: 200px;*/
+			position: absolute;
+			/*width: 20px;*/
+			/*left: 0;*/
+			/*top: 0;*/
+			transform-origin: bottom center;
+		}
+
+		span.arc:nth-child(1){
+			position: absolute;
+			transform: translateX(0px) rotate(-30deg);
+		}
+
+		span.arc:nth-child(2){
+			position: absolute;
+			transform: translate(0.6em,-0.2em) rotate(-20deg);
+		}
+
+		span.arc:nth-child(3){
+			position: absolute;
+			transform: translate(1.2em,-0.31em) rotate(-10deg);
+		}
+
+		span.arc:nth-child(4){
+			position: absolute;
+			transform: translate(1.5em,-0.3em) rotate(5deg);
+		}
+
+		span.arc:nth-child(5){
+			position: absolute;
+			transform: translate(2.2em,-0.2em) rotate(20deg);
+		}
+
+		span.arc:nth-child(6){
+			position: absolute;
+			transform: translate(3em,-0em) rotate(30deg);
+		}
+
+		@media screen and (max-width: 480px) {
+			.o-header__ft-masthead.demo__hide-on-mobile.demo__fix-svg-logo-position{
+				display:none;
+			}
+			.reveal{
+				font-size: 50px!important;
+			}
+			section img{
+				max-height:none!important;
+			}
+
+		}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<header data-o-component="o-header" class="o-header" data-o-header--js="">
+		<div class="o-header__container">
+			<div class="o-header__inner">
+				<div class="o-header__primary">
+					<div class="o-header__primary__left">
+						<a href="http://www.ft.com" class="o-header__logo o-header__logo--ft"><abbr title="Financial Times" class="demo__mobile-only">FT</abbr><h1 class="o-header__ft-masthead demo__hide-on-mobile demo__fix-svg-logo-position"><i></i></h1></a>
+					</div>
+				</div>
+
+					<a href="https://twitter.com/jburnmurdoch" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @jburnmurdoch</a>
+				<!--<div class="o-header__secondary">
+					<h2 class="o-header__tagline" style="margin-left:"><a href="http://www.ft.com/interactive">Interactive News</a></h2>
+				</div>-->
+			</div>
+		</div>
+	</header>
+	    <div id="progressbar"></div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section style="text-align: left;">
+					<h2 class='centered'>Using data to  <span class=arch><span class=arc>b</span><span class=arc>r</span><span class=arc>i</span><span class=arc>d</span><span class=arc>g</span><span class=arc>e</span></span><br>the gap in a divided society</h2>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+						<!-- <a href='http://blogs.ft.com/ftdata/2016/04/20/what-is-el-nino-impact-crop-yields/' target='_blank'><img src='http://blogs.ft.com/ftdata/files/2016/04/elNinoStory.gif' style='width:100%;float:left'/></a> -->
+				</section>
+
+				<section style="text-align: left;">
+					<h3>Data-haters have a point</h3>
+
+				<section style="text-align: left;">
+					<img src='dataHaters.png' style='float:left;'/>
+				</section>
+				</section>
+
+				<section style="text-align: left;">
+					<p>It's increasingly difficult to deny that the [mis]use of statistics has contributed to the divide in many modern, developed societies</p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Summary statistics rarely describe somebody's lived experience <span calss=fragment>and <strong>never</strong> ring true for <em>the whole population</em></span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>When a summary statistic does not apply to you...</p>
+					<p><span style=color:#00F1B1>At best</span><span class=fragment>, it feels irrelevant</span></p>
+					<p><span style=color:#FF2B4F>At worst</span><span class=fragment>, it actively reminds you that you're on the "losing" side of society</span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>In their worst, most top-down form, statistics are <span style=color:#FF2B4F>un-democratic</span><span class=fragment>. They are a pronouncement from on high that <em>the people</em> should act and feel in accordance with an intangible number</span><span class=fragment>, even if that number and its implications are a world away from what they experience every day</span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>So how can data and statistics not only find their feet again<span class=fragment>, but play a key role in bridging the gap they have helped create?</span></p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Anscombe's quartet</p>
+					<img src='anscbome.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Anscombe's quartet is not just an nerd's party trick, it highlights a very real problem</p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Income levels in the UK</p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>In April 2016, median gross weekly earnings for full-time employees were <a href="https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/bulletins/annualsurveyofhoursandearnings/2016provisionalresults" target=_blank>£539</a></p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>In April 2016, <span class=fragment style=color:#FCAB27>median</span> <span class=fragment style=color:#FF2B4F>gross</span> <span class=fragment style=color:#00F1B1>weekly</span> earnings for <span class=fragment style=color:#00218D>full-time</span> employees were £539</p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>We <span style=color:#FCAB27>can</span> do better than that<span class=fragment>, and it's <em style=color:#FF2B4F>important</em> that we do better than that</span></p>
+					<img src='grossWeekly.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<p><span style=color:#FCAB27>Disposable</span> income</p>
+					<img src='GDHI.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Taking account of <span style=color:#FCAB27>housing costs</span></p>
+					<img src='AHC.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Do you earn the same amount as your neighbour?</p>
+					<p class=fragment>How about someone across town?</p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Break it down by region</p>
+					<img src='regions.png' style='float:left;'/>
+				</section>
+
+
+				<section style="text-align: left;">
+					<p><< enhance >></p>
+				</section>
+
+				<section style="text-align: left;">
+					<p>7,000 Medium Super Output Areas</p>
+					<img src='msoas.png' style='float:left;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<p>Guidelines for using statistics to serve society</p>
+					<p class=fragment>Show the full distribution wherever possible</p>
+					<p class=fragment>&bullet; Demonstrates the full range of circumstances experienced by different people, which...</p>
+					<p class=fragment>1. Ensures that the people represented by that data feel truly represented</p>
+					<p class=fragment>2. Often highlights the real story that was obscured by the summary statistics</p>
+					<p class=fragment>3. Confronts the importance of relative standing</p>
+				</section>
+
+				<section style="text-align: left;">
+					<img src='cics.png' style='float:left;'/>
+				</section>
+
+				<!-- <section style="text-align: left;">
+					<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The Dow Jones: a flawed measure but with a rich history, making it an ideal candidate for a very tall chart <a href="https://t.co/kcjttN50D3">https://t.co/kcjttN50D3</a> <a href="https://t.co/a9WODEvxnZ">pic.twitter.com/a9WODEvxnZ</a></p>&mdash; Alan Smith (@theboysmithy) <a href="https://twitter.com/theboysmithy/status/820990704210083841">January 16, 2017</a></blockquote>
+					<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</section> -->
+
+				<section style="text-align: left;">
+					<h4>Any questions?</h4>
+					<p>You can reach me on Twitter <a href='https://twitter.com/jburnmurdoch' target=_blank>@jburnmurdoch</a> or by email at <a href='mailto:john.burn-murdoch@ft.com' target=_top>john.burn-murdoch@ft.com</a></p>
+					<p>These slides are at <a href='http://bit.ly/ddj-manifesto' target='_blank'>bit.ly/data-divide</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+
+		<!-- <script charset="utf-8">
+			$.getJSON("https://sheetsu.com/apis/v1.0/09371869").success(function(data){
+				console.log(data);
+			    var slides = d3.select(".slides").selectAll('section.newSlide').data(data).enter().append("section").style({"text-align":"left"});
+
+			    var headers = slides.append('h4').html(function(d,i){return d.header});
+
+			    var pars = slides.append('p').html(function(d,i){return d.text});
+			})
+		</script> -->
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				slideNumber: true,
+				touch: true,
+				loop: true,
+				hideAddressBar: true,
+				previewLinks: false,
+
+
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
