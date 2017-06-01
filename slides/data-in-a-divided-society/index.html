@@ -19,9 +19,9 @@
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="../lib/css/zenburn.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://build.origami.ft.com/v2/bundles/css?modules=o-fonts@^1.6.7,o-typography@^1.16.2,o-grid@^3.1.3,o-header@^3.0.3,o-footer@^3.0.1" />
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js "charset="utf-8"></script>
+		<link rel="stylesheet" href="../scripts/font-awesome.min.css">
+		<link rel="stylesheet" href="../scripts/origami.css" />
+		<script src="../scripts/jquery-1.11.3.min.js "charset="utf-8"></script>
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -84,9 +84,9 @@
 		    padding: 0.6em!important;
 		}
 
-		section img{
+		/*section img{
 			max-height:40vh!important;
-		}
+		}*/
 
 		.reveal h2{
 			/*font-family: AvenirLight;*/
@@ -190,7 +190,8 @@
 					<h3>Data-haters have a point</h3>
 
 				<section style="text-align: left;">
-					<img src='dataHaters.png' style='float:left;'/>
+					<a href="https://www.ft.com/content/3be49734-29cb-11e6-83e4-abc22d5d108c" target=_blank><img src='dataHaters.png' style='float:left;'/></a>
+					<a href="https://www.theguardian.com/politics/2017/jan/19/crisis-of-statistics-big-data-democracy" target=_blank><img src='statsAuthority.png' style='float:left;margin-top:1em;'/></a>
 				</section>
 				</section>
 
@@ -217,12 +218,11 @@
 				</section>
 
 				<section style="text-align: left;">
-					<p>Anscombe's quartet</p>
-					<img src='anscbome.png' style='float:left;'/>
+					<img src='anscombe.png' style='float:left; max-height:70vh'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p>Anscombe's quartet is not just an nerd's party trick, it highlights a very real problem</p>
+					<p>Anscombe's quartet is not just a nerd's party trick, it highlights a very real problem</p>
 				</section>
 
 				<section style="text-align: left;">
@@ -239,36 +239,30 @@
 
 				<section style="text-align: left;">
 					<p>We <span style=color:#FCAB27>can</span> do better than that<span class=fragment>, and it's <em style=color:#FF2B4F>important</em> that we do better than that</span></p>
-					<img src='grossWeekly.png' style='float:left;'/>
-				</section>
-
-				<section style="text-align: left;">
-					<p><span style=color:#FCAB27>Disposable</span> income</p>
-					<img src='GDHI.png' style='float:left;'/>
 				</section>
 
 				<section style="text-align: left;">
 					<p>Taking account of <span style=color:#FCAB27>housing costs</span></p>
-					<img src='AHC.png' style='float:left;'/>
+					<img src='uk.png' style='float:left; max-height:60vh;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p>Do you earn the same amount as your neighbour?</p>
-					<p class=fragment>How about someone across town?</p>
+					<p>Do you earn the same amount as someone hundreds of miles away?</p>
 				</section>
 
 				<section style="text-align: left;">
 					<p>Break it down by region</p>
-					<img src='regions.png' style='float:left;'/>
+					<img src='regionAves.png' style='float:left; max-height:60vh;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p><< enhance >></p>
+					<p>How about someone the other side of town?</p>
+					<img src='regionLims.png' style='float:left; max-height:60vh;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p>7,000 Medium Super Output Areas</p>
-					<img src='msoas.png' style='float:left;'/>
+					<p>We can still do better</p>
+					<img src='msoas.png' style='float:left; max-height:60vh;'/>
 				</section>
 
 				<section style="text-align: left;">
@@ -285,27 +279,35 @@
 				</section>
 
 				<section style="text-align: left;">
-					<img src='cics.png' style='float:left;'/>
+					<img src='cics1.png' style='float:left; max-height:70vh;'/>
+				</section>
+
+				<section style="text-align: left;">
+					<img src='cics2.png' style='float:left; max-height:70vh;'/>
 				</section>
 
 				<section style="text-align: left;">
 					<p>Try to use metrics that are truly meaningful for your audience</p>
-					<img src='GDPvsWages.png' style='float:left;'/>
+					<img src='GDPvsWages.png' style='float:left; max-height:60vh;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p>Be empathetic in your use &mdash; and interpretation &mdash; of statistics</p>
+					<p>Be empathetic in your use &mdash; and <a href="http://tomforth.co.uk/defendinguber/" target=_blank>interpretation</a> &mdash; of statistics</p>
 					<img src='uber.png' style='float:left;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p>Think about the local context</p>
+					<p>Think about the <a href="http://www.bbc.co.uk/news/uk-politics-38762034" target=_blank>local context</a></p>
 					<img src='bbc.png' style='float:left;'/>
 				</section>
 
 				<section style="text-align: left;">
-					<p>Test your biases, go beyond your first instincts</p>
-					<img src='fivethirtyeight.png' style='float:left;'/>
+					<p>Don't stop at the simple answer: dig deeper than summary statistics. Sometimes it's only at this stage that <a href="https://fivethirtyeight.com/features/trump-was-stronger-where-the-economy-is-weaker/" target=_blank>the answer reveals itself</a></p>
+					<!-- <img src='fivethirtyeight.png' style='float:left;'/> -->
+				</section>
+
+				<section style="text-align: left;">
+					<img src='fivethirtyeight.png' style='float:left; max-height:70vh;'/>
 				</section>
 
 				<!-- <section style="text-align: left;">
