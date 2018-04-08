@@ -1,0 +1,303 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117177919-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-117177919-1');
+		</script>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>The top scorers in European football</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="apple-touch-icon" href="icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+		<script type='text/javascript' src='https://unpkg.com/d3@4'></script>
+		<script type='text/javascript' src='https://unpkg.com/d3-selection-multi'></script>
+		<script type='text/javascript' src='https://unpkg.com/d3-scale-chromatic'></script>
+
+		<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+		<style>
+			body{
+				/*text-align: center;*/
+			}
+			body, text{
+				font-family: 'Mplus 1p', Arial, sans-serif;
+				font-size: 16px;
+			}
+			text{
+				fill: #212121;
+			}
+			#main{
+				margin: 0 auto;
+				width: 100%;
+				max-width: 900px;
+			}
+			#graphic{
+				margin: 0;
+				position: relative;
+			}
+			.voronoi path{
+				fill: none;
+  			pointer-events: all;
+  			/*stroke: blue;*/
+			}
+			.player{
+				pointer-events: none;
+			}
+			#tooltip{
+				pointer-events: none;
+				position: absolute;
+				display: none;
+			}
+			#tooltip .inner{
+				position: absolute;
+				right: 5px;
+				bottom: 5px;
+				background-color: white;
+				padding: 10px;
+				background-color: white;
+				border: 1px solid hsla(0, 0%, 0%, 0.5);
+			}
+
+			a{
+				color: #0083EB;
+			}
+
+			@media only screen and (max-width: 500px) {
+		    .tick:nth-child(odd) {
+	        display: none;
+		    }
+			}
+		</style>
+	</head>
+<body>
+<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<div id=main>
+	<h1>The top scorers in European football in 2017-18</h1>
+	<div id=graphic>
+		<svg></svg>
+		<div id=tooltip>
+			<div class=inner></div>
+		</div>
+	</div>
+	<div id=footer>
+		<h4>By <a href="https://www.twitter.com/jburnmurdoch" target=_blank>@jburnmurdoch</a></h4>
+	</div>
+</div>
+
+<script type='text/javascript'>
+	let container = d3.select("#main");
+	let tooltip = d3.select("#tooltip");
+	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.3;
+	let width = container.node().clientWidth,
+		height = d3.min([700, window.innerHeight-offsetY]),
+		margin = {top: 30, right: 30, bottom: 30, left: 30};
+
+	let svg = container.select("svg")
+		.attrs({
+			width: width,
+			height: height
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	d3.csv("data.csv", (error, data) => {
+		
+		let x = d3.scaleLinear()
+	    .domain([0, 4000])
+	    .range([margin.left, width - margin.right]);
+
+    let y = d3.scaleLinear()
+	    .domain([0, d3.max(data, d => +d.G)])
+	    .range([height-margin.bottom, margin.top]);
+
+		let voronoi = d3.voronoi()
+	    .x(d => x(+d.mins))
+	    .y(d => y(+d.G))
+	    .extent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
+
+    let colours = d3.scaleOrdinal()
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Mohamed Salah"])
+    	.range(["#00218D", "#0083EB", "#FF2B4F"]);
+
+	  svg.append("g")
+	    .attr("transform", `translate(0,${height - margin.bottom})`)
+	    .call(d3.axisBottom(x).ticks(null, ",.0f"))
+	    .select(".tick:last-of-type text")
+	    .clone()
+	    .attrs({
+	    	y: -5,
+	    	dy: null,
+	    	"font-weight": "bold"
+	    })
+	    .html("Minutes");
+
+	  svg.append("g")
+	    .attr("transform", `translate(${margin.left}, 0)`)
+	    .call(d3.axisLeft(y).ticks(null, ".0f"))
+	    .select(".tick:last-of-type text")
+	    .clone()
+	    .attrs({
+	    	x: 5,
+	    	"text-anchor": "start",
+	    	"font-weight": "bold"
+	    })
+	    .text("Goals");
+
+    let linesData = d3.nest()
+    	.key(d => d.id)
+    	.entries(data);
+
+  	linesData.forEach((d,i) => {
+  		d.lastVal = d.values.slice(-1)[0];  		
+  		let initialVal = Object.assign({}, d.lastVal);
+  		initialVal.mins = 0;
+  		initialVal.played = 0;
+  		initialVal.G = 0;
+  		initialVal.NPG = 0;
+  		d.values.unshift(initialVal);
+  		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#aaa";
+  		d.strokeWidth = colours.domain().includes(d.lastVal.name) ? 3:1;
+  		return d
+  	});
+
+  	var voronoiLayer = svg.append("g")
+      .attr("class", "voronoi");
+
+  	voronoiLayer.selectAll("path")
+    .data(voronoi.polygons(data))
+    // .data(voronoi.polygons(linesData.map(d => d.lastVal)))
+    .enter()
+    .append("path")
+      .attrs({
+      	d: d => d ? "M" + d.join("L") + "Z" : null
+      })
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout);
+
+  	linesData.sort((a,b) => a.lastVal.G - b.lastVal.G);
+
+  	let playerGs = svg.selectAll("g.player")
+  		.data(linesData)
+  		.enter()
+  		.append("g")
+  		.attrs({
+  			class: d => `player ${d.lastVal.name.replace(/ /g,"")}`,
+  		});
+
+		let path = d3.line()
+			.x(d => x(+d.mins))
+			.y(d => y(+d.G));
+
+		let goalLines_back = playerGs.append("path")
+			.attrs({
+				class: "goalLine_back",
+				d: d => path(d.values),
+				fill: "none",
+				stroke: "white",
+				"stroke-width": d => d.strokeWidth * 2,
+				display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
+			});
+
+		let goalLines = playerGs.append("path")
+			.attrs({
+				class: "goalLine",
+				d: d => path(d.values),
+				fill: "none",
+				stroke: d => d.colour,
+				"stroke-width": d => d.strokeWidth
+			});
+
+		let lineEnds = playerGs.append("g")
+			.attrs({
+				transform: d => `translate(${x(+d.lastVal.mins)}, ${y(+d.lastVal.G)})`
+			});
+
+		let circles = lineEnds.append("circle")
+			.attrs({
+				r: 4,
+				fill: d => d.colour,
+				stroke: d => d.colour,
+				"fill-opacity": 0.6
+			});
+
+			function mouseover(d){
+				let coords = d3.mouse(svg.node());
+				tooltip
+					.styles({
+						left: `${x(d.data.mins)}px`,
+						top: `${y(d.data.G)}px`,
+						display: "block"
+					})
+					.select(".inner")
+					.html(d.data.name);
+				playerGs.sort((a,b) => +(a.lastVal.name == d.data.name) - +(b.lastVal.name == d.data.name));
+				svg.select(`.${d.data.name.replace(/ /g,"")}`)
+					.select("path.goalLine_back")
+					.attrs({
+						"stroke-width": d => d.strokeWidth + 6,
+						display: "block"
+					});
+				svg.select(`.${d.data.name.replace(/ /g,"")}`)
+					.select("path.goalLine")
+					.attrs({
+						stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
+						"stroke-width": d => 5,
+					});
+				svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select("circle")
+				.attrs({
+					fill: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
+					stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121"
+				});
+			}
+
+			function mouseout(d){
+				tooltip
+					.styles({
+						display: "none"
+					})
+					.select(".inner")
+					.html("");
+				playerGs.sort((a,b) => a.lastVal.G - b.lastVal.G);
+				svg.select(`.${d.data.name.replace(/ /g,"")}`)
+					.select("path.goalLine_back")
+					.attrs({
+						"stroke-width": d => d.strokeWidth + 2,
+						display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
+					});
+				svg.select(`.${d.data.name.replace(/ /g,"")}`)
+					.select("path.goalLine")
+					.attrs({
+						stroke: d => d.colour,
+						"stroke-width": d => d.strokeWidth,
+						"fill-opacity": 1
+					});
+
+				svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select("circle")
+				.attrs({
+					fill: d => d.colour,
+					stroke: d => d.colour,
+					"fill-opacity": 0.6
+				});
+			}
+
+	});
+</script>
+
+</body>
+</html>
