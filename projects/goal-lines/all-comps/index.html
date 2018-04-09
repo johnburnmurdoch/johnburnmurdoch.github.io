@@ -45,6 +45,15 @@
 				margin: 0;
 				position: relative;
 			}
+			canvas{
+				position: absolute;
+			}
+			#canvasHover{
+				display: none;
+			}
+			#canvasOverlay{
+				pointer-events: none;
+			}
 			.voronoi path{
 				fill: none;
   			pointer-events: all;
@@ -86,6 +95,9 @@
 <div id=main>
 	<h1>The top scorers in European football in 2017-18</h1>
 	<div id=graphic>
+		<canvas id=canvas></canvas>
+		<canvas id=canvasHover></canvas>
+		<canvas id=canvasOverlay></canvas>
 		<svg></svg>
 		<div id=tooltip>
 			<div class=inner></div>
@@ -102,7 +114,10 @@
 	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.3;
 	let width = container.node().clientWidth,
 		height = d3.min([700, window.innerHeight-offsetY]),
-		margin = {top: 30, right: 35, bottom: 30, left: 30};
+		margin = {top: 30, right: 35, bottom: 30, left: 30},
+		PR = window.devicePixelRatio || 1,
+		scaledWidth = width*PR,
+		scaledHeight = height*PR;
 
 	let svg = container.select("svg")
 		.attrs({
@@ -114,7 +129,67 @@
 			height:  `${height}px`
 		});
 
+	let canvas = container.select("#canvas")
+		.attrs({
+			width: scaledWidth,
+			height: scaledHeight
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let context = canvas.node().getContext("2d");
+	context.scale(PR, PR);
+	context.font = "16px Avenir";
+	context.textAlign = "center";
+
+	let canvasHover = container.select("#canvasHover")
+		.attrs({
+			width: scaledWidth,
+			height: scaledHeight
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let contextHover = canvasHover.node().getContext("2d");
+	contextHover.scale(PR, PR);
+
+	let canvasOverlay = container.select("#canvasOverlay")
+		.attrs({
+			width: scaledWidth,
+			height: scaledHeight
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let contextOverlay = canvasOverlay.node().getContext("2d");
+	contextOverlay.scale(PR, PR);
+
+	let colorToNode = {};
+	let nextCol = 1;
+	function genColor(){
+		let ret = [];
+		if (nextCol < 16777215){
+			ret.push(nextCol & 0xff); //R
+			ret.push((nextCol & 0xff00) >> 8); //G
+			ret.push((nextCol & 0xff0000) >> 16); //B
+
+			nextCol += 1;
+		}
+		let col = "rgb(" + ret.join(',') + ")";
+		return col;
+	}
+
 	d3.csv("data.csv", (error, data) => {
+
+		data.forEach(d => {
+			d.pointID = genColor();
+		});
 		
 		let x = d3.scaleLinear()
 	    .domain([0, 4000])
@@ -174,70 +249,63 @@
   		return d
   	});
 
-  	var voronoiLayer = svg.append("g")
-      .attr("class", "voronoi");
+		let pathVoronoi = d3.line()
+			.context(contextHover);
 
-  	voronoiLayer.selectAll("path")
-    .data(voronoi.polygons(data))
-    // .data(voronoi.polygons(linesData.map(d => d.lastVal)))
-    .enter()
-    .append("path")
-      .attrs({
-      	d: d => d ? "M" + d.join("L") + "Z" : null
-      })
-      .on("mouseover", mouseover)
-      .on("mouseout", mouseout);
+  	voronoi.polygons(data).forEach((d,i) => {
+  		contextHover.fillStyle = data[i].pointID;
+			contextHover.lineWidth = 0.5;
+			contextHover.beginPath();
+			pathVoronoi(d);
+			contextHover.fill();
+  	});
 
   	linesData.sort((a,b) => a.lastVal.G - b.lastVal.G);
 
-  	let playerGs = svg.selectAll("g.player")
-  		.data(linesData)
-  		.enter()
-  		.append("g")
-  		.attrs({
-  			class: d => `player ${d.lastVal.name.replace(/ /g,"")}`,
-  		});
-
 		let path = d3.line()
 			.x(d => x(+d.mins))
-			.y(d => y(+d.G));
+			.y(d => y(+d.G))
+			.context(context);
 
-		let goalLines_back = playerGs.append("path")
-			.attrs({
-				class: "goalLine_back",
-				d: d => path(d.values),
-				fill: "none",
-				stroke: "white",
-				"stroke-width": d => d.strokeWidth * 2,
-				display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
-			});
+		let pathOverlay = d3.line()
+			.x(d => x(+d.mins))
+			.y(d => y(+d.G))
+			.context(contextOverlay);
 
-		let goalLines = playerGs.append("path")
-			.attrs({
-				class: "goalLine",
-				d: d => path(d.values),
-				fill: "none",
-				stroke: d => d.colour,
-				"stroke-width": d => d.strokeWidth
-			});
+		let goalLines = linesData.forEach((d,i) => {
+			if(colours.domain().includes(d.lastVal.name)){
+				context.strokeStyle = "white";
+				context.lineWidth = d.strokeWidth * 2;
+				context.beginPath();
+				path(d.values);
+				context.stroke();				
+			}
+			context.strokeStyle = d.colour;
+			context.lineWidth = d.strokeWidth;
+			context.beginPath();
+			path(d.values);
+			context.stroke();
+		});
 
-		let lineEnds = playerGs.append("g")
-			.attrs({
-				transform: d => `translate(${x(+d.lastVal.mins)}, ${y(+d.lastVal.G)})`
-			});
+		let circles = linesData.forEach((d,i) => {
+			context.lineWidth = 1;
+			context.strokeStyle = d.colour;
+			context.fillStyle = d.colour;
+			context.beginPath();
+      context.arc(x(+d.lastVal.mins), y(+d.lastVal.G), 4, 0, Math.PI * 2);
+      context.globalAlpha = 0.6;
+      context.fill();
+      context.globalAlpha = 1;
+      context.stroke();
+		});
 
-		let circles = lineEnds.append("circle")
-			.attrs({
-				r: 4,
-				fill: d => d.colour,
-				stroke: d => d.colour,
-				"fill-opacity": 0.6
-			});
-
-		let permaLabels = lineEnds.filter(d => colours.domain().includes(d.lastVal.name))
+		let permaLabels = svg.selectAll("text.permaLabel")
+			.data(linesData.filter(d => colours.domain().includes(d.lastVal.name)))
+			.enter()
 			.append("text")
 			.attrs({
-				class: "permaLabel",
+				transform: d => `translate(${x(+d.lastVal.mins)}, ${y(+d.lastVal.G)})`,
+				class: d => `permaLabel ${d.lastVal.name.replace(/ /g,"")}`,
 				"text-anchor": "middle",
 				y: -8
 			})
@@ -246,77 +314,140 @@
 			})
 			.html(d => d.lastVal.name.split(" ").slice(-1));
 
-		function mouseover(d){
-			let coords = d3.mouse(svg.node());
+		// let permaLabels = linesData.filter(d => colours.domain().includes(d.lastVal.name)).forEach((d,i) => {
+		// 	context.fillStyle = d.colour;
+		// 	context.fillText(d.lastVal.name.split(" ").slice(-1), x(+d.lastVal.mins), y(+d.lastVal.G)-8);
+		// });
+
+		canvas.on("mousemove", () => {
+			
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+
+			let coords = d3.mouse(canvas.node());
+			let pixCol = contextHover.getImageData(coords[0]*PR, coords[1]*PR, 1, 1).data;
+			pixCol = `rgb(${pixCol[0]},${pixCol[1]},${pixCol[2]})`;
+			let dataPoint = data.filter(d => d.pointID == pixCol)[0];
+			let dataID = dataPoint.id;
+			let dataGroup = linesData.filter(d => d.key == dataID)[0];
+
 			tooltip
 				.styles({
-					left: `${x(d.data.mins)}px`,
-					top: `${y(d.data.G)}px`,
+					left: `${x(dataPoint.mins)}px`,
+					top: `${y(dataPoint.G)}px`,
 					display: "block"
 				})
 				.select(".inner")
-				.html(d.data.name);
-			playerGs.sort((a,b) => +(a.lastVal.name == d.data.name) - +(b.lastVal.name == d.data.name));
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select(".permaLabel")
-				.attrs({
-					display: "none"
-				});
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select("path.goalLine_back")
-				.attrs({
-					"stroke-width": d => d.strokeWidth + 6,
-					display: "block"
-				});
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select("path.goalLine")
-				.attrs({
-					stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
-					"stroke-width": d => 5,
-				});
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-			.select("circle")
-			.attrs({
-				fill: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
-				stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121"
-			});
-		}
+				.html(dataPoint.name);
 
-		function mouseout(d){
+			[dataGroup].forEach((d,i) => {
+				contextOverlay.strokeStyle = "white";
+				contextOverlay.lineWidth = d.strokeWidth + 6;
+				contextOverlay.beginPath();
+				pathOverlay(d.values);
+				contextOverlay.stroke();
+				contextOverlay.strokeStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
+				contextOverlay.lineWidth = 5;
+				contextOverlay.beginPath();
+				pathOverlay(d.values);
+				contextOverlay.stroke();
+			});
+
+		[dataGroup].forEach((d,i) => {
+				contextOverlay.lineWidth = 1;
+				contextOverlay.fillStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
+				contextOverlay.beginPath();
+	      contextOverlay.arc(x(+d.lastVal.mins), y(+d.lastVal.G), 5, 0, Math.PI * 2);
+	      contextOverlay.fill();
+			});
+
+		svg.selectAll(".permaLabel")
+				.attrs({
+					display: d => d.lastVal.name == dataPoint.name ? "none":"block"
+				});
+
+		});
+
+		canvas.on("mouseout", () => {
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
 			tooltip
 				.styles({
 					display: "none"
 				})
 				.select(".inner")
 				.html("");
-			playerGs.sort((a,b) => a.lastVal.G - b.lastVal.G);
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select(".permaLabel")
-				.attrs({
-					display: "block"
-				});
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select("path.goalLine_back")
-				.attrs({
-					"stroke-width": d => d.strokeWidth + 2,
-					display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
-				});
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select("path.goalLine")
-				.attrs({
-					stroke: d => d.colour,
-					"stroke-width": d => d.strokeWidth,
-					"fill-opacity": 1
-				});
+		});
 
-			svg.select(`.${d.data.name.replace(/ /g,"")}`)
-			.select("circle")
-			.attrs({
-				fill: d => d.colour,
-				stroke: d => d.colour,
-				"fill-opacity": 0.6
-			});
-		}
+		// function mouseover(d){
+		// 	let coords = d3.mouse(svg.node());
+			// tooltip
+			// 	.styles({
+			// 		left: `${x(d.data.mins)}px`,
+			// 		top: `${y(d.data.G)}px`,
+			// 		display: "block"
+			// 	})
+			// 	.select(".inner")
+			// 	.html(d.data.name);
+		// 	playerGs.sort((a,b) => +(a.lastVal.name == d.data.name) - +(b.lastVal.name == d.data.name));
+			// svg.select(`.${d.data.name.replace(/ /g,"")}`)
+			// 	.select(".permaLabel")
+			// 	.attrs({
+			// 		display: "none"
+			// 	});
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 		.select("path.goalLine_back")
+		// 		.attrs({
+		// 			"stroke-width": d => d.strokeWidth + 6,
+		// 			display: "block"
+		// 		});
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 		.select("path.goalLine")
+		// 		.attrs({
+		// 			stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
+		// 			"stroke-width": d => 5,
+		// 		});
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 	.select("circle")
+		// 	.attrs({
+		// 		fill: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
+		// 		stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121"
+		// 	});
+		// }
+
+		// function mouseout(d){
+			// tooltip
+			// 	.styles({
+			// 		display: "none"
+			// 	})
+			// 	.select(".inner")
+			// 	.html("");
+		// 	playerGs.sort((a,b) => a.lastVal.G - b.lastVal.G);
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 		.select(".permaLabel")
+		// 		.attrs({
+		// 			display: "block"
+		// 		});
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 		.select("path.goalLine_back")
+		// 		.attrs({
+		// 			"stroke-width": d => d.strokeWidth + 2,
+		// 			display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
+		// 		});
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 		.select("path.goalLine")
+		// 		.attrs({
+		// 			stroke: d => d.colour,
+		// 			"stroke-width": d => d.strokeWidth,
+		// 			"fill-opacity": 1
+		// 		});
+
+		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
+		// 	.select("circle")
+		// 	.attrs({
+		// 		fill: d => d.colour,
+		// 		stroke: d => d.colour,
+		// 		"fill-opacity": 0.6
+		// 	});
+		// }
 
 	});
 </script>
