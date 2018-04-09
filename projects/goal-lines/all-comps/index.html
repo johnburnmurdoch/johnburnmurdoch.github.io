@@ -234,67 +234,89 @@
 				"fill-opacity": 0.6
 			});
 
-			function mouseover(d){
-				let coords = d3.mouse(svg.node());
-				tooltip
-					.styles({
-						left: `${x(d.data.mins)}px`,
-						top: `${y(d.data.G)}px`,
-						display: "block"
-					})
-					.select(".inner")
-					.html(d.data.name);
-				playerGs.sort((a,b) => +(a.lastVal.name == d.data.name) - +(b.lastVal.name == d.data.name));
-				svg.select(`.${d.data.name.replace(/ /g,"")}`)
-					.select("path.goalLine_back")
-					.attrs({
-						"stroke-width": d => d.strokeWidth + 6,
-						display: "block"
-					});
-				svg.select(`.${d.data.name.replace(/ /g,"")}`)
-					.select("path.goalLine")
-					.attrs({
-						stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
-						"stroke-width": d => 5,
-					});
-				svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select("circle")
+		let permaLabels = lineEnds.filter(d => colours.domain().includes(d.lastVal.name))
+			.append("text")
+			.attrs({
+				class: "permaLabel",
+				"text-anchor": "middle",
+				y: -8
+			})
+			.styles({
+				fill: d => d.colour
+			})
+			.html(d => d.lastVal.name)
+
+		function mouseover(d){
+			let coords = d3.mouse(svg.node());
+			tooltip
+				.styles({
+					left: `${x(d.data.mins)}px`,
+					top: `${y(d.data.G)}px`,
+					display: "block"
+				})
+				.select(".inner")
+				.html(d.data.name);
+			playerGs.sort((a,b) => +(a.lastVal.name == d.data.name) - +(b.lastVal.name == d.data.name));
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select(".permaLabel")
 				.attrs({
-					fill: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
-					stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121"
+					display: "none"
 				});
-			}
-
-			function mouseout(d){
-				tooltip
-					.styles({
-						display: "none"
-					})
-					.select(".inner")
-					.html("");
-				playerGs.sort((a,b) => a.lastVal.G - b.lastVal.G);
-				svg.select(`.${d.data.name.replace(/ /g,"")}`)
-					.select("path.goalLine_back")
-					.attrs({
-						"stroke-width": d => d.strokeWidth + 2,
-						display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
-					});
-				svg.select(`.${d.data.name.replace(/ /g,"")}`)
-					.select("path.goalLine")
-					.attrs({
-						stroke: d => d.colour,
-						"stroke-width": d => d.strokeWidth,
-						"fill-opacity": 1
-					});
-
-				svg.select(`.${d.data.name.replace(/ /g,"")}`)
-				.select("circle")
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select("path.goalLine_back")
 				.attrs({
-					fill: d => d.colour,
+					"stroke-width": d => d.strokeWidth + 6,
+					display: "block"
+				});
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select("path.goalLine")
+				.attrs({
+					stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
+					"stroke-width": d => 5,
+				});
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+			.select("circle")
+			.attrs({
+				fill: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
+				stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121"
+			});
+		}
+
+		function mouseout(d){
+			tooltip
+				.styles({
+					display: "none"
+				})
+				.select(".inner")
+				.html("");
+			playerGs.sort((a,b) => a.lastVal.G - b.lastVal.G);
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select(".permaLabel")
+				.attrs({
+					display: "block"
+				});
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select("path.goalLine_back")
+				.attrs({
+					"stroke-width": d => d.strokeWidth + 2,
+					display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
+				});
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+				.select("path.goalLine")
+				.attrs({
 					stroke: d => d.colour,
-					"fill-opacity": 0.6
+					"stroke-width": d => d.strokeWidth,
+					"fill-opacity": 1
 				});
-			}
+
+			svg.select(`.${d.data.name.replace(/ /g,"")}`)
+			.select("circle")
+			.attrs({
+				fill: d => d.colour,
+				stroke: d => d.colour,
+				"fill-opacity": 0.6
+			});
+		}
 
 	});
 </script>
