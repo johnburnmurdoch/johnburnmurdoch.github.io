@@ -102,7 +102,7 @@
 	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.3;
 	let width = container.node().clientWidth,
 		height = d3.min([700, window.innerHeight-offsetY]),
-		margin = {top: 30, right: 30, bottom: 30, left: 30};
+		margin = {top: 30, right: 35, bottom: 30, left: 30};
 
 	let svg = container.select("svg")
 		.attrs({
