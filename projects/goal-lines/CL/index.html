@@ -12,6 +12,19 @@
 		</script>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@jburnmurdoch">
+		<meta name="twitter:creator" content="@jburnmurdoch">
+		<meta name="twitter:title" content="The top scorers in Champions League history">
+		<meta name="twitter:description" content="Compare Ronaldo and Messi to Puskás, Di Stéfano, Gerd Müller and the other goal-scoring greats of European footballing history">
+		<meta name="twitter:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/CL/CL_scorers.png">
+
+		<meta property="og:title" content="The top scorers in Champions League history" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" />
+    <meta property="og:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/CL/CL_scorers.png" />
+
 		<title>The top scorers in Champions League history</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -76,12 +89,18 @@
 			}
 			#tooltip .inner{
 				position: absolute;
-				right: 5px;
 				bottom: 5px;
 				background-color: white;
-				padding: 10px;
+				padding: 7px;
 				background-color: white;
 				border: 1px solid hsla(0, 0%, 0%, 0.5);
+			}
+			#tooltip span:nth-child(1){
+				font-weight: 500;
+				font-size: 13px;
+			}
+			#tooltip span:nth-child(3){
+				font-size: 12px;
 			}
 
 			.axisToggle select{
@@ -141,8 +160,8 @@
 	</div>
 	<div id=footer>
 		<br>
-		<h5>Includes statistics from the precursor to the Champions League: the European Cup</h5>
-		<h4>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank>@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank>worldfootball.net</a></h4>
+		<h5>Showing the top 100 goal-scorers in Champions League and European Cup history</h5>
+		<h5>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank>@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank>worldfootball.net</a></h5>
 	</div>
 </div>
 
@@ -181,6 +200,10 @@
 		    })
 		    .text(title);
 		}
+	}
+
+	function toolTipper(d, yVal){
+		return `<span>${d.lastVal.name}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non-pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
 	}
 
 	let svg = container.select("svg")
@@ -336,220 +359,6 @@
 			.y(d => y(d[yVar]))
 			.context(context);
 
-
-
-
-
-// 		function action(){
-// 	// Function that will animate between two paths for any array of [from, to] path strings
-// 	function pathTween(pairs, precision, ticks, duration) {
-
-// 		let pointHolder = [];
-
-// 		pairs.forEach(p => {
-// 			let from = p[0];
-// 			let to = p[1];
-// 		  let path0 = spp.svgPathProperties(from);
-// 		  let path1 = spp.svgPathPro.csvperties(to);
-// 		  let n0 = path0.getTotalLength();
-// 		  let n1 = path1.getTotalLength();
-
-// 		  // Uniform sampling of distance based on specified precision.
-// 		  let distances = [0], i = 0, dt = precision / Math.max(n0, n1);
-// 		  while ((i += dt) < 1) distances.push(i);
-// 		  distances.push(1);
-		  
-// 		  // Compute point-interpolators at each distance.
-// 		  let points = distances.map(function(f) {
-// 		    let p0 = path0.getPointAtLength(f * n0),
-// 		        p1 = path1.getPointAtLength(f * n1);
-// 		    return d3.interpolate([p0.x, p0.y], [p1.x, p1.y]);
-// 		  });
-
-// 		  pointHolder.push({points: points, colour:p[2], lineWidth:p[3]});
-
-// 		});
-		  
-// 		  let animate = d3.interval(function(t){
-// 		    if(t >= duration){
-// 		      context.clearRect(0, 0, width, height);
-// 			    pointHolder.forEach(ph => {
-// 			    	let c;
-// 			    	context.strokeStyle = ph.colour;
-// 			    	context.fillStyle = ph.colour;
-// 			    	context.lineWidth = ph.lineWidth;
-// 			    	context.beginPath();
-// 				    ph.points.map(p => p(1)).forEach(function(p, i) {
-// 				      context[i == 0 ? "moveTo" : "lineTo"](...p);
-// 				      if(i == ph.points.length-1) c = p;
-// 				    });
-// 				    context.stroke();
-// 				    context.beginPath();
-// 			      context.arc(...c, 4, 0, Math.PI * 2);
-// 			      context.globalAlpha = 0.6;
-// 			      context.fill();
-// 			      context.globalAlpha = 1;
-// 			      context.lineWidth = 1;
-// 			      context.stroke();
-// 			    });
-// 		      animate.stop();
-// 		    }else{		  
-// 			    context.clearRect(0, 0, width, height);
-// 			    pointHolder.forEach(ph => {
-// 			    	let c;
-// 			    	context.strokeStyle = ph.colour;
-// 			    	context.fillStyle = ph.colour;
-// 			    	context.lineWidth = ph.lineWidth;
-// 			    	context.beginPath();
-// 				    ph.points.map(p => p(t/duration)).forEach(function(p, i) {
-// 				      context[i == 0 ? "moveTo" : "lineTo"](...p);
-// 				      if(i == ph.points.length-1) c = p;
-// 				    });
-// 				    context.stroke();
-// 				    context.beginPath();
-// 			      context.arc(...c, 4, 0, Math.PI * 2);
-// 			      context.globalAlpha = 0.6;
-// 			      context.fill();
-// 			      context.globalAlpha = 1;
-// 			      context.lineWidth = 1;
-// 			      context.stroke();
-// 			    });
-		    	
-// 		    }
-		    
-// 		  },(duration/ticks));
-// 	}
-
-// 	// Path string generator for old paths
-// 	let lineGen1 = d3.line()
-// 			.x(d => x(+d.mins))
-// 			.y(d => y(+d.G));
-
-// 	// Path string generator for new paths
-// 	let lineGen2 = d3.line()
-// 			.x(d => x(+d.mins))
-// 			.y(d => y(+d.NPG));
-
-// 	// Create and populate an array of old and new paths
-// 	let pathPairs = [];
-// 	linesData.forEach(l => {
-// 		pathPairs.push([lineGen1(l.values), lineGen2(l.values), l.colour, l.strokeWidth])
-// 	});
-
-// 	// Update voronoi polygon generator
-// 	voronoi
-// 	.x(d => x(+d.mins))
-// 	.y(d => y(+d.NPG))
-// 	.extent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
-
-// 	// Re-draw voronoi
-// 	contextHover.clearRect(0, 0, scaledWidth, scaledHeight);
-// 	voronoi.polygons(data).forEach((d,i) => {
-// 		contextHover.fillStyle = data[i].pointID;
-// 		contextHover.lineWidth = 0.5;
-// 		contextHover.beginPath();
-// 		pathVoronoi(d);
-// 		contextHover.fill();
-// 	});
-
-// 	// Update path generator
-// 	path
-// 		.x(d => x(+d.mins))
-// 		.y(d => y(+d.NPG))
-// 		.context(context);
-
-// 	// Update overlay path generator
-// 	pathOverlay
-// 		.x(d => x(+d.mins))
-// 		.y(d => y(+d.NPG));
-
-// 	// Reposition permaLabels
-
-// 	permaLabels
-// 		.transition()
-// 		.ease(d3.easeLinear)
-// 		.duration(1000)
-// 		.attr("transform", d => `translate(${x(+d.lastVal.mins)}, ${y(+d.lastVal.NPG)})`);
-		  	
-// 	svg.select(".axis.y .title")
-// 		.html("Non-penalty")
-// 		.clone()
-// 		.attrs({
-// 			y: 16
-// 		})
-// 		.html("goals");
-
-// 	// Update mouse events
-// 	canvas.on("mousemove", () => {
-				
-// 		contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
-
-// 		let coords = d3.mouse(canvas.node());
-// 		let pixCol = contextHover.getImageData(coords[0]*PR, coords[1]*PR, 1, 1).data;
-// 		pixCol = `rgb(${pixCol[0]},${pixCol[1]},${pixCol[2]})`;
-// 		let dataPoint = data.filter(d => d.pointID == pixCol)[0];
-// 		let dataID = dataPoint.id;
-// 		let dataGroup = linesData.filter(d => d.key == dataID)[0];
-
-// 		tooltip
-// 			.styles({
-// 				left: `${x(dataPoint.mins)}px`,
-// 				top: `${y(dataPoint.NPG)}px`,
-// 				display: "block"
-// 			})
-// 			.select(".inner")
-// 			.html(dataPoint.name);
-
-// 		[dataGroup].forEach((d,i) => {
-// 			contextOverlay.strokeStyle = "white";
-// 			contextOverlay.lineWidth = d.strokeWidth + 6;
-// 			contextOverlay.beginPath();
-// 			pathOverlay(d.values);
-// 			contextOverlay.stroke();
-// 			contextOverlay.strokeStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
-// 			contextOverlay.lineWidth = 5;
-// 			contextOverlay.beginPath();
-// 			pathOverlay(d.values);
-// 			contextOverlay.stroke();
-// 		});
-
-// 	[dataGroup].forEach((d,i) => {
-// 			contextOverlay.lineWidth = 1;
-// 			contextOverlay.fillStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
-// 			contextOverlay.beginPath();
-// 	    contextOverlay.arc(x(+d.lastVal.mins), y(+d.lastVal.NPG), 5, 0, Math.PI * 2);
-// 	    contextOverlay.fill();
-// 		});
-
-// 	svg.selectAll(".permaLabel")
-// 			.attrs({
-// 				display: d => d.lastVal.name == dataPoint.name ? "none":"block"
-// 			});
-
-// 	});
-
-// 	canvas.on("mouseout", () => {
-// 		contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
-// 		tooltip
-// 			.styles({
-// 				display: "none"
-// 			})
-// 			.select(".inner")
-// 			.html("");
-// 	});
-
-// 	pathTween(pathPairs, 4, 50, 1000);
-// }
-
-	// Transition
-	// d3.select("h1").on("click", () => {
-	// 	action();
-	// });
-
-
-
-
-
 		let pathOverlay = d3.line()
 			.x(d => x(d[xVar]))
 			.y(d => y(d[yVar]))
@@ -629,7 +438,11 @@
 					display: "block"
 				})
 				.select(".inner")
-				.html(dataPoint.name);
+				.styles({
+					left: coords[0] < (width/2) ? "5px":"",
+					right: coords[0] < (width/2) ? "":"5px"
+				})
+				.html(toolTipper(dataGroup, yVar));
 
 			[dataGroup].forEach((d,i) => {
 				contextOverlay.strokeStyle = "white";

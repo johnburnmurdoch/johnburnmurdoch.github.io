@@ -172,13 +172,17 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		let dataGroup = linesData.filter(d => d.key == dataID)[0];
 
 		tooltip
-			.styles({
-				left: `${x(dataPoint[xVar])}px`,
-				top: `${y(dataPoint[yVar])+20}px`,
-				display: "block"
-			})
-			.select(".inner")
-			.html(dataPoint.name);
+				.styles({
+					left: `${x(dataPoint[xVar])}px`,
+					top: `${y(dataPoint[yVar])+20}px`,
+					display: "block"
+				})
+				.select(".inner")
+				.styles({
+					left: coords[0] < (width/2) ? "5px":"",
+					right: coords[0] < (width/2) ? "":"5px"
+				})
+				.html(toolTipper(dataGroup, yVar));
 
 		[dataGroup].forEach((d,i) => {
 			contextOverlay.strokeStyle = "white";
