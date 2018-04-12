@@ -203,7 +203,7 @@
 	}
 
 	function toolTipper(d, yVal){
-		return `<span>${d.lastVal.name}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non-pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
+		return `<span>${d.lastVal.name}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non&#8209;pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
 	}
 
 	let svg = container.select("svg")
