@@ -155,7 +155,9 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		.duration(1000)
 		.attr("transform", d => `translate(${x(d.lastVal[xVar])}, ${y(d.lastVal[yVar])})`);
 
-	d3.select(".axis.x").transition().duration(1000).call(d3.axisBottom(x).ticks(5).tickFormat(xFormat));
+	if(x0 != x){
+		d3.select(".axis.x").transition().duration(1000).call(d3.axisBottom(x).ticks(5).tickFormat(xFormat));
+	}
 
 	// Update mouse events
 	canvas.on("mousemove", () => {
