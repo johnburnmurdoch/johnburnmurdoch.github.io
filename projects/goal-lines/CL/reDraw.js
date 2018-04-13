@@ -21,7 +21,8 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		pathOverlay = pathGens[2];
 	let data = dataSets[0],
 		linesData = dataSets[1],
-		voronoi = dataSets[2];
+		voronoi = dataSets[2],
+		quadtree = dataSets[3];
 	let colours = highlights;
 
 	// Function that will animate between two paths for any array of [from, to] path strings
@@ -120,21 +121,27 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 	});
 
 	// Update voronoi polygon generator
-	voronoi
-	.x(d => x(d[xVar]))
-	.y(d => y(d[yVar]));
+	// voronoi
+	// .x(d => x(d[xVar]))
+	// .y(d => y(d[yVar]));
+
+	// Update quadtree
+	quadtree = d3.quadtree()
+    .x(d => x(d[xVar]))
+    .y(d => y(d[yVar]))
+    .addAll(data);
 
 	// Re-draw voronoi
-	contextHover.clearRect(0, 0, scaledWidth, scaledHeight);
-	voronoi.polygons(data).forEach((d,i) => {
-		contextHover.fillStyle = data[i].pointID;
-		contextHover.strokeStyle = data[i].pointID;
-		contextHover.lineWidth = 0;
-		contextHover.beginPath();
-		pathVoronoi(d);
-		contextHover.fill();
-		contextHover.stroke();
-	});
+	// contextHover.clearRect(0, 0, scaledWidth, scaledHeight);
+	// voronoi.polygons(data).forEach((d,i) => {
+	// 	contextHover.fillStyle = data[i].pointID;
+	// 	contextHover.strokeStyle = data[i].pointID;
+	// 	contextHover.lineWidth = 0.5;
+	// 	contextHover.beginPath();
+	// 	pathVoronoi(d);
+	// 	contextHover.fill();
+	// 	contextHover.stroke();
+	// });
 
 	// Update path generator
 	path
@@ -165,9 +172,21 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
 
 		let coords = d3.mouse(canvas.node());
-		let pixCol = contextHover.getImageData(coords[0]*PR, coords[1]*PR, 1, 1).data;
-		pixCol = `rgb(${pixCol[0]},${pixCol[1]},${pixCol[2]})`;
-		let dataPoint = data.filter(d => d.pointID == pixCol)[0];
+		let absX = d3.event.clientX;
+		// let pixCol = contextHover.getImageData(coords[0]*PR, coords[1]*PR, 1, 1).data;
+		// pixCol = `rgb(${pixCol[0]},${pixCol[1]},${pixCol[2]})`;
+		// let dataPoint = data.filter(d => d.pointID == pixCol)[0];
+		let dataPoint = quadtree.find((coords[0]), (coords[1]), width/6);
+		if(dataPoint == undefined){
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			tooltip
+				.styles({
+					display: "none"
+				})
+				.select(".inner")
+				.html("");
+				svg.selectAll(".permaLabel").attrs({display: "block"});
+		}else{
 		let dataID = dataPoint.id;
 		let dataGroup = linesData.filter(d => d.key == dataID)[0];
 
@@ -179,8 +198,10 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 				})
 				.select(".inner")
 				.styles({
-					left: coords[0] < (width/2) ? "5px":"",
-					right: coords[0] < (width/2) ? "":"5px"
+					left: absX < 135 ? "5px":"",
+					right: absX < 135 ? "":"5px",
+					bottom: absX < 135 ? "":"5px",
+					top: absX < 135 ? "5px":""
 				})
 				.html(toolTipper(dataGroup, yVar));
 
@@ -211,7 +232,7 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 			.attrs({
 				display: d => d.lastVal.name == dataPoint.name ? "none":"block"
 			});
-
+		}
 	});
 
 	canvas.on("mouseout", () => {
