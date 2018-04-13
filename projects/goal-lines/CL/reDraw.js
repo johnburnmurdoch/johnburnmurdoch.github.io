@@ -106,13 +106,15 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 
 	// Path string generator for old paths
 	let lineGen1 = d3.line()
-			.x(d => x0(d[xVar0]))
-			.y(d => y0(d[yVar0]));
+		// .curve(d3.curveStepAfter)
+		.x(d => x0(d[xVar0]))
+		.y(d => y0(d[yVar0]));
 
 	// Path string generator for new paths
 	let lineGen2 = d3.line()
-			.x(d => x(d[xVar]))
-			.y(d => y(d[yVar]));
+		// .curve(d3.curveStepAfter)
+		.x(d => x(d[xVar]))
+		.y(d => y(d[yVar]));
 
 	// Create and populate an array of old and new paths
 	let pathPairs = [];
@@ -146,8 +148,7 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 	// Update path generator
 	path
 		.x(d => x(d[xVar]))
-		.y(d => y(d[yVar]))
-		.context(context);
+		.y(d => y(d[yVar]));
 
 	// Update overlay path generator
 	pathOverlay

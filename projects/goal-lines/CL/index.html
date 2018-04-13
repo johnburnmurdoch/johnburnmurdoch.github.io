@@ -346,8 +346,10 @@
   		return d
   	});
 
-		let pathVoronoi = d3.line()
-			.context(contextHover);
+		let pathVoronoi;
+		
+		// let pathVoronoi = d3.line()
+			// .context(contextHover);
 
   	// voronoi.polygons(data).forEach((d,i) => {
   	// 	contextHover.fillStyle = data[i].pointID;
@@ -362,11 +364,13 @@
   	linesData.sort((a,b) => a.lastVal.G - b.lastVal.G);
 
 		let path = d3.line()
+			// .curve(d3.curveStepAfter)
 			.x(d => x(d[xVar]))
 			.y(d => y(d[yVar]))
 			.context(context);
 
 		let pathOverlay = d3.line()
+			// .curve(d3.curveStepAfter)
 			.x(d => x(d[xVar]))
 			.y(d => y(d[yVar]))
 			.context(contextOverlay);
