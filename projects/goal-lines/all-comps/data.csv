@@ -1,4 +1,26 @@
 id,on,off,G,NPG,date,stage,name,mins,played
+/player_summary/adem-ljajic/,0,90,0,0,2017-08-11,8,Adem Ljajić,90,1
+/player_summary/adem-ljajic/,0,90,1,1,2017-08-20,. Round,Adem Ljajić,180,2
+/player_summary/adem-ljajic/,0,90,2,2,2017-08-27,. Round,Adem Ljajić,270,3
+/player_summary/adem-ljajic/,0,90,2,2,2017-09-10,. Round,Adem Ljajić,360,4
+/player_summary/adem-ljajic/,0,90,2,2,2017-09-17,. Round,Adem Ljajić,450,5
+/player_summary/adem-ljajic/,0,90,3,3,2017-09-20,. Round,Adem Ljajić,540,6
+/player_summary/adem-ljajic/,0,90,3,3,2017-09-23,. Round,Adem Ljajić,630,7
+/player_summary/adem-ljajic/,0,90,3,3,2017-10-01,. Round,Adem Ljajić,720,8
+/player_summary/adem-ljajic/,0,90,3,3,2017-10-15,. Round,Adem Ljajić,810,9
+/player_summary/adem-ljajic/,0,90,3,3,2017-10-22,. Round,Adem Ljajić,900,10
+/player_summary/adem-ljajic/,0,90,3,3,2017-10-25,0. Round,Adem Ljajić,990,11
+/player_summary/adem-ljajic/,0,90,3,3,2017-10-29,1. Round,Adem Ljajić,1080,12
+/player_summary/adem-ljajic/,0,89,3,3,2017-11-05,2. Round,Adem Ljajić,1169,13
+/player_summary/adem-ljajic/,0,90,3,3,2017-11-19,3. Round,Adem Ljajić,1259,14
+/player_summary/adem-ljajic/,0,69,3,3,2017-11-26,4. Round,Adem Ljajić,1328,15
+/player_summary/adem-ljajic/,0,90,3,3,2017-12-02,5. Round,Adem Ljajić,1418,16
+/player_summary/adem-ljajic/,46,90,3,3,2017-12-16,7. Round,Adem Ljajić,1462,17
+/player_summary/adem-ljajic/,70,90,3,3,2018-02-25,6. Round,Adem Ljajić,1482,18
+/player_summary/adem-ljajic/,74,90,3,3,2018-03-18,9. Round,Adem Ljajić,1498,19
+/player_summary/adem-ljajic/,54,90,4,4,2018-03-31,0. Round,Adem Ljajić,1534,20
+/player_summary/adem-ljajic/,0,90,4,4,2018-04-04,7. Round,Adem Ljajić,1624,21
+/player_summary/adem-ljajic/,0,90,5,5,2018-04-08,1. Round,Adem Ljajić,1714,22
 /player_summary/aduriz/,0,90,0,0,2017-07-27,,Aduriz,90,1
 /player_summary/aduriz/,0,88,1,1,2017-08-03,,Aduriz,178,2
 /player_summary/aduriz/,0,90,3,2,2017-08-17,,Aduriz,268,3
@@ -118,6 +140,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/alexandre-lacazette/,61,90,10,8,2018-04-01,. Round,Alexandre Lacazette,2067,30
 /player_summary/alexandre-lacazette/,0,74,12,9,2018-04-05,rter-finals,Alexandre Lacazette,2141,31
 /player_summary/alexandre-lacazette/,71,90,12,9,2018-04-08,. Round,Alexandre Lacazette,2160,32
+/player_summary/alexandre-lacazette/,0,77,12,9,2018-04-12,rter-finals,Alexandre Lacazette,2237,33
 /player_summary/alexis-sanchez/,0,62,0,0,2017-08-27, Round,Alexis Sánchez,62,1
 /player_summary/alexis-sanchez/,75,90,0,0,2017-09-09, Round,Alexis Sánchez,77,2
 /player_summary/alexis-sanchez/,0,90,1,1,2017-09-14,up H,Alexis Sánchez,167,3
@@ -199,6 +222,43 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/andrea-belotti/,0,90,9,9,2018-03-31,0. Round,Andrea Belotti,2203,26
 /player_summary/andrea-belotti/,0,90,12,12,2018-04-04,7. Round,Andrea Belotti,2293,27
 /player_summary/andrea-belotti/,0,90,12,12,2018-04-08,1. Round,Andrea Belotti,2383,28
+/player_summary/andrej-kramaric/,0,76,0,0,2017-08-12,,Andrej Kramarić,76,1
+/player_summary/andrej-kramaric/,0,90,0,0,2017-08-15,018,Andrej Kramarić,166,2
+/player_summary/andrej-kramaric/,64,90,1,1,2017-08-19,8,Andrej Kramarić,192,3
+/player_summary/andrej-kramaric/,0,90,1,1,2017-08-23,018,Andrej Kramarić,282,4
+/player_summary/andrej-kramaric/,0,90,2,2,2017-08-26,8,Andrej Kramarić,372,5
+/player_summary/andrej-kramaric/,0,90,2,2,2017-09-09,8,Andrej Kramarić,462,6
+/player_summary/andrej-kramaric/,0,90,2,2,2017-09-14,up C,Andrej Kramarić,552,7
+/player_summary/andrej-kramaric/,0,90,2,2,2017-09-17,8,Andrej Kramarić,642,8
+/player_summary/andrej-kramaric/,55,90,2,2,2017-09-20,8,Andrej Kramarić,677,9
+/player_summary/andrej-kramaric/,0,90,2,2,2017-09-23,8,Andrej Kramarić,767,10
+/player_summary/andrej-kramaric/,0,90,2,2,2017-09-28,up C,Andrej Kramarić,857,11
+/player_summary/andrej-kramaric/,0,90,2,2,2017-10-01,8,Andrej Kramarić,947,12
+/player_summary/andrej-kramaric/,0,90,2,2,2017-10-14,8,Andrej Kramarić,1037,13
+/player_summary/andrej-kramaric/,0,90,2,2,2017-10-22,8,Andrej Kramarić,1127,14
+/player_summary/andrej-kramaric/,0,90,2,2,2017-10-25,,Andrej Kramarić,1217,15
+/player_summary/andrej-kramaric/,35,90,2,2,2017-10-28,8,Andrej Kramarić,1272,16
+/player_summary/andrej-kramaric/,0,90,2,2,2017-11-02,up C,Andrej Kramarić,1362,17
+/player_summary/andrej-kramaric/,67,90,2,2,2017-11-05,8,Andrej Kramarić,1385,18
+/player_summary/andrej-kramaric/,63,90,2,2,2017-11-18,8,Andrej Kramarić,1412,19
+/player_summary/andrej-kramaric/,0,90,2,2,2017-11-23,up C,Andrej Kramarić,1502,20
+/player_summary/andrej-kramaric/,64,90,2,2,2017-11-26,8,Andrej Kramarić,1528,21
+/player_summary/andrej-kramaric/,65,90,2,2,2017-12-02,8,Andrej Kramarić,1553,22
+/player_summary/andrej-kramaric/,0,90,2,2,2017-12-10,8,Andrej Kramarić,1643,23
+/player_summary/andrej-kramaric/,66,90,2,2,2017-12-13,8,Andrej Kramarić,1667,24
+/player_summary/andrej-kramaric/,63,90,2,2,2017-12-16,8,Andrej Kramarić,1694,25
+/player_summary/andrej-kramaric/,57,90,2,2,2018-01-13,8,Andrej Kramarić,1727,26
+/player_summary/andrej-kramaric/,56,90,2,2,2018-01-20,8,Andrej Kramarić,1761,27
+/player_summary/andrej-kramaric/,67,90,2,2,2018-01-27,8,Andrej Kramarić,1784,28
+/player_summary/andrej-kramaric/,0,83,3,2,2018-02-03,8,Andrej Kramarić,1867,29
+/player_summary/andrej-kramaric/,0,90,5,4,2018-02-10,8,Andrej Kramarić,1957,30
+/player_summary/andrej-kramaric/,0,90,6,5,2018-02-17,8,Andrej Kramarić,2047,31
+/player_summary/andrej-kramaric/,0,90,7,6,2018-02-24,8,Andrej Kramarić,2137,32
+/player_summary/andrej-kramaric/,0,73,8,7,2018-03-03,8,Andrej Kramarić,2210,33
+/player_summary/andrej-kramaric/,0,66,8,7,2018-03-10,8,Andrej Kramarić,2276,34
+/player_summary/andrej-kramaric/,0,90,9,7,2018-03-17,8,Andrej Kramarić,2366,35
+/player_summary/andrej-kramaric/,0,65,9,7,2018-03-31,8,Andrej Kramarić,2431,36
+/player_summary/andrej-kramaric/,0,57,9,7,2018-04-08,8,Andrej Kramarić,2488,37
 /player_summary/angel_4/,80,90,0,0,2017-08-20,/2018,Ángel,10,1
 /player_summary/angel_4/,87,90,0,0,2017-08-27,/2018,Ángel,13,2
 /player_summary/angel_4/,56,90,1,1,2017-09-21,/2018,Ángel,47,3
@@ -267,6 +327,38 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/antoine-griezmann/,0,80,23,20,2018-03-18,/2018,Antoine Griezmann,3070,38
 /player_summary/antoine-griezmann/,0,90,24,21,2018-04-05,rter-finals,Antoine Griezmann,3160,39
 /player_summary/antoine-griezmann/,0,90,25,22,2018-04-08,/2018,Antoine Griezmann,3250,40
+/player_summary/antoine-griezmann/,0,90,25,22,2018-04-12,rter-finals,Antoine Griezmann,3340,41
+/player_summary/arjen-robben/,64,90,0,0,2017-08-12,,Arjen Robben,26,1
+/player_summary/arjen-robben/,61,90,0,0,2017-08-18,8,Arjen Robben,55,2
+/player_summary/arjen-robben/,0,64,0,0,2017-08-26,8,Arjen Robben,119,3
+/player_summary/arjen-robben/,57,90,0,0,2017-09-09,8,Arjen Robben,152,4
+/player_summary/arjen-robben/,0,90,0,0,2017-09-12,Group B,Arjen Robben,242,5
+/player_summary/arjen-robben/,0,62,1,1,2017-09-16,8,Arjen Robben,304,6
+/player_summary/arjen-robben/,0,85,2,2,2017-09-22,8,Arjen Robben,389,7
+/player_summary/arjen-robben/,69,90,2,2,2017-09-27,Group B,Arjen Robben,410,8
+/player_summary/arjen-robben/,0,59,2,2,2017-10-01,8,Arjen Robben,469,9
+/player_summary/arjen-robben/,0,90,2,2,2017-10-14,8,Arjen Robben,559,10
+/player_summary/arjen-robben/,0,90,2,2,2017-10-18,Group B,Arjen Robben,649,11
+/player_summary/arjen-robben/,0,90,2,2,2017-10-21,8,Arjen Robben,739,12
+/player_summary/arjen-robben/,0,120,2,2,2017-10-25,,Arjen Robben,859,13
+/player_summary/arjen-robben/,0,86,2,2,2017-10-28,8,Arjen Robben,945,14
+/player_summary/arjen-robben/,0,90,2,2,2017-10-31,Group B,Arjen Robben,1035,15
+/player_summary/arjen-robben/,0,90,3,3,2017-11-04,8,Arjen Robben,1125,16
+/player_summary/arjen-robben/,0,78,3,3,2017-11-18,8,Arjen Robben,1203,17
+/player_summary/arjen-robben/,0,48,3,3,2017-11-22,Group B,Arjen Robben,1251,18
+/player_summary/arjen-robben/,0,65,3,3,2018-01-12,8,Arjen Robben,1316,19
+/player_summary/arjen-robben/,0,58,3,3,2018-01-21,8,Arjen Robben,1374,20
+/player_summary/arjen-robben/,0,77,3,3,2018-01-27,8,Arjen Robben,1451,21
+/player_summary/arjen-robben/,0,90,5,5,2018-02-06,,Arjen Robben,1541,22
+/player_summary/arjen-robben/,0,90,5,5,2018-02-10,8,Arjen Robben,1631,23
+/player_summary/arjen-robben/,0,90,5,5,2018-02-17,8,Arjen Robben,1721,24
+/player_summary/arjen-robben/,44,90,5,5,2018-02-20,Round of 16,Arjen Robben,1767,25
+/player_summary/arjen-robben/,0,90,5,5,2018-02-24,8,Arjen Robben,1857,26
+/player_summary/arjen-robben/,0,62,6,6,2018-03-10,8,Arjen Robben,1919,27
+/player_summary/arjen-robben/,0,90,6,6,2018-03-31,8,Arjen Robben,2009,28
+/player_summary/arjen-robben/,79,90,6,6,2018-04-03,Quarter-finals,Arjen Robben,2020,29
+/player_summary/arjen-robben/,0,83,7,7,2018-04-07,8,Arjen Robben,2103,30
+/player_summary/arjen-robben/,0,90,7,7,2018-04-11,Quarter-finals,Arjen Robben,2193,31
 /player_summary/carlos-bacca/,0,80,0,0,2017-08-21,/2018,Carlos Bacca,80,1
 /player_summary/carlos-bacca/,0,70,0,0,2017-08-25,/2018,Carlos Bacca,150,2
 /player_summary/carlos-bacca/,0,69,1,1,2017-09-10,/2018,Carlos Bacca,219,3
@@ -304,6 +396,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/carlos-bacca/,0,80,12,11,2018-03-11,/2018,Carlos Bacca,2414,35
 /player_summary/carlos-bacca/,0,90,12,11,2018-03-18,/2018,Carlos Bacca,2504,36
 /player_summary/carlos-bacca/,0,53,12,11,2018-04-01,/2018,Carlos Bacca,2557,37
+/player_summary/carlos-bacca/,0,90,13,12,2018-04-09,/2018,Carlos Bacca,2647,38
 /player_summary/cedric-bakambu/,0,90,0,0,2017-08-25,/2018,Cédric Bakambu,90,1
 /player_summary/cedric-bakambu/,0,90,0,0,2017-09-10,/2018,Cédric Bakambu,180,2
 /player_summary/cedric-bakambu/,70,90,1,1,2017-09-14,up A,Cédric Bakambu,200,3
@@ -327,46 +420,6 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/cedric-bakambu/,0,80,14,13,2017-12-23,/2018,Cédric Bakambu,1604,21
 /player_summary/cedric-bakambu/,0,90,14,13,2018-03-04,. Round,Cédric Bakambu,1694,22
 /player_summary/cedric-bakambu/,0,90,15,14,2018-03-11,. Round,Cédric Bakambu,1784,23
-/player_summary/christian-eriksen/,0,90,0,0,2017-08-13, Round,Christian Eriksen,90,1
-/player_summary/christian-eriksen/,0,90,0,0,2017-08-20, Round,Christian Eriksen,180,2
-/player_summary/christian-eriksen/,0,88,0,0,2017-08-27, Round,Christian Eriksen,268,3
-/player_summary/christian-eriksen/,0,71,1,1,2017-09-09, Round,Christian Eriksen,339,4
-/player_summary/christian-eriksen/,0,90,1,1,2017-09-13,Group H,Christian Eriksen,429,5
-/player_summary/christian-eriksen/,0,90,1,1,2017-09-16, Round,Christian Eriksen,519,6
-/player_summary/christian-eriksen/,0,73,2,2,2017-09-23, Round,Christian Eriksen,592,7
-/player_summary/christian-eriksen/,0,75,2,2,2017-09-30, Round,Christian Eriksen,667,8
-/player_summary/christian-eriksen/,0,90,3,3,2017-10-14, Round,Christian Eriksen,757,9
-/player_summary/christian-eriksen/,0,90,3,3,2017-10-17,Group H,Christian Eriksen,847,10
-/player_summary/christian-eriksen/,0,81,3,3,2017-10-22, Round,Christian Eriksen,928,11
-/player_summary/christian-eriksen/,81,90,3,3,2017-10-25,of 16,Christian Eriksen,937,12
-/player_summary/christian-eriksen/,0,90,3,3,2017-10-28,. Round,Christian Eriksen,1027,13
-/player_summary/christian-eriksen/,0,90,4,4,2017-11-01,Group H,Christian Eriksen,1117,14
-/player_summary/christian-eriksen/,0,90,4,4,2017-11-05,. Round,Christian Eriksen,1207,15
-/player_summary/christian-eriksen/,0,90,4,4,2017-11-18,. Round,Christian Eriksen,1297,16
-/player_summary/christian-eriksen/,0,85,4,4,2017-11-21,Group H,Christian Eriksen,1382,17
-/player_summary/christian-eriksen/,0,90,4,4,2017-11-25,. Round,Christian Eriksen,1472,18
-/player_summary/christian-eriksen/,0,77,4,4,2017-11-28,. Round,Christian Eriksen,1549,19
-/player_summary/christian-eriksen/,0,64,4,4,2017-12-02,. Round,Christian Eriksen,1613,20
-/player_summary/christian-eriksen/,0,90,5,5,2017-12-09,. Round,Christian Eriksen,1703,21
-/player_summary/christian-eriksen/,0,90,5,5,2017-12-13,. Round,Christian Eriksen,1793,22
-/player_summary/christian-eriksen/,0,90,6,6,2017-12-16,. Round,Christian Eriksen,1883,23
-/player_summary/christian-eriksen/,0,90,6,6,2017-12-23,. Round,Christian Eriksen,1973,24
-/player_summary/christian-eriksen/,0,90,6,6,2017-12-26,. Round,Christian Eriksen,2063,25
-/player_summary/christian-eriksen/,0,90,6,6,2018-01-02,. Round,Christian Eriksen,2153,26
-/player_summary/christian-eriksen/,0,90,6,6,2018-01-04,. Round,Christian Eriksen,2243,27
-/player_summary/christian-eriksen/,0,87,7,7,2018-01-13,. Round,Christian Eriksen,2330,28
-/player_summary/christian-eriksen/,0,90,8,8,2018-01-31,. Round,Christian Eriksen,2420,29
-/player_summary/christian-eriksen/,0,90,8,8,2018-02-04,. Round,Christian Eriksen,2510,30
-/player_summary/christian-eriksen/,61,90,8,8,2018-02-07, Tottenham Hotspur - Newport County 2:0,Christian Eriksen,2539,31
-/player_summary/christian-eriksen/,0,90,8,8,2018-02-10,. Round,Christian Eriksen,2629,32
-/player_summary/christian-eriksen/,0,90,9,9,2018-02-13,Round of 16,Christian Eriksen,2719,33
-/player_summary/christian-eriksen/,0,90,9,9,2018-02-25,. Round,Christian Eriksen,2809,34
-/player_summary/christian-eriksen/,0,90,9,9,2018-03-03,. Round,Christian Eriksen,2899,35
-/player_summary/christian-eriksen/,0,90,9,9,2018-03-07,Round of 16,Christian Eriksen,2989,36
-/player_summary/christian-eriksen/,0,90,9,9,2018-03-11,. Round,Christian Eriksen,3079,37
-/player_summary/christian-eriksen/,0,90,11,11,2018-03-17,nals,Christian Eriksen,3169,38
-/player_summary/christian-eriksen/,0,90,12,12,2018-04-01,. Round,Christian Eriksen,3259,39
-/player_summary/christian-eriksen/,0,90,14,14,2018-04-07,. Round,Christian Eriksen,3349,40
 /player_summary/christian-stuani/,0,90,2,2,2017-08-19,/2018,Christian Stuani,90,1
 /player_summary/christian-stuani/,0,81,2,2,2017-08-26,/2018,Christian Stuani,171,2
 /player_summary/christian-stuani/,0,90,2,2,2017-09-10,/2018,Christian Stuani,261,3
@@ -434,6 +487,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/ciro-immobile/,0,74,36,28,2018-03-31,0. Round,Ciro Immobile,3128,39
 /player_summary/ciro-immobile/,0,85,37,29,2018-04-05,rter-finals,Ciro Immobile,3213,40
 /player_summary/ciro-immobile/,0,90,38,30,2018-04-08,1. Round,Ciro Immobile,3303,41
+/player_summary/ciro-immobile/,0,90,39,31,2018-04-12,rter-finals,Ciro Immobile,3393,42
 /player_summary/coutinho_3/,76,90,0,0,2017-09-13,Group E,Coutinho,14,1
 /player_summary/coutinho_3/,0,78,0,0,2017-09-16, Round,Coutinho,92,2
 /player_summary/coutinho_3/,0,46,0,0,2017-09-19,nd,Coutinho,138,3
@@ -505,6 +559,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/cristiano-ronaldo/,0,90,37,31,2018-03-18,/2018,Cristiano Ronaldo,2966,35
 /player_summary/cristiano-ronaldo/,0,90,39,33,2018-04-03,Quarter-finals,Cristiano Ronaldo,3056,36
 /player_summary/cristiano-ronaldo/,0,63,40,34,2018-04-08,/2018,Cristiano Ronaldo,3119,37
+/player_summary/cristiano-ronaldo/,0,90,41,34,2018-04-11,Quarter-finals,Cristiano Ronaldo,3209,38
 /player_summary/dele-alli/,0,82,1,1,2017-08-13, Round,Dele Alli,82,1
 /player_summary/dele-alli/,0,90,1,1,2017-08-20, Round,Dele Alli,172,2
 /player_summary/dele-alli/,0,90,2,2,2017-08-27, Round,Dele Alli,262,3
@@ -549,6 +604,24 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/dele-alli/,81,90,10,10,2018-03-17,nals,Dele Alli,3173,42
 /player_summary/dele-alli/,0,90,12,12,2018-04-01,. Round,Dele Alli,3263,43
 /player_summary/dele-alli/,0,90,12,12,2018-04-07,. Round,Dele Alli,3353,44
+/player_summary/diego-costa/,64,90,1,1,2018-01-03,8,Diego Costa,26,1
+/player_summary/diego-costa/,0,69,2,2,2018-01-06,/2018,Diego Costa,95,2
+/player_summary/diego-costa/,0,61,2,2,2018-01-09,8,Diego Costa,156,3
+/player_summary/diego-costa/,0,90,3,3,2018-01-17,8,Diego Costa,246,4
+/player_summary/diego-costa/,0,61,3,3,2018-01-20,/2018,Diego Costa,307,5
+/player_summary/diego-costa/,0,90,3,3,2018-02-04,/2018,Diego Costa,397,6
+/player_summary/diego-costa/,0,77,3,3,2018-02-10,/2018,Diego Costa,474,7
+/player_summary/diego-costa/,0,90,4,4,2018-02-18,/2018,Diego Costa,564,8
+/player_summary/diego-costa/,0,77,5,5,2018-02-25,/2018,Diego Costa,641,9
+/player_summary/diego-costa/,0,73,5,5,2018-02-28,/2018,Diego Costa,714,10
+/player_summary/diego-costa/,0,90,5,5,2018-03-04,/2018,Diego Costa,804,11
+/player_summary/diego-costa/,0,75,6,6,2018-03-08,nd of 16,Diego Costa,879,12
+/player_summary/diego-costa/,0,80,6,6,2018-03-11,/2018,Diego Costa,959,13
+/player_summary/diego-costa/,0,90,6,6,2018-03-18,/2018,Diego Costa,1049,14
+/player_summary/diego-costa/,64,90,6,6,2018-04-01,/2018,Diego Costa,1075,15
+/player_summary/diego-costa/,0,87,6,6,2018-04-05,rter-finals,Diego Costa,1162,16
+/player_summary/diego-costa/,0,71,6,6,2018-04-08,/2018,Diego Costa,1233,17
+/player_summary/diego-costa/,0,52,6,6,2018-04-12,rter-finals,Diego Costa,1285,18
 /player_summary/dries-mertens/,0,75,1,1,2017-08-16,018,Dries Mertens,75,1
 /player_summary/dries-mertens/,61,90,1,1,2017-08-19,. Round,Dries Mertens,104,2
 /player_summary/dries-mertens/,0,90,1,1,2017-08-22,018,Dries Mertens,194,3
@@ -703,6 +776,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/edin-dzeko/,61,90,18,18,2018-03-31,0. Round,Edin Džeko,3127,38
 /player_summary/edin-dzeko/,0,90,19,19,2018-04-04,Quarter-finals,Edin Džeko,3217,39
 /player_summary/edin-dzeko/,0,90,19,19,2018-04-07,1. Round,Edin Džeko,3307,40
+/player_summary/edin-dzeko/,0,90,20,20,2018-04-10,Quarter-finals,Edin Džeko,3397,41
 /player_summary/edinson-cavani/,0,90,0,0,2017-07-29,s 2017,Edinson Cavani,90,1
 /player_summary/edinson-cavani/,0,86,1,1,2017-08-05,1. Round,Edinson Cavani,176,2
 /player_summary/edinson-cavani/,0,90,2,2,2017-08-13,2. Round,Edinson Cavani,266,3
@@ -808,6 +882,32 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/fabio-quagliarella/,0,90,17,11,2018-03-18,9. Round,Fabio Quagliarella,2314,28
 /player_summary/fabio-quagliarella/,0,74,18,11,2018-03-31,0. Round,Fabio Quagliarella,2388,29
 /player_summary/fabio-quagliarella/,0,90,18,11,2018-04-07,1. Round,Fabio Quagliarella,2478,30
+/player_summary/federico-bernardeschi/,72,90,0,0,2017-08-13,al,Federico Bernardeschi,18,1
+/player_summary/federico-bernardeschi/,76,90,0,0,2017-09-09,. Round,Federico Bernardeschi,32,2
+/player_summary/federico-bernardeschi/,63,90,0,0,2017-09-12,Group D,Federico Bernardeschi,59,3
+/player_summary/federico-bernardeschi/,85,90,0,0,2017-09-17,. Round,Federico Bernardeschi,64,4
+/player_summary/federico-bernardeschi/,82,90,0,0,2017-09-20,. Round,Federico Bernardeschi,72,5
+/player_summary/federico-bernardeschi/,62,90,0,0,2017-09-23,. Round,Federico Bernardeschi,100,6
+/player_summary/federico-bernardeschi/,84,90,0,0,2017-09-27,Group D,Federico Bernardeschi,106,7
+/player_summary/federico-bernardeschi/,0,69,1,1,2017-10-01,. Round,Federico Bernardeschi,175,8
+/player_summary/federico-bernardeschi/,54,90,1,1,2017-10-14,. Round,Federico Bernardeschi,211,9
+/player_summary/federico-bernardeschi/,89,90,1,1,2017-10-22,. Round,Federico Bernardeschi,212,10
+/player_summary/federico-bernardeschi/,0,56,2,2,2017-10-25,0. Round,Federico Bernardeschi,268,11
+/player_summary/federico-bernardeschi/,83,90,2,2,2017-10-31,Group D,Federico Bernardeschi,275,12
+/player_summary/federico-bernardeschi/,81,90,2,2,2017-11-05,2. Round,Federico Bernardeschi,284,13
+/player_summary/federico-bernardeschi/,0,62,2,2,2017-11-19,3. Round,Federico Bernardeschi,346,14
+/player_summary/federico-bernardeschi/,84,90,3,3,2017-12-05,Group D,Federico Bernardeschi,352,15
+/player_summary/federico-bernardeschi/,70,90,3,3,2017-12-17,7. Round,Federico Bernardeschi,372,16
+/player_summary/federico-bernardeschi/,0,86,3,3,2017-12-20,8,Federico Bernardeschi,458,17
+/player_summary/federico-bernardeschi/,77,90,3,3,2017-12-23,8. Round,Federico Bernardeschi,471,18
+/player_summary/federico-bernardeschi/,46,90,3,3,2017-12-30,9. Round,Federico Bernardeschi,515,19
+/player_summary/federico-bernardeschi/,0,79,4,4,2018-01-06,0. Round,Federico Bernardeschi,594,20
+/player_summary/federico-bernardeschi/,52,90,4,4,2018-01-27,2. Round,Federico Bernardeschi,632,21
+/player_summary/federico-bernardeschi/,63,90,4,4,2018-01-30,8,Federico Bernardeschi,659,22
+/player_summary/federico-bernardeschi/,0,90,4,4,2018-02-04,3. Round,Federico Bernardeschi,749,23
+/player_summary/federico-bernardeschi/,0,78,5,5,2018-02-09,4. Round,Federico Bernardeschi,827,24
+/player_summary/federico-bernardeschi/,0,90,5,5,2018-02-13,Round of 16,Federico Bernardeschi,917,25
+/player_summary/federico-bernardeschi/,15,90,5,5,2018-02-18,5. Round,Federico Bernardeschi,992,26
 /player_summary/florian-thauvin/,0,58,0,0,2017-07-27,,Florian Thauvin,58,1
 /player_summary/florian-thauvin/,0,90,1,1,2017-08-06,1. Round,Florian Thauvin,148,2
 /player_summary/florian-thauvin/,0,90,1,1,2017-08-12,2. Round,Florian Thauvin,238,3
@@ -852,6 +952,34 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/florian-thauvin/,0,62,18,17,2018-03-08,nd of 16,Florian Thauvin,3158,42
 /player_summary/florian-thauvin/,0,67,18,17,2018-03-15,nd of 16,Florian Thauvin,3225,43
 /player_summary/florian-thauvin/,0,90,18,17,2018-03-18,30. Round,Florian Thauvin,3315,44
+/player_summary/florian-thauvin/,0,63,19,18,2018-04-12,rter-finals,Florian Thauvin,3378,45
+/player_summary/florin-andone/,0,90,0,0,2017-08-20,/2018,Florin Andone,90,1
+/player_summary/florin-andone/,0,74,0,0,2017-08-26,/2018,Florin Andone,164,2
+/player_summary/florin-andone/,0,71,1,1,2017-09-10,/2018,Florin Andone,235,3
+/player_summary/florin-andone/,0,78,1,1,2017-09-16,/2018,Florin Andone,313,4
+/player_summary/florin-andone/,0,89,1,1,2017-09-20,/2018,Florin Andone,402,5
+/player_summary/florin-andone/,69,90,1,1,2017-09-24,/2018,Florin Andone,423,6
+/player_summary/florin-andone/,67,90,2,2,2017-09-30,/2018,Florin Andone,446,7
+/player_summary/florin-andone/,0,90,2,2,2017-10-15,/2018,Florin Andone,536,8
+/player_summary/florin-andone/,72,90,2,2,2017-10-23,/2018,Florin Andone,554,9
+/player_summary/florin-andone/,72,90,2,2,2017-10-26,8,Florin Andone,572,10
+/player_summary/florin-andone/,75,90,2,2,2017-11-04,/2018,Florin Andone,587,11
+/player_summary/florin-andone/,64,90,2,2,2017-11-26,/2018,Florin Andone,613,12
+/player_summary/florin-andone/,63,90,2,2,2017-12-02,/2018,Florin Andone,640,13
+/player_summary/florin-andone/,46,90,3,3,2017-12-23,/2018,Florin Andone,684,14
+/player_summary/florin-andone/,0,90,4,4,2018-01-07,/2018,Florin Andone,774,15
+/player_summary/florin-andone/,0,90,5,5,2018-01-13,/2018,Florin Andone,864,16
+/player_summary/florin-andone/,0,80,5,5,2018-01-21,/2018,Florin Andone,944,17
+/player_summary/florin-andone/,0,90,6,6,2018-01-27,/2018,Florin Andone,1034,18
+/player_summary/florin-andone/,0,90,6,6,2018-02-12,/2018,Florin Andone,1124,19
+/player_summary/florin-andone/,0,90,6,6,2018-02-17,/2018,Florin Andone,1214,20
+/player_summary/florin-andone/,0,88,6,6,2018-02-23,/2018,Florin Andone,1302,21
+/player_summary/florin-andone/,63,90,6,6,2018-02-28,/2018,Florin Andone,1329,22
+/player_summary/florin-andone/,0,85,7,7,2018-03-03,/2018,Florin Andone,1414,23
+/player_summary/florin-andone/,0,90,7,7,2018-03-09,/2018,Florin Andone,1504,24
+/player_summary/florin-andone/,0,90,7,7,2018-03-17,/2018,Florin Andone,1594,25
+/player_summary/florin-andone/,82,90,7,7,2018-04-01,/2018,Florin Andone,1602,26
+/player_summary/florin-andone/,87,90,7,7,2018-04-06,/2018,Florin Andone,1605,27
 /player_summary/gareth-bale/,0,74,0,0,2017-08-08,Real Madrid - Manchester United 2:1,Gareth Bale,74,1
 /player_summary/gareth-bale/,0,81,0,0,2017-08-13,l,Gareth Bale,155,2
 /player_summary/gareth-bale/,0,80,1,1,2017-08-20,/2018,Gareth Bale,235,3
@@ -883,6 +1011,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/gareth-bale/,70,90,12,11,2018-03-18,/2018,Gareth Bale,1730,29
 /player_summary/gareth-bale/,0,90,14,12,2018-03-31,/2018,Gareth Bale,1820,30
 /player_summary/gareth-bale/,0,90,14,12,2018-04-08,/2018,Gareth Bale,1910,31
+/player_summary/gareth-bale/,0,46,14,12,2018-04-11,Quarter-finals,Gareth Bale,1956,32
 /player_summary/gerard_2/,0,90,0,0,2017-08-19,/2018,Gerard,90,1
 /player_summary/gerard_2/,0,90,0,0,2017-08-27,/2018,Gerard,180,2
 /player_summary/gerard_2/,0,90,0,0,2017-09-09,/2018,Gerard,270,3
@@ -919,6 +1048,8 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/gerard_2/,0,90,15,13,2018-03-11,/2018,Gerard,2992,34
 /player_summary/gerard_2/,0,90,15,13,2018-03-17,/2018,Gerard,3082,35
 /player_summary/gerard_2/,0,90,15,13,2018-04-01,/2018,Gerard,3172,36
+/player_summary/gerard_2/,0,90,15,13,2018-04-08,/2018,Gerard,3262,37
+/player_summary/gerard_2/,0,90,15,13,2018-04-08,/2018,Gerard,3352,38
 /player_summary/giovanni-simeone/,0,120,1,1,2017-08-13,8,Giovanni Simeone,120,1
 /player_summary/giovanni-simeone/,0,60,1,1,2017-08-20,. Round,Giovanni Simeone,180,2
 /player_summary/giovanni-simeone/,0,90,1,1,2017-08-27,. Round,Giovanni Simeone,270,3
@@ -983,6 +1114,8 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/giovanni-sio/,61,90,7,7,2018-03-10,29. Round,Giovanni Sio,1741,28
 /player_summary/giovanni-sio/,0,90,8,8,2018-03-17,30. Round,Giovanni Sio,1831,29
 /player_summary/giovanni-sio/,0,70,10,10,2018-04-01,31. Round,Giovanni Sio,1901,30
+/player_summary/giovanni-sio/,0,84,10,10,2018-04-08,32. Round,Giovanni Sio,1985,31
+/player_summary/giovanni-sio/,0,84,10,10,2018-04-08,32. Round,Giovanni Sio,2069,32
 /player_summary/glenn-murray/,60,90,0,0,2017-08-12, Round,Glenn Murray,30,1
 /player_summary/glenn-murray/,0,66,0,0,2017-08-19, Round,Glenn Murray,96,2
 /player_summary/glenn-murray/,83,90,0,0,2017-09-09, Round,Glenn Murray,103,3
@@ -1058,6 +1191,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/gonzalo-higuain/,0,90,22,20,2018-03-31,0. Round,Gonzalo Higuaín,3188,40
 /player_summary/gonzalo-higuain/,0,90,22,20,2018-04-03,Quarter-finals,Gonzalo Higuaín,3278,41
 /player_summary/gonzalo-higuain/,63,90,22,20,2018-04-07,1. Round,Gonzalo Higuaín,3305,42
+/player_summary/gonzalo-higuain/,0,90,22,20,2018-04-11,Quarter-finals,Gonzalo Higuaín,3395,43
 /player_summary/guido-burgstaller/,0,71,0,0,2017-08-14,,Guido Burgstaller,71,1
 /player_summary/guido-burgstaller/,46,90,0,0,2017-08-27,8,Guido Burgstaller,115,2
 /player_summary/guido-burgstaller/,46,90,1,1,2017-09-10,8,Guido Burgstaller,159,3
@@ -1243,6 +1377,81 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/iago-falque/,0,77,12,12,2018-03-31,0. Round,Iago Falqué,2588,32
 /player_summary/iago-falque/,0,90,13,13,2018-04-04,7. Round,Iago Falqué,2678,33
 /player_summary/iago-falque/,0,73,13,13,2018-04-08,1. Round,Iago Falqué,2751,34
+/player_summary/isco/,0,74,1,1,2017-08-08,Real Madrid - Manchester United 2:1,Isco,74,1
+/player_summary/isco/,0,90,1,1,2017-08-13,l,Isco,164,2
+/player_summary/isco/,0,66,1,1,2017-08-20,/2018,Isco,230,3
+/player_summary/isco/,0,46,1,1,2017-08-27,/2018,Isco,276,4
+/player_summary/isco/,62,90,1,1,2017-09-09,/2018,Isco,304,5
+/player_summary/isco/,0,72,1,1,2017-09-13,Group H,Isco,376,6
+/player_summary/isco/,0,90,1,1,2017-09-17,/2018,Isco,466,7
+/player_summary/isco/,0,67,1,1,2017-09-20,/2018,Isco,533,8
+/player_summary/isco/,0,90,1,1,2017-09-23,/2018,Isco,623,9
+/player_summary/isco/,0,76,1,1,2017-09-26,Group H,Isco,699,10
+/player_summary/isco/,0,90,3,3,2017-10-01,/2018,Isco,789,11
+/player_summary/isco/,72,90,3,3,2017-10-14,/2018,Isco,807,12
+/player_summary/isco/,0,87,3,3,2017-10-17,Group H,Isco,894,13
+/player_summary/isco/,0,70,3,3,2017-10-22,/2018,Isco,964,14
+/player_summary/isco/,0,90,4,4,2017-10-29,/2018,Isco,1054,15
+/player_summary/isco/,0,73,4,4,2017-11-01,Group H,Isco,1127,16
+/player_summary/isco/,0,90,5,5,2017-11-05,/2018,Isco,1217,17
+/player_summary/isco/,0,90,5,5,2017-11-18,/2018,Isco,1307,18
+/player_summary/isco/,0,61,5,5,2017-11-25,/2018,Isco,1368,19
+/player_summary/isco/,0,82,5,5,2017-12-02,/2018,Isco,1450,20
+/player_summary/isco/,0,69,5,5,2017-12-06,Group H,Isco,1519,21
+/player_summary/isco/,76,90,5,5,2017-12-09,/2018,Isco,1533,22
+/player_summary/isco/,0,68,5,5,2017-12-13,nals,Isco,1601,23
+/player_summary/isco/,0,73,5,5,2017-12-16, Grêmio Porto Alegre - Real Madrid 0:1,Isco,1674,24
+/player_summary/isco/,74,90,6,5,2018-01-04,8,Isco,1690,25
+/player_summary/isco/,0,77,6,5,2018-01-07,/2018,Isco,1767,26
+/player_summary/isco/,62,90,6,5,2018-01-10,8,Isco,1795,27
+/player_summary/isco/,0,70,6,5,2018-01-13,/2018,Isco,1865,28
+/player_summary/isco/,73,90,6,5,2018-01-18,8,Isco,1882,29
+/player_summary/isco/,0,77,6,5,2018-01-24,8,Isco,1959,30
+/player_summary/isco/,66,90,7,6,2018-02-03,/2018,Isco,1983,31
+/player_summary/isco/,63,90,7,6,2018-02-10,/2018,Isco,2010,32
+/player_summary/isco/,0,79,7,6,2018-02-14,Round of 16,Isco,2089,33
+/player_summary/isco/,74,90,7,6,2018-02-18,/2018,Isco,2105,34
+/player_summary/isco/,0,86,7,6,2018-02-21,/2018,Isco,2191,35
+/player_summary/isco/,0,69,7,6,2018-02-27,/2018,Isco,2260,36
+/player_summary/isco/,0,90,7,6,2018-03-03,/2018,Isco,2350,37
+/player_summary/isco/,82,90,7,6,2018-03-06,Round of 16,Isco,2358,38
+/player_summary/isco/,0,71,7,6,2018-03-10,/2018,Isco,2429,39
+/player_summary/isco/,83,90,7,6,2018-03-18,/2018,Isco,2436,40
+/player_summary/isco/,0,75,7,6,2018-04-03,Quarter-finals,Isco,2511,41
+/player_summary/isco/,72,90,7,6,2018-04-08,/2018,Isco,2529,42
+/player_summary/isco/,0,90,7,6,2018-04-11,Quarter-finals,Isco,2619,43
+/player_summary/ivan-perisic/,0,90,1,1,2017-08-20,. Round,Ivan Perišić,90,1
+/player_summary/ivan-perisic/,0,90,1,1,2017-08-26,. Round,Ivan Perišić,180,2
+/player_summary/ivan-perisic/,0,90,2,2,2017-09-10,. Round,Ivan Perišić,270,3
+/player_summary/ivan-perisic/,0,90,3,3,2017-09-16,. Round,Ivan Perišić,360,4
+/player_summary/ivan-perisic/,0,90,3,3,2017-09-19,. Round,Ivan Perišić,450,5
+/player_summary/ivan-perisic/,0,90,3,3,2017-09-24,. Round,Ivan Perišić,540,6
+/player_summary/ivan-perisic/,0,90,3,3,2017-10-01,. Round,Ivan Perišić,630,7
+/player_summary/ivan-perisic/,0,90,3,3,2017-10-15,. Round,Ivan Perišić,720,8
+/player_summary/ivan-perisic/,0,90,3,3,2017-10-21,. Round,Ivan Perišić,810,9
+/player_summary/ivan-perisic/,0,90,3,3,2017-10-24,0. Round,Ivan Perišić,900,10
+/player_summary/ivan-perisic/,0,90,4,4,2017-10-30,1. Round,Ivan Perišić,990,11
+/player_summary/ivan-perisic/,0,90,4,4,2017-11-05,2. Round,Ivan Perišić,1080,12
+/player_summary/ivan-perisic/,0,90,4,4,2017-11-19,3. Round,Ivan Perišić,1170,13
+/player_summary/ivan-perisic/,0,90,4,4,2017-11-25,4. Round,Ivan Perišić,1260,14
+/player_summary/ivan-perisic/,0,90,7,7,2017-12-03,5. Round,Ivan Perišić,1350,15
+/player_summary/ivan-perisic/,0,90,7,7,2017-12-09,6. Round,Ivan Perišić,1440,16
+/player_summary/ivan-perisic/,67,120,7,7,2017-12-12,8,Ivan Perišić,1493,17
+/player_summary/ivan-perisic/,0,90,7,7,2017-12-16,7. Round,Ivan Perišić,1583,18
+/player_summary/ivan-perisic/,0,90,7,7,2017-12-23,8. Round,Ivan Perišić,1673,19
+/player_summary/ivan-perisic/,0,120,7,7,2017-12-27,8,Ivan Perišić,1793,20
+/player_summary/ivan-perisic/,0,90,7,7,2017-12-30,9. Round,Ivan Perišić,1883,21
+/player_summary/ivan-perisic/,0,90,7,7,2018-01-05,0. Round,Ivan Perišić,1973,22
+/player_summary/ivan-perisic/,0,90,7,7,2018-01-21,1. Round,Ivan Perišić,2063,23
+/player_summary/ivan-perisic/,0,90,7,7,2018-01-28,2. Round,Ivan Perišić,2153,24
+/player_summary/ivan-perisic/,0,90,7,7,2018-02-03,3. Round,Ivan Perišić,2243,25
+/player_summary/ivan-perisic/,0,90,7,7,2018-02-11,4. Round,Ivan Perišić,2333,26
+/player_summary/ivan-perisic/,0,81,7,7,2018-02-24,6. Round,Ivan Perišić,2414,27
+/player_summary/ivan-perisic/,0,86,7,7,2018-03-11,8. Round,Ivan Perišić,2500,28
+/player_summary/ivan-perisic/,0,90,8,8,2018-03-18,9. Round,Ivan Perišić,2590,29
+/player_summary/ivan-perisic/,0,90,9,9,2018-03-31,0. Round,Ivan Perišić,2680,30
+/player_summary/ivan-perisic/,0,90,9,9,2018-04-04,7. Round,Ivan Perišić,2770,31
+/player_summary/ivan-perisic/,0,90,9,9,2018-04-08,1. Round,Ivan Perišić,2860,32
 /player_summary/jamie-vardy/,0,90,2,2,2017-08-11, Round,Jamie Vardy,90,1
 /player_summary/jamie-vardy/,0,90,2,2,2017-08-19, Round,Jamie Vardy,180,2
 /player_summary/jamie-vardy/,0,76,2,2,2017-08-26, Round,Jamie Vardy,256,3
@@ -1279,6 +1488,70 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/jamie-vardy/,0,120,17,12,2018-03-18,nals,Jamie Vardy,2823,34
 /player_summary/jamie-vardy/,0,90,18,13,2018-03-31,. Round,Jamie Vardy,2913,35
 /player_summary/jamie-vardy/,0,90,19,14,2018-04-07,. Round,Jamie Vardy,3003,36
+/player_summary/javier-hernandez_2/,0,90,0,0,2017-08-13, Round,Javier Hernández,90,1
+/player_summary/javier-hernandez_2/,0,90,2,2,2017-08-19, Round,Javier Hernández,180,2
+/player_summary/javier-hernandez_2/,64,90,2,2,2017-08-23,nd,Javier Hernández,206,3
+/player_summary/javier-hernandez_2/,0,90,2,2,2017-08-26, Round,Javier Hernández,296,4
+/player_summary/javier-hernandez_2/,0,64,2,2,2017-09-11, Round,Javier Hernández,360,5
+/player_summary/javier-hernandez_2/,0,76,2,2,2017-09-16, Round,Javier Hernández,436,6
+/player_summary/javier-hernandez_2/,70,90,2,2,2017-09-19,nd,Javier Hernández,456,7
+/player_summary/javier-hernandez_2/,0,90,3,3,2017-09-23, Round,Javier Hernández,546,8
+/player_summary/javier-hernandez_2/,0,78,3,3,2017-09-30, Round,Javier Hernández,624,9
+/player_summary/javier-hernandez_2/,0,75,3,3,2017-10-14, Round,Javier Hernández,699,10
+/player_summary/javier-hernandez_2/,0,90,3,3,2017-10-20, Round,Javier Hernández,789,11
+/player_summary/javier-hernandez_2/,0,90,4,4,2017-10-28,. Round,Javier Hernández,879,12
+/player_summary/javier-hernandez_2/,0,72,4,4,2017-11-04,. Round,Javier Hernández,951,13
+/player_summary/javier-hernandez_2/,82,90,4,4,2017-12-13,. Round,Javier Hernández,959,14
+/player_summary/javier-hernandez_2/,79,90,4,4,2017-12-16,. Round,Javier Hernández,970,15
+/player_summary/javier-hernandez_2/,0,65,4,4,2017-12-19,r-finals,Javier Hernández,1035,16
+/player_summary/javier-hernandez_2/,79,90,4,4,2017-12-23,. Round,Javier Hernández,1046,17
+/player_summary/javier-hernandez_2/,61,90,4,4,2017-12-26,. Round,Javier Hernández,1075,18
+/player_summary/javier-hernandez_2/,73,90,4,4,2018-01-02,. Round,Javier Hernández,1092,19
+/player_summary/javier-hernandez_2/,0,65,4,4,2018-01-04,. Round,Javier Hernández,1157,20
+/player_summary/javier-hernandez_2/,0,71,4,4,2018-01-07, Shrewsbury Town - West Ham United 0:0,Javier Hernández,1228,21
+/player_summary/javier-hernandez_2/,64,90,5,5,2018-01-20,. Round,Javier Hernández,1254,22
+/player_summary/javier-hernandez_2/,0,90,5,5,2018-01-27, Wigan Athletic - West Ham United 2:0,Javier Hernández,1344,23
+/player_summary/javier-hernandez_2/,0,90,5,5,2018-01-30,. Round,Javier Hernández,1434,24
+/player_summary/javier-hernandez_2/,0,90,6,6,2018-02-03,. Round,Javier Hernández,1524,25
+/player_summary/javier-hernandez_2/,0,88,7,7,2018-02-10,. Round,Javier Hernández,1612,26
+/player_summary/javier-hernandez_2/,83,90,7,7,2018-02-24,. Round,Javier Hernández,1619,27
+/player_summary/javier-hernandez_2/,0,90,7,7,2018-03-03,. Round,Javier Hernández,1709,28
+/player_summary/javier-hernandez_2/,71,90,7,7,2018-03-10,. Round,Javier Hernández,1728,29
+/player_summary/javier-hernandez_2/,70,90,8,8,2018-04-08,. Round,Javier Hernández,1748,30
+/player_summary/jimmy-briand/,0,90,1,0,2017-08-05,1. Round,Jimmy Briand,90,1
+/player_summary/jimmy-briand/,0,90,1,0,2017-08-13,2. Round,Jimmy Briand,180,2
+/player_summary/jimmy-briand/,0,90,1,0,2017-08-19,3. Round,Jimmy Briand,270,3
+/player_summary/jimmy-briand/,0,90,2,1,2017-08-27,4. Round,Jimmy Briand,360,4
+/player_summary/jimmy-briand/,0,90,2,1,2017-09-10,5. Round,Jimmy Briand,450,5
+/player_summary/jimmy-briand/,0,90,2,1,2017-09-16,6. Round,Jimmy Briand,540,6
+/player_summary/jimmy-briand/,0,46,2,1,2017-09-23,7. Round,Jimmy Briand,586,7
+/player_summary/jimmy-briand/,0,63,2,1,2017-09-30,8. Round,Jimmy Briand,649,8
+/player_summary/jimmy-briand/,0,90,3,2,2017-10-14,9. Round,Jimmy Briand,739,9
+/player_summary/jimmy-briand/,0,90,3,2,2017-10-21,10. Round,Jimmy Briand,829,10
+/player_summary/jimmy-briand/,70,90,3,2,2017-10-24,17/2018,Jimmy Briand,849,11
+/player_summary/jimmy-briand/,0,90,3,2,2017-10-28,11. Round,Jimmy Briand,939,12
+/player_summary/jimmy-briand/,46,90,3,2,2017-11-04,12. Round,Jimmy Briand,983,13
+/player_summary/jimmy-briand/,0,90,3,2,2017-11-18,13. Round,Jimmy Briand,1073,14
+/player_summary/jimmy-briand/,0,90,3,2,2017-11-26,14. Round,Jimmy Briand,1163,15
+/player_summary/jimmy-briand/,0,90,3,2,2017-11-29,15. Round,Jimmy Briand,1253,16
+/player_summary/jimmy-briand/,0,90,4,3,2017-12-02,16. Round,Jimmy Briand,1343,17
+/player_summary/jimmy-briand/,0,90,5,4,2017-12-09,17. Round,Jimmy Briand,1433,18
+/player_summary/jimmy-briand/,0,90,5,4,2017-12-16,18. Round,Jimmy Briand,1523,19
+/player_summary/jimmy-briand/,0,90,6,5,2017-12-20,19. Round,Jimmy Briand,1613,20
+/player_summary/jimmy-briand/,0,90,6,5,2018-01-06,/2018,Jimmy Briand,1703,21
+/player_summary/jimmy-briand/,0,90,6,5,2018-01-12,20. Round,Jimmy Briand,1793,22
+/player_summary/jimmy-briand/,0,90,6,5,2018-01-17,21. Round,Jimmy Briand,1883,23
+/player_summary/jimmy-briand/,0,90,6,5,2018-01-20,22. Round,Jimmy Briand,1973,24
+/player_summary/jimmy-briand/,74,90,6,5,2018-01-24,/2018,Jimmy Briand,1989,25
+/player_summary/jimmy-briand/,0,90,6,5,2018-01-27,23. Round,Jimmy Briand,2079,26
+/player_summary/jimmy-briand/,0,90,6,5,2018-02-04,24. Round,Jimmy Briand,2169,27
+/player_summary/jimmy-briand/,0,90,6,5,2018-02-10,25. Round,Jimmy Briand,2259,28
+/player_summary/jimmy-briand/,0,90,6,5,2018-02-17,26. Round,Jimmy Briand,2349,29
+/player_summary/jimmy-briand/,0,90,6,5,2018-03-03,28. Round,Jimmy Briand,2439,30
+/player_summary/jimmy-briand/,0,90,6,5,2018-03-11,29. Round,Jimmy Briand,2529,31
+/player_summary/jimmy-briand/,0,90,6,5,2018-03-18,30. Round,Jimmy Briand,2619,32
+/player_summary/jimmy-briand/,0,90,6,5,2018-04-01,31. Round,Jimmy Briand,2709,33
+/player_summary/jimmy-briand/,0,90,7,6,2018-04-07,32. Round,Jimmy Briand,2799,34
 /player_summary/jose-callejon/,0,90,0,0,2017-08-16,018,José Callejón,90,1
 /player_summary/jose-callejon/,0,73,0,0,2017-08-19,. Round,José Callejón,163,2
 /player_summary/jose-callejon/,0,90,1,1,2017-08-22,018,José Callejón,253,3
@@ -1322,6 +1595,35 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/jose-callejon/,0,86,10,10,2018-03-18,9. Round,José Callejón,3385,41
 /player_summary/jose-callejon/,0,90,11,11,2018-03-31,0. Round,José Callejón,3475,42
 /player_summary/jose-callejon/,0,90,11,11,2018-04-08,1. Round,José Callejón,3565,43
+/player_summary/joshua-king/,0,90,0,0,2017-08-12, Round,Joshua King,90,1
+/player_summary/joshua-king/,0,90,0,0,2017-08-19, Round,Joshua King,180,2
+/player_summary/joshua-king/,0,90,0,0,2017-08-26, Round,Joshua King,270,3
+/player_summary/joshua-king/,0,90,0,0,2017-09-09, Round,Joshua King,360,4
+/player_summary/joshua-king/,0,90,0,0,2017-09-15, Round,Joshua King,450,5
+/player_summary/joshua-king/,79,120,1,1,2017-09-19,nd,Joshua King,491,6
+/player_summary/joshua-king/,0,79,2,2,2017-09-23, Round,Joshua King,570,7
+/player_summary/joshua-king/,0,90,2,2,2017-09-30, Round,Joshua King,660,8
+/player_summary/joshua-king/,0,90,2,2,2017-10-14, Round,Joshua King,750,9
+/player_summary/joshua-king/,0,90,2,2,2017-11-04,. Round,Joshua King,840,10
+/player_summary/joshua-king/,0,86,2,2,2017-11-18,. Round,Joshua King,926,11
+/player_summary/joshua-king/,0,90,2,2,2017-11-25,. Round,Joshua King,1016,12
+/player_summary/joshua-king/,0,90,3,3,2017-11-29,. Round,Joshua King,1106,13
+/player_summary/joshua-king/,0,90,3,3,2017-12-03,. Round,Joshua King,1196,14
+/player_summary/joshua-king/,0,90,3,3,2017-12-09,. Round,Joshua King,1286,15
+/player_summary/joshua-king/,0,90,3,3,2017-12-13,. Round,Joshua King,1376,16
+/player_summary/joshua-king/,0,31,3,3,2017-12-17,. Round,Joshua King,1407,17
+/player_summary/joshua-king/,0,65,3,3,2017-12-26,. Round,Joshua King,1472,18
+/player_summary/joshua-king/,0,39,3,3,2017-12-30,. Round,Joshua King,1511,19
+/player_summary/joshua-king/,85,90,3,3,2018-01-20,. Round,Joshua King,1516,20
+/player_summary/joshua-king/,71,90,3,3,2018-01-31,. Round,Joshua King,1535,21
+/player_summary/joshua-king/,13,90,4,4,2018-02-03,. Round,Joshua King,1612,22
+/player_summary/joshua-king/,58,90,4,4,2018-02-11,. Round,Joshua King,1644,23
+/player_summary/joshua-king/,0,90,4,4,2018-02-24,. Round,Joshua King,1734,24
+/player_summary/joshua-king/,0,90,5,4,2018-03-03,. Round,Joshua King,1824,25
+/player_summary/joshua-king/,67,90,5,4,2018-03-11,. Round,Joshua King,1847,26
+/player_summary/joshua-king/,0,90,5,4,2018-03-17,. Round,Joshua King,1937,27
+/player_summary/joshua-king/,0,90,6,4,2018-03-31,. Round,Joshua King,2027,28
+/player_summary/joshua-king/,62,90,7,5,2018-04-07,. Round,Joshua King,2055,29
 /player_summary/josip-ilicic/,70,90,0,0,2017-08-20,. Round,Josip Iličič,20,1
 /player_summary/josip-ilicic/,0,90,0,0,2017-08-27,. Round,Josip Iličič,110,2
 /player_summary/josip-ilicic/,0,58,0,0,2017-09-10,. Round,Josip Iličič,168,3
@@ -1359,6 +1661,37 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/josip-ilicic/,62,90,11,9,2018-03-11,8. Round,Josip Iličič,2193,35
 /player_summary/josip-ilicic/,0,90,11,9,2018-03-14,6. Round,Josip Iličič,2283,36
 /player_summary/josip-ilicic/,0,88,14,11,2018-03-18,9. Round,Josip Iličič,2371,37
+/player_summary/juanmi_4/,67,90,1,1,2017-08-19,/2018,Juanmi,23,1
+/player_summary/juanmi_4/,0,66,2,2,2017-08-25,/2018,Juanmi,89,2
+/player_summary/juanmi_4/,0,55,3,3,2017-09-10,/2018,Juanmi,144,3
+/player_summary/juanmi_4/,58,90,3,3,2017-09-14,up L,Juanmi,176,4
+/player_summary/juanmi_4/,69,90,3,3,2017-09-17,/2018,Juanmi,197,5
+/player_summary/juanmi_4/,0,90,3,3,2017-09-21,/2018,Juanmi,287,6
+/player_summary/juanmi_4/,0,46,3,3,2017-09-24,/2018,Juanmi,333,7
+/player_summary/juanmi_4/,65,90,3,3,2017-09-28,up L,Juanmi,358,8
+/player_summary/juanmi_4/,0,60,3,3,2017-10-01,/2018,Juanmi,418,9
+/player_summary/juanmi_4/,0,67,3,3,2017-10-14,/2018,Juanmi,485,10
+/player_summary/juanmi_4/,78,90,3,3,2017-10-23,/2018,Juanmi,497,11
+/player_summary/juanmi_4/,0,90,3,3,2017-10-26,8,Juanmi,587,12
+/player_summary/juanmi_4/,0,90,4,4,2017-11-02,up L,Juanmi,677,13
+/player_summary/juanmi_4/,81,90,4,4,2017-11-17,/2018,Juanmi,686,14
+/player_summary/juanmi_4/,0,62,4,4,2017-11-23,up L,Juanmi,748,15
+/player_summary/juanmi_4/,80,90,4,4,2017-11-26,/2018,Juanmi,758,16
+/player_summary/juanmi_4/,0,90,5,5,2017-11-29,8,Juanmi,848,17
+/player_summary/juanmi_4/,58,90,5,5,2017-12-07,up L,Juanmi,880,18
+/player_summary/juanmi_4/,65,90,5,5,2017-12-10,/2018,Juanmi,905,19
+/player_summary/juanmi_4/,65,90,5,5,2018-01-07,/2018,Juanmi,930,20
+/player_summary/juanmi_4/,0,60,6,6,2018-01-14,/2018,Juanmi,990,21
+/player_summary/juanmi_4/,0,69,6,6,2018-01-21,/2018,Juanmi,1059,22
+/player_summary/juanmi_4/,0,70,6,6,2018-02-02,/2018,Juanmi,1129,23
+/player_summary/juanmi_4/,0,83,6,6,2018-02-10,/2018,Juanmi,1212,24
+/player_summary/juanmi_4/,0,46,6,6,2018-02-15,nd of 32,Juanmi,1258,25
+/player_summary/juanmi_4/,0,90,7,7,2018-02-18,/2018,Juanmi,1348,26
+/player_summary/juanmi_4/,0,69,7,7,2018-02-25,/2018,Juanmi,1417,27
+/player_summary/juanmi_4/,0,73,7,7,2018-03-01,/2018,Juanmi,1490,28
+/player_summary/juanmi_4/,0,57,7,7,2018-03-11,/2018,Juanmi,1547,29
+/player_summary/juanmi_4/,73,90,7,7,2018-03-17,/2018,Juanmi,1564,30
+/player_summary/juanmi_4/,0,72,7,7,2018-04-01,/2018,Juanmi,1636,31
 /player_summary/julio-tavares/,74,90,1,0,2017-08-19,3. Round,Júlio Tavares,16,1
 /player_summary/julio-tavares/,56,90,1,0,2017-08-26,4. Round,Júlio Tavares,50,2
 /player_summary/julio-tavares/,0,90,1,0,2017-09-09,5. Round,Júlio Tavares,140,3
@@ -1384,6 +1717,43 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/julio-tavares/,0,90,12,9,2018-03-17,30. Round,Júlio Tavares,1859,23
 /player_summary/julio-tavares/,0,90,12,9,2018-03-31,31. Round,Júlio Tavares,1949,24
 /player_summary/julio-tavares/,0,55,12,9,2018-04-07,32. Round,Júlio Tavares,2004,25
+/player_summary/karim-benzema/,0,83,0,0,2017-08-08,Real Madrid - Manchester United 2:1,Karim Benzema,83,1
+/player_summary/karim-benzema/,0,58,0,0,2017-08-13,l,Karim Benzema,141,2
+/player_summary/karim-benzema/,0,90,1,1,2017-08-16,l,Karim Benzema,231,3
+/player_summary/karim-benzema/,0,90,1,1,2017-08-20,/2018,Karim Benzema,321,4
+/player_summary/karim-benzema/,0,90,1,1,2017-08-27,/2018,Karim Benzema,411,5
+/player_summary/karim-benzema/,0,28,1,1,2017-09-09,/2018,Karim Benzema,439,6
+/player_summary/karim-benzema/,0,81,2,2,2017-10-14,/2018,Karim Benzema,520,7
+/player_summary/karim-benzema/,0,76,2,2,2017-10-17,Group H,Karim Benzema,596,8
+/player_summary/karim-benzema/,64,90,2,2,2017-10-22,/2018,Karim Benzema,622,9
+/player_summary/karim-benzema/,0,90,2,2,2017-10-29,/2018,Karim Benzema,712,10
+/player_summary/karim-benzema/,0,73,2,2,2017-11-01,Group H,Karim Benzema,785,11
+/player_summary/karim-benzema/,0,76,2,2,2017-11-05,/2018,Karim Benzema,861,12
+/player_summary/karim-benzema/,0,76,2,2,2017-11-18,/2018,Karim Benzema,937,13
+/player_summary/karim-benzema/,0,64,4,4,2017-11-21,Group H,Karim Benzema,1001,14
+/player_summary/karim-benzema/,0,89,5,5,2017-11-25,/2018,Karim Benzema,1090,15
+/player_summary/karim-benzema/,0,82,5,5,2017-12-02,/2018,Karim Benzema,1172,16
+/player_summary/karim-benzema/,0,90,5,5,2017-12-09,/2018,Karim Benzema,1262,17
+/player_summary/karim-benzema/,0,81,5,5,2017-12-13,nals,Karim Benzema,1343,18
+/player_summary/karim-benzema/,0,80,5,5,2017-12-16, Grêmio Porto Alegre - Real Madrid 0:1,Karim Benzema,1423,19
+/player_summary/karim-benzema/,0,66,5,5,2017-12-23,/2018,Karim Benzema,1489,20
+/player_summary/karim-benzema/,64,90,5,5,2018-01-21,/2018,Karim Benzema,1515,21
+/player_summary/karim-benzema/,0,90,6,6,2018-01-24,8,Karim Benzema,1605,22
+/player_summary/karim-benzema/,0,78,6,6,2018-01-27,/2018,Karim Benzema,1683,23
+/player_summary/karim-benzema/,0,90,6,6,2018-02-03,/2018,Karim Benzema,1773,24
+/player_summary/karim-benzema/,0,90,6,6,2018-02-10,/2018,Karim Benzema,1863,25
+/player_summary/karim-benzema/,0,68,6,6,2018-02-14,Round of 16,Karim Benzema,1931,26
+/player_summary/karim-benzema/,89,90,7,7,2018-02-18,/2018,Karim Benzema,1932,27
+/player_summary/karim-benzema/,0,76,7,7,2018-02-21,/2018,Karim Benzema,2008,28
+/player_summary/karim-benzema/,0,90,8,7,2018-02-24,/2018,Karim Benzema,2098,29
+/player_summary/karim-benzema/,69,90,8,7,2018-02-27,/2018,Karim Benzema,2119,30
+/player_summary/karim-benzema/,0,90,8,7,2018-03-03,/2018,Karim Benzema,2209,31
+/player_summary/karim-benzema/,0,76,8,7,2018-03-06,Round of 16,Karim Benzema,2285,32
+/player_summary/karim-benzema/,71,90,8,7,2018-03-10,/2018,Karim Benzema,2304,33
+/player_summary/karim-benzema/,0,83,8,7,2018-03-18,/2018,Karim Benzema,2387,34
+/player_summary/karim-benzema/,0,90,9,7,2018-03-31,/2018,Karim Benzema,2477,35
+/player_summary/karim-benzema/,0,59,9,7,2018-04-03,Quarter-finals,Karim Benzema,2536,36
+/player_summary/karim-benzema/,63,90,9,7,2018-04-08,/2018,Karim Benzema,2563,37
 /player_summary/karl-toko-ekambi/,58,90,0,0,2017-08-06,1. Round,Karl Toko Ekambi,32,1
 /player_summary/karl-toko-ekambi/,60,90,0,0,2017-08-12,2. Round,Karl Toko Ekambi,62,2
 /player_summary/karl-toko-ekambi/,0,79,1,1,2017-08-20,3. Round,Karl Toko Ekambi,141,3
@@ -1417,6 +1787,39 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/karl-toko-ekambi/,58,90,15,12,2018-03-14,31. Round,Karl Toko Ekambi,2442,31
 /player_summary/karl-toko-ekambi/,0,75,16,13,2018-03-17,30. Round,Karl Toko Ekambi,2517,32
 /player_summary/karl-toko-ekambi/,0,90,17,14,2018-04-07,32. Round,Karl Toko Ekambi,2607,33
+/player_summary/keita-balde/,74,90,0,0,2017-09-13,Group G,Keita Baldé,16,1
+/player_summary/keita-balde/,59,90,0,0,2017-09-16,6. Round,Keita Baldé,47,2
+/player_summary/keita-balde/,74,90,0,0,2017-09-26,Group G,Keita Baldé,63,3
+/player_summary/keita-balde/,90,90,0,0,2017-09-29,8. Round,Keita Baldé,63,4
+/player_summary/keita-balde/,0,90,0,0,2017-10-13,9. Round,Keita Baldé,153,5
+/player_summary/keita-balde/,0,90,0,0,2017-10-17,Group G,Keita Baldé,243,6
+/player_summary/keita-balde/,0,71,1,1,2017-10-21,10. Round,Keita Baldé,314,7
+/player_summary/keita-balde/,0,82,2,2,2017-10-28,11. Round,Keita Baldé,396,8
+/player_summary/keita-balde/,0,90,2,2,2017-11-01,Group G,Keita Baldé,486,9
+/player_summary/keita-balde/,0,80,3,3,2017-11-04,12. Round,Keita Baldé,566,10
+/player_summary/keita-balde/,0,90,3,3,2017-11-17,13. Round,Keita Baldé,656,11
+/player_summary/keita-balde/,0,59,3,3,2017-11-21,Group G,Keita Baldé,715,12
+/player_summary/keita-balde/,0,79,3,3,2017-11-26,14. Round,Keita Baldé,794,13
+/player_summary/keita-balde/,65,90,3,3,2017-11-29,15. Round,Keita Baldé,819,14
+/player_summary/keita-balde/,0,90,3,3,2017-12-02,16. Round,Keita Baldé,909,15
+/player_summary/keita-balde/,72,90,3,3,2017-12-06,Group G,Keita Baldé,927,16
+/player_summary/keita-balde/,0,65,3,3,2017-12-09,17. Round,Keita Baldé,992,17
+/player_summary/keita-balde/,0,77,4,4,2017-12-15,18. Round,Keita Baldé,1069,18
+/player_summary/keita-balde/,0,84,5,5,2017-12-20,19. Round,Keita Baldé,1153,19
+/player_summary/keita-balde/,59,90,5,5,2018-01-06,/2018,Keita Baldé,1184,20
+/player_summary/keita-balde/,0,89,5,5,2018-01-09,17/2018,Keita Baldé,1273,21
+/player_summary/keita-balde/,0,71,5,5,2018-01-13,20. Round,Keita Baldé,1344,22
+/player_summary/keita-balde/,0,68,5,5,2018-01-16,21. Round,Keita Baldé,1412,23
+/player_summary/keita-balde/,0,90,5,5,2018-01-24,/2018,Keita Baldé,1502,24
+/player_summary/keita-balde/,0,90,6,6,2018-01-28,23. Round,Keita Baldé,1592,25
+/player_summary/keita-balde/,65,90,6,6,2018-01-31,17/2018,Keita Baldé,1617,26
+/player_summary/keita-balde/,0,44,7,7,2018-02-04,24. Round,Keita Baldé,1661,27
+/player_summary/keita-balde/,0,86,8,8,2018-02-16,26. Round,Keita Baldé,1747,28
+/player_summary/keita-balde/,0,42,8,8,2018-02-24,27. Round,Keita Baldé,1789,29
+/player_summary/keita-balde/,64,90,8,8,2018-03-02,28. Round,Keita Baldé,1815,30
+/player_summary/keita-balde/,0,79,8,8,2018-03-09,29. Round,Keita Baldé,1894,31
+/player_summary/keita-balde/,0,46,8,8,2018-03-16,30. Round,Keita Baldé,1940,32
+/player_summary/keita-balde/,0,66,8,8,2018-04-07,32. Round,Keita Baldé,2006,33
 /player_summary/kevin-gameiro/,72,90,0,0,2017-09-09,/2018,Kevin Gameiro,18,1
 /player_summary/kevin-gameiro/,80,90,0,0,2017-09-23,/2018,Kevin Gameiro,28,2
 /player_summary/kevin-gameiro/,0,72,0,0,2017-10-18,Group C,Kevin Gameiro,100,3
@@ -1447,6 +1850,37 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/kevin-gameiro/,0,72,10,9,2018-04-01,/2018,Kevin Gameiro,1311,28
 /player_summary/kevin-gameiro/,53,90,10,9,2018-04-05,rter-finals,Kevin Gameiro,1348,29
 /player_summary/kevin-gameiro/,82,90,10,9,2018-04-08,/2018,Kevin Gameiro,1356,30
+/player_summary/kevin-prince-boateng/,67,90,0,0,2017-08-20,8,Kevin-Prince Boateng,23,1
+/player_summary/kevin-prince-boateng/,0,90,0,0,2017-08-26,8,Kevin-Prince Boateng,113,2
+/player_summary/kevin-prince-boateng/,0,51,1,1,2017-09-09,8,Kevin-Prince Boateng,164,3
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-09-16,8,Kevin-Prince Boateng,254,4
+/player_summary/kevin-prince-boateng/,0,74,1,1,2017-09-20,8,Kevin-Prince Boateng,328,5
+/player_summary/kevin-prince-boateng/,27,90,1,1,2017-09-23,8,Kevin-Prince Boateng,391,6
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-09-30,8,Kevin-Prince Boateng,481,7
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-10-14,8,Kevin-Prince Boateng,571,8
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-10-21,8,Kevin-Prince Boateng,661,9
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-10-24,,Kevin-Prince Boateng,751,10
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-10-27,8,Kevin-Prince Boateng,841,11
+/player_summary/kevin-prince-boateng/,0,90,1,1,2017-11-03,8,Kevin-Prince Boateng,931,12
+/player_summary/kevin-prince-boateng/,0,90,2,2,2017-11-18,8,Kevin-Prince Boateng,1021,13
+/player_summary/kevin-prince-boateng/,0,90,2,2,2017-11-25,8,Kevin-Prince Boateng,1111,14
+/player_summary/kevin-prince-boateng/,0,90,3,3,2017-12-03,8,Kevin-Prince Boateng,1201,15
+/player_summary/kevin-prince-boateng/,0,90,3,3,2017-12-09,8,Kevin-Prince Boateng,1291,16
+/player_summary/kevin-prince-boateng/,62,90,3,3,2017-12-12,8,Kevin-Prince Boateng,1319,17
+/player_summary/kevin-prince-boateng/,0,90,3,3,2017-12-16,8,Kevin-Prince Boateng,1409,18
+/player_summary/kevin-prince-boateng/,0,120,3,3,2017-12-20,,Kevin-Prince Boateng,1529,19
+/player_summary/kevin-prince-boateng/,0,90,3,3,2018-01-13,8,Kevin-Prince Boateng,1619,20
+/player_summary/kevin-prince-boateng/,0,90,3,3,2018-01-20,8,Kevin-Prince Boateng,1709,21
+/player_summary/kevin-prince-boateng/,0,90,4,4,2018-01-26,8,Kevin-Prince Boateng,1799,22
+/player_summary/kevin-prince-boateng/,0,67,4,4,2018-02-04,8,Kevin-Prince Boateng,1866,23
+/player_summary/kevin-prince-boateng/,0,90,4,4,2018-02-07,,Kevin-Prince Boateng,1956,24
+/player_summary/kevin-prince-boateng/,0,71,4,4,2018-02-10,8,Kevin-Prince Boateng,2027,25
+/player_summary/kevin-prince-boateng/,0,68,5,5,2018-02-19,8,Kevin-Prince Boateng,2095,26
+/player_summary/kevin-prince-boateng/,83,90,5,5,2018-03-03,8,Kevin-Prince Boateng,2102,27
+/player_summary/kevin-prince-boateng/,0,90,5,5,2018-03-11,8,Kevin-Prince Boateng,2192,28
+/player_summary/kevin-prince-boateng/,0,75,6,6,2018-03-17,8,Kevin-Prince Boateng,2267,29
+/player_summary/kevin-prince-boateng/,0,90,6,6,2018-04-01,8,Kevin-Prince Boateng,2357,30
+/player_summary/kevin-prince-boateng/,0,61,6,6,2018-04-08,8,Kevin-Prince Boateng,2418,31
 /player_summary/kevin-volland/,0,106,0,0,2017-08-11,,Kevin Volland,106,1
 /player_summary/kevin-volland/,0,90,0,0,2017-08-18,8,Kevin Volland,196,2
 /player_summary/kevin-volland/,0,77,0,0,2017-08-26,8,Kevin Volland,273,3
@@ -1476,6 +1910,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/kevin-volland/,0,90,10,10,2018-03-03,8,Kevin Volland,2285,27
 /player_summary/kevin-volland/,0,90,10,10,2018-03-10,8,Kevin Volland,2375,28
 /player_summary/kevin-volland/,0,90,10,10,2018-03-31,8,Kevin Volland,2465,29
+/player_summary/kevin-volland/,0,90,11,11,2018-04-09,8,Kevin Volland,2555,30
 /player_summary/kun-agueero/,0,83,1,1,2017-08-12, Round,Kun Agüero,83,1
 /player_summary/kun-agueero/,0,90,1,1,2017-08-21, Round,Kun Agüero,173,2
 /player_summary/kun-agueero/,66,90,1,1,2017-08-26, Round,Kun Agüero,197,3
@@ -1514,6 +1949,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/kun-agueero/,0,82,30,25,2018-03-01,. Round,Kun Agüero,2810,36
 /player_summary/kun-agueero/,0,85,30,25,2018-03-04,. Round,Kun Agüero,2895,37
 /player_summary/kun-agueero/,76,90,30,25,2018-04-07,. Round,Kun Agüero,2909,38
+/player_summary/kun-agueero/,66,90,30,25,2018-04-10,Quarter-finals,Kun Agüero,2933,39
 /player_summary/kylian-mbappe/,0,71,0,0,2017-07-29,s 2017,Kylian Mbappé,71,1
 /player_summary/kylian-mbappe/,0,75,0,0,2017-08-04,1. Round,Kylian Mbappé,146,2
 /player_summary/kylian-mbappe/,0,90,1,1,2017-09-08,5. Round,Kylian Mbappé,236,3
@@ -1554,6 +1990,38 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/kylian-mbappe/,0,90,19,19,2018-03-18,30. Round,Kylian Mbappé,2934,38
 /player_summary/kylian-mbappe/,0,90,19,19,2018-03-31,17/2018,Kylian Mbappé,3024,39
 /player_summary/kylian-mbappe/,0,90,19,19,2018-04-06,32. Round,Kylian Mbappé,3114,40
+/player_summary/lars-stindl/,0,90,0,0,2017-08-11,,Lars Stindl,90,1
+/player_summary/lars-stindl/,0,90,0,0,2017-08-20,8,Lars Stindl,180,2
+/player_summary/lars-stindl/,0,90,0,0,2017-08-26,8,Lars Stindl,270,3
+/player_summary/lars-stindl/,0,90,0,0,2017-09-09,8,Lars Stindl,360,4
+/player_summary/lars-stindl/,0,90,1,1,2017-09-16,8,Lars Stindl,450,5
+/player_summary/lars-stindl/,0,90,1,1,2017-09-19,8,Lars Stindl,540,6
+/player_summary/lars-stindl/,0,90,2,2,2017-09-23,8,Lars Stindl,630,7
+/player_summary/lars-stindl/,0,90,2,2,2017-09-30,8,Lars Stindl,720,8
+/player_summary/lars-stindl/,0,90,3,3,2017-10-15,8,Lars Stindl,810,9
+/player_summary/lars-stindl/,0,84,3,3,2017-10-21,8,Lars Stindl,894,10
+/player_summary/lars-stindl/,0,90,3,3,2017-10-24,,Lars Stindl,984,11
+/player_summary/lars-stindl/,0,89,3,3,2017-10-28,8,Lars Stindl,1073,12
+/player_summary/lars-stindl/,0,90,3,3,2017-11-04,8,Lars Stindl,1163,13
+/player_summary/lars-stindl/,0,90,4,4,2017-11-18,8,Lars Stindl,1253,14
+/player_summary/lars-stindl/,0,90,4,4,2017-11-25,8,Lars Stindl,1343,15
+/player_summary/lars-stindl/,0,90,4,4,2017-12-03,8,Lars Stindl,1433,16
+/player_summary/lars-stindl/,0,90,4,4,2017-12-09,8,Lars Stindl,1523,17
+/player_summary/lars-stindl/,0,90,4,4,2017-12-12,8,Lars Stindl,1613,18
+/player_summary/lars-stindl/,0,90,4,4,2017-12-15,8,Lars Stindl,1703,19
+/player_summary/lars-stindl/,0,90,4,4,2017-12-20,,Lars Stindl,1793,20
+/player_summary/lars-stindl/,0,90,4,4,2018-01-14,8,Lars Stindl,1883,21
+/player_summary/lars-stindl/,0,90,4,4,2018-01-20,8,Lars Stindl,1973,22
+/player_summary/lars-stindl/,0,90,4,4,2018-01-26,8,Lars Stindl,2063,23
+/player_summary/lars-stindl/,0,90,4,4,2018-02-03,8,Lars Stindl,2153,24
+/player_summary/lars-stindl/,0,90,4,4,2018-02-11,8,Lars Stindl,2243,25
+/player_summary/lars-stindl/,0,90,4,4,2018-02-18,8,Lars Stindl,2333,26
+/player_summary/lars-stindl/,0,90,4,4,2018-02-24,8,Lars Stindl,2423,27
+/player_summary/lars-stindl/,0,90,4,4,2018-03-02,8,Lars Stindl,2513,28
+/player_summary/lars-stindl/,0,90,4,4,2018-03-10,8,Lars Stindl,2603,29
+/player_summary/lars-stindl/,0,90,5,5,2018-03-17,8,Lars Stindl,2693,30
+/player_summary/lars-stindl/,0,90,5,5,2018-04-01,8,Lars Stindl,2783,31
+/player_summary/lars-stindl/,0,90,5,5,2018-04-07,8,Lars Stindl,2873,32
 /player_summary/lionel-messi/,0,90,1,0,2017-08-13,l,Lionel Messi,90,1
 /player_summary/lionel-messi/,0,90,1,0,2017-08-16,l,Lionel Messi,180,2
 /player_summary/lionel-messi/,0,90,1,0,2017-08-20,/2018,Lionel Messi,270,3
@@ -1600,6 +2068,36 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/lionel-messi/,58,90,36,33,2018-03-31,/2018,Lionel Messi,3695,44
 /player_summary/lionel-messi/,0,90,36,33,2018-04-04,Quarter-finals,Lionel Messi,3785,45
 /player_summary/lionel-messi/,0,90,39,36,2018-04-07,/2018,Lionel Messi,3875,46
+/player_summary/lionel-messi/,0,90,39,36,2018-04-10,Quarter-finals,Lionel Messi,3965,47
+/player_summary/llorente/,87,90,0,0,2017-09-13,Group H,Llorente,3,1
+/player_summary/llorente/,74,90,0,0,2017-09-16, Round,Llorente,19,2
+/player_summary/llorente/,0,67,0,0,2017-09-19,nd,Llorente,86,3
+/player_summary/llorente/,89,90,0,0,2017-09-23, Round,Llorente,87,4
+/player_summary/llorente/,57,90,0,0,2017-09-26,Group H,Llorente,120,5
+/player_summary/llorente/,85,90,0,0,2017-10-14, Round,Llorente,125,6
+/player_summary/llorente/,0,80,0,0,2017-10-17,Group H,Llorente,205,7
+/player_summary/llorente/,88,90,0,0,2017-10-22, Round,Llorente,207,8
+/player_summary/llorente/,0,72,0,0,2017-10-25,of 16,Llorente,279,9
+/player_summary/llorente/,62,90,0,0,2017-10-28,. Round,Llorente,307,10
+/player_summary/llorente/,79,90,0,0,2017-11-01,Group H,Llorente,318,11
+/player_summary/llorente/,77,90,0,0,2017-11-05,. Round,Llorente,331,12
+/player_summary/llorente/,75,90,0,0,2017-11-18,. Round,Llorente,346,13
+/player_summary/llorente/,86,90,0,0,2017-11-21,Group H,Llorente,350,14
+/player_summary/llorente/,60,90,0,0,2017-11-25,. Round,Llorente,380,15
+/player_summary/llorente/,69,90,0,0,2017-11-28,. Round,Llorente,401,16
+/player_summary/llorente/,0,90,1,1,2017-12-06,Group H,Llorente,491,17
+/player_summary/llorente/,86,90,1,1,2017-12-09,. Round,Llorente,495,18
+/player_summary/llorente/,87,90,1,1,2017-12-23,. Round,Llorente,498,19
+/player_summary/llorente/,0,68,2,2,2018-01-02,. Round,Llorente,566,20
+/player_summary/llorente/,82,90,2,2,2018-01-04,. Round,Llorente,574,21
+/player_summary/llorente/,0,59,2,2,2018-01-07, Tottenham Hotspur - AFC Wimbledon 3:0,Llorente,633,22
+/player_summary/llorente/,0,66,2,2,2018-01-27, Newport County - Tottenham Hotspur 1:1,Llorente,699,23
+/player_summary/llorente/,90,90,2,2,2018-02-04,. Round,Llorente,699,24
+/player_summary/llorente/,0,90,2,2,2018-02-07, Tottenham Hotspur - Newport County 2:0,Llorente,789,25
+/player_summary/llorente/,0,76,2,2,2018-02-18,6,Llorente,865,26
+/player_summary/llorente/,0,90,5,5,2018-02-28,6,Llorente,955,27
+/player_summary/llorente/,86,90,5,5,2018-03-07,Round of 16,Llorente,959,28
+/player_summary/llorente/,73,90,5,5,2018-03-17,nals,Llorente,976,29
 /player_summary/lorenzo-insigne/,0,90,0,0,2017-08-16,018,Lorenzo Insigne,90,1
 /player_summary/lorenzo-insigne/,0,90,0,0,2017-08-19,. Round,Lorenzo Insigne,180,2
 /player_summary/lorenzo-insigne/,0,90,1,1,2017-08-22,018,Lorenzo Insigne,270,3
@@ -1641,6 +2139,46 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/lorenzo-insigne/,0,90,13,12,2018-03-18,9. Round,Lorenzo Insigne,3071,39
 /player_summary/lorenzo-insigne/,0,90,13,12,2018-03-31,0. Round,Lorenzo Insigne,3161,40
 /player_summary/lorenzo-insigne/,0,90,13,12,2018-04-08,1. Round,Lorenzo Insigne,3251,41
+/player_summary/luis-muriel/,0,90,0,0,2017-08-19,/2018,Luis Muriel,90,1
+/player_summary/luis-muriel/,64,90,0,0,2017-08-27,/2018,Luis Muriel,116,2
+/player_summary/luis-muriel/,69,90,0,0,2017-09-13,Group E,Luis Muriel,137,3
+/player_summary/luis-muriel/,0,90,1,1,2017-09-17,/2018,Luis Muriel,227,4
+/player_summary/luis-muriel/,0,68,1,1,2017-09-23,/2018,Luis Muriel,295,5
+/player_summary/luis-muriel/,0,90,2,2,2017-09-30,/2018,Luis Muriel,385,6
+/player_summary/luis-muriel/,77,90,2,2,2017-10-14,/2018,Luis Muriel,398,7
+/player_summary/luis-muriel/,82,90,2,2,2017-10-17,Group E,Luis Muriel,406,8
+/player_summary/luis-muriel/,0,90,2,2,2017-10-21,/2018,Luis Muriel,496,9
+/player_summary/luis-muriel/,46,90,3,3,2017-10-24,8,Luis Muriel,540,10
+/player_summary/luis-muriel/,0,76,3,3,2017-11-04,/2018,Luis Muriel,616,11
+/player_summary/luis-muriel/,0,90,4,4,2017-11-18,/2018,Luis Muriel,706,12
+/player_summary/luis-muriel/,73,90,4,4,2017-11-21,Group E,Luis Muriel,723,13
+/player_summary/luis-muriel/,0,90,4,4,2017-11-26,/2018,Luis Muriel,813,14
+/player_summary/luis-muriel/,61,90,4,4,2017-11-29,8,Luis Muriel,842,15
+/player_summary/luis-muriel/,76,90,4,4,2017-12-06,Group E,Luis Muriel,856,16
+/player_summary/luis-muriel/,0,90,4,4,2017-12-09,/2018,Luis Muriel,946,17
+/player_summary/luis-muriel/,80,90,4,4,2017-12-15,/2018,Luis Muriel,956,18
+/player_summary/luis-muriel/,82,90,4,4,2017-12-20,/2018,Luis Muriel,964,19
+/player_summary/luis-muriel/,0,66,4,4,2018-01-03,8,Luis Muriel,1030,20
+/player_summary/luis-muriel/,69,90,4,4,2018-01-06,/2018,Luis Muriel,1051,21
+/player_summary/luis-muriel/,78,90,4,4,2018-01-11,8,Luis Muriel,1063,22
+/player_summary/luis-muriel/,73,90,4,4,2018-01-14,/2018,Luis Muriel,1080,23
+/player_summary/luis-muriel/,0,84,4,4,2018-01-17,8,Luis Muriel,1164,24
+/player_summary/luis-muriel/,0,90,5,5,2018-01-20,/2018,Luis Muriel,1254,25
+/player_summary/luis-muriel/,0,72,5,5,2018-01-23,8,Luis Muriel,1326,26
+/player_summary/luis-muriel/,56,90,6,6,2018-01-28,/2018,Luis Muriel,1360,27
+/player_summary/luis-muriel/,0,76,7,7,2018-01-31,8,Luis Muriel,1436,28
+/player_summary/luis-muriel/,66,90,7,7,2018-02-03,/2018,Luis Muriel,1460,29
+/player_summary/luis-muriel/,0,79,7,7,2018-02-07,8,Luis Muriel,1539,30
+/player_summary/luis-muriel/,0,64,7,7,2018-02-11,/2018,Luis Muriel,1603,31
+/player_summary/luis-muriel/,0,85,7,7,2018-02-21,Round of 16,Luis Muriel,1688,32
+/player_summary/luis-muriel/,0,90,7,7,2018-02-25,/2018,Luis Muriel,1778,33
+/player_summary/luis-muriel/,0,68,8,8,2018-03-03,/2018,Luis Muriel,1846,34
+/player_summary/luis-muriel/,0,81,8,8,2018-03-10,/2018,Luis Muriel,1927,35
+/player_summary/luis-muriel/,0,72,8,8,2018-03-13,Round of 16,Luis Muriel,1999,36
+/player_summary/luis-muriel/,72,90,8,8,2018-03-18,/2018,Luis Muriel,2017,37
+/player_summary/luis-muriel/,0,90,9,9,2018-03-31,/2018,Luis Muriel,2107,38
+/player_summary/luis-muriel/,80,90,9,9,2018-04-03,Quarter-finals,Luis Muriel,2117,39
+/player_summary/luis-muriel/,65,90,9,9,2018-04-11,Quarter-finals,Luis Muriel,2142,40
 /player_summary/luis-suarez_5/,0,90,0,0,2017-08-13,l,Luis Suárez,90,1
 /player_summary/luis-suarez_5/,0,90,0,0,2017-08-16,l,Luis Suárez,180,2
 /player_summary/luis-suarez_5/,0,90,1,1,2017-09-09,/2018,Luis Suárez,270,3
@@ -1684,38 +2222,49 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/luis-suarez_5/,0,90,25,25,2018-03-31,/2018,Luis Suárez,3606,41
 /player_summary/luis-suarez_5/,0,90,26,26,2018-04-04,Quarter-finals,Luis Suárez,3696,42
 /player_summary/luis-suarez_5/,0,90,26,26,2018-04-07,/2018,Luis Suárez,3786,43
-/player_summary/luka-milivojevic/,0,46,0,0,2017-08-12, Round,Luka Milivojević,46,1
-/player_summary/luka-milivojevic/,0,77,0,0,2017-08-19, Round,Luka Milivojević,123,2
-/player_summary/luka-milivojevic/,0,58,0,0,2017-08-26, Round,Luka Milivojević,181,3
-/player_summary/luka-milivojevic/,69,90,0,0,2017-09-16, Round,Luka Milivojević,202,4
-/player_summary/luka-milivojevic/,0,90,0,0,2017-09-19,nd,Luka Milivojević,292,5
-/player_summary/luka-milivojevic/,0,90,0,0,2017-09-23, Round,Luka Milivojević,382,6
-/player_summary/luka-milivojevic/,0,90,0,0,2017-09-30, Round,Luka Milivojević,472,7
-/player_summary/luka-milivojevic/,0,90,0,0,2017-10-14, Round,Luka Milivojević,562,8
-/player_summary/luka-milivojevic/,0,90,0,0,2017-10-21, Round,Luka Milivojević,652,9
-/player_summary/luka-milivojevic/,0,90,1,0,2017-10-28,. Round,Luka Milivojević,742,10
-/player_summary/luka-milivojevic/,0,90,1,0,2017-11-05,. Round,Luka Milivojević,832,11
-/player_summary/luka-milivojevic/,0,90,1,0,2017-11-18,. Round,Luka Milivojević,922,12
-/player_summary/luka-milivojevic/,0,90,1,0,2017-11-25,. Round,Luka Milivojević,1012,13
-/player_summary/luka-milivojevic/,0,90,1,0,2017-11-28,. Round,Luka Milivojević,1102,14
-/player_summary/luka-milivojevic/,0,90,1,0,2017-12-02,. Round,Luka Milivojević,1192,15
-/player_summary/luka-milivojevic/,0,90,2,0,2017-12-09,. Round,Luka Milivojević,1282,16
-/player_summary/luka-milivojevic/,0,90,2,0,2017-12-12,. Round,Luka Milivojević,1372,17
-/player_summary/luka-milivojevic/,0,90,3,0,2017-12-23,. Round,Luka Milivojević,1462,18
-/player_summary/luka-milivojevic/,0,90,3,0,2017-12-28,. Round,Luka Milivojević,1552,19
-/player_summary/luka-milivojevic/,0,90,3,0,2017-12-31,. Round,Luka Milivojević,1642,20
-/player_summary/luka-milivojevic/,0,90,4,1,2018-01-02,. Round,Luka Milivojević,1732,21
-/player_summary/luka-milivojevic/,0,90,4,1,2018-01-13,. Round,Luka Milivojević,1822,22
-/player_summary/luka-milivojevic/,0,90,5,2,2018-01-20,. Round,Luka Milivojević,1912,23
-/player_summary/luka-milivojevic/,0,90,5,2,2018-01-30,. Round,Luka Milivojević,2002,24
-/player_summary/luka-milivojevic/,0,90,6,2,2018-02-04,. Round,Luka Milivojević,2092,25
-/player_summary/luka-milivojevic/,0,90,7,2,2018-02-10,. Round,Luka Milivojević,2182,26
-/player_summary/luka-milivojevic/,0,90,7,2,2018-02-25,. Round,Luka Milivojević,2272,27
-/player_summary/luka-milivojevic/,0,90,7,2,2018-03-05,. Round,Luka Milivojević,2362,28
-/player_summary/luka-milivojevic/,0,90,7,2,2018-03-10,. Round,Luka Milivojević,2452,29
-/player_summary/luka-milivojevic/,0,90,8,2,2018-03-17,. Round,Luka Milivojević,2542,30
-/player_summary/luka-milivojevic/,0,90,9,2,2018-03-31,. Round,Luka Milivojević,2632,31
-/player_summary/luka-milivojevic/,0,90,10,3,2018-04-07,. Round,Luka Milivojević,2722,32
+/player_summary/luis-suarez_5/,0,90,26,26,2018-04-10,Quarter-finals,Luis Suárez,3876,44
+/player_summary/marek-hamsik/,0,59,0,0,2017-08-16,018,Marek Hamšík,59,1
+/player_summary/marek-hamsik/,0,66,0,0,2017-08-19,. Round,Marek Hamšík,125,2
+/player_summary/marek-hamsik/,0,63,0,0,2017-08-22,018,Marek Hamšík,188,3
+/player_summary/marek-hamsik/,0,58,0,0,2017-08-27,. Round,Marek Hamšík,246,4
+/player_summary/marek-hamsik/,0,62,0,0,2017-09-10,. Round,Marek Hamšík,308,5
+/player_summary/marek-hamsik/,0,60,0,0,2017-09-13,Group F,Marek Hamšík,368,6
+/player_summary/marek-hamsik/,0,90,0,0,2017-09-17,. Round,Marek Hamšík,458,7
+/player_summary/marek-hamsik/,0,73,0,0,2017-09-20,. Round,Marek Hamšík,531,8
+/player_summary/marek-hamsik/,0,61,0,0,2017-09-23,. Round,Marek Hamšík,592,9
+/player_summary/marek-hamsik/,0,70,0,0,2017-09-26,Group F,Marek Hamšík,662,10
+/player_summary/marek-hamsik/,0,90,1,1,2017-10-01,. Round,Marek Hamšík,752,11
+/player_summary/marek-hamsik/,0,71,1,1,2017-10-14,. Round,Marek Hamšík,823,12
+/player_summary/marek-hamsik/,0,78,1,1,2017-10-17,Group F,Marek Hamšík,901,13
+/player_summary/marek-hamsik/,0,72,1,1,2017-10-21,. Round,Marek Hamšík,973,14
+/player_summary/marek-hamsik/,0,81,1,1,2017-10-25,0. Round,Marek Hamšík,1054,15
+/player_summary/marek-hamsik/,0,67,1,1,2017-10-29,1. Round,Marek Hamšík,1121,16
+/player_summary/marek-hamsik/,0,90,1,1,2017-11-01,Group F,Marek Hamšík,1211,17
+/player_summary/marek-hamsik/,0,90,1,1,2017-11-05,2. Round,Marek Hamšík,1301,18
+/player_summary/marek-hamsik/,0,69,1,1,2017-11-18,3. Round,Marek Hamšík,1370,19
+/player_summary/marek-hamsik/,0,77,1,1,2017-11-21,Group F,Marek Hamšík,1447,20
+/player_summary/marek-hamsik/,0,83,1,1,2017-11-26,4. Round,Marek Hamšík,1530,21
+/player_summary/marek-hamsik/,0,90,1,1,2017-12-01,5. Round,Marek Hamšík,1620,22
+/player_summary/marek-hamsik/,0,90,1,1,2017-12-06,Group F,Marek Hamšík,1710,23
+/player_summary/marek-hamsik/,0,90,1,1,2017-12-10,6. Round,Marek Hamšík,1800,24
+/player_summary/marek-hamsik/,0,83,2,2,2017-12-16,7. Round,Marek Hamšík,1883,25
+/player_summary/marek-hamsik/,0,70,3,3,2017-12-23,8. Round,Marek Hamšík,1953,26
+/player_summary/marek-hamsik/,0,90,4,4,2017-12-29,9. Round,Marek Hamšík,2043,27
+/player_summary/marek-hamsik/,0,56,4,4,2018-01-02,8,Marek Hamšík,2099,28
+/player_summary/marek-hamsik/,0,76,4,4,2018-01-06,0. Round,Marek Hamšík,2175,29
+/player_summary/marek-hamsik/,74,90,4,4,2018-01-21,1. Round,Marek Hamšík,2191,30
+/player_summary/marek-hamsik/,0,66,4,4,2018-01-28,2. Round,Marek Hamšík,2257,31
+/player_summary/marek-hamsik/,0,70,5,5,2018-02-04,3. Round,Marek Hamšík,2327,32
+/player_summary/marek-hamsik/,0,46,5,5,2018-02-10,4. Round,Marek Hamšík,2373,33
+/player_summary/marek-hamsik/,0,53,5,5,2018-02-15,nd of 32,Marek Hamšík,2426,34
+/player_summary/marek-hamsik/,0,71,5,5,2018-02-18,5. Round,Marek Hamšík,2497,35
+/player_summary/marek-hamsik/,0,65,5,5,2018-02-22,nd of 32,Marek Hamšík,2562,36
+/player_summary/marek-hamsik/,0,90,6,6,2018-02-26,6. Round,Marek Hamšík,2652,37
+/player_summary/marek-hamsik/,65,90,6,6,2018-03-03,7. Round,Marek Hamšík,2677,38
+/player_summary/marek-hamsik/,0,70,6,6,2018-03-11,8. Round,Marek Hamšík,2747,39
+/player_summary/marek-hamsik/,0,20,6,6,2018-03-18,9. Round,Marek Hamšík,2767,40
+/player_summary/marek-hamsik/,75,90,6,6,2018-03-31,0. Round,Marek Hamšík,2782,41
+/player_summary/marek-hamsik/,0,64,6,6,2018-04-08,1. Round,Marek Hamšík,2846,42
 /player_summary/mariano_7/,0,76,2,2,2017-08-05,1. Round,Mariano,76,1
 /player_summary/mariano_7/,0,90,3,3,2017-08-11,2. Round,Mariano,166,2
 /player_summary/mariano_7/,0,44,3,3,2017-08-19,3. Round,Mariano,210,3
@@ -1790,6 +2339,33 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/mario-balotelli/,0,90,22,16,2018-03-18,30. Round,Mario Balotelli,2473,31
 /player_summary/mario-balotelli/,0,84,22,16,2018-04-01,31. Round,Mario Balotelli,2557,32
 /player_summary/mario-balotelli/,0,81,22,16,2018-04-08,32. Round,Mario Balotelli,2638,33
+/player_summary/mario-gomez/,0,90,0,0,2017-08-13,,Mario Gomez,90,1
+/player_summary/mario-gomez/,0,90,0,0,2017-08-19,8,Mario Gomez,180,2
+/player_summary/mario-gomez/,0,90,0,0,2017-08-26,8,Mario Gomez,270,3
+/player_summary/mario-gomez/,0,41,0,0,2017-09-09,8,Mario Gomez,311,4
+/player_summary/mario-gomez/,70,90,0,0,2017-10-22,8,Mario Gomez,331,5
+/player_summary/mario-gomez/,90,90,0,0,2017-10-25,,Mario Gomez,331,6
+/player_summary/mario-gomez/,0,90,0,0,2017-10-28,8,Mario Gomez,421,7
+/player_summary/mario-gomez/,0,90,1,1,2017-11-05,8,Mario Gomez,511,8
+/player_summary/mario-gomez/,0,90,1,1,2017-11-18,8,Mario Gomez,601,9
+/player_summary/mario-gomez/,0,90,1,1,2017-11-25,8,Mario Gomez,691,10
+/player_summary/mario-gomez/,0,90,1,1,2017-12-03,8,Mario Gomez,781,11
+/player_summary/mario-gomez/,0,90,1,1,2017-12-09,8,Mario Gomez,871,12
+/player_summary/mario-gomez/,0,66,1,1,2017-12-12,8,Mario Gomez,937,13
+/player_summary/mario-gomez/,0,90,1,1,2017-12-16,8,Mario Gomez,1027,14
+/player_summary/mario-gomez/,0,75,1,1,2017-12-19,,Mario Gomez,1102,15
+/player_summary/mario-gomez/,0,90,1,1,2018-01-13,8,Mario Gomez,1192,16
+/player_summary/mario-gomez/,0,51,1,1,2018-01-20,8,Mario Gomez,1243,17
+/player_summary/mario-gomez/,0,90,1,1,2018-01-27,8,Mario Gomez,1333,18
+/player_summary/mario-gomez/,0,90,2,2,2018-02-03,8,Mario Gomez,1423,19
+/player_summary/mario-gomez/,0,90,2,2,2018-02-11,8,Mario Gomez,1513,20
+/player_summary/mario-gomez/,0,90,3,3,2018-02-18,8,Mario Gomez,1603,21
+/player_summary/mario-gomez/,0,90,3,3,2018-02-24,8,Mario Gomez,1693,22
+/player_summary/mario-gomez/,0,90,5,5,2018-03-04,8,Mario Gomez,1783,23
+/player_summary/mario-gomez/,0,90,5,5,2018-03-11,8,Mario Gomez,1873,24
+/player_summary/mario-gomez/,0,90,7,7,2018-03-16,8,Mario Gomez,1963,25
+/player_summary/mario-gomez/,0,90,7,7,2018-03-31,8,Mario Gomez,2053,26
+/player_summary/mario-gomez/,0,90,7,7,2018-04-08,8,Mario Gomez,2143,27
 /player_summary/mark-uth/,76,90,0,0,2017-08-12,,Mark Uth,14,1
 /player_summary/mark-uth/,70,90,1,1,2017-08-15,018,Mark Uth,34,2
 /player_summary/mark-uth/,0,67,1,1,2017-08-19,8,Mark Uth,101,3
@@ -1824,6 +2400,30 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/mark-uth/,54,90,13,13,2018-03-17,8,Mark Uth,2058,32
 /player_summary/mark-uth/,0,90,15,15,2018-03-31,8,Mark Uth,2148,33
 /player_summary/mark-uth/,0,90,15,15,2018-04-08,8,Mark Uth,2238,34
+/player_summary/mattia-destro/,0,46,0,0,2017-08-12,8,Mattia Destro,46,1
+/player_summary/mattia-destro/,0,90,0,0,2017-08-20,. Round,Mattia Destro,136,2
+/player_summary/mattia-destro/,0,90,0,0,2017-08-26,. Round,Mattia Destro,226,3
+/player_summary/mattia-destro/,0,73,0,0,2017-09-10,. Round,Mattia Destro,299,4
+/player_summary/mattia-destro/,60,90,0,0,2017-09-30,. Round,Mattia Destro,329,5
+/player_summary/mattia-destro/,72,90,0,0,2017-10-22,. Round,Mattia Destro,347,6
+/player_summary/mattia-destro/,0,90,0,0,2017-10-25,0. Round,Mattia Destro,437,7
+/player_summary/mattia-destro/,85,90,0,0,2017-10-28,1. Round,Mattia Destro,442,8
+/player_summary/mattia-destro/,73,90,0,0,2017-11-04,2. Round,Mattia Destro,459,9
+/player_summary/mattia-destro/,0,57,1,1,2017-11-20,3. Round,Mattia Destro,516,10
+/player_summary/mattia-destro/,0,46,1,1,2017-11-25,4. Round,Mattia Destro,562,11
+/player_summary/mattia-destro/,0,90,2,2,2017-12-03,5. Round,Mattia Destro,652,12
+/player_summary/mattia-destro/,0,90,2,2,2017-12-10,6. Round,Mattia Destro,742,13
+/player_summary/mattia-destro/,0,53,2,2,2017-12-17,7. Round,Mattia Destro,795,14
+/player_summary/mattia-destro/,0,90,4,4,2017-12-22,8. Round,Mattia Destro,885,15
+/player_summary/mattia-destro/,0,90,4,4,2017-12-30,9. Round,Mattia Destro,975,16
+/player_summary/mattia-destro/,0,90,4,4,2018-01-06,0. Round,Mattia Destro,1065,17
+/player_summary/mattia-destro/,0,70,5,5,2018-01-21,1. Round,Mattia Destro,1135,18
+/player_summary/mattia-destro/,73,90,5,5,2018-01-28,2. Round,Mattia Destro,1152,19
+/player_summary/mattia-destro/,0,68,5,5,2018-02-04,3. Round,Mattia Destro,1220,20
+/player_summary/mattia-destro/,0,90,5,5,2018-02-18,5. Round,Mattia Destro,1310,21
+/player_summary/mattia-destro/,0,90,6,6,2018-02-24,6. Round,Mattia Destro,1400,22
+/player_summary/mattia-destro/,0,90,6,6,2018-03-03,7. Round,Mattia Destro,1490,23
+/player_summary/mattia-destro/,74,90,6,6,2018-03-11,8. Round,Mattia Destro,1506,24
 /player_summary/mauro-icardi/,0,84,2,1,2017-08-20,. Round,Mauro Icardi,84,1
 /player_summary/mauro-icardi/,0,90,4,3,2017-08-26,. Round,Mauro Icardi,174,2
 /player_summary/mauro-icardi/,0,90,5,3,2017-09-10,. Round,Mauro Icardi,264,3
@@ -1853,6 +2453,34 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/mauro-icardi/,0,65,24,19,2018-03-31,0. Round,Mauro Icardi,2325,27
 /player_summary/mauro-icardi/,0,90,24,19,2018-04-04,7. Round,Mauro Icardi,2415,28
 /player_summary/mauro-icardi/,0,90,24,19,2018-04-08,1. Round,Mauro Icardi,2505,29
+/player_summary/max-kruse/,0,90,1,1,2017-08-12,,Max Kruse,90,1
+/player_summary/max-kruse/,0,90,1,1,2017-08-19,8,Max Kruse,180,2
+/player_summary/max-kruse/,0,90,1,1,2017-08-26,8,Max Kruse,270,3
+/player_summary/max-kruse/,0,90,1,1,2017-09-10,8,Max Kruse,360,4
+/player_summary/max-kruse/,0,19,1,1,2017-09-16,8,Max Kruse,379,5
+/player_summary/max-kruse/,82,90,1,1,2017-10-22,8,Max Kruse,387,6
+/player_summary/max-kruse/,60,90,1,1,2017-10-25,,Max Kruse,417,7
+/player_summary/max-kruse/,0,90,1,1,2017-10-29,8,Max Kruse,507,8
+/player_summary/max-kruse/,0,90,1,1,2017-11-03,8,Max Kruse,597,9
+/player_summary/max-kruse/,0,88,4,4,2017-11-19,8,Max Kruse,685,10
+/player_summary/max-kruse/,0,90,4,4,2017-11-25,8,Max Kruse,775,11
+/player_summary/max-kruse/,0,90,5,5,2017-12-02,8,Max Kruse,865,12
+/player_summary/max-kruse/,0,90,5,5,2017-12-09,8,Max Kruse,955,13
+/player_summary/max-kruse/,0,90,5,5,2017-12-13,8,Max Kruse,1045,14
+/player_summary/max-kruse/,75,90,5,5,2017-12-20,,Max Kruse,1060,15
+/player_summary/max-kruse/,0,90,5,5,2018-01-13,8,Max Kruse,1150,16
+/player_summary/max-kruse/,0,90,5,5,2018-01-21,8,Max Kruse,1240,17
+/player_summary/max-kruse/,0,90,5,5,2018-01-27,8,Max Kruse,1330,18
+/player_summary/max-kruse/,0,90,6,6,2018-02-03,8,Max Kruse,1420,19
+/player_summary/max-kruse/,0,120,7,6,2018-02-06,,Max Kruse,1540,20
+/player_summary/max-kruse/,0,90,7,6,2018-02-11,8,Max Kruse,1630,21
+/player_summary/max-kruse/,0,90,7,6,2018-02-17,8,Max Kruse,1720,22
+/player_summary/max-kruse/,0,90,7,6,2018-02-24,8,Max Kruse,1810,23
+/player_summary/max-kruse/,0,90,7,6,2018-03-02,8,Max Kruse,1900,24
+/player_summary/max-kruse/,0,90,7,6,2018-03-12,8,Max Kruse,1990,25
+/player_summary/max-kruse/,0,90,8,7,2018-03-17,8,Max Kruse,2080,26
+/player_summary/max-kruse/,0,90,8,7,2018-04-01,8,Max Kruse,2170,27
+/player_summary/max-kruse/,0,90,8,7,2018-04-06,8,Max Kruse,2260,28
 /player_summary/maximiliano-gomez_2/,0,66,2,2,2017-08-19,/2018,Maximiliano Gómez,66,1
 /player_summary/maximiliano-gomez_2/,0,90,2,2,2017-08-25,/2018,Maximiliano Gómez,156,2
 /player_summary/maximiliano-gomez_2/,0,90,3,3,2017-09-10,/2018,Maximiliano Gómez,246,3
@@ -2002,6 +2630,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/mohamed-salah_2/,0,90,36,35,2018-03-17,. Round,Mohamed Salah,3257,41
 /player_summary/mohamed-salah_2/,0,90,37,36,2018-03-31,. Round,Mohamed Salah,3347,42
 /player_summary/mohamed-salah_2/,0,52,38,37,2018-04-04,Quarter-finals,Mohamed Salah,3399,43
+/player_summary/mohamed-salah_2/,0,89,39,38,2018-04-10,Quarter-finals,Mohamed Salah,3488,44
 /player_summary/morata/,74,120,0,0,2017-08-06,nal,Morata,46,1
 /player_summary/morata/,59,90,1,1,2017-08-12, Round,Morata,77,2
 /player_summary/morata/,0,79,1,1,2017-08-20, Round,Morata,156,3
@@ -2173,6 +2802,40 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/niclas-fuellkrug/,0,73,12,9,2018-03-18,8,Niclas Füllkrug,1923,29
 /player_summary/niclas-fuellkrug/,63,90,13,10,2018-03-31,8,Niclas Füllkrug,1950,30
 /player_summary/niclas-fuellkrug/,0,90,13,10,2018-04-06,8,Niclas Füllkrug,2040,31
+/player_summary/nikola-kalinic/,78,90,0,0,2017-08-27,. Round,Nikola Kalinić,12,1
+/player_summary/nikola-kalinic/,56,90,0,0,2017-09-10,. Round,Nikola Kalinić,46,2
+/player_summary/nikola-kalinic/,0,62,0,0,2017-09-14,up D,Nikola Kalinić,108,3
+/player_summary/nikola-kalinic/,0,85,2,2,2017-09-17,. Round,Nikola Kalinić,193,4
+/player_summary/nikola-kalinic/,0,62,2,2,2017-09-20,. Round,Nikola Kalinić,255,5
+/player_summary/nikola-kalinic/,0,90,2,2,2017-09-24,. Round,Nikola Kalinić,345,6
+/player_summary/nikola-kalinic/,0,79,2,2,2017-10-01,. Round,Nikola Kalinić,424,7
+/player_summary/nikola-kalinic/,62,90,2,2,2017-10-19,up D,Nikola Kalinić,452,8
+/player_summary/nikola-kalinic/,0,84,2,2,2017-10-22,. Round,Nikola Kalinić,536,9
+/player_summary/nikola-kalinic/,0,80,3,3,2017-10-25,0. Round,Nikola Kalinić,616,10
+/player_summary/nikola-kalinic/,0,90,3,3,2017-10-28,1. Round,Nikola Kalinić,706,11
+/player_summary/nikola-kalinic/,81,90,3,3,2017-11-02,up D,Nikola Kalinić,715,12
+/player_summary/nikola-kalinic/,0,90,3,3,2017-11-05,2. Round,Nikola Kalinić,805,13
+/player_summary/nikola-kalinic/,0,90,3,3,2017-11-18,3. Round,Nikola Kalinić,895,14
+/player_summary/nikola-kalinic/,0,77,3,3,2017-11-26,4. Round,Nikola Kalinić,972,15
+/player_summary/nikola-kalinic/,0,90,4,4,2017-12-03,5. Round,Nikola Kalinić,1062,16
+/player_summary/nikola-kalinic/,0,68,4,4,2017-12-10,6. Round,Nikola Kalinić,1130,17
+/player_summary/nikola-kalinic/,0,57,4,4,2017-12-17,7. Round,Nikola Kalinić,1187,18
+/player_summary/nikola-kalinic/,0,82,4,4,2017-12-23,8. Round,Nikola Kalinić,1269,19
+/player_summary/nikola-kalinic/,0,76,4,4,2017-12-27,8,Nikola Kalinić,1345,20
+/player_summary/nikola-kalinic/,76,90,4,4,2018-01-06,0. Round,Nikola Kalinić,1359,21
+/player_summary/nikola-kalinic/,0,90,4,4,2018-01-21,1. Round,Nikola Kalinić,1449,22
+/player_summary/nikola-kalinic/,0,83,4,4,2018-01-31,8,Nikola Kalinić,1532,23
+/player_summary/nikola-kalinic/,72,90,4,4,2018-02-04,3. Round,Nikola Kalinić,1550,24
+/player_summary/nikola-kalinic/,56,90,4,4,2018-02-22,nd of 32,Nikola Kalinić,1584,25
+/player_summary/nikola-kalinic/,67,90,4,4,2018-02-25,6. Round,Nikola Kalinić,1607,26
+/player_summary/nikola-kalinic/,70,120,4,4,2018-02-28,8,Nikola Kalinić,1657,27
+/player_summary/nikola-kalinic/,62,90,4,4,2018-03-08,nd of 16,Nikola Kalinić,1685,28
+/player_summary/nikola-kalinic/,0,60,4,4,2018-03-11,8. Round,Nikola Kalinić,1745,29
+/player_summary/nikola-kalinic/,67,90,4,4,2018-03-15,nd of 16,Nikola Kalinić,1768,30
+/player_summary/nikola-kalinic/,65,90,4,4,2018-03-31,0. Round,Nikola Kalinić,1793,31
+/player_summary/nikola-kalinic/,69,90,4,4,2018-04-04,7. Round,Nikola Kalinić,1814,32
+/player_summary/nikola-kalinic/,67,90,5,5,2018-04-08,1. Round,Nikola Kalinić,1837,33
+/player_summary/nikola-kalinic/,67,90,6,6,2018-04-08,1. Round,Nikola Kalinić,1860,34
 /player_summary/nils-petersen/,0,90,1,1,2017-07-27,,Nils Petersen,90,1
 /player_summary/nils-petersen/,0,90,1,1,2017-08-03,,Nils Petersen,180,2
 /player_summary/nils-petersen/,0,81,2,2,2017-08-12,,Nils Petersen,261,3
@@ -2239,6 +2902,79 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/nolan-roux/,0,90,13,13,2018-03-18,30. Round,Nolan Roux,2549,32
 /player_summary/nolan-roux/,0,90,13,13,2018-04-01,31. Round,Nolan Roux,2639,33
 /player_summary/nolan-roux/,0,90,13,13,2018-04-08,32. Round,Nolan Roux,2729,34
+/player_summary/olivier-giroud/,66,120,0,0,2017-08-06,nal,Olivier Giroud,54,1
+/player_summary/olivier-giroud/,67,90,1,1,2017-08-11, Round,Olivier Giroud,77,2
+/player_summary/olivier-giroud/,66,90,1,1,2017-08-19, Round,Olivier Giroud,101,3
+/player_summary/olivier-giroud/,62,90,1,1,2017-08-27, Round,Olivier Giroud,129,4
+/player_summary/olivier-giroud/,75,90,1,1,2017-09-09, Round,Olivier Giroud,144,5
+/player_summary/olivier-giroud/,0,90,1,1,2017-09-14,up H,Olivier Giroud,234,6
+/player_summary/olivier-giroud/,73,90,1,1,2017-09-17, Round,Olivier Giroud,251,7
+/player_summary/olivier-giroud/,0,90,1,1,2017-09-20,nd,Olivier Giroud,341,8
+/player_summary/olivier-giroud/,83,90,1,1,2017-09-25, Round,Olivier Giroud,348,9
+/player_summary/olivier-giroud/,0,90,2,1,2017-09-28,up H,Olivier Giroud,438,10
+/player_summary/olivier-giroud/,71,90,2,1,2017-10-01, Round,Olivier Giroud,457,11
+/player_summary/olivier-giroud/,68,90,2,1,2017-10-14, Round,Olivier Giroud,479,12
+/player_summary/olivier-giroud/,0,90,3,2,2017-10-19,up H,Olivier Giroud,569,13
+/player_summary/olivier-giroud/,0,120,3,2,2017-10-24,of 16,Olivier Giroud,689,14
+/player_summary/olivier-giroud/,81,90,3,2,2017-10-28,. Round,Olivier Giroud,698,15
+/player_summary/olivier-giroud/,0,90,3,2,2017-11-02,up H,Olivier Giroud,788,16
+/player_summary/olivier-giroud/,78,90,3,2,2017-11-05,. Round,Olivier Giroud,800,17
+/player_summary/olivier-giroud/,0,90,3,2,2017-11-23,up H,Olivier Giroud,890,18
+/player_summary/olivier-giroud/,46,90,5,4,2017-11-29,. Round,Olivier Giroud,934,19
+/player_summary/olivier-giroud/,76,90,5,4,2017-12-02,. Round,Olivier Giroud,948,20
+/player_summary/olivier-giroud/,0,90,6,4,2017-12-07,up H,Olivier Giroud,1038,21
+/player_summary/olivier-giroud/,72,90,7,5,2017-12-10,. Round,Olivier Giroud,1056,22
+/player_summary/olivier-giroud/,0,90,7,5,2017-12-13,. Round,Olivier Giroud,1146,23
+/player_summary/olivier-giroud/,73,90,7,5,2017-12-16,. Round,Olivier Giroud,1163,24
+/player_summary/olivier-giroud/,0,78,7,5,2017-12-19,r-finals,Olivier Giroud,1241,25
+/player_summary/olivier-giroud/,76,90,7,5,2018-01-30,. Round,Olivier Giroud,1255,26
+/player_summary/olivier-giroud/,64,90,7,5,2018-02-05,. Round,Olivier Giroud,1281,27
+/player_summary/olivier-giroud/,0,61,7,5,2018-02-12,. Round,Olivier Giroud,1342,28
+/player_summary/olivier-giroud/,0,70,8,6,2018-02-16,6,Olivier Giroud,1412,29
+/player_summary/olivier-giroud/,78,90,8,6,2018-02-25,. Round,Olivier Giroud,1424,30
+/player_summary/olivier-giroud/,78,90,8,6,2018-03-04,. Round,Olivier Giroud,1436,31
+/player_summary/olivier-giroud/,0,72,8,6,2018-03-10,. Round,Olivier Giroud,1508,32
+/player_summary/olivier-giroud/,0,67,8,6,2018-03-14,Round of 16,Olivier Giroud,1575,33
+/player_summary/olivier-giroud/,105,120,8,6,2018-03-18,nals,Olivier Giroud,1590,34
+/player_summary/olivier-giroud/,81,90,8,6,2018-04-01,. Round,Olivier Giroud,1599,35
+/player_summary/olivier-giroud/,78,90,8,6,2018-04-08,. Round,Olivier Giroud,1611,36
+/player_summary/papu-gomez/,0,90,0,0,2017-08-20,. Round,Papu Gómez,90,1
+/player_summary/papu-gomez/,0,90,0,0,2017-08-27,. Round,Papu Gómez,180,2
+/player_summary/papu-gomez/,0,90,0,0,2017-09-10,. Round,Papu Gómez,270,3
+/player_summary/papu-gomez/,0,90,1,1,2017-09-14,up E,Papu Gómez,360,4
+/player_summary/papu-gomez/,52,90,2,1,2017-09-17,. Round,Papu Gómez,398,5
+/player_summary/papu-gomez/,0,75,4,2,2017-09-20,. Round,Papu Gómez,473,6
+/player_summary/papu-gomez/,0,90,4,2,2017-09-24,. Round,Papu Gómez,563,7
+/player_summary/papu-gomez/,0,90,5,3,2017-09-28,up E,Papu Gómez,653,8
+/player_summary/papu-gomez/,0,90,5,3,2017-10-01,. Round,Papu Gómez,743,9
+/player_summary/papu-gomez/,60,90,5,3,2017-10-15,. Round,Papu Gómez,773,10
+/player_summary/papu-gomez/,0,80,5,3,2017-10-19,up E,Papu Gómez,853,11
+/player_summary/papu-gomez/,0,76,5,3,2017-10-25,0. Round,Papu Gómez,929,12
+/player_summary/papu-gomez/,0,90,5,3,2017-11-05,2. Round,Papu Gómez,1019,13
+/player_summary/papu-gomez/,0,67,5,3,2017-11-19,3. Round,Papu Gómez,1086,14
+/player_summary/papu-gomez/,0,90,5,3,2017-11-23,up E,Papu Gómez,1176,15
+/player_summary/papu-gomez/,0,90,5,3,2017-11-27,4. Round,Papu Gómez,1266,16
+/player_summary/papu-gomez/,0,90,5,3,2017-12-02,5. Round,Papu Gómez,1356,17
+/player_summary/papu-gomez/,0,90,5,3,2017-12-07,up E,Papu Gómez,1446,18
+/player_summary/papu-gomez/,0,90,5,3,2017-12-12,6. Round,Papu Gómez,1536,19
+/player_summary/papu-gomez/,0,90,5,3,2017-12-17,7. Round,Papu Gómez,1626,20
+/player_summary/papu-gomez/,88,90,5,3,2017-12-20,8,Papu Gómez,1628,21
+/player_summary/papu-gomez/,0,90,5,3,2017-12-23,8. Round,Papu Gómez,1718,22
+/player_summary/papu-gomez/,0,90,6,4,2017-12-30,9. Round,Papu Gómez,1808,23
+/player_summary/papu-gomez/,0,90,7,5,2018-01-02,8,Papu Gómez,1898,24
+/player_summary/papu-gomez/,0,69,7,5,2018-01-06,0. Round,Papu Gómez,1967,25
+/player_summary/papu-gomez/,0,90,7,5,2018-01-21,1. Round,Papu Gómez,2057,26
+/player_summary/papu-gomez/,0,82,7,5,2018-01-30,8,Papu Gómez,2139,27
+/player_summary/papu-gomez/,0,76,7,5,2018-02-15,nd of 32,Papu Gómez,2215,28
+/player_summary/papu-gomez/,0,90,7,5,2018-02-18,5. Round,Papu Gómez,2305,29
+/player_summary/papu-gomez/,0,90,7,5,2018-02-22,nd of 32,Papu Gómez,2395,30
+/player_summary/papu-gomez/,0,90,7,5,2018-02-28,8,Papu Gómez,2485,31
+/player_summary/papu-gomez/,0,62,7,5,2018-03-11,8. Round,Papu Gómez,2547,32
+/player_summary/papu-gomez/,0,90,7,5,2018-03-14,6. Round,Papu Gómez,2637,33
+/player_summary/papu-gomez/,0,90,8,6,2018-03-18,9. Round,Papu Gómez,2727,34
+/player_summary/papu-gomez/,0,90,8,6,2018-03-31,0. Round,Papu Gómez,2817,35
+/player_summary/papu-gomez/,0,90,8,6,2018-04-03,7. Round,Papu Gómez,2907,36
+/player_summary/papu-gomez/,0,90,8,6,2018-04-07,1. Round,Papu Gómez,2997,37
 /player_summary/paulo-dybala/,0,90,2,1,2017-08-13,al,Paulo Dybala,90,1
 /player_summary/paulo-dybala/,0,90,3,2,2017-08-19,. Round,Paulo Dybala,180,2
 /player_summary/paulo-dybala/,0,90,6,4,2017-08-26,. Round,Paulo Dybala,270,3
@@ -2277,6 +3013,47 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/paulo-dybala/,0,90,22,20,2018-03-31,0. Round,Paulo Dybala,2639,36
 /player_summary/paulo-dybala/,0,66,22,20,2018-04-03,Quarter-finals,Paulo Dybala,2705,37
 /player_summary/paulo-dybala/,0,90,25,21,2018-04-07,1. Round,Paulo Dybala,2795,38
+/player_summary/pedro_7/,0,80,0,0,2017-08-06,nal,Pedro,80,1
+/player_summary/pedro_7/,78,90,0,0,2017-08-20, Round,Pedro,92,2
+/player_summary/pedro_7/,0,75,0,0,2017-08-27, Round,Pedro,167,3
+/player_summary/pedro_7/,0,64,0,0,2017-09-09, Round,Pedro,231,4
+/player_summary/pedro_7/,0,58,1,1,2017-09-12,Group C,Pedro,289,5
+/player_summary/pedro_7/,0,46,1,1,2017-09-17, Round,Pedro,335,6
+/player_summary/pedro_7/,0,68,2,2,2017-09-23, Round,Pedro,403,7
+/player_summary/pedro_7/,72,90,2,2,2017-09-30, Round,Pedro,421,8
+/player_summary/pedro_7/,57,90,2,2,2017-10-14, Round,Pedro,454,9
+/player_summary/pedro_7/,57,90,2,2,2017-10-18,Group C,Pedro,487,10
+/player_summary/pedro_7/,0,86,3,3,2017-10-21, Round,Pedro,573,11
+/player_summary/pedro_7/,70,90,3,3,2017-10-25,of 16,Pedro,593,12
+/player_summary/pedro_7/,0,79,3,3,2017-10-28,. Round,Pedro,672,13
+/player_summary/pedro_7/,0,90,3,3,2017-10-31,Group C,Pedro,762,14
+/player_summary/pedro_7/,71,90,3,3,2017-11-18,. Round,Pedro,781,15
+/player_summary/pedro_7/,0,90,3,3,2017-11-22,Group C,Pedro,871,16
+/player_summary/pedro_7/,77,90,3,3,2017-11-25,. Round,Pedro,884,17
+/player_summary/pedro_7/,0,81,3,3,2017-11-29,. Round,Pedro,965,18
+/player_summary/pedro_7/,64,90,3,3,2017-12-05,Group C,Pedro,991,19
+/player_summary/pedro_7/,46,90,3,3,2017-12-09,. Round,Pedro,1035,20
+/player_summary/pedro_7/,0,90,4,4,2017-12-12,. Round,Pedro,1125,21
+/player_summary/pedro_7/,0,68,4,4,2017-12-16,. Round,Pedro,1193,22
+/player_summary/pedro_7/,0,61,4,4,2017-12-20,r-finals,Pedro,1254,23
+/player_summary/pedro_7/,0,63,4,4,2017-12-23,. Round,Pedro,1317,24
+/player_summary/pedro_7/,0,90,5,5,2017-12-30,. Round,Pedro,1407,25
+/player_summary/pedro_7/,0,89,5,5,2018-01-06, Norwich City - Chelsea FC 0:0,Pedro,1496,26
+/player_summary/pedro_7/,58,90,5,5,2018-01-13,. Round,Pedro,1528,27
+/player_summary/pedro_7/,0,117,5,5,2018-01-17, Chelsea FC - Norwich City 5:3,Pedro,1645,28
+/player_summary/pedro_7/,0,65,5,5,2018-01-24,inals,Pedro,1710,29
+/player_summary/pedro_7/,0,81,5,5,2018-01-28, Chelsea FC - Newcastle United 3:0,Pedro,1791,30
+/player_summary/pedro_7/,0,90,5,5,2018-01-31,. Round,Pedro,1881,31
+/player_summary/pedro_7/,0,64,5,5,2018-02-05,. Round,Pedro,1945,32
+/player_summary/pedro_7/,0,80,5,5,2018-02-12,. Round,Pedro,2025,33
+/player_summary/pedro_7/,0,46,6,6,2018-02-16,6,Pedro,2071,34
+/player_summary/pedro_7/,0,83,6,6,2018-02-20,Round of 16,Pedro,2154,35
+/player_summary/pedro_7/,73,90,6,6,2018-02-25,. Round,Pedro,2171,36
+/player_summary/pedro_7/,0,82,6,6,2018-03-04,. Round,Pedro,2253,37
+/player_summary/pedro_7/,88,90,6,6,2018-03-10,. Round,Pedro,2255,38
+/player_summary/pedro_7/,82,90,6,6,2018-03-14,Round of 16,Pedro,2263,39
+/player_summary/pedro_7/,92,120,7,7,2018-03-18,nals,Pedro,2291,40
+/player_summary/pedro_7/,78,90,7,7,2018-04-08,. Round,Pedro,2303,41
 /player_summary/pierre-emerick-aubameyang/,0,120,1,1,2017-08-05,al,Pierre-Emerick Aubameyang,120,1
 /player_summary/pierre-emerick-aubameyang/,0,90,4,3,2017-08-12,,Pierre-Emerick Aubameyang,210,2
 /player_summary/pierre-emerick-aubameyang/,0,90,5,4,2017-08-19,8,Pierre-Emerick Aubameyang,300,3
@@ -2413,6 +3190,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/raheem-sterling/,0,64,21,20,2018-03-31,. Round,Raheem Sterling,2923,38
 /player_summary/raheem-sterling/,57,90,21,20,2018-04-04,Quarter-finals,Raheem Sterling,2956,39
 /player_summary/raheem-sterling/,0,90,21,20,2018-04-07,. Round,Raheem Sterling,3046,40
+/player_summary/raheem-sterling/,0,90,21,20,2018-04-10,Quarter-finals,Raheem Sterling,3136,41
 /player_summary/raul-garcia/,0,90,0,0,2017-07-27,,Raúl García,90,1
 /player_summary/raul-garcia/,0,70,2,2,2017-08-03,,Raúl García,160,2
 /player_summary/raul-garcia/,0,90,2,2,2017-08-17,,Raúl García,250,3
@@ -2456,6 +3234,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/raul-garcia/,0,82,11,9,2018-03-11,/2018,Raúl García,2946,41
 /player_summary/raul-garcia/,0,90,11,9,2018-03-18,/2018,Raúl García,3036,42
 /player_summary/raul-garcia/,0,79,11,9,2018-03-31,/2018,Raúl García,3115,43
+/player_summary/raul-garcia/,0,90,11,9,2018-04-09,/2018,Raúl García,3205,44
 /player_summary/riyad-mahrez/,0,90,0,0,2017-08-11, Round,Riyad Mahrez,90,1
 /player_summary/riyad-mahrez/,0,90,0,0,2017-08-19, Round,Riyad Mahrez,180,2
 /player_summary/riyad-mahrez/,0,90,0,0,2017-08-26, Round,Riyad Mahrez,270,3
@@ -2530,6 +3309,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/robert-lewandowski/,72,90,32,25,2018-03-18,8,Robert Lewandowski,2961,37
 /player_summary/robert-lewandowski/,0,90,35,28,2018-03-31,8,Robert Lewandowski,3051,38
 /player_summary/robert-lewandowski/,0,90,35,28,2018-04-03,Quarter-finals,Robert Lewandowski,3141,39
+/player_summary/robert-lewandowski/,0,77,35,28,2018-04-11,Quarter-finals,Robert Lewandowski,3218,40
 /player_summary/roberto-firmino/,0,81,1,0,2017-08-12, Round,Roberto Firmino,81,1
 /player_summary/roberto-firmino/,0,84,1,0,2017-08-15,018,Roberto Firmino,165,2
 /player_summary/roberto-firmino/,0,90,1,0,2017-08-19, Round,Roberto Firmino,255,3
@@ -2575,6 +3355,36 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/roberto-firmino/,0,90,23,22,2018-03-31,. Round,Roberto Firmino,3375,43
 /player_summary/roberto-firmino/,0,71,23,22,2018-04-04,Quarter-finals,Roberto Firmino,3446,44
 /player_summary/roberto-firmino/,74,90,23,22,2018-04-07,. Round,Roberto Firmino,3462,45
+/player_summary/roberto-firmino/,0,81,24,23,2018-04-10,Quarter-finals,Roberto Firmino,3543,46
+/player_summary/roberto-inglese/,0,90,0,0,2017-08-12,8,Roberto Inglese,90,1
+/player_summary/roberto-inglese/,0,87,1,1,2017-08-20,. Round,Roberto Inglese,177,2
+/player_summary/roberto-inglese/,0,84,1,1,2017-08-27,. Round,Roberto Inglese,261,3
+/player_summary/roberto-inglese/,0,76,1,1,2017-09-09,. Round,Roberto Inglese,337,4
+/player_summary/roberto-inglese/,0,90,1,1,2017-09-17,. Round,Roberto Inglese,427,5
+/player_summary/roberto-inglese/,0,90,1,1,2017-09-20,. Round,Roberto Inglese,517,6
+/player_summary/roberto-inglese/,0,90,2,2,2017-09-24,. Round,Roberto Inglese,607,7
+/player_summary/roberto-inglese/,0,90,2,2,2017-10-01,. Round,Roberto Inglese,697,8
+/player_summary/roberto-inglese/,0,68,2,2,2017-10-15,. Round,Roberto Inglese,765,9
+/player_summary/roberto-inglese/,0,80,4,3,2017-10-22,. Round,Roberto Inglese,845,10
+/player_summary/roberto-inglese/,0,90,4,3,2017-10-29,1. Round,Roberto Inglese,935,11
+/player_summary/roberto-inglese/,0,85,4,3,2017-11-05,2. Round,Roberto Inglese,1020,12
+/player_summary/roberto-inglese/,0,90,4,3,2017-11-19,3. Round,Roberto Inglese,1110,13
+/player_summary/roberto-inglese/,0,90,6,5,2017-11-25,4. Round,Roberto Inglese,1200,14
+/player_summary/roberto-inglese/,73,120,6,5,2017-11-29,8,Roberto Inglese,1247,15
+/player_summary/roberto-inglese/,0,90,6,5,2017-12-03,5. Round,Roberto Inglese,1337,16
+/player_summary/roberto-inglese/,0,90,6,5,2017-12-10,6. Round,Roberto Inglese,1427,17
+/player_summary/roberto-inglese/,0,90,6,5,2017-12-17,7. Round,Roberto Inglese,1517,18
+/player_summary/roberto-inglese/,0,90,7,6,2017-12-22,8. Round,Roberto Inglese,1607,19
+/player_summary/roberto-inglese/,0,55,7,6,2017-12-30,9. Round,Roberto Inglese,1662,20
+/player_summary/roberto-inglese/,80,90,7,6,2018-02-04,3. Round,Roberto Inglese,1672,21
+/player_summary/roberto-inglese/,0,60,7,6,2018-02-11,4. Round,Roberto Inglese,1732,22
+/player_summary/roberto-inglese/,0,90,8,7,2018-02-17,5. Round,Roberto Inglese,1822,23
+/player_summary/roberto-inglese/,0,90,8,7,2018-02-25,6. Round,Roberto Inglese,1912,24
+/player_summary/roberto-inglese/,0,90,8,7,2018-03-10,8. Round,Roberto Inglese,2002,25
+/player_summary/roberto-inglese/,0,76,9,8,2018-03-18,9. Round,Roberto Inglese,2078,26
+/player_summary/roberto-inglese/,0,90,9,8,2018-03-31,0. Round,Roberto Inglese,2168,27
+/player_summary/roberto-inglese/,0,90,9,8,2018-04-04,7. Round,Roberto Inglese,2258,28
+/player_summary/roberto-inglese/,0,90,9,8,2018-04-08,1. Round,Roberto Inglese,2348,29
 /player_summary/rodrigo_9/,0,79,0,0,2017-08-18,/2018,Rodrigo,79,1
 /player_summary/rodrigo_9/,0,88,0,0,2017-08-27,/2018,Rodrigo,167,2
 /player_summary/rodrigo_9/,0,70,0,0,2017-09-09,/2018,Rodrigo,237,3
@@ -2611,6 +3421,8 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/rodrigo_9/,0,90,15,14,2018-03-10,/2018,Rodrigo,2282,34
 /player_summary/rodrigo_9/,0,72,16,15,2018-03-17,/2018,Rodrigo,2354,35
 /player_summary/rodrigo_9/,0,90,17,16,2018-04-01,/2018,Rodrigo,2444,36
+/player_summary/rodrigo_9/,0,90,18,17,2018-04-08,/2018,Rodrigo,2534,37
+/player_summary/rodrigo_9/,0,90,19,18,2018-04-08,/2018,Rodrigo,2624,38
 /player_summary/romelu-lukaku/,0,90,1,1,2017-08-08,Real Madrid - Manchester United 2:1,Romelu Lukaku,90,1
 /player_summary/romelu-lukaku/,0,90,3,3,2017-08-13, Round,Romelu Lukaku,180,2
 /player_summary/romelu-lukaku/,0,90,4,4,2017-08-19, Round,Romelu Lukaku,270,3
@@ -2701,6 +3513,26 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/rony-lopes/,0,73,12,12,2018-03-31,17/2018,Rony Lopes,2649,42
 /player_summary/rony-lopes/,0,75,13,13,2018-04-04,31. Round,Rony Lopes,2724,43
 /player_summary/rony-lopes/,0,90,14,14,2018-04-07,32. Round,Rony Lopes,2814,44
+/player_summary/ruben-castro/,0,89,0,0,2017-07-22,8. Round,Rubén Castro,89,1
+/player_summary/ruben-castro/,0,90,1,1,2017-08-05,0. Round,Rubén Castro,179,2
+/player_summary/ruben-castro/,0,90,3,3,2017-08-09,1. Round,Rubén Castro,269,3
+/player_summary/ruben-castro/,0,90,4,4,2017-08-13,2. Round,Rubén Castro,359,4
+/player_summary/ruben-castro/,0,90,4,4,2017-08-19,3. Round,Rubén Castro,449,5
+/player_summary/ruben-castro/,0,90,4,4,2017-09-10,4. Round,Rubén Castro,539,6
+/player_summary/ruben-castro/,0,90,5,5,2017-09-17,5. Round,Rubén Castro,629,7
+/player_summary/ruben-castro/,0,90,6,6,2017-09-23,6. Round,Rubén Castro,719,8
+/player_summary/ruben-castro/,0,90,6,6,2017-09-27,9. Round,Rubén Castro,809,9
+/player_summary/ruben-castro/,0,90,6,6,2017-10-14,7. Round,Rubén Castro,899,10
+/player_summary/ruben-castro/,0,90,7,7,2017-10-29,9. Round,Rubén Castro,989,11
+/player_summary/ruben-castro/,0,90,7,7,2017-11-04,0. Round,Rubén Castro,1079,12
+/player_summary/ruben-castro/,75,90,8,7,2018-01-15,/2018,Rubén Castro,1094,13
+/player_summary/ruben-castro/,73,90,8,7,2018-01-21,/2018,Rubén Castro,1111,14
+/player_summary/ruben-castro/,62,90,8,7,2018-01-29,/2018,Rubén Castro,1139,15
+/player_summary/ruben-castro/,0,64,8,7,2018-02-03,/2018,Rubén Castro,1203,16
+/player_summary/ruben-castro/,69,90,8,7,2018-03-01,/2018,Rubén Castro,1224,17
+/player_summary/ruben-castro/,69,90,8,7,2018-03-04,/2018,Rubén Castro,1245,18
+/player_summary/ruben-castro/,0,63,8,7,2018-03-12,/2018,Rubén Castro,1308,19
+/player_summary/ruben-castro/,81,90,8,7,2018-04-07,/2018,Rubén Castro,1317,20
 /player_summary/sadio-mane/,0,90,1,1,2017-08-12, Round,Sadio Mané,90,1
 /player_summary/sadio-mane/,0,89,1,1,2017-08-15,018,Sadio Mané,179,2
 /player_summary/sadio-mane/,0,90,2,2,2017-08-19, Round,Sadio Mané,269,3
@@ -2737,6 +3569,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/sadio-mane/,0,64,15,15,2018-03-31,. Round,Sadio Mané,2655,34
 /player_summary/sadio-mane/,0,90,16,16,2018-04-04,Quarter-finals,Sadio Mané,2745,35
 /player_summary/sadio-mane/,0,74,16,16,2018-04-07,. Round,Sadio Mané,2819,36
+/player_summary/sadio-mane/,0,90,16,16,2018-04-10,Quarter-finals,Sadio Mané,2909,37
 /player_summary/salomon-kalou/,0,80,0,0,2017-08-14,,Salomon Kalou,80,1
 /player_summary/salomon-kalou/,0,76,0,0,2017-08-19,8,Salomon Kalou,156,2
 /player_summary/salomon-kalou/,0,58,0,0,2017-08-26,8,Salomon Kalou,214,3
@@ -2795,6 +3628,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/sandro-wagner/,68,90,10,9,2018-03-14,Round of 16,Sandro Wagner,1714,25
 /player_summary/sandro-wagner/,0,90,11,10,2018-03-18,8,Sandro Wagner,1804,26
 /player_summary/sandro-wagner/,0,90,12,11,2018-04-07,8,Sandro Wagner,1894,27
+/player_summary/sandro-wagner/,77,90,12,11,2018-04-11,Quarter-finals,Sandro Wagner,1907,28
 /player_summary/santi-mina/,79,90,0,0,2017-08-18,/2018,Santi Mina,11,1
 /player_summary/santi-mina/,88,90,0,0,2017-08-27,/2018,Santi Mina,13,2
 /player_summary/santi-mina/,70,90,0,0,2017-09-09,/2018,Santi Mina,33,3
@@ -2827,6 +3661,32 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/santi-mina/,0,61,12,11,2018-02-17,/2018,Santi Mina,1406,30
 /player_summary/santi-mina/,0,90,14,13,2018-02-25,/2018,Santi Mina,1496,31
 /player_summary/santi-mina/,0,37,14,13,2018-03-04,/2018,Santi Mina,1533,32
+/player_summary/santi-mina/,79,90,14,13,2018-04-08,/2018,Santi Mina,1544,33
+/player_summary/santi-mina/,79,90,14,13,2018-04-08,/2018,Santi Mina,1555,34
+/player_summary/serge-gnabry/,56,90,0,0,2017-08-12,,Serge Gnabry,34,1
+/player_summary/serge-gnabry/,0,70,0,0,2017-08-15,018,Serge Gnabry,104,2
+/player_summary/serge-gnabry/,67,90,0,0,2017-08-19,8,Serge Gnabry,127,3
+/player_summary/serge-gnabry/,0,56,0,0,2017-08-23,018,Serge Gnabry,183,4
+/player_summary/serge-gnabry/,0,54,0,0,2017-09-23,8,Serge Gnabry,237,5
+/player_summary/serge-gnabry/,0,83,0,0,2017-11-11,t 2017/2018,Serge Gnabry,320,6
+/player_summary/serge-gnabry/,53,90,0,0,2017-11-18,8,Serge Gnabry,357,7
+/player_summary/serge-gnabry/,46,90,0,0,2017-11-23,up C,Serge Gnabry,401,8
+/player_summary/serge-gnabry/,0,57,0,0,2017-11-26,8,Serge Gnabry,458,9
+/player_summary/serge-gnabry/,0,65,2,2,2017-12-02,8,Serge Gnabry,523,10
+/player_summary/serge-gnabry/,0,90,2,2,2017-12-10,8,Serge Gnabry,613,11
+/player_summary/serge-gnabry/,0,77,2,2,2017-12-13,8,Serge Gnabry,690,12
+/player_summary/serge-gnabry/,0,63,2,2,2017-12-16,8,Serge Gnabry,753,13
+/player_summary/serge-gnabry/,0,76,2,2,2018-01-13,8,Serge Gnabry,829,14
+/player_summary/serge-gnabry/,0,90,2,2,2018-01-20,8,Serge Gnabry,919,15
+/player_summary/serge-gnabry/,0,90,3,3,2018-01-27,8,Serge Gnabry,1009,16
+/player_summary/serge-gnabry/,0,90,3,3,2018-02-03,8,Serge Gnabry,1099,17
+/player_summary/serge-gnabry/,0,84,3,3,2018-02-10,8,Serge Gnabry,1183,18
+/player_summary/serge-gnabry/,0,90,3,3,2018-02-24,8,Serge Gnabry,1273,19
+/player_summary/serge-gnabry/,0,63,4,4,2018-03-03,8,Serge Gnabry,1336,20
+/player_summary/serge-gnabry/,0,90,5,5,2018-03-10,8,Serge Gnabry,1426,21
+/player_summary/serge-gnabry/,0,75,5,5,2018-03-17,8,Serge Gnabry,1501,22
+/player_summary/serge-gnabry/,0,90,7,7,2018-03-31,8,Serge Gnabry,1591,23
+/player_summary/serge-gnabry/,0,83,8,8,2018-04-08,8,Serge Gnabry,1674,24
 /player_summary/sergio-leon/,0,90,0,0,2017-08-20,/2018,Sergio León,90,1
 /player_summary/sergio-leon/,0,80,1,1,2017-08-25,/2018,Sergio León,170,2
 /player_summary/sergio-leon/,0,58,2,2,2017-09-10,/2018,Sergio León,228,3
@@ -2890,6 +3750,61 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/simone-zaza/,0,67,11,11,2018-03-10,/2018,Simone Zaza,2143,31
 /player_summary/simone-zaza/,0,90,12,12,2018-03-17,/2018,Simone Zaza,2233,32
 /player_summary/simone-zaza/,0,71,12,12,2018-04-01,/2018,Simone Zaza,2304,33
+/player_summary/simone-zaza/,0,79,12,12,2018-04-08,/2018,Simone Zaza,2383,34
+/player_summary/simone-zaza/,0,79,12,12,2018-04-08,/2018,Simone Zaza,2462,35
+/player_summary/steve-mounie/,0,86,2,2,2017-08-12, Round,Steve Mounié,86,1
+/player_summary/steve-mounie/,0,90,2,2,2017-08-20, Round,Steve Mounié,176,2
+/player_summary/steve-mounie/,0,90,2,2,2017-08-26, Round,Steve Mounié,266,3
+/player_summary/steve-mounie/,0,90,2,2,2017-09-11, Round,Steve Mounié,356,4
+/player_summary/steve-mounie/,70,90,2,2,2017-10-21, Round,Steve Mounié,376,5
+/player_summary/steve-mounie/,69,90,2,2,2017-10-28,. Round,Steve Mounié,397,6
+/player_summary/steve-mounie/,46,90,2,2,2017-11-18,. Round,Steve Mounié,441,7
+/player_summary/steve-mounie/,86,90,2,2,2017-11-26,. Round,Steve Mounié,445,8
+/player_summary/steve-mounie/,0,74,2,2,2017-11-29,. Round,Steve Mounié,519,9
+/player_summary/steve-mounie/,71,90,2,2,2017-12-02,. Round,Steve Mounié,538,10
+/player_summary/steve-mounie/,0,85,4,4,2017-12-09,. Round,Steve Mounié,623,11
+/player_summary/steve-mounie/,0,74,4,4,2017-12-12,. Round,Steve Mounié,697,12
+/player_summary/steve-mounie/,82,90,4,4,2017-12-23,. Round,Steve Mounié,705,13
+/player_summary/steve-mounie/,0,62,4,4,2017-12-26,. Round,Steve Mounié,767,14
+/player_summary/steve-mounie/,0,90,4,4,2018-01-01,. Round,Steve Mounié,857,15
+/player_summary/steve-mounie/,0,90,4,4,2018-01-20,. Round,Steve Mounié,947,16
+/player_summary/steve-mounie/,0,90,5,5,2018-01-27, Huddersfield Town - Birmingham City 1:1,Steve Mounié,1037,17
+/player_summary/steve-mounie/,0,63,5,5,2018-01-30,. Round,Steve Mounié,1100,18
+/player_summary/steve-mounie/,0,120,6,6,2018-02-06, Birmingham City - Huddersfield Town 1:4,Steve Mounié,1220,19
+/player_summary/steve-mounie/,0,90,7,7,2018-02-11,. Round,Steve Mounié,1310,20
+/player_summary/steve-mounie/,0,90,7,7,2018-02-17,6,Steve Mounié,1400,21
+/player_summary/steve-mounie/,0,90,8,8,2018-02-24,. Round,Steve Mounié,1490,22
+/player_summary/steve-mounie/,0,90,8,8,2018-03-03,. Round,Steve Mounié,1580,23
+/player_summary/steve-mounie/,0,90,8,8,2018-03-10,. Round,Steve Mounié,1670,24
+/player_summary/steve-mounie/,0,90,8,8,2018-03-17,. Round,Steve Mounié,1760,25
+/player_summary/steve-mounie/,83,90,8,8,2018-03-31,. Round,Steve Mounié,1767,26
+/player_summary/steve-mounie/,0,90,9,9,2018-04-07,. Round,Steve Mounié,1857,27
+/player_summary/theo-walcott/,67,120,0,0,2017-08-06,nal,Theo Walcott,53,1
+/player_summary/theo-walcott/,75,90,0,0,2017-08-11, Round,Theo Walcott,68,2
+/player_summary/theo-walcott/,78,90,0,0,2017-08-19, Round,Theo Walcott,80,3
+/player_summary/theo-walcott/,0,83,0,0,2017-09-14,up H,Theo Walcott,163,4
+/player_summary/theo-walcott/,0,76,1,1,2017-09-20,nd,Theo Walcott,239,5
+/player_summary/theo-walcott/,0,90,3,3,2017-09-28,up H,Theo Walcott,329,6
+/player_summary/theo-walcott/,71,90,3,3,2017-10-01, Round,Theo Walcott,348,7
+/player_summary/theo-walcott/,0,90,3,3,2017-10-19,up H,Theo Walcott,438,8
+/player_summary/theo-walcott/,0,120,3,3,2017-10-24,of 16,Theo Walcott,558,9
+/player_summary/theo-walcott/,0,90,3,3,2017-11-02,up H,Theo Walcott,648,10
+/player_summary/theo-walcott/,0,71,4,4,2017-12-07,up H,Theo Walcott,719,11
+/player_summary/theo-walcott/,0,90,4,4,2017-12-19,r-finals,Theo Walcott,809,12
+/player_summary/theo-walcott/,89,90,4,4,2017-12-22,. Round,Theo Walcott,810,13
+/player_summary/theo-walcott/,88,90,4,4,2018-01-03,. Round,Theo Walcott,812,14
+/player_summary/theo-walcott/,0,90,4,4,2018-01-07, Nottingham Forest - Arsenal FC 4:2,Theo Walcott,902,15
+/player_summary/theo-walcott/,76,90,4,4,2018-01-14,. Round,Theo Walcott,916,16
+/player_summary/theo-walcott/,0,90,4,4,2018-01-20,. Round,Theo Walcott,1006,17
+/player_summary/theo-walcott/,0,90,6,6,2018-01-31,. Round,Theo Walcott,1096,18
+/player_summary/theo-walcott/,0,61,6,6,2018-02-03,. Round,Theo Walcott,1157,19
+/player_summary/theo-walcott/,0,90,6,6,2018-02-10,. Round,Theo Walcott,1247,20
+/player_summary/theo-walcott/,0,90,6,6,2018-02-24,. Round,Theo Walcott,1337,21
+/player_summary/theo-walcott/,0,90,6,6,2018-03-03,. Round,Theo Walcott,1427,22
+/player_summary/theo-walcott/,0,73,6,6,2018-03-10,. Round,Theo Walcott,1500,23
+/player_summary/theo-walcott/,0,90,6,6,2018-03-17,. Round,Theo Walcott,1590,24
+/player_summary/theo-walcott/,0,90,6,6,2018-03-31,. Round,Theo Walcott,1680,25
+/player_summary/theo-walcott/,0,90,6,6,2018-04-07,. Round,Theo Walcott,1770,26
 /player_summary/timo-werner/,0,90,1,1,2017-08-13,,Timo Werner,90,1
 /player_summary/timo-werner/,0,90,1,1,2017-08-19,8,Timo Werner,180,2
 /player_summary/timo-werner/,0,85,3,3,2017-08-27,8,Timo Werner,265,3
@@ -2929,6 +3844,7 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/timo-werner/,10,83,18,15,2018-03-18,8,Timo Werner,2709,37
 /player_summary/timo-werner/,0,90,18,15,2018-03-31,8,Timo Werner,2799,38
 /player_summary/timo-werner/,0,90,19,16,2018-04-05,rter-finals,Timo Werner,2889,39
+/player_summary/timo-werner/,0,69,19,16,2018-04-09,8,Timo Werner,2958,40
 /player_summary/valere-germain/,0,85,3,3,2017-07-27,,Valère Germain,85,1
 /player_summary/valere-germain/,0,73,3,3,2017-08-03,,Valère Germain,158,2
 /player_summary/valere-germain/,0,90,3,3,2017-08-06,1. Round,Valère Germain,248,3
@@ -2975,6 +3891,8 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/valere-germain/,0,64,15,15,2018-03-18,30. Round,Valère Germain,2878,44
 /player_summary/valere-germain/,0,90,16,16,2018-03-31,31. Round,Valère Germain,2968,45
 /player_summary/valere-germain/,80,90,16,16,2018-04-05,rter-finals,Valère Germain,2978,46
+/player_summary/valere-germain/,0,59,16,16,2018-04-08,32. Round,Valère Germain,3037,47
+/player_summary/valere-germain/,0,59,16,16,2018-04-08,32. Round,Valère Germain,3096,48
 /player_summary/wayne-rooney/,0,90,0,0,2017-07-27,,Wayne Rooney,90,1
 /player_summary/wayne-rooney/,0,86,0,0,2017-08-03,,Wayne Rooney,176,2
 /player_summary/wayne-rooney/,0,90,1,1,2017-08-12, Round,Wayne Rooney,266,3
@@ -3082,3 +4000,37 @@ id,on,off,G,NPG,date,stage,name,mins,played
 /player_summary/wissam-ben-yedder/,0,90,19,17,2018-03-18,/2018,Wissam Ben Yedder,2285,35
 /player_summary/wissam-ben-yedder/,0,80,19,17,2018-04-03,Quarter-finals,Wissam Ben Yedder,2365,36
 /player_summary/wissam-ben-yedder/,0,90,19,17,2018-04-07,/2018,Wissam Ben Yedder,2455,37
+/player_summary/wissam-ben-yedder/,0,65,19,17,2018-04-11,Quarter-finals,Wissam Ben Yedder,2520,38
+/player_summary/yannick-ferreira-carrasco/,0,90,0,0,2017-08-19,/2018,Yannick Ferreira-Carrasco,90,1
+/player_summary/yannick-ferreira-carrasco/,0,90,1,1,2017-08-26,/2018,Yannick Ferreira-Carrasco,180,2
+/player_summary/yannick-ferreira-carrasco/,0,60,1,1,2017-09-09,/2018,Yannick Ferreira-Carrasco,240,3
+/player_summary/yannick-ferreira-carrasco/,62,90,1,1,2017-09-12,Group C,Yannick Ferreira-Carrasco,268,4
+/player_summary/yannick-ferreira-carrasco/,46,90,1,1,2017-09-16,/2018,Yannick Ferreira-Carrasco,312,5
+/player_summary/yannick-ferreira-carrasco/,60,90,2,2,2017-09-20,/2018,Yannick Ferreira-Carrasco,342,6
+/player_summary/yannick-ferreira-carrasco/,0,80,3,3,2017-09-23,/2018,Yannick Ferreira-Carrasco,422,7
+/player_summary/yannick-ferreira-carrasco/,0,69,3,3,2017-09-27,Group C,Yannick Ferreira-Carrasco,491,8
+/player_summary/yannick-ferreira-carrasco/,54,90,3,3,2017-09-30,/2018,Yannick Ferreira-Carrasco,527,9
+/player_summary/yannick-ferreira-carrasco/,0,73,3,3,2017-10-14,/2018,Yannick Ferreira-Carrasco,600,10
+/player_summary/yannick-ferreira-carrasco/,0,72,3,3,2017-10-18,Group C,Yannick Ferreira-Carrasco,672,11
+/player_summary/yannick-ferreira-carrasco/,54,90,3,3,2017-11-18,/2018,Yannick Ferreira-Carrasco,708,12
+/player_summary/yannick-ferreira-carrasco/,0,67,3,3,2017-11-22,Group C,Yannick Ferreira-Carrasco,775,13
+/player_summary/yannick-ferreira-carrasco/,66,90,3,3,2017-11-25,/2018,Yannick Ferreira-Carrasco,799,14
+/player_summary/yannick-ferreira-carrasco/,0,90,3,3,2017-11-29,8,Yannick Ferreira-Carrasco,889,15
+/player_summary/yannick-ferreira-carrasco/,70,90,3,3,2017-12-02,/2018,Yannick Ferreira-Carrasco,909,16
+/player_summary/yannick-ferreira-carrasco/,57,90,3,3,2017-12-05,Group C,Yannick Ferreira-Carrasco,942,17
+/player_summary/yannick-ferreira-carrasco/,69,90,3,3,2017-12-16,/2018,Yannick Ferreira-Carrasco,963,18
+/player_summary/yannick-ferreira-carrasco/,0,60,3,3,2018-01-03,8,Yannick Ferreira-Carrasco,1023,19
+/player_summary/yannick-ferreira-carrasco/,0,60,3,3,2018-01-06,/2018,Yannick Ferreira-Carrasco,1083,20
+/player_summary/yannick-ferreira-carrasco/,0,61,4,4,2018-01-09,8,Yannick Ferreira-Carrasco,1144,21
+/player_summary/yannick-ferreira-carrasco/,54,90,4,4,2018-01-13,/2018,Yannick Ferreira-Carrasco,1180,22
+/player_summary/yannick-ferreira-carrasco/,68,90,4,4,2018-01-17,8,Yannick Ferreira-Carrasco,1202,23
+/player_summary/yannick-ferreira-carrasco/,0,90,4,4,2018-01-20,/2018,Yannick Ferreira-Carrasco,1292,24
+/player_summary/yannick-ferreira-carrasco/,59,90,4,4,2018-01-23,8,Yannick Ferreira-Carrasco,1323,25
+/player_summary/yannick-ferreira-carrasco/,46,90,4,4,2018-01-28,/2018,Yannick Ferreira-Carrasco,1367,26
+/player_summary/yannick-ferreira-carrasco/,0,60,4,4,2018-02-04,/2018,Yannick Ferreira-Carrasco,1427,27
+/player_summary/yannick-ferreira-carrasco/,59,90,4,4,2018-02-15,nd of 32,Yannick Ferreira-Carrasco,1458,28
+/player_summary/yannick-ferreira-carrasco/,0,90,4,4,2018-03-03,. Round,Yannick Ferreira-Carrasco,1548,29
+/player_summary/yannick-ferreira-carrasco/,0,90,4,4,2018-03-10,. Round,Yannick Ferreira-Carrasco,1638,30
+/player_summary/yannick-ferreira-carrasco/,0,90,4,4,2018-03-16,. Round,Yannick Ferreira-Carrasco,1728,31
+/player_summary/yannick-ferreira-carrasco/,0,90,5,5,2018-03-31,. Round,Yannick Ferreira-Carrasco,1818,32
+/player_summary/yannick-ferreira-carrasco/,0,90,5,5,2018-04-07,. Round,Yannick Ferreira-Carrasco,1908,33

@@ -24,8 +24,6 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		voronoi = dataSets[2],
 		quadtree = dataSets[3];
 	let colours = highlights;
-	// let prec = width < 500 ? 4:1;
-	let prec = 4;
 
 	// Function that will animate between two paths for any array of [from, to] path strings
 	function pathTween(pairs, precision, ticks, duration) {
@@ -108,13 +106,13 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 
 	// Path string generator for old paths
 	let lineGen1 = d3.line()
-		// .curve(width < 500 ? d3.curveLinear:d3.curveStepAfter)
+		// .curve(d3.curveStepAfter)
 		.x(d => x0(d[xVar0]))
 		.y(d => y0(d[yVar0]));
 
 	// Path string generator for new paths
 	let lineGen2 = d3.line()
-		// .curve(width < 500 ? d3.curveLinear:d3.curveStepAfter)
+		// .curve(d3.curveStepAfter)
 		.x(d => x(d[xVar]))
 		.y(d => y(d[yVar]));
 
@@ -249,5 +247,5 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		svg.selectAll(".permaLabel").attrs({display: "block"});
 	});
 
-	pathTween(pathPairs, prec, 50, 1000);
+	pathTween(pathPairs, 4, 50, 1000);
 }

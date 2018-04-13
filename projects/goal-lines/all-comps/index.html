@@ -12,7 +12,20 @@
 		</script>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>The top scorers in European football</title>
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@jburnmurdoch">
+		<meta name="twitter:creator" content="@jburnmurdoch">
+		<meta name="twitter:title" content="The top scorers in European football, 2017-18, across all competitions">
+		<meta name="twitter:description" content="See how Cristiano Ronaldo’s 2018 scoring streak compares to those of Mo Salah, Lionel Messi and Harry Kane">
+		<meta name="twitter:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/all_comps.png">
+
+		<meta property="og:title" content="The top scorers in European football, 2017-18, across all competitions" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/" />
+    <meta property="og:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/all_comps.png" />
+
+		<title>The top scorers in European football, 2017-18, across all competitions</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,6 +36,8 @@
 		<script type='text/javascript' src='https://unpkg.com/d3@4'></script>
 		<script type='text/javascript' src='https://unpkg.com/d3-selection-multi'></script>
 		<script type='text/javascript' src='https://unpkg.com/d3-scale-chromatic'></script>
+		<script src="https://npmcdn.com/svg-path-properties/build/path-properties.js"></script>
+		<script src="reDraw.js"></script>
 
 		<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
 		<style>
@@ -31,7 +46,7 @@
 			}
 			body, text{
 				font-family: 'Mplus 1p', Arial, sans-serif;
-				font-size: 16px;
+				font-size: 14px;
 			}
 			text{
 				fill: #212121;
@@ -45,6 +60,10 @@
 				margin: 0;
 				position: relative;
 			}
+			svg{
+				position: absolute;
+				pointer-events: none;
+			}
 			canvas{
 				position: absolute;
 			}
@@ -53,6 +72,7 @@
 			}
 			#canvasOverlay{
 				pointer-events: none;
+				position: relative;
 			}
 			.voronoi path{
 				fill: none;
@@ -69,21 +89,46 @@
 			}
 			#tooltip .inner{
 				position: absolute;
-				right: 5px;
-				bottom: 5px;
 				background-color: white;
-				padding: 10px;
+				padding: 7px;
 				background-color: white;
 				border: 1px solid hsla(0, 0%, 0%, 0.5);
+			}
+			#tooltip span:nth-child(1){
+				font-weight: 500;
+				font-size: 13px;
+			}
+			#tooltip span:nth-child(3){
+				font-size: 12px;
+			}
+
+			.axisToggle select{
+				font-family: 'Mplus 1p', Arial, sans-serif;
+				font-size: 14px;
+				border: none;
+				padding: 2px 5px;
+				border-radius: 3px;
+				background-color: #FF2B4F;
+				background-color: #80c6ff;
+				color: white;
+				cursor: pointer;
+			}
+
+			.axisToggle select:hover{
+				background-color: #33a3ff;
 			}
 
 			a{
 				color: #0083EB;
 			}
 
+			span a{
+				color: #FF2B4F;
+			}
+
 			@media only screen and (max-width: 500px) {
-		    .tick:nth-child(odd) {
-	        display: none;
+		    .tick:nth-child(odd) :not(.title) {
+	        	display: none;
 		    }
 			}
 		</style>
@@ -95,29 +140,74 @@
 <div id=main>
 	<h1>The top scorers in European football in 2017-18</h1>
 	<div id=graphic>
+		<div class="axisToggle y">
+			Goal totals <select>
+				<option value=include>include</option>
+				<option value=exclude>exclude</option>
+			</select> penalties
+		</div>
 		<canvas id=canvas></canvas>
 		<canvas id=canvasHover></canvas>
-		<canvas id=canvasOverlay></canvas>
 		<svg></svg>
+		<canvas id=canvasOverlay></canvas>		
+		<div class="axisToggle x">
+			Plotting goals against <select>
+				<option value=minutes>minutes played</option>
+				<option value=played>matches played</option>
+				<!-- <option value=date>date</option> -->
+			</select>
+		</div>
 		<div id=tooltip>
 			<div class=inner></div>
 		</div>
 	</div>
 	<div id=footer>
-		<h4>By <a href="https://www.twitter.com/jburnmurdoch" target=_blank>@jburnmurdoch</a></h4>
+		<br>
+		<h4>Showing the 116 players from Europe’s big five leagues who have at least five non-penalty goals in 2017-18</h4>
+		<h4>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a><br><br>If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" title="The top scorers in Champions League history">The top scorers in Champions League history</a></span></h4>
 	</div>
 </div>
 
 <script type='text/javascript'>
 	let container = d3.select("#main");
 	let tooltip = d3.select("#tooltip");
-	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.3;
+	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.4;
 	let width = container.node().clientWidth,
 		height = d3.min([700, window.innerHeight-offsetY]),
-		margin = {top: 30, right: 35, bottom: 30, left: 30},
+		margin = {top: 30, right: 35, bottom: 30, left: 40},
 		PR = window.devicePixelRatio || 1,
 		scaledWidth = width*PR,
 		scaledHeight = height*PR;
+
+	function titler(axis, title){
+		if(axis == "x"){
+			d3.selectAll(".axis.x text.title").remove();
+			d3.select(".axis.x .tick:last-of-type text")
+		    .clone()
+		    .attrs({
+		    	class: "title",
+		    	y: -5,
+		    	dy: null,
+		    	"font-weight": "bold"
+		    })
+		    .html(title);
+		}else{
+			d3.selectAll(".axis.y text.title").remove();
+			d3.select(".axis.y .tick:last-of-type text")
+		    .clone()
+		    .attrs({
+		    	class: "title",
+		    	x: 5,
+		    	"text-anchor": "start",
+		    	"font-weight": "bold"
+		    })
+		    .text(title);
+		}
+	}
+
+	function toolTipper(d, yVal){
+		return `<span>${d.lastVal.name}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non&#8209;pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
+	}
 
 	let svg = container.select("svg")
 		.attrs({
@@ -187,89 +277,107 @@
 
 	d3.csv("data.csv", (error, data) => {
 
+		let xVar = "mins",
+			yVar = "G",
+			xFormat = d3.format(",.0f");
+
 		data.forEach(d => {
 			d.pointID = genColor();
+			d.mins = +d.mins;
+			d.played = +d.played;
+			d.age = +d.age;
+			d.G = +d.G;
+			d.NPG = +d.NPG;
+			d.date = d3.timeParse("%Y-%m-%d")(d.date);
 		});
 		
 		let x = d3.scaleLinear()
-	    .domain([0, 4000])
-	    .range([margin.left, width - margin.right]);
+	    .domain([0,4000])
+	    .range([margin.left, width-margin.right]);
 
     let y = d3.scaleLinear()
 	    .domain([0, d3.max(data, d => +d.G)])
 	    .range([height-margin.bottom, margin.top]);
 
-		let voronoi = d3.voronoi()
-	    .x(d => x(+d.mins))
-	    .y(d => y(+d.G))
-	    .extent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
+    let voronoi;
+
+		// let voronoi = d3.voronoi()
+		//     .x(d => x(d[xVar]))
+		//     .y(d => y(d[yVar]))
+		//     .extent([[-margin.left, -margin.top], [width + margin.right, height + margin.bottom]]);
+
+    let quadtree = d3.quadtree()
+        // .extent([x.domain(), y.domain()])
+        .x(d => x(d[xVar]))
+        .y(d => y(d[yVar]))
+        .addAll(data);
 
     let colours = d3.scaleOrdinal()
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Mohamed Salah"])
-    	.range(["#00218D", "#0083EB", "#FF2B4F"]);
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Mohamed Salah", "Harry Kane", "Ciro Immobile"])
+    	.range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#FF49EF"]);
 
 	  svg.append("g")
-	    .attr("transform", `translate(0,${height - margin.bottom})`)
-	    .call(d3.axisBottom(x).ticks(null, ",.0f"))
-	    .select(".tick:last-of-type text")
-	    .clone()
-	    .attrs({
-	    	y: -5,
-	    	dy: null,
-	    	"font-weight": "bold"
-	    })
-	    .html("Minutes");
+	  	.attrs({
+	  		class: "axis x",
+	  		transform: `translate(0,${height - margin.bottom})`
+	  	})
+	    .call(d3.axisBottom(x).ticks(6).tickFormat(xFormat));
 
 	  svg.append("g")
-	    .attr("transform", `translate(${margin.left}, 0)`)
-	    .call(d3.axisLeft(y).ticks(null, ".0f"))
-	    .select(".tick:last-of-type text")
-	    .clone()
-	    .attrs({
-	    	x: 5,
-	    	"text-anchor": "start",
-	    	"font-weight": "bold"
-	    })
-	    .text("Goals");
+	  	.attrs({
+	  		class: "axis y",
+	  		transform: `translate(${margin.left}, 0)`
+	  	})
+	    .call(d3.axisLeft(y).ticks(null, ".0f"));
+
+	    titler("x", "Minutes");
+	    titler("y", "Goals");
 
     let linesData = d3.nest()
     	.key(d => d.id)
     	.entries(data);
 
   	linesData.forEach((d,i) => {
-  		d.lastVal = d.values.slice(-1)[0];  		
-  		let initialVal = Object.assign({}, d.lastVal);
+  		d.lastVal = d.values.slice(-1)[0];
+  		d.firstVal = d.values.slice(0)[0];  		
+  		let initialVal = Object.assign({}, d.firstVal);
   		initialVal.mins = 0;
   		initialVal.played = 0;
   		initialVal.G = 0;
   		initialVal.NPG = 0;
   		d.values.unshift(initialVal);
-  		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#aaa";
+  		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#ccc";
   		d.strokeWidth = colours.domain().includes(d.lastVal.name) ? 3:1;
   		return d
   	});
 
-		let pathVoronoi = d3.line()
-			.context(contextHover);
+		let pathVoronoi;
+		
+		// let pathVoronoi = d3.line()
+			// .context(contextHover);
 
-  	voronoi.polygons(data).forEach((d,i) => {
-  		contextHover.fillStyle = data[i].pointID;
-			contextHover.lineWidth = 0.5;
-			contextHover.beginPath();
-			pathVoronoi(d);
-			contextHover.fill();
-  	});
+  	// voronoi.polygons(data).forEach((d,i) => {
+  	// 	contextHover.fillStyle = data[i].pointID;
+  	// 	contextHover.strokeStyle = data[i].pointID;
+			// contextHover.lineWidth = 0.5;
+			// contextHover.beginPath();
+			// pathVoronoi(d);
+			// contextHover.fill();
+			// contextHover.stroke();
+  	// });
 
   	linesData.sort((a,b) => a.lastVal.G - b.lastVal.G);
 
 		let path = d3.line()
-			.x(d => x(+d.mins))
-			.y(d => y(+d.G))
+			// .curve(d3.curveStepAfter)
+			.x(d => x(d[xVar]))
+			.y(d => y(d[yVar]))
 			.context(context);
 
 		let pathOverlay = d3.line()
-			.x(d => x(+d.mins))
-			.y(d => y(+d.G))
+			// .curve(d3.curveStepAfter)
+			.x(d => x(d[xVar]))
+			.y(d => y(d[yVar]))
 			.context(contextOverlay);
 
 		let goalLines = linesData.forEach((d,i) => {
@@ -292,7 +400,7 @@
 			context.strokeStyle = d.colour;
 			context.fillStyle = d.colour;
 			context.beginPath();
-      context.arc(x(+d.lastVal.mins), y(+d.lastVal.G), 4, 0, Math.PI * 2);
+      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
       context.globalAlpha = 0.6;
       context.fill();
       context.globalAlpha = 1;
@@ -304,15 +412,23 @@
 			.enter()
 			.append("text")
 			.attrs({
-				transform: d => `translate(${x(+d.lastVal.mins)}, ${y(+d.lastVal.G)})`,
+				transform: d => `translate(${x(+d.lastVal[xVar])}, ${y(+d.lastVal[yVar])})`,
 				class: d => `permaLabel ${d.lastVal.name.replace(/ /g,"")}`,
 				"text-anchor": "middle",
 				y: -8
 			})
 			.styles({
-				fill: d => d.colour
+				fill: "none",
+				stroke: "white",
+				"stroke-width": 3
 			})
-			.html(d => d.lastVal.name.split(" ").slice(-1));
+			.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/Stéfano/g,"Di Stéfano"))
+			.clone()
+			.styles({
+				fill: d => d.colour,
+				stroke: "none"
+			})
+			.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/Stéfano/g,"Di Stéfano"));
 
 		// let permaLabels = linesData.filter(d => colours.domain().includes(d.lastVal.name)).forEach((d,i) => {
 		// 	context.fillStyle = d.colour;
@@ -324,20 +440,39 @@
 			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
 
 			let coords = d3.mouse(canvas.node());
-			let pixCol = contextHover.getImageData(coords[0]*PR, coords[1]*PR, 1, 1).data;
-			pixCol = `rgb(${pixCol[0]},${pixCol[1]},${pixCol[2]})`;
-			let dataPoint = data.filter(d => d.pointID == pixCol)[0];
+			let absX = d3.event.clientX;
+
+			// let pixCol = contextHover.getImageData(coords[0]*PR, coords[1]*PR, 1, 1).data;
+			// pixCol = `rgb(${pixCol[0]},${pixCol[1]},${pixCol[2]})`;
+			// let dataPoint = data.filter(d => d.pointID == pixCol)[0];
+			let dataPoint = quadtree.find((coords[0]), (coords[1]), width/6);
+			if(dataPoint == undefined){
+				contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+				tooltip
+					.styles({
+						display: "none"
+					})
+					.select(".inner")
+					.html("");
+				svg.selectAll(".permaLabel").attrs({display: "block"});
+			}else{
 			let dataID = dataPoint.id;
 			let dataGroup = linesData.filter(d => d.key == dataID)[0];
 
 			tooltip
 				.styles({
-					left: `${x(dataPoint.mins)}px`,
-					top: `${y(dataPoint.G)}px`,
+					left: `${x(dataPoint[xVar])}px`,
+					top: `${y(dataPoint[yVar])+20}px`,
 					display: "block"
 				})
 				.select(".inner")
-				.html(dataPoint.name);
+				.styles({
+					left: absX < 135 ? "5px":"",
+					right: absX < 135 ? "":"5px",
+					bottom: absX < 135 ? "":"5px",
+					top: absX < 135 ? "5px":""
+				})
+				.html(toolTipper(dataGroup, yVar));
 
 			[dataGroup].forEach((d,i) => {
 				contextOverlay.strokeStyle = "white";
@@ -345,7 +480,8 @@
 				contextOverlay.beginPath();
 				pathOverlay(d.values);
 				contextOverlay.stroke();
-				contextOverlay.strokeStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
+				// contextOverlay.strokeStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
+				contextOverlay.strokeStyle = "#212121";
 				contextOverlay.lineWidth = 5;
 				contextOverlay.beginPath();
 				pathOverlay(d.values);
@@ -354,9 +490,10 @@
 
 		[dataGroup].forEach((d,i) => {
 				contextOverlay.lineWidth = 1;
-				contextOverlay.fillStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
+				// contextOverlay.fillStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
+				contextOverlay.fillStyle = "#212121";
 				contextOverlay.beginPath();
-	      contextOverlay.arc(x(+d.lastVal.mins), y(+d.lastVal.G), 5, 0, Math.PI * 2);
+	      contextOverlay.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 5, 0, Math.PI * 2);
 	      contextOverlay.fill();
 			});
 
@@ -364,7 +501,7 @@
 				.attrs({
 					display: d => d.lastVal.name == dataPoint.name ? "none":"block"
 				});
-
+			}
 		});
 
 		canvas.on("mouseout", () => {
@@ -375,79 +512,58 @@
 				})
 				.select(".inner")
 				.html("");
+			svg.selectAll(".permaLabel").attrs({display: "block"});
 		});
 
-		// function mouseover(d){
-		// 	let coords = d3.mouse(svg.node());
-			// tooltip
-			// 	.styles({
-			// 		left: `${x(d.data.mins)}px`,
-			// 		top: `${y(d.data.G)}px`,
-			// 		display: "block"
-			// 	})
-			// 	.select(".inner")
-			// 	.html(d.data.name);
-		// 	playerGs.sort((a,b) => +(a.lastVal.name == d.data.name) - +(b.lastVal.name == d.data.name));
-			// svg.select(`.${d.data.name.replace(/ /g,"")}`)
-			// 	.select(".permaLabel")
-			// 	.attrs({
-			// 		display: "none"
-			// 	});
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 		.select("path.goalLine_back")
-		// 		.attrs({
-		// 			"stroke-width": d => d.strokeWidth + 6,
-		// 			display: "block"
-		// 		});
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 		.select("path.goalLine")
-		// 		.attrs({
-		// 			stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
-		// 			"stroke-width": d => 5,
-		// 		});
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 	.select("circle")
-		// 	.attrs({
-		// 		fill: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121",
-		// 		stroke: colours.domain().includes(d.data.name) ? colours(d.data.name):"#212121"
-		// 	});
-		// }
+		d3.select(".axisToggle.y select").on("change", () => {
 
-		// function mouseout(d){
-			// tooltip
-			// 	.styles({
-			// 		display: "none"
-			// 	})
-			// 	.select(".inner")
-			// 	.html("");
-		// 	playerGs.sort((a,b) => a.lastVal.G - b.lastVal.G);
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 		.select(".permaLabel")
-		// 		.attrs({
-		// 			display: "block"
-		// 		});
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 		.select("path.goalLine_back")
-		// 		.attrs({
-		// 			"stroke-width": d => d.strokeWidth + 2,
-		// 			display: d => colours.domain().includes(d.lastVal.name) ? "block":"none"
-		// 		});
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 		.select("path.goalLine")
-		// 		.attrs({
-		// 			stroke: d => d.colour,
-		// 			"stroke-width": d => d.strokeWidth,
-		// 			"fill-opacity": 1
-		// 		});
+			let x1 = x, y1 = y, xFormat1 = xFormat, newY;
 
-		// 	svg.select(`.${d.data.name.replace(/ /g,"")}`)
-		// 	.select("circle")
-		// 	.attrs({
-		// 		fill: d => d.colour,
-		// 		stroke: d => d.colour,
-		// 		"fill-opacity": 0.6
-		// 	});
-		// }
+			if(d3.select(".axisToggle.y select").node().value == "exclude"){
+				newY = "NPG";
+				reDraw([xVar, yVar, xVar, newY], [x, y, x1, y1], xFormat1, [context, contextHover, contextOverlay], canvas, [width, height], [pathVoronoi, path, pathOverlay], [data, linesData, voronoi, quadtree], colours, tooltip);
+				titler("y", "Goals (excl. penalties)");
+				yVar = "NPG";
+			}else{
+				newY = "G";
+				reDraw([xVar, yVar, xVar, newY], [x, y, x1, y1], xFormat1, [context, contextHover, contextOverlay], canvas, [width, height], [pathVoronoi, path, pathOverlay], [data, linesData, voronoi, quadtree], colours, tooltip);
+				titler("y", "Goals");
+				yVar = "G";
+			}
+
+		});
+
+		d3.select(".axisToggle.x select").on("change", () => {
+
+			let newX, x1, xFormat1, y1=y;
+
+			if(d3.select(".axisToggle.x select").node().value == "minutes"){
+				newX = "mins";
+				x1 = d3.scaleLinear().domain([0,4000]).range([margin.left, width-margin.right]);
+				xFormat1 = d3.format(",.0f");
+				reDraw([xVar, yVar, newX, yVar], [x, y, x1, y1], xFormat1, [context, contextHover, contextOverlay], canvas, [width, height], [pathVoronoi, path, pathOverlay], [data, linesData, voronoi, quadtree], colours, tooltip);
+				titler("x", "Minutes");
+				xVar = "mins";
+				x = x1;
+			}else if(d3.select(".axisToggle.x select").node().value == "date"){
+				newX = "date";
+				x1 = d3.scaleTime().domain([new Date("2017-07-01"), new Date()]).range([margin.left, width - margin.right]);
+				xFormat = d3.timeFormat("%Y");
+				reDraw([xVar, yVar, newX, yVar], [x, y, x1, y1], xFormat1, [context, contextHover, contextOverlay], canvas, [width, height], [pathVoronoi, path, pathOverlay], [data, linesData, voronoi, quadtree], colours, tooltip);
+				titler("x", "");
+				xVar = "date";
+				x = x1;
+			}else if(d3.select(".axisToggle.x select").node().value == "played"){
+				newX = "played";
+				x1 = d3.scaleLinear().domain([0,50]).range([margin.left, width-margin.right]);
+				xFormat1 = d3.format(",.0f");
+				reDraw([xVar, yVar, newX, yVar], [x, y, x1, y1], xFormat1, [context, contextHover, contextOverlay], canvas, [width, height], [pathVoronoi, path, pathOverlay], [data, linesData, voronoi, quadtree], colours, tooltip);
+				titler("x", "Matches");
+				xVar = "played";
+				x = x1;
+			}
+
+		});
 
 	});
 </script>
