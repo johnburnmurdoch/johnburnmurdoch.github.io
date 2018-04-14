@@ -196,7 +196,7 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		tooltip
 				.styles({
 					left: `${x(dataPoint[xVar])}px`,
-					top: `${y(dataPoint[yVar])+20}px`,
+					top: `${y(dataPoint[yVar])}px`,
 					display: "block"
 				})
 				.select(".inner")
