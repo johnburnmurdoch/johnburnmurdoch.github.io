@@ -98,22 +98,6 @@
 				font-size: 12px;
 			}
 
-			.axisToggle select{
-				font-family: 'Mplus 1p', Arial, sans-serif;
-				font-size: 14px;
-				border: none;
-				padding: 2px 5px;
-				border-radius: 3px;
-				background-color: #FF2B4F;
-				background-color: #80c6ff;
-				color: white;
-				cursor: pointer;
-			}
-
-			.axisToggle select:hover{
-				background-color: #33a3ff;
-			}
-
 			a{
 				color: #0083EB;
 			}
@@ -123,7 +107,7 @@
 			}
 
 			#axisToggle_y{
-		    display: block;
+		    display: inline;
 		    position: relative;
 		    -webkit-user-select: none;
 		    -moz-user-select: none;
@@ -198,9 +182,45 @@
 				color: white;
 			}
 
+			#search-container{
+				position: absolute;
+				left: 50px;
+				top: 40px;
+			}
+
+			#search{
+				background-color: rgba(0,0,0,0.05);
+			}
+
+			#search span{
+				width: 10px;
+				opacity: 0.4;
+			}
+
+			div.match{
+				opacity: 0.5;
+				cursor: pointer;
+			}
+
+			#search input{
+				/*transition: 0.2s;*/
+				font-size: 1rem;
+				border: none;
+				background: none;
+				font-family: 'Mplus 1p', Arial, sans-serif;
+			}
+
+			#search input.inactive{
+				opacity: 0.4;
+				/*margin-left: 10px;*/
+			}
+
 			@media only screen and (max-width: 500px) {
 		    .tick:nth-child(odd) :not(.title) {
 	        	display: none;
+		    }
+		    #search input{
+		    	max-width: 150px;
 		    }
 			}
 		</style>
@@ -217,6 +237,12 @@
 		<canvas id=canvasHover></canvas>
 		<svg></svg>
 		<canvas id=canvasOverlay></canvas>
+		<div id=search-container>
+			<div id=search>
+				<span> &#x1F50E;</span><input class=inactive type=text value="Search player name"></input>
+			</div>
+			<div id=search-options></div>
+		</div>
 		<div id="axisToggle_x">
 			Plot goals against <span selected value=date>date</span><span value=mins>minutes</span><span value=played>matches</span><span value=age>age</span>
 		</div>
@@ -271,6 +297,14 @@
 
 	function toolTipper(d, yVal){
 		return `<span>${d.lastVal.name}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non&#8209;pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
+	}
+
+	function unAccent(string){
+		return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+	}
+
+	function regExMatch(string, regex){
+		return string.match(regex);
 	}
 
 	let svg = container.select("svg")
@@ -406,7 +440,99 @@
   		d.values.unshift(initialVal);
   		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#ccc";
   		d.strokeWidth = colours.domain().includes(d.lastVal.name) ? 3:1;
+  		d.translit = unAccent(d.lastVal.name);
   		return d
+  	});
+
+  	d3.select("#search input").on("focus", function(){
+  		d3.select(this).node().value = "";
+  		d3.select(this).classed("inactive", 0);
+  		contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+  		tooltip
+				.styles({
+					display: "none"
+				})
+				.select(".inner")
+				.html("");
+			svg.selectAll(".permaLabel").attrs({display: "block"});
+  	});
+
+  	d3.select("#search input").on("input", function(){
+			let text = d3.select("#search input").node().value;
+  		if(text.length > 2){
+  			let pattern = new RegExp(text, "i");
+  			let options = d3.select("#search-options")
+  				.selectAll("div.match")
+  				.data(linesData.filter(d => regExMatch(d.translit, pattern) != null), d => d.key);
+				options.exit().remove();
+				options.enter()
+					.append("div")
+  				.attrs({
+  					class: "match"
+  				})
+  				.html(d => d.lastVal.name);
+				d3.selectAll("div.match").styles({
+					opacity: 0.5,
+					"pointer-events": "all"
+				});
+
+				d3.selectAll("div.match").on("mousedown", p => {
+					d3.select("#search input").node().value = p.lastVal.name;
+					
+					svg.selectAll(".permaLabel")
+						.attrs({
+							display: d => d.lastVal.name == p.lastVal.name ? "none":"block"
+						});
+
+					tooltip
+						.styles({
+							left: `${x(p.lastVal[xVar])}px`,
+							top: `${y(p.lastVal[yVar])}px`,
+							display: "block"
+						});
+
+					let absX = tooltip.node().getBoundingClientRect().x;
+					tooltip
+						.select(".inner")
+						.styles({
+							left: absX < 135 ? "5px":"",
+							right: absX < 135 ? "":"5px",
+							bottom: absX < 135 ? "":"5px",
+							top: absX < 135 ? "5px":""
+						})
+						.html(toolTipper(p, yVar));
+
+					[p].forEach((d,i) => {
+						contextOverlay.strokeStyle = "white";
+						contextOverlay.lineWidth = d.strokeWidth + 6;
+						contextOverlay.beginPath();
+						pathOverlay(d.values);
+						contextOverlay.stroke();
+						contextOverlay.strokeStyle = "#212121";
+						contextOverlay.lineWidth = 5;
+						contextOverlay.beginPath();
+						pathOverlay(d.values);
+						contextOverlay.stroke();
+					});
+
+				[p].forEach((d,i) => {
+						contextOverlay.lineWidth = 1;
+						contextOverlay.fillStyle = "#212121";
+						contextOverlay.beginPath();
+			      contextOverlay.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 5, 0, Math.PI * 2);
+			      contextOverlay.fill();
+					});
+				});
+  		}
+  	});
+
+  	d3.select("#search input").on("blur", function(){
+			d3.select(this).node().value = "Search player name";
+			d3.select(this).classed("inactive", 1);
+			d3.selectAll("div.match").styles({
+				opacity: 0,
+				"pointer-events": "none"
+			});
   	});
 
 		let pathVoronoi;
@@ -566,6 +692,16 @@
 		});
 
 		d3.select('#axisToggle_y input').on('click', () => {
+
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			tooltip
+				.styles({
+					display: "none"
+				})
+				.select(".inner")
+				.html("");
+			svg.selectAll(".permaLabel").attrs({display: "block"});
+
 			let x1 = x, y1 = y, xFormat1 = xFormat, newY;
       
 			if(d3.select("#axisToggle_y input").node().checked == false){
@@ -584,6 +720,15 @@
 
 		d3.selectAll('#axisToggle_x span').data(["date", "mins", "played", "age"])
 			.on('click', function(){
+
+				contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+				tooltip
+					.styles({
+						display: "none"
+					})
+					.select(".inner")
+					.html("");
+				svg.selectAll(".permaLabel").attrs({display: "block"});
 	    	
 	    	let newX = d3.select(this).attr("value"), x1, xFormat1, y1=y;
 	    	d3.selectAll('#axisToggle_x span')
