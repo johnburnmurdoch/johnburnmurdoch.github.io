@@ -183,6 +183,7 @@
 			}
 
 			#search-container{
+				pointer-events: none;
 				position: absolute;
 				left: 50px;
 				top: 40px;
@@ -190,6 +191,7 @@
 
 			#search{
 				background-color: rgba(0,0,0,0.05);
+				pointer-events: all;
 			}
 
 			#search span{
@@ -201,6 +203,7 @@
 				opacity: 0.5;
 				cursor: pointer;
 				background-color: white;
+				pointer-events: all;
 			}
 
 			#search input{
@@ -477,8 +480,14 @@
 					"pointer-events": "all"
 				});
 
-				d3.selectAll("div.match").on("mousedown", p => {
-					d3.select("#search input").node().value = p.lastVal.name;
+				d3.selectAll("div.match").on("click", p => {
+					
+					d3.selectAll("div.match").styles({
+						opacity: 0,
+						"pointer-events": "none"
+					});
+					d3.select("#search input").node().value = "Search player name";
+					d3.select("#search input").classed("inactive", 1);
 					
 					svg.selectAll(".permaLabel")
 						.attrs({
@@ -528,12 +537,10 @@
   	});
 
   	d3.select("#search input").on("blur", function(){
-			d3.select(this).node().value = "Search player name";
+  		if(d3.select(this).node().value == ""){
+  			d3.select(this).node().value = "Search player name";
+  		}
 			d3.select(this).classed("inactive", 1);
-			d3.selectAll("div.match").styles({
-				opacity: 0,
-				"pointer-events": "none"
-			});
   	});
 
 		let pathVoronoi;
