@@ -33,16 +33,20 @@
 		<link rel="apple-touch-icon" href="icon.png">
 		<!-- Place favicon.ico in the root directory -->
 
-		<script type='text/javascript' src='https://unpkg.com/d3@4'></script>
+		<!-- <script type='text/javascript' src='https://unpkg.com/d3@4'></script>
 		<script type='text/javascript' src='https://unpkg.com/d3-selection-multi'></script>
 		<script type='text/javascript' src='https://unpkg.com/d3-scale-chromatic'></script>
-		<script src="https://npmcdn.com/svg-path-properties/build/path-properties.js"></script>
+		<script src="https://npmcdn.com/svg-path-properties/build/path-properties.js"></script> -->
+
+		<script type='text/javascript' src='../../d3.min.js'></script>
+		<script type='text/javascript' src='../../d3-selection-multi.js'></script>
+		<script src="../../path-properties.js"></script>
 		<script src="reDraw.js"></script>
 
 		<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
 		<style>
 			body, text{
-				font-family: 'Mplus 1p', Arial, sans-serif;
+				font-family: 'Mplus 1p', Avenir, Helvetica, sans-serif;
 				font-size: 14px;
 			}
 			text{
@@ -60,6 +64,7 @@
 			svg{
 				position: absolute;
 				pointer-events: none;
+				overflow: visible;
 			}
 			canvas{
 				position: absolute;
@@ -185,8 +190,8 @@
 			#search-container{
 				pointer-events: none;
 				position: absolute;
-				left: 50px;
-				top: 40px;
+				left: 35px;
+				top: 45px;
 			}
 
 			#search{
@@ -200,10 +205,18 @@
 			}
 
 			div.match{
-				opacity: 0.5;
+				opacity: 0.9;
+				color: rgba(0,0,0,0.5);
 				cursor: pointer;
 				background-color: white;
 				pointer-events: all;
+				padding: 2px 0;
+			}
+
+			div.match:hover{
+				opacity: 1;
+				color: rgba(0,0,0,0.9);
+				background-color: hsl(360,0%,90%);
 			}
 
 			#search input{
@@ -211,7 +224,7 @@
 				font-size: 1rem;
 				border: none;
 				background: none;
-				font-family: 'Mplus 1p', Arial, sans-serif;
+				font-family: 'Mplus 1p', Avenir, Helvetica, sans-serif;
 			}
 
 			#search input.inactive{
@@ -256,8 +269,8 @@
 	</div>
 	<div id=footer>
 		<br>
-		<h4>Showing the top 100 goal-scorers in Champions League and European Cup history</h4>
-		<h4>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a><br><br>If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/" title="The top scorers in European football, 2017-18, across all competitions">The top scorers in European football, 2017-18, across all competitions</a></span></h4>
+		<div>Showing the top 100 goal-scorers in Champions League and European Cup history</div>
+		<br><div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a><br><br>If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/" title="The top scorers in European football, 2017-18, across all competitions">The top goal-scorers of the Ronaldo/Messi era across all competitions</a></span></div>
 	</div>
 </div>
 
@@ -268,7 +281,7 @@
 	let width = container.node().clientWidth,
 		// height = d3.min([700, window.innerHeight-offsetY]),
 		height = d3.min([width, d3.min([700, window.innerHeight-offsetY])]),
-		margin = {top: 20, right: 35, bottom: 30, left: 40},
+		margin = {top: 15, right: 35, bottom: 30, left: 40},
 		PR = window.devicePixelRatio || 1,
 		scaledWidth = width*PR,
 		scaledHeight = height*PR;
@@ -300,7 +313,7 @@
 	}
 
 	function toolTipper(d, yVal){
-		return `<span>${d.lastVal.name}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non&#8209;pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
+		return `<span>${d.lastVal.name.replace(/_/g," ")}</span><br><span>${d.lastVal[yVal]} ${yVal == "G" ? "goals":"non&#8209;pen goals"}<br>(${d3.format(".2f")(d.lastVal[yVal]/(d.lastVal.mins/90))} per 90 mins)</span>`
 	}
 
 	function unAccent(string){
@@ -384,7 +397,8 @@
 			xFormat = d3.timeFormat("%Y");
 
 		data.forEach(d => {
-			d.pointID = genColor();
+			d.name = d.name.replace(/Zlatan Ibrahimović/g,"Zlatan").replace(/^Ronaldo$/g,"Ronaldo_(BRA)").replace(/Di /g,"Di_").replace(/van /g,"van_");
+			// d.pointID = genColor();
 			d.mins = +d.mins;
 			d.played = +d.played;
 			d.age = +d.age;
@@ -410,8 +424,10 @@
         .addAll(data);
 
     let colours = d3.scaleOrdinal()
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Eusébio", "Alfredo Di Stéfano", "Gerd Müller"])
-    	.range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#00F1B1", "#FF49EF"]);
+    	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Eusébio", "Alfredo Di Stéfano", "Gerd Müller"])
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Alfredo Di_Stéfano", "Gerd Müller"])
+    	// .range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#00F1B1", "#FF49EF"])
+    	.range(["#FF2B4F", "#008cfa", "#FCAB27", "#FF49EF", "#00ebab"]);
 
 	  svg.append("g")
 	  	.attrs({
@@ -448,6 +464,12 @@
   		return d
   	});
 
+  	d3.select("#search-container")
+  		.styles({
+  			left: `${margin.left + 5}px`,
+  			top: `${+d3.select(".axis.y .tick:nth-last-child(1)").attr("transform").replace(/.+,|\)/g,"") + 12}px`
+  		});
+
   	d3.select("#search input").on("focus", function(){
   		d3.select(this).node().value = "";
   		d3.select(this).classed("inactive", 0);
@@ -463,24 +485,49 @@
 
   	d3.select("#search input").on("input", function(){
 			let text = d3.select("#search input").node().value;
-  		if(text.length > 2){
+  		if(text.length > 1){
   			let pattern = new RegExp(text, "i");
   			let options = d3.select("#search-options")
   				.selectAll("div.match")
-  				.data(linesData.filter(d => regExMatch(d.translit, pattern) != null), d => d.key);
+  				.data(linesData.filter(d => regExMatch(d.translit, pattern) != null).slice(0,10), d => d.key);
 				options.exit().remove();
 				options.enter()
 					.append("div")
   				.attrs({
   					class: "match"
   				})
-  				.html(d => d.lastVal.name);
+  				.html(d => d.lastVal.name.replace(/_/g," "));
 				d3.selectAll("div.match").styles({
-					opacity: 0.5,
+					opacity: 1,
 					"pointer-events": "all"
 				});
 
 				d3.selectAll("div.match").on("click", p => {
+
+					let highlightNames = colours.domain();
+					if(highlightNames.length > 5){
+						highlightNames.pop();
+						out.colour = "#ccc";
+  					out.strokeWidth = 1;
+  					contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+					}
+					highlightNames.push(p.lastVal.name);
+
+					let highlightCols = colours.range();
+					if(highlightCols.length > 6){
+						highlightCols.pop();
+					}
+					highlightCols.push("#002fbd");
+
+					colours.domain(highlightNames);
+					colours.range(highlightCols);
+
+					p.colour = colours(p.lastVal.name);
+  				p.strokeWidth = 3;
+
+  				init();
+
+					out = p;
 					
 					d3.selectAll("div.match").styles({
 						opacity: 0,
@@ -512,26 +559,26 @@
 						})
 						.html(toolTipper(p, yVar));
 
-					[p].forEach((d,i) => {
-						contextOverlay.strokeStyle = "white";
-						contextOverlay.lineWidth = d.strokeWidth + 6;
-						contextOverlay.beginPath();
-						pathOverlay(d.values);
-						contextOverlay.stroke();
-						contextOverlay.strokeStyle = "#212121";
-						contextOverlay.lineWidth = 5;
-						contextOverlay.beginPath();
-						pathOverlay(d.values);
-						contextOverlay.stroke();
-					});
+					// [p].forEach((d,i) => {
+					// 	contextOverlay.strokeStyle = "white";
+					// 	contextOverlay.lineWidth = d.strokeWidth + 6;
+					// 	contextOverlay.beginPath();
+					// 	pathOverlay(d.values);
+					// 	contextOverlay.stroke();
+					// 	contextOverlay.strokeStyle = "#212121";
+					// 	contextOverlay.lineWidth = 5;
+					// 	contextOverlay.beginPath();
+					// 	pathOverlay(d.values);
+					// 	contextOverlay.stroke();
+					// });
 
-				[p].forEach((d,i) => {
-						contextOverlay.lineWidth = 1;
-						contextOverlay.fillStyle = "#212121";
-						contextOverlay.beginPath();
-			      contextOverlay.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 5, 0, Math.PI * 2);
-			      contextOverlay.fill();
-					});
+					// [p].forEach((d,i) => {
+					// 	contextOverlay.lineWidth = 1;
+					// 	contextOverlay.fillStyle = "#212121";
+					// 	contextOverlay.beginPath();
+			  //     contextOverlay.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 5, 0, Math.PI * 2);
+			  //     contextOverlay.fill();
+					// });
 				});
   		}
   	});
@@ -545,8 +592,6 @@
 
 		let pathVoronoi;
 
-  	linesData.sort((a,b) => a.lastVal.G - b.lastVal.G);
-
 		let path = d3.line()
 			// .curve(width < 500 ? d3.curveLinear:d3.curveStepAfter)
 			.x(d => x(d[xVar]))
@@ -559,65 +604,65 @@
 			.y(d => y(d[yVar]))
 			.context(contextOverlay);
 
-		let goalLines = linesData.forEach((d,i) => {
-			if(colours.domain().includes(d.lastVal.name)){
-				context.strokeStyle = "white";
-				context.lineWidth = d.strokeWidth * 2;
+		function init(){
+
+			linesData.sort((a,b) => colours.domain().indexOf(a.lastVal.name) - colours.domain().indexOf(b.lastVal.name));
+
+			context.clearRect(0, 0, scaledWidth, scaledHeight);
+
+			let goalLines = linesData.forEach((d,i) => {
+				if(colours.domain().includes(d.lastVal.name)){
+					context.strokeStyle = "white";
+					context.lineWidth = d.strokeWidth * 2;
+					context.beginPath();
+					path(d.values);
+					context.stroke();				
+				}
+				context.strokeStyle = d.colour;
+				context.lineWidth = d.strokeWidth;
 				context.beginPath();
 				path(d.values);
-				context.stroke();				
-			}
-			context.strokeStyle = d.colour;
-			context.lineWidth = d.strokeWidth;
-			context.beginPath();
-			path(d.values);
-			context.stroke();
+				context.stroke();
 
-			context.lineWidth = 1;
-			context.strokeStyle = d.colour;
-			context.fillStyle = d.colour;
-			context.beginPath();
-      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
-      context.globalAlpha = 0.6;
-      context.fill();
-      context.globalAlpha = 1;
-      context.stroke();
-		});
+				context.lineWidth = 1;
+				context.strokeStyle = d.colour;
+				context.fillStyle = d.colour;
+				context.beginPath();
+	      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
+	      context.globalAlpha = 0.6;
+	      context.fill();
+	      context.globalAlpha = 1;
+	      context.stroke();
+			});
 
-		// let circles = linesData.forEach((d,i) => {
-		// 	context.lineWidth = 1;
-		// 	context.strokeStyle = d.colour;
-		// 	context.fillStyle = d.colour;
-		// 	context.beginPath();
-  //     context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
-  //     context.globalAlpha = 0.6;
-  //     context.fill();
-  //     context.globalAlpha = 1;
-  //     context.stroke();
-		// });
+			svg.selectAll("text.permaLabel").remove();
 
-		let permaLabels = svg.selectAll("text.permaLabel")
-			.data(linesData.filter(d => colours.domain().includes(d.lastVal.name)))
-			.enter()
-			.append("text")
-			.attrs({
-				transform: d => `translate(${x(+d.lastVal[xVar])}, ${y(+d.lastVal[yVar])})`,
-				class: d => `permaLabel ${d.lastVal.name.replace(/ /g,"")}`,
-				"text-anchor": "middle",
-				y: -8
-			})
-			.styles({
-				fill: "none",
-				stroke: "white",
-				"stroke-width": 3
-			})
-			.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/Stéfano/g,"Di Stéfano"))
-			.clone()
-			.styles({
-				fill: d => d.colour,
-				stroke: "none"
-			})
-			.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/Stéfano/g,"Di Stéfano"));
+			let permaLabels = svg.selectAll("text.permaLabel")
+				.data(linesData.filter(d => colours.domain().includes(d.lastVal.name)))
+				.enter()
+				.append("text")
+				.attrs({
+					transform: d => `translate(${x(+d.lastVal[xVar])}, ${y(+d.lastVal[yVar])})`,
+					class: d => `permaLabel ${d.lastVal.name.replace(/ /g,"")}`,
+					"text-anchor": "middle",
+					y: -8
+				})
+				.styles({
+					fill: "none",
+					stroke: "white",
+					"stroke-width": 3
+				})
+				.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/_/g," "))
+				.clone()
+				.styles({
+					fill: d => d.colour,
+					stroke: "none"
+				})
+				.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/_/g," "));
+
+		}
+
+		init();
 
 		canvas.on("mousemove", () => {
 			
@@ -701,15 +746,6 @@
 
 		d3.select('#axisToggle_y input').on('click', () => {
 
-			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
-			tooltip
-				.styles({
-					display: "none"
-				})
-				.select(".inner")
-				.html("");
-			svg.selectAll(".permaLabel").attrs({display: "block"});
-
 			let x1 = x, y1 = y, xFormat1 = xFormat, newY;
       
 			if(d3.select("#axisToggle_y input").node().checked == false){
@@ -728,15 +764,6 @@
 
 		d3.selectAll('#axisToggle_x span').data(["date", "mins", "played", "age"])
 			.on('click', function(){
-
-				contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
-				tooltip
-					.styles({
-						display: "none"
-					})
-					.select(".inner")
-					.html("");
-				svg.selectAll(".permaLabel").attrs({display: "block"});
 	    	
 	    	let newX = d3.select(this).attr("value"), x1, xFormat1, y1=y;
 	    	d3.selectAll('#axisToggle_x span')

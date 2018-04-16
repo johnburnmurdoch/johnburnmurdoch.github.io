@@ -6,7 +6,8 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 	let x0 = scales[0],
  		y0 = scales[1],
  		x = scales[2],
- 		y = scales[3];
+ 		y = scales[3],
+ 		cols = scales[4];
 	let context = contexts[0],
 		contextHover = contexts[1],
 		contextOverlay = contexts[2];
@@ -24,6 +25,7 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		voronoi = dataSets[2],
 		quadtree = dataSets[3];
 	let colours = highlights;
+	let prec = 4;
 
 	// Function that will animate between two paths for any array of [from, to] path strings
 	function pathTween(pairs, precision, ticks, duration) {
@@ -56,26 +58,30 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		  
 		  let animate = d3.interval(function(t){
 		    if(t >= duration){
-		      context.clearRect(0, 0, width, height);
-			    pointHolder.forEach(ph => {
-			    	let c;
-			    	context.strokeStyle = ph.colour;
-			    	context.fillStyle = ph.colour;
-			    	context.lineWidth = ph.lineWidth;
-			    	context.beginPath();
-				    ph.points.map(p => p(1)).forEach(function(p, i) {
-				      context[i == 0 ? "moveTo" : "lineTo"](...p);
-				      if(i == ph.points.length-1) c = p;
-				    });
-				    context.stroke();
-				    context.beginPath();
-			      context.arc(...c, 4, 0, Math.PI * 2);
+		      context.clearRect(0, 0, width, height);			    
+		      linesData.forEach((d,i) => {
+						if(colours.domain().includes(d.lastVal.name)){
+							context.strokeStyle = "white";
+							context.lineWidth = d.strokeWidth * 2;
+							context.beginPath();
+							path(d.values);
+							context.stroke();				
+						}
+						context.strokeStyle = d.colour;
+						context.lineWidth = d.strokeWidth;
+						context.beginPath();
+						path(d.values);
+						context.stroke();
+						context.lineWidth = 1;
+						context.strokeStyle = d.colour;
+						context.fillStyle = d.colour;
+						context.beginPath();
+			      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
 			      context.globalAlpha = 0.6;
 			      context.fill();
 			      context.globalAlpha = 1;
-			      context.lineWidth = 1;
 			      context.stroke();
-			    });
+					});			    
 		      animate.stop();
 		    }else{		  
 			    context.clearRect(0, 0, width, height);
@@ -247,5 +253,14 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		svg.selectAll(".permaLabel").attrs({display: "block"});
 	});
 
-	pathTween(pathPairs, 4, 50, 1000);
+	contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+	tooltip
+		.styles({
+			display: "none"
+		})
+		.select(".inner")
+		.html("");
+	svg.selectAll(".permaLabel").attrs({display: "block"});
+
+	pathTween(pathPairs, prec, 50, 1000);
 }
