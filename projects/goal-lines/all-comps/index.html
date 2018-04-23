@@ -261,7 +261,7 @@
 			<div id=search-options></div>
 		</div>
 		<div id="axisToggle_x">
-			Plot goals against <span selected value=mins>minutes</span><span value=played>matches</span><span value=date>date</span><span value=age>age</span>
+			Plot goals against <span value=mins>minutes</span><span value=played>matches</span><span selected value=date>date</span><span value=age>age</span>
 		</div>
 		<div id=tooltip>
 			<div class=inner></div>
@@ -407,9 +407,9 @@
 
 	d3.csv(dataFile, (error, data) => {
 
-		let xVar = "mins",
+		let xVar = "date",
 			yVar = "G",
-			xFormat = d3.format(",.0f");
+			xFormat = d3.timeFormat("%Y");					
 
 		data.forEach(d => {
 			d.name = d.name.replace(/Zlatan Ibrahimović/g,"Zlatan").replace(/^Ronaldo$/g,"Ronaldo_(BRA)").replace(/Di /g,"Di_").replace(/van /g,"van_").replace(/Le /g,"Le_");
@@ -426,9 +426,9 @@
 			d.date = d3.timeParse("%Y-%m-%d")(d.date);
 		});
 		
-		let x = d3.scaleLinear()
-	    .domain([0,d3.max(data, d => d[xVar])*1.05])
-	    .range([margin.left, width-margin.right]);
+		let x = d3.scaleTime()
+			.domain([new Date("1979-11-01"), new Date()])
+			.range([margin.left, width - margin.right]);
 
     let y = d3.scaleLinear()
 	    .domain([0, d3.max(data, d => +d.G)])
@@ -464,7 +464,7 @@
 	  	})
 	    .call(d3.axisLeft(y).ticks(null, ".0f"));
 
-	    titler("x", "Minutes");
+	    titler("x", "");
 	    titler("y", "Goals");
 
     let linesData = d3.nest()
