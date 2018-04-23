@@ -11,7 +11,7 @@
 		  gtag('config', 'UA-117177919-1');
 		</script>
 
-		<title>The top goal-scorers of the Ronaldo/Messi era</title>
+		<title>The top goal-scorers in the history of football</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -21,13 +21,13 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@jburnmurdoch">
 		<meta name="twitter:creator" content="@jburnmurdoch">
-		<meta name="twitter:title" content="The top goal-scorers of the Ronaldo/Messi era, across all competitions">
-		<meta name="twitter:description" content="Ronaldo and Messi have each scored more than 500 career goals at club level. See how they compare to Alan Shearer, the original Ronaldo and other modern greats">
-		<meta name="twitter:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/preview_ui_AGE_2.png">
-		<meta property="og:title" content="The top goal-scorers of the Ronaldo/Messi era, across all competitions" />
+		<meta name="twitter:title" content="The top goal-scorers in elite football since 1980">
+		<meta name="twitter:description" content="Ronaldo and Messi have each scored more than 500 career goals at club level. See how they compare to Shearer, Klinsmann, Baggio and other modern greats">
+		<meta name="twitter:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/preview.png">
+		<meta property="og:title" content="The top goal-scorers in elite football since 1980" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/" />
-		<meta property="og:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/preview_ui_AGE_2.png" />
+		<meta property="og:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/all-comps/preview.png" />
 
 		<link rel="manifest" href="site.webmanifest">
 		<link rel="apple-touch-icon" href="icon.png">
@@ -247,7 +247,7 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 <div id=main>
-	<h1>The top goal-scorers of the Ronaldo/Messi era</h1>
+	<h1>The top goal-scorers in elite club football since 1980</h1>
 	<label id=axisToggle_y>Include penalty goals? <input type=checkbox checked></input><span class=pseudoCheck></span></label>
 	<div id=graphic>
 		<canvas id=canvas></canvas>
@@ -269,7 +269,7 @@
 	</div>
 	<div id=footer>
 		<br>
-		<div>Showing the 180 most prolific goal-scorers to have played during the same era as Cristiano Ronaldo and Lionel Messi.<br><br>More specifically, the players shown here scored at least 15 league goals in a single season of one of Europe’s big five leagues since 2002, and have either a) scored a career total of 100 goals or more in all competitions, or b) are scoring non-penalty goals at a rate of at least 0.4 per 90 minutes.</div>
+		<div>Figures are for all senior club matches played in a league or cup in England, Spain, Italy, Germany or France, or in international tournaments such as the Champions League, Europa League and Cup Winners’ Cup.<br><br>The 183 players shown are those who have scored at least 20 league goals in any single season of one of Europe’s big five leagues since 1990, and have a career-average goal-scoring rate across senior matches in these five countries of more than 0.25 non-penalty goals per 90 minutes.</div>
 		<br>
 		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a><br><br>If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" title="The top scorers in Champions League history">The top scorers in Champions League history</a></span>.</div>
 	</div>
@@ -412,7 +412,7 @@
 			xFormat = d3.format(",.0f");
 
 		data.forEach(d => {
-			d.name = d.name.replace(/Zlatan Ibrahimović/g,"Zlatan").replace(/^Ronaldo$/g,"Ronaldo_(BRA)").replace(/Di /g,"Di_").replace(/van /g,"van_");
+			d.name = d.name.replace(/Zlatan Ibrahimović/g,"Zlatan").replace(/^Ronaldo$/g,"Ronaldo_(BRA)").replace(/Di /g,"Di_").replace(/van /g,"van_").replace(/Le /g,"Le_");
 			// d.pointID = genColor();
 			d.mins = +d.mins;
 			d.played = +d.played;
@@ -444,7 +444,8 @@
 
     let colours = d3.scaleOrdinal()
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Thierry Henry", "Zlatan", "Alan Shearer"])
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Zlatan", "Alan Shearer", "Thierry Henry"])
+    	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Zlatan", "Ronaldo_(BRA)", "Alan Shearer"])
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Gary Lineker", "Jürgen Klinsmann"])
     	// .range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#FF49EF", "#00F1B1"])
     	// .range(["#FF2B4F", "#0083EB", "#FCAB27", "#FF49EF", "#00F1B1"]);
     	.range(["#FF2B4F", "#008cfa", "#FCAB27", "#FF49EF", "#00ebab"]);
