@@ -1,4 +1,4 @@
-function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, dataSets, highlights, tooltip){
+function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, dataSets, highlights, tooltip, highlighter){
 	let xVar0 = vars[0],
 		yVar0 = vars[1],
 		xVar = vars[2],
@@ -26,6 +26,7 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 		quadtree = dataSets[3];
 	let colours = highlights;
 	let prec = 4;
+	let highlightPlayer = highlighter;
 
 	// Function that will animate between two paths for any array of [from, to] path strings
 	function pathTween(pairs, precision, ticks, duration) {
@@ -193,9 +194,21 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 				.select(".inner")
 				.html("");
 				svg.selectAll(".permaLabel").attrs({display: "block"});
+				canvas.styles({
+					cursor: `default`
+				});
 		}else{
 		let dataID = dataPoint.id;
 		let dataGroup = linesData.filter(d => d.key == dataID)[0];
+
+		if(width > 768){
+			canvas.on("click", () => {
+				highlightPlayer(dataGroup);
+			});
+			canvas.styles({
+				cursor: `url("pin.png"), url("pin.cur"), default`
+			});
+		}
 
 		tooltip
 				.styles({
