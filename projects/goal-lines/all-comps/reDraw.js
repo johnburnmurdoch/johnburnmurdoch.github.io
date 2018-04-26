@@ -231,6 +231,17 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 			contextOverlay.beginPath();
 			pathOverlay(d.values);
 			contextOverlay.stroke();
+
+			if(xVar == "mins"){
+				let slope = d.lastVal[yVar] / d.lastVal[xVar];
+				contextOverlay.setLineDash([10, 10]);
+				contextOverlay.strokeStyle = "black";
+				contextOverlay.lineWidth = 1;
+				contextOverlay.moveTo(x.range()[0], y.range()[0]);
+				contextOverlay.lineTo(x.range()[1], y(x.domain()[1]*slope));
+				contextOverlay.stroke();
+				contextOverlay.setLineDash([]);
+			}
 			// contextOverlay.strokeStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
 			contextOverlay.strokeStyle = "#212121";
 			contextOverlay.lineWidth = 5;

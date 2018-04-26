@@ -477,7 +477,18 @@
   	function highlightPlayer(p){  		
 
 				if(colours.domain().includes(p.lastVal.name)){
-					//
+  				if(xVar == "mins"){
+  					contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+						let slope = p.lastVal[yVar] / p.lastVal[xVar];
+						contextOverlay.setLineDash([10, 10]);
+						contextOverlay.strokeStyle = "black";
+						contextOverlay.lineWidth = 1;
+						contextOverlay.beginPath();
+						contextOverlay.moveTo(x.range()[0], y.range()[0]);
+						contextOverlay.lineTo(x.range()[1], y(x.domain()[1]*slope));
+						contextOverlay.stroke();
+						contextOverlay.setLineDash([]);
+					}
 				}else{
 					if(colours.domain()[5] != "xxx"){
 						out = linesData.filter(l => l.lastVal.name == colours.domain()[highlightIndex])[0];
@@ -511,6 +522,19 @@
   				p.strokeWidth = 3;
 
   				init();
+
+  				if(xVar == "mins"){
+						contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+						let slope = p.lastVal[yVar] / p.lastVal[xVar];
+						contextOverlay.setLineDash([10, 10]);
+						contextOverlay.strokeStyle = "black";
+						contextOverlay.lineWidth = 1;
+						contextOverlay.beginPath();
+						contextOverlay.moveTo(x.range()[0], y.range()[0]);
+						contextOverlay.lineTo(x.range()[1], y(x.domain()[1]*slope));
+						contextOverlay.stroke();
+						contextOverlay.setLineDash([]);
+					}
 
   				let dout = highlightNames.pop(), rout = highlightCols.pop();
   				highlightNames.unshift(dout), highlightCols.unshift(rout);
@@ -773,6 +797,13 @@
 				contextOverlay.beginPath();
 				pathOverlay(d.values);
 				contextOverlay.stroke();
+
+				// let slope = d.lastVal[yVar] / d.lastVal[xVar];
+				// contextOverlay.strokeStyle = "red";
+				// contextOverlay.lineWidth = 1;
+				// contextOverlay.moveTo(x.range()[0], y.range()[0]);
+				// contextOverlay.lineTo(x.range()[1], y(x.domain()[1]*slope));
+				// contextOverlay.stroke();
 				// contextOverlay.strokeStyle = colours.domain().includes(dataPoint.name) ? colours(dataPoint.name):"#212121";
 				contextOverlay.strokeStyle = "#212121";
 				contextOverlay.lineWidth = 5;
