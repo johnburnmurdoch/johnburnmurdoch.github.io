@@ -430,7 +430,7 @@
 		});
 		
 		let x = d3.scaleTime()
-			.domain([new Date("1979-11-01"), new Date()])
+			.domain([new Date("1970-1-1"), new Date()])
 			.range([margin.left, width - margin.right]);
 
     let y = d3.scaleLinear()
@@ -873,7 +873,7 @@
 					xVar = "mins";
 					x = x1;
 				}else if(newX == "date"){
-					x1 = d3.scaleTime().domain([new Date("1979-11-01"), new Date()]).range([margin.left, width - margin.right]);
+					x1 = d3.scaleTime().domain([new Date("1970-1-1"), new Date()]).range([margin.left, width - margin.right]);
 					xFormat = d3.timeFormat("%Y");
 					reDraw([xVar, yVar, newX, yVar], [x, y, x1, y1], xFormat1, [context, contextHover, contextOverlay], canvas, [width, height], [pathVoronoi, path, pathOverlay], [data, linesData, voronoi, quadtree], colours, tooltip, highlightPlayer);
 					titler("x", "");
