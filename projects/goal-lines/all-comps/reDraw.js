@@ -77,8 +77,8 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 						context.strokeStyle = d.colour;
 						context.fillStyle = d.colour;
 						context.beginPath();
-			      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
-			      context.globalAlpha = 0.6;
+			      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 3, 0, Math.PI * 2);
+			      context.globalAlpha = 0.4;
 			      context.fill();
 			      context.globalAlpha = 1;
 			      context.stroke();
@@ -98,7 +98,7 @@ function reDraw(vars, scales, xFormat, contexts, canvasMouse, dims, pathGens, da
 				    });
 				    context.stroke();
 				    context.beginPath();
-			      context.arc(...c, 4, 0, Math.PI * 2);
+			      context.arc(...c, 3, 0, Math.PI * 2);
 			      context.globalAlpha = 0.6;
 			      context.fill();
 			      context.globalAlpha = 1;

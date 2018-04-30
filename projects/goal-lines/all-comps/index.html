@@ -271,7 +271,7 @@
 	</div>
 	<div id=footer>
 		<br>
-		<div>Figures are for all senior club matches played in a league or cup in England, Spain, Italy, Germany or France, or in international tournaments such as the Champions League, Europa League and Cup Winners’ Cup.<br><br>The 183 players shown are those who have scored at least 20 league goals in any single season of one of Europe’s big five leagues since 1990, and have a career-average goal-scoring rate across senior matches in these five countries of more than 0.25 non-penalty goals per 90 minutes.</div>
+		<div>Figures are for all senior club matches played in a league or cup in England, Spain, Italy, Germany or France, or in international tournaments such as the Champions League, Europa League and Cup Winners’ Cup.<br><br>The 186 players shown are those who have scored at least 20 league goals in any single season of one of Europe’s big five leagues since 1990, and have a career-average goal-scoring rate across senior matches in these five countries of at least 0.4 non-penalty goals per 90 minutes.</div>
 		<br>
 		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a><br><br>If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" title="The top scorers in Champions League history">The top scorers in Champions League history</a></span>.</div>
 	</div>
@@ -288,7 +288,7 @@
 		PR = window.devicePixelRatio || 1,
 		scaledWidth = width*PR,
 		scaledHeight = height*PR,
-		highlightIndex = 5,
+		highlightIndex = 4,
 		out;
 	let dataFile;
 	dataFile = width > 768 ? "mediumData.csv?":"smallData.csv?";
@@ -448,10 +448,14 @@
     let colours = d3.scaleOrdinal()
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Thierry Henry", "Zlatan", "Alan Shearer"])
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Zlatan", "Ronaldo_(BRA)", "Alan Shearer"])
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Gary Lineker", "Jürgen Klinsmann", "xxx"])
+    	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Gary Lineker", "Jürgen Klinsmann", "xxx"])
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Jürgen Klinsmann", "xxx"])
     	// .range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#FF49EF", "#00F1B1"])
     	// .range(["#FF2B4F", "#0083EB", "#FCAB27", "#FF49EF", "#00F1B1"]);
-    	.range(["#FF2B4F", "#008cfa", "#FCAB27", "#FF49EF", "#00ebab", "#002fbd"]);
+     .range(["#ff2b4f", "#0083eb", "#fcab27", "#00f1b1", "#00218d"]);
+    	// .range(["#4e3da4", "#0071ff", "#75b8ff", "#33f4ff"]);
+    	// .range(["#743da4", "#fc50d7", "#ff4609", "#ffaf0f"]);
+    	// .range(["#FF2B4F", "#008cfa", "#FCAB27", "#FF49EF", "#00ebab", "#002fbd"]);
 
 	  svg.append("g")
 	  	.attrs({
@@ -490,7 +494,7 @@
 						contextOverlay.setLineDash([]);
 					}
 				}else{
-					if(colours.domain()[5] != "xxx"){
+					if(colours.domain()[highlightIndex] != "xxx"){
 						out = linesData.filter(l => l.lastVal.name == colours.domain()[highlightIndex])[0];
 						out.colour = "#d1d1d1";
 						out.strokeWidth = 1;
@@ -704,8 +708,8 @@
 				context.strokeStyle = d.colour;
 				context.fillStyle = d.colour;
 				context.beginPath();
-	      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 4, 0, Math.PI * 2);
-	      context.globalAlpha = 0.6;
+	      context.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 3, 0, Math.PI * 2);
+	      context.globalAlpha = 0.4;
 	      context.fill();
 	      context.globalAlpha = 1;
 	      context.stroke();
@@ -726,7 +730,7 @@
 				.styles({
 					fill: "none",
 					stroke: "white",
-					"stroke-width": 3
+					"stroke-width": 5
 				})
 				.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/_/g," "))
 				.clone()
