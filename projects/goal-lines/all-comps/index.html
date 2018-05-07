@@ -61,7 +61,7 @@
 				margin: 0;
 				position: relative;
 			}
-			svg{
+			svg#lines{
 				position: absolute;
 				pointer-events: none;
 				overflow: visible;
@@ -234,13 +234,92 @@
 				/*margin-left: 10px;*/
 			}
 
+			.streakGroup{
+				width: 50%;
+				display: inline-table;
+				border-collapse: collapse;
+				padding: 0;
+				margin: 0;
+			}
+
+			.streakGroup:nth-of-type(2) .tick:nth-child(n+6){
+				display: none;
+			}
+
+			th{
+				display: table-row;
+				font-weight: normal; 
+			}
+
+			td{
+				padding: 0;
+				border-bottom: 1px solid #fff;
+			}
+
+			td:nth-child(1){
+				text-align: right;
+				min-width: 150px;
+				padding-right: 2px;
+			}
+
+			td:nth-child(2){
+				text-align: right;
+				min-width: 150px;
+				text-align: left;
+			}
+
+			div.block{
+				box-sizing: border-box;
+				display: inline-block;
+				border-right: 1px solid white;
+			}
+
+			div.block:nth-child(1){
+				border-left: 1px solid #212121;
+			}
+
+			div.tick{
+				box-sizing: border-box;
+				display: inline-block;
+				border-right: 1px solid white;
+				text-align: center;
+			}
+
+			div.tickText{
+				margin-left: -100%;
+			}
+
+			h2{
+				-webkit-margin-after: 0;
+			}
+
+			div.subHed{
+				-webkit-margin-after: 0.83em;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.streakGroup .tick:nth-child(even) div{
+					display: none;
+				}
+			}
+
+			@media only screen and (max-width: 650px) {
+				.streakGroup{
+					width: 100%;
+				}
+				.streakGroup:nth-of-type(2) th{
+					display: none;
+				}
+			}
+
 			@media only screen and (max-width: 500px) {
-		    .tick:nth-child(odd) :not(.title) {
+		    g.tick:nth-child(odd) :not(.title) {
 	        	display: none;
 		    }
 		    #search input{
 		    	max-width: 150px;
 		    }
+
 			}
 		</style>
 	</head>
@@ -254,7 +333,7 @@
 	<div id=graphic>
 		<canvas id=canvas></canvas>
 		<canvas id=canvasHover></canvas>
-		<svg></svg>
+		<svg id=lines></svg>
 		<canvas id=canvasOverlay></canvas>
 		<div id=search-container>
 			<div id=search>
@@ -269,12 +348,26 @@
 			<div class=inner></div>
 		</div>
 	</div>
-	<div id=footer>
+	<div class=footer>
+		<br>
+		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a></div>
+	</div>
+	<div class=notes>
 		<br>
 		<div>Figures are for all senior club matches played in a league or cup in England, Spain, Italy, Germany or France, or in international tournaments such as the Champions League, Europa League and Cup Winners’ Cup.<br><br>The 186 players shown are those who have scored at least 20 league goals in any single season of one of Europe’s big five leagues since 1990, and have a career-average goal-scoring rate across senior matches in these five countries of at least 0.4 non-penalty goals per 90 minutes.</div>
-		<br>
-		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a><br><br>If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" title="The top scorers in Champions League history">The top scorers in Champions League history</a></span>.</div>
 	</div>
+	<div id=streaks>
+		<h2>Top 40 single-year* goalscoring performances since 1980</h2>
+		<div class=subHed>Goals in all elite senior competitions, excluding penalties</div>
+	</div>
+	<div class=footer>
+		<br>
+		<div style=opacity:0.7>*Any 365 day period, i.e can span multiple seasons</div>
+		<br>
+		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a></div>
+	</div>
+	<br>
+	If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" title="The top scorers in Champions League history">The top scorers in Champions League history</a></span>.
 </div>
 
 <script type='text/javascript'>
@@ -285,13 +378,15 @@
 		// height = d3.min([700, window.innerHeight-offsetY]),
 		height = d3.min([width, d3.min([700, window.innerHeight-offsetY])]),
 		margin = {top: 10, right: 35, bottom: 30, left: 40},
+		margin2 = {top: 30, right: 35, bottom: 30, left: 140},
 		PR = window.devicePixelRatio || 1,
 		scaledWidth = width*PR,
 		scaledHeight = height*PR,
 		highlightIndex = 4,
-		out;
+		out,
+		desktop = width > 768;
 	let dataFile;
-	dataFile = width > 768 ? "mediumData.csv?":"smallData.csv?";
+	dataFile = desktop ? "mediumData.csv?":"smallData.csv?";
 
 	function titler(axis, title){
 		if(axis == "x"){
@@ -339,7 +434,7 @@
 		return string.match(regex);
 	}
 
-	let svg = container.select("svg")
+	let svg = container.select("svg#lines")
 		.attrs({
 			width: width,
 			height: height
@@ -408,7 +503,12 @@
 		return col;
 	}
 
-	d3.csv(dataFile, (error, data) => {
+	d3.queue()
+		.defer(d3.csv, dataFile)
+		.defer(d3.csv, "streaks.csv")
+		.await(render);
+
+	function render(error, data, streaksData){
 
 		let xVar = "date",
 			yVar = "G",
@@ -771,7 +871,7 @@
 			let dataID = dataPoint.id;
 			let dataGroup = linesData.filter(d => d.key == dataID)[0];
 
-			if(width > 768){
+			if(desktop){
 				canvas.on("click", () => {
 					highlightPlayer(dataGroup);
 				});
@@ -901,7 +1001,83 @@
 
 	    });
 
-	});
+	    streaksData = streaksData.reverse();
+
+	    let streakGroups = container.select("#streaks")
+	    	.selectAll("table.streakGroup")
+	    	.data([streaksData.slice(0,20), streaksData.slice(20,40)])
+	    	.enter()
+	    	.append("table")
+	    	.attrs({
+	    		class: "streakGroup"
+	    	});
+
+	    let streakHeads = streakGroups
+	    	.append("th");
+
+    	streakHeads.append("td");
+    	streakHeads.append("td")
+    		.styles({
+    			width: "100%"
+    		});
+
+    	let streakTicks = streakHeads.selectAll("td:nth-child(2)").selectAll("div.tick")
+  			.data(d3.range(0,7))
+  			.enter()
+  			.append("div")
+  			.attrs({
+  				class: "tick"
+  			})
+    		.styles({
+    			width: `10%`
+    		});
+
+  		streakTicks.append("div")
+  			.attrs({
+  				class: "tickText"
+  			})
+    		.html(d => d*10);
+
+	    let streakRows = streakGroups
+	    	.selectAll("tr.streak")
+	    	.data(d => d)
+	    	.enter()
+	    	.append("tr")
+	    	.attrs({
+	    		class: "streak"
+	    	});
+
+    	let streakNames = streakRows.append("td")
+    		.styles({
+    			color: d => d.name == "Lionel Messi" ? "#0083eb": d.name == "Cristiano Ronaldo" ? "#ff2b4f":"#666666",
+    			"font-weight": d => ["Lionel Messi", "Cristiano Ronaldo"].includes(d.name) ? 700:400
+    		})
+    		.html(d => d.streak);
+
+  		let streakBarholders = streakRows.append("td")
+    		.styles({
+    			width: "100%"
+    		});
+
+  		let streakBlocks = streakBarholders.selectAll("div.block")
+  			.data(d => d3.range(0, ~~d.NPGyr/10).map((b,i,j) => {
+  				return {
+  					width: b == j.length-1 ? (d.NPGyr % 10):10,
+  					name: d.name
+  				}
+  			}))
+  			.enter()
+  			.append("div")
+  			.attrs({
+  				class: "block"
+  			})
+    		.styles({
+    			width: d => `${d.width}%`,
+    			background: d => d.name == "Lionel Messi" ? "#0083eb": d.name == "Cristiano Ronaldo" ? "#ff2b4f":"#d1d1d1"
+    		})
+    		.html(" ");
+
+	};
 </script>
 
 </body>
