@@ -1,0 +1,776 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117177919-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-117177919-1');
+		</script>
+
+		<title>Credit scores</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">
+		
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@jburnmurdoch">
+		<meta name="twitter:creator" content="@jburnmurdoch">
+		<meta name="twitter:title" content="XXXX">
+		<meta name="twitter:description" content="XXXX">
+		<meta name="twitter:image" content="http://johnburnmurdoch.github.io/projects/credit-scores/XXXX.png">
+		<meta property="og:title" content="XXXX" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://johnburnmurdoch.github.io/projects/credit-scores/" />
+		<meta property="og:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/credit-scores-teams/XXXX.png" />
+
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="apple-touch-icon" href="icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+		<!-- <script type='text/javascript' src='https://unpkg.com/d3@4'></script>
+		<script type='text/javascript' src='https://unpkg.com/d3-selection-multi'></script>
+		<script type='text/javascript' src='https://unpkg.com/d3-scale-chromatic'></script>
+		<script src="https://npmcdn.com/svg-path-properties/build/path-properties.js"></script> -->
+
+		<script type='text/javascript' src='../d3.min.js'></script>
+		<script type='text/javascript' src='../d3-selection-multi.js'></script>
+		<!-- <script src="../../path-properties.js"></script> -->
+		<!-- <script src="reDraw.js"></script> -->
+
+		<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+		<style>
+			body, text{
+				font-family: 'Mplus 1p', Avenir, Helvetica, sans-serif;
+				font-size: 16px;
+			}
+			text{
+				fill: #212121;
+			}
+			#main{
+				margin: 0 auto;
+				width: 100%;
+				max-width: 900px;
+			}
+			#graphic{
+				margin: 0;
+				position: relative;
+			}
+			svg{
+				position: relative;
+				/*pointer-events: none;*/
+				overflow: visible;
+			}
+			canvas{
+				position: absolute;
+				/*cursor: crosshair;*/
+				pointer-events: none;				
+				/*cursor: url("pin.png"), url("pin.cur"), default;*/
+			}
+			#canvasHover{
+				display: none;
+			}
+			#canvasOverlay{
+				pointer-events: none;
+				position: relative;
+			}
+			.voronoi path{
+				fill: none;
+  			pointer-events: all;
+			}
+			.player{
+				pointer-events: none;
+			}
+			#tooltip{
+				pointer-events: none;
+				position: absolute;
+				display: none;
+			}
+			#tooltip .inner{
+				position: absolute;
+				background-color: white;
+				padding: 7px;
+				background-color: white;
+				border: 1px solid hsla(0, 0%, 0%, 0.5);
+			}
+			#tooltip span:nth-child(1){
+				font-weight: 500;
+				font-size: 13px;
+			}
+			#tooltip span:nth-child(3){
+				font-size: 12px;
+			}
+
+			a{
+				color: #0083EB;
+			}
+
+			span a{
+				color: #00F1B1;
+			}
+
+			#axisToggle_y{
+		    display: inline;
+		    position: relative;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+			}
+
+			#axisToggle_y input{
+				cursor: pointer;
+		    margin-left: 5px;
+		    position: absolute;
+		    opacity: 0;
+			}
+
+			.pseudoCheck {
+		    position: absolute;
+		    margin-left: 5px;
+		    height: 18px;
+		    width: 18px;
+		    background-color: #eee;
+		    cursor: pointer;
+			}
+
+			.pseudoCheck:hover {
+	    	background-color: #ccc;
+			}
+
+			#axisToggle_y input:checked ~ .pseudoCheck {
+			  background-color: #2196F3;
+			}
+
+			.pseudoCheck:after {
+		    content: "";
+		    position: absolute;
+		    display: none;
+			}
+
+			#axisToggle_y input:checked ~ .pseudoCheck:after {
+				display: block;
+			}
+
+			.pseudoCheck:after {
+		    left: 6px;
+		    top: 2px;
+		    width: 4px;
+		    height: 9px;
+		    border: solid white;
+		    border-width: 0 2px 2px 0;
+		    -webkit-transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    transform: rotate(45deg);
+			}
+
+			#axisToggle_x span{
+				padding: 2px 5px;
+				color: #80c6ff;
+				cursor: pointer;
+				border: 1px solid #0083EB;
+			}
+
+			#axisToggle_x span:not(:nth-last-child(1)){
+				border-right: none;
+			}
+
+			#axisToggle_x span:hover{
+				background-color: #80c6ff;
+				color: white;
+			}
+
+			#axisToggle_x span[selected]{
+				background-color: #0083EB;
+				color: white;
+			}
+
+			#search-container{
+				pointer-events: none;
+				position: absolute;
+				left: 45px;
+				top: -1em;
+			}
+
+			#measures{
+				font-size: 0.875em;
+				position: absolute;
+				top: -0.5em;
+				pointer-events: none;
+			}
+
+			#fairness, #calibration{
+				margin-bottom: 2em;
+			}
+
+			h3{
+				-webkit-margin-after: 0.5em;
+			}
+
+			.scoreLabel span{
+				font-weight: 700;
+				color: #FF2B4F;
+			}
+
+			#couldPay, #couldntPay, #lowScore, #midScore, #highScore{
+				max-width: 220px;
+				display: inline-block;
+				margin-right: 1em;
+			}
+
+			div.bar{
+				margin: 5px 0;
+			}
+
+			div.mismatch{
+				margin: -2px 0;
+			}
+
+			#search{
+				background-color: rgba(0,0,0,0.05);
+				pointer-events: all;
+			}
+
+			#search span{
+				width: 10px;
+				opacity: 0.4;
+			}
+
+			div.match{
+				opacity: 0.9;
+				color: rgba(0,0,0,0.5);
+				cursor: pointer;
+				background-color: white;
+				pointer-events: all;
+				padding: 2px 0;
+			}
+
+			div.match:hover{
+				opacity: 1;
+				color: rgba(0,0,0,0.9);
+				background-color: hsl(360,0%,90%);
+			}
+
+			#search input{
+				/*transition: 0.2s;*/
+				font-size: 1rem;
+				border: none;
+				background: none;
+				font-family: 'Mplus 1p', Avenir, Helvetica, sans-serif;
+			}
+
+			#search input.inactive{
+				opacity: 0.4;
+				/*margin-left: 10px;*/
+			}
+
+			.streakGroup{
+				width: 50%;
+				display: inline-table;
+				border-collapse: collapse;
+				padding: 0;
+				margin: 0;
+			}
+
+			.streakGroup:nth-of-type(2) .tick:nth-child(n+6){
+				display: none;
+			}
+
+			th{
+				display: table-row;
+				font-weight: normal; 
+			}
+
+			td{
+				padding: 0;
+				border-bottom: 1px solid #fff;
+			}
+
+			td:nth-child(1){
+				text-align: right;
+				min-width: 150px;
+				padding-right: 2px;
+			}
+
+			td:nth-child(2){
+				text-align: right;
+				min-width: 150px;
+				text-align: left;
+			}
+
+			div.block{
+				box-sizing: border-box;
+				display: inline-block;
+				border-right: 1px solid white;
+			}
+
+			div.block:nth-child(1){
+				border-left: 1px solid #212121;
+			}
+
+			div.tick{
+				box-sizing: border-box;
+				display: inline-block;
+				border-right: 1px solid white;
+				text-align: center;
+			}
+
+			div.tickText{
+				margin-left: -100%;
+			}
+
+			h2{
+				-webkit-margin-after: 0;
+			}
+
+			div.subHed{
+				-webkit-margin-after: 0.83em;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.streakGroup .tick:nth-child(even) div{
+					display: none;
+				}
+			}
+
+			@media only screen and (max-width: 650px) {
+				.streakGroup{
+					width: 100%;
+				}
+				.streakGroup:nth-of-type(2) th{
+					display: none;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+		    g.tick:nth-child(odd) :not(.title) {
+	        	display: none;
+		    }
+		    #search input{
+		    	max-width: 220px;
+		    }
+
+			}
+		</style>
+	</head>
+<body>
+<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<div id=main>
+	<h1>Bias in algorithmic loan provision</h1>
+	<div id=graphic>
+		<div id=measures>
+			<div id=calibration>
+				<h3>Calibration</h3>
+				<div id=lowScore>
+					<div class=scoreLabel>Mismatch: <span></span></div>
+					<div class=message></div>
+					<div class=bar></div>
+					<div class=bar></div>
+					<div class=message></div>
+				</div>
+				<div id=midScore>
+					<div class=scoreLabel>Mismatch: <span></span></div>
+					<div class=message></div>
+					<div class=bar></div>
+					<div class=bar></div>
+					<div class=message></div>
+				</div>
+				<div id=highScore>
+					<div class=scoreLabel>Mismatch: <span></span></div>
+					<div class=message></div>
+					<div class=bar></div>
+					<div class=bar></div>
+					<div class=message></div>
+				</div>
+			</div>
+			<div id=fairness>
+				<h3>“Fairness”</h3>
+				<div id=couldPay>
+					<div class=scoreLabel>Mismatch: <span></span></div>
+					<div class=message></div>
+					<div class=bar></div>
+					<!-- <div class=mismatch></div> -->
+					<div class=bar></div>
+					<div class=message></div>
+				</div>
+				<div id=couldntPay>
+					<div class=scoreLabel>Mismatch: <span></span></div>
+					<div class=message></div>
+					<div class=bar></div>
+					<div class=bar></div>
+					<div class=message></div>
+				</div>
+			</div>
+		</div>
+		<canvas id=canvas></canvas>
+		<svg></svg>
+	</div>
+	<div class=footer>
+		<br>
+		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a> based on <a href="https://research.google.com/bigpicture/attacking-discrimination-in-ml/" target=_blank title="Attacking discrimination with smarter machine learning | Google Research">prior work</a> by Martin Wattenberg, Fernanda Viégas, Sarah Dean and Moritz Hardt<br>Source: <a href="Federal Reserve Bank" target=_blank title="https://www.transunion.com/resources/transunion/doc/compliance-and-legislative-updates/CreditScoreRpt.pdf">Federal Reserve Bank</a></div>
+	</div>
+</div>
+
+<script type='text/javascript'>
+	let container = d3.select("#main");
+	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.4;
+	let width = container.node().clientWidth,
+		height = d3.min([width, d3.min([700, window.innerHeight-offsetY])]),
+		margin = {top: 10, right: 35, bottom: 30, left: 40},
+		PR = window.devicePixelRatio || 1,
+		scaledWidth = width*PR,
+		scaledHeight = height*PR,
+		threshold = 700;
+
+	let dots, canPay, cantPay, TPs, FPs, TNs, FNs, barVals;
+
+	let svg = container.select("svg")
+		.attrs({
+			width: width,
+			height: height
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let canvas = container.select("#canvas")
+		.attrs({
+			width: scaledWidth,
+			height: scaledHeight
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let context = canvas.node().getContext("2d");
+	context.scale(PR, PR);
+	// context.font = "bold 36px Avenir";
+	// context.textAlign = "center";
+
+	// context.fillStyle = "#ccc";
+	// context.fillText("Loading", width/2, height/2);
+
+	d3.queue()
+		.defer(d3.csv, "histoSmoothed.csv")
+		.await(render);
+
+	function render(error, data){
+
+		data.forEach((d,i) => {
+			d.y = +d.y;
+			d.y_all = +d.y;
+			d.score = +d.pseudoScore;
+			d.hsl = d.race == "white" ? "164, 100%, 45%":"206.6, 100%, 46.1%";
+			d.alpha = d.canPay == "TRUE" ? 1:0.5;
+			d.weight = d.score/1000;
+		})
+
+		console.log(data);
+
+		let x = d3.scaleLinear()
+			.range([margin.left, width-margin.right])
+			.domain([d3.min(data, d => d.score)-6, d3.max(data, d => d.score)+6])
+			.clamp(1);
+
+		let y = d3.scaleLinear()
+			.range([height-margin.bottom, margin.top])
+			.domain(d3.extent(data, d => d.y));
+
+		drawDots();
+
+		svg.append("g")
+	  	.attrs({
+	  		class: "axis x",
+	  		transform: `translate(0,${y(0)})`
+	  	})
+	    .call(d3.axisBottom(x).ticks(6).tickSize(0).tickFormat(d3.format("d")))
+	    .selectAll(".tick text")
+	    .attrs({
+	    	dy: `0.25em`
+	    })
+	    .styles({
+	    	"stroke-width": `5px`,
+	    	stroke: "white"
+	    });
+
+    svg.selectAll(".axis.x text")
+    	.each(function(){
+    		d3.select(this).clone(1)
+		    .styles({
+		    	"stroke-width": `0px`,
+	    		stroke: "none"
+		    })
+    	});
+
+	  	// svg.append("g")
+	  	// .attrs({
+	  	// 	class: "axis y",
+	  	// 	transform: `translate(${margin.left}, 0)`
+	  	// })
+	   //  .call(d3.axisLeft(y).ticks(0).tickFormat(d => Math.abs(d)));
+
+	   let threshold_handle = svg.append("g")
+	   	.attrs({
+	   		transform: `translate(${x(threshold)}, 0)`,
+		   		cursor: 'ew-resize'
+	   	})
+	   	.call(
+			d3.drag()
+				.on("drag", function(){
+
+					let dragTrans = d3.mouse(svg.node())[0];
+					threshold = x.invert(dragTrans);
+					let selection = d3.select(this);
+
+					selection
+						.attrs({
+							transform: `translate(${(x(threshold))}, 0)`
+						})
+
+					drawDots();
+				})
+			);
+
+   		threshold_handle.append("rect")
+	   		.attrs({
+		   		x: -5,
+		   		width: 10,
+		   		y: y.range()[1],
+		   		height: y.range()[0]-y.range()[1],
+		   		opacity: 0
+		   	});
+
+			threshold_handle.append("line")
+		   	.attrs({
+		   		x1: 0,
+		   		x2: 0,
+		   		y1: y.range()[0],
+		   		y2: y.range()[1]
+		   	})
+		   	.styles({
+		   		"stroke-width": 2,
+		   		stroke: "#212121"
+		   	});
+
+	   	function drawDots(){
+	   		dots={w:946, b:882, a:1828}, canPay={w: 0, b: 0, a: 0}, cantPay={w: 0, b: 0, a: 0},
+	   		TPs={w:{low:0, mid:0, high:0, all:0}, b:{low:0, mid:0, high:0, all:0}, a:{low:0, mid:0, high:0, all:0}},
+	   		FPs={w:{low:0, mid:0, high:0, all:0}, b:{low:0, mid:0, high:0, all:0}, a:{low:0, mid:0, high:0, all:0}},
+	   		TNs={w:{low:0, mid:0, high:0, all:0}, b:{low:0, mid:0, high:0, all:0}, a:{low:0, mid:0, high:0, all:0}},
+	   		FNs={w:{low:0, mid:0, high:0, all:0}, b:{low:0, mid:0, high:0, all:0}, a:{low:0, mid:0, high:0, all:0}};
+
+	   		let couldPay = (race) => (FNs[race]["all"]/canPay[race]),
+	   			couldntPay = (race) => (FPs[race]["all"]/cantPay[race]),
+	   			calibrate = (race, tier) => (TPs[race][tier]/(TPs[race][tier]+FPs[race][tier]));
+
+	   		context.clearRect(0,0,width,height);
+
+	   		data.forEach((d,i) => {
+		   		context.fillStyle = d.score < threshold ? `hsla(0,0%,50%,${d.alpha})`:(d.race == "white" ? `hsla(${d.hsl},${d.alpha})`:`hsla(${d.hsl},${d.alpha})`);
+		   		context.beginPath();
+		   		context.arc(x(d.score), y(d.y), 3, 0, Math.PI * 2);
+		   		context.fill();
+
+	   			if(d.race == "white" && d.score >= threshold){TPs.w.all+=d.weight};
+	   			if(d.race == "black" && d.score >= threshold){TPs.b.all+=d.weight};
+	   			if(d.score >= threshold){TPs.a.all+=d.weight};
+	   			if(d.score < 400 && d.race == "white" && d.score >= threshold){TPs.w.low+=d.weight};
+	   			if(d.score < 400 && d.race == "black" && d.score >= threshold){TPs.b.low+=d.weight};
+	   			if(d.score < 400 && d.score >= threshold){TPs.a.low+=d.weight};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "white" && d.score >= threshold){TPs.w.mid+=d.weight};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "black" && d.score >= threshold){TPs.b.mid+=d.weight};
+	   			if(d.score >= 400 && d.score < 800 && d.score >= threshold){TPs.a.mid+=d.weight};
+	   			if(d.score >= 800 && d.race == "white" && d.score >= threshold){TPs.w.high+=d.weight};
+	   			if(d.score >= 800 && d.race == "black" && d.score >= threshold){TPs.b.high+=d.weight};
+	   			if(d.score >= 800 && d.score >= threshold){TPs.a.high+=d.weight};
+
+	   			if(d.race == "white" && d.score >= threshold){FPs.w.all+=(1-d.weight)};
+	   			if(d.race == "black" && d.score >= threshold){FPs.b.all+=(1-d.weight)};
+	   			if(d.score >= threshold){FPs.a.all+=(1-d.weight)};
+	   			if(d.score < 400 && d.race == "white" && d.score >= threshold){FPs.w.low+=(1-d.weight)};
+	   			if(d.score < 400 && d.race == "black" && d.score >= threshold){FPs.b.low+=(1-d.weight)};
+	   			if(d.score < 400 && d.score >= threshold){FPs.a.low+=(1-d.weight)};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "white" && d.score >= threshold){FPs.w.mid+=(1-d.weight)};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "black" && d.score >= threshold){FPs.b.mid+=(1-d.weight)};
+	   			if(d.score >= 400 && d.score < 800 && d.score >= threshold){FPs.a.mid+=(1-d.weight)};
+	   			if(d.score >= 800 && d.race == "white" && d.score >= threshold){FPs.w.high+=(1-d.weight)};
+	   			if(d.score >= 800 && d.race == "black" && d.score >= threshold){FPs.b.high+=(1-d.weight)};
+	   			if(d.score >= 800 && d.score >= threshold){FPs.a.high+=(1-d.weight)};
+
+	   			if(d.race == "white" && d.score < threshold){FNs.w.all+=d.weight};
+	   			if(d.race == "black" && d.score < threshold){FNs.b.all+=d.weight};
+	   			if(d.score < threshold){FNs.a.all+=d.weight};
+	   			if(d.score < 400 && d.race == "white" && d.score < threshold){FNs.w.low+=d.weight};
+	   			if(d.score < 400 && d.race == "black" && d.score < threshold){FNs.b.low+=d.weight};
+	   			if(d.score < 400 && d.score < threshold){FNs.a.low+=d.weight};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "white" && d.score < threshold){FNs.w.mid+=d.weight};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "black" && d.score < threshold){FNs.b.mid+=d.weight};
+	   			if(d.score >= 400 && d.score < 800 && d.score < threshold){FNs.a.mid+=d.weight};
+	   			if(d.score >= 800 && d.race == "white" && d.score < threshold){FNs.w.high+=d.weight};
+	   			if(d.score >= 800 && d.race == "black" && d.score < threshold){FNs.b.high+=d.weight};
+	   			if(d.score >= 800 && d.score < threshold){FNs.a.high+=d.weight};
+
+	   			if(d.race == "white" && d.score < threshold){TNs.w.all+=(1-d.weight)};
+	   			if(d.race == "black" && d.score < threshold){TNs.b.all+=(1-d.weight)};
+	   			if(d.score < threshold){TNs.a.all+=(1-d.weight)};
+	   			if(d.score < 400 && d.race == "white" && d.score < threshold){TNs.w.low+=(1-d.weight)};
+	   			if(d.score < 400 && d.race == "black" && d.score < threshold){TNs.b.low+=(1-d.weight)};
+	   			if(d.score < 400 && d.score < threshold){TNs.a.low+=(1-d.weight)};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "white" && d.score < threshold){TNs.w.mid+=(1-d.weight)};
+	   			if(d.score >= 400 && d.score < 800 && d.race == "black" && d.score < threshold){TNs.b.mid+=(1-d.weight)};
+	   			if(d.score >= 400 && d.score < 800 && d.score < threshold){TNs.a.mid+=(1-d.weight)};
+	   			if(d.score >= 800 && d.race == "white" && d.score < threshold){TNs.w.high+=(1-d.weight)};
+	   			if(d.score >= 800 && d.race == "black" && d.score < threshold){TNs.b.high+=(1-d.weight)};
+	   			if(d.score >= 800 && d.score < threshold){TNs.a.high+=(1-d.weight)};
+
+	   			if(d.race == "white"){canPay.w+=d.weight};
+	   			if(d.race == "black"){canPay.b+=d.weight};
+	   			canPay.a+=d.weight;
+
+	   			if(d.race == "white"){cantPay.w+=(1-d.weight)};
+	   			if(d.race == "black"){cantPay.b+=(1-d.weight)};
+	   			cantPay.a+=(1-d.weight);
+
+   			});
+
+ 				d3.select("#measures #fairness #couldPay .scoreLabel span")
+				.html(`${(d3.format(".2p")(Math.abs((FNs.w.all/canPay.w)-(FNs.b.all/canPay.b))))} pts`);
+
+				barVals = [(FNs.w.all/canPay.w), (FNs.b.all/canPay.b)];
+
+   			d3.select("#measures #fairness #couldPay .message")
+   			.html(`Of the ${~~canPay.w} white applicants who would have repaid their loan, ${(d3.format(".2p")(FNs.w.all/canPay.w))} are denied a loan`);
+   			d3.select("#measures #fairness #couldPay .bar:nth-child(3)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						// background: `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${(FNs.w.all/canPay.w)*200}px, #eeeeee ${(FNs.w.all/canPay.w)*200}px, #eeeeee 200px)`
+ 						background: barVals[0] < barVals[1] ? `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${(barVals[0])*200}px, #FF2B4F ${(barVals[0])*200}px, #FF2B4F ${(barVals[1])*200}px, #eeeeee ${(barVals[1])*200}px, #eeeeee 200px)`:`repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${(barVals[0])*200}px, #eeeeee ${(barVals[0])*200}px, #eeeeee 200px)`
+   				});
+
+ 				d3.select("#measures #fairness #couldPay .message:nth-child(5)")
+   			.html(`Of the ${~~canPay.b} black applicants who would have repaid their loan, ${(d3.format(".2p")(FNs.b.all/canPay.b))} are denied a loan`);
+   			d3.select("#measures #fairness #couldPay .bar:nth-child(4)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						// background: `repeating-linear-gradient( to right, #0083eb, #0083eb ${(FNs.b.all/canPay.b)*200}px, #eeeeee ${(FNs.b.all/canPay.b)*200}px, #eeeeee 200px)`
+ 						background: barVals[1] < barVals[0] ? `repeating-linear-gradient( to right, #0083eb, #0083eb ${(barVals[1])*200}px, #FF2B4F ${(barVals[1])*200}px, #FF2B4F ${(barVals[0])*200}px, #eeeeee ${(barVals[0])*200}px, #eeeeee 200px)`:`repeating-linear-gradient( to right, #0083eb, #0083eb ${(barVals[1])*200}px, #eeeeee ${(barVals[1])*200}px, #eeeeee 200px)`
+   				});
+
+ 				barVals = [(FPs.w.all/cantPay.w), (FPs.b.all/cantPay.b)];
+
+ 				d3.select("#measures #fairness #couldntPay .scoreLabel span")
+				.html(`${(d3.format(".2p")(Math.abs((FPs.w.all/cantPay.w)-(FPs.b.all/cantPay.b))))} pts`);
+
+	 			d3.select("#measures #fairness #couldntPay .message")
+	 			.html(`Of the ${~~cantPay.w} white applicants who would not have repaid their loan, ${(d3.format(".2p")(FPs.w.all/cantPay.w))} are given a loan`);
+	 			d3.select("#measures #fairness #couldntPay .bar:nth-child(3)")
+	 				.styles({
+	 					display: "block",
+	 					width: "200px",
+							height: "16px",
+							// background: `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${(FPs.w.all/cantPay.w)*200}px, #eeeeee ${(FPs.w.all/cantPay.w)*200}px, #eeeeee 200px)`
+							background: barVals[0] < barVals[1] ? `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${(barVals[0])*200}px, #FF2B4F ${(barVals[0])*200}px, #FF2B4F ${(barVals[1])*200}px, #eeeeee ${(barVals[1])*200}px, #eeeeee 200px)`:`repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${(barVals[0])*200}px, #eeeeee ${(barVals[0])*200}px, #eeeeee 200px)`
+	 				});
+
+				d3.select("#measures #fairness #couldntPay .message:nth-child(5)")
+	 			.html(`Of the ${~~cantPay.b} black applicants who would not have repaid their loan, ${(d3.format(".2p")(FPs.b.all/cantPay.b))} are given a loan`);
+	 			d3.select("#measures #fairness #couldntPay .bar:nth-child(4)")
+	 				.styles({
+	 					display: "block",
+	 					width: "200px",
+							height: "16px",
+							// background: `repeating-linear-gradient( to right, #0083eb, #0083eb ${(FPs.b.all/cantPay.b)*200}px, #eeeeee ${(FPs.b.all/cantPay.b)*200}px, #eeeeee 200px)`
+							background: barVals[1] < barVals[0] ? `repeating-linear-gradient( to right, #0083eb, #0083eb ${(barVals[1])*200}px, #FF2B4F ${(barVals[1])*200}px, #FF2B4F ${(barVals[0])*200}px, #eeeeee ${(barVals[0])*200}px, #eeeeee 200px)`:`repeating-linear-gradient( to right, #0083eb, #0083eb ${(barVals[1])*200}px, #eeeeee ${(barVals[1])*200}px, #eeeeee 200px)`
+	 				});
+
+   			////
+
+				d3.select("#calibration #lowScore .scoreLabel span")
+				.html(`${(d3.format(".2p")(Math.abs(((TPs.w.low+TNs.w.low)/(TPs.w.low+FPs.w.low+TNs.w.low+FNs.w.low))-((TPs.b.low+TNs.b.low)/(TPs.b.low+FPs.b.low+TNs.b.low+FNs.b.low)))))} pts`);
+
+   			d3.select("#calibration #lowScore .message")
+   			.html(`The correct decision is made for ${(d3.format(".2p")((TPs.w.low+TNs.w.low)/(TPs.w.low+FPs.w.low+TNs.w.low+FNs.w.low)))} of white applicants with low credit scores`);
+   			d3.select("#calibration #lowScore .bar:nth-child(3)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						background: `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${((TPs.w.low+TNs.w.low)/(TPs.w.low+FPs.w.low+TNs.w.low+FNs.w.low))*200}px, #eeeeee ${((TPs.w.low+TNs.w.low)/(TPs.w.low+FPs.w.low+TNs.w.low+FNs.w.low))*200}px, #eeeeee 200px)`
+   				});
+
+   			d3.select("#calibration #lowScore .message:nth-child(5)")
+   			.html(`The correct decision is made for ${(d3.format(".2p")((TPs.b.low+TNs.b.low)/(TPs.b.low+FPs.b.low+TNs.b.low+FNs.b.low)))} of black applicants with low credit scores`);
+   			d3.select("#calibration #lowScore .bar:nth-child(4)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						background: `repeating-linear-gradient( to right, #0083eb, #0083eb ${((TPs.b.low+TNs.b.low)/(TPs.b.low+FPs.b.low+TNs.b.low+FNs.b.low))*200}px, #eeeeee ${((TPs.b.low+TNs.b.low)/(TPs.b.low+FPs.b.low+TNs.b.low+FNs.b.low))*200}px, #eeeeee 200px)`
+   				});
+
+ 				d3.select("#calibration #midScore .scoreLabel span")
+				.html(`${(d3.format(".2p")(Math.abs(((TPs.w.mid+TNs.w.mid)/(TPs.w.mid+FPs.w.mid+TNs.w.mid+FNs.w.mid))-((TPs.b.mid+TNs.b.mid)/(TPs.b.mid+FPs.b.mid+TNs.b.mid+FNs.b.mid)))))} pts`);
+
+ 				d3.select("#calibration #midScore .message")
+   			.html(`The correct decision is made for ${(d3.format(".2p")((TPs.w.mid+TNs.w.mid)/(TPs.w.mid+FPs.w.mid+TNs.w.mid+FNs.w.mid)))} of white applicants with mid-range credit scores`);
+   			d3.select("#calibration #midScore .bar:nth-child(3)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						background: `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${((TPs.w.mid+TNs.w.mid)/(TPs.w.mid+FPs.w.mid+TNs.w.mid+FNs.w.mid))*200}px, #eeeeee ${((TPs.w.mid+TNs.w.mid)/(TPs.w.mid+FPs.w.mid+TNs.w.mid+FNs.w.mid))*200}px, #eeeeee 200px)`
+   				});
+
+ 				d3.select("#calibration #midScore .message:nth-child(5)")
+   			.html(`The correct decision is made for ${(d3.format(".2p")((TPs.b.mid+TNs.b.mid)/(TPs.b.mid+FPs.b.mid+TNs.b.mid+FNs.b.mid)))} of black applicants with mid-range credit scores`);
+   			d3.select("#calibration #midScore .bar:nth-child(4)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						background: `repeating-linear-gradient( to right, #0083eb, #0083eb ${((TPs.b.mid+TNs.b.mid)/(TPs.b.mid+FPs.b.mid+TNs.b.mid+FNs.b.mid))*200}px, #eeeeee ${((TPs.b.mid+TNs.b.mid)/(TPs.b.mid+FPs.b.mid+TNs.b.mid+FNs.b.mid))*200}px, #eeeeee 200px)`
+   				});
+
+ 				d3.select("#calibration #highScore .scoreLabel span")
+				.html(`${(d3.format(".2p")(Math.abs(((TPs.w.high+TNs.w.high)/(TPs.w.high+FPs.w.high+TNs.w.high+FNs.w.high))-((TPs.b.high+TNs.b.high)/(TPs.b.high+FPs.b.high+TNs.b.high+FNs.b.high)))))} pts`);
+
+ 				d3.select("#calibration #highScore .message")
+   			.html(`The correct decision is made for ${(d3.format(".2p")((TPs.w.high+TNs.w.high)/(TPs.w.high+FPs.w.high+TNs.w.high+FNs.w.high)))} of white applicants with high credit scores`);
+   			d3.select("#calibration #highScore .bar:nth-child(3)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						background: `repeating-linear-gradient( to right, #00F1B1, #00F1B1 ${((TPs.w.high+TNs.w.high)/(TPs.w.high+FPs.w.high+TNs.w.high+FNs.w.high))*200}px, #eeeeee ${((TPs.w.high+TNs.w.high)/(TPs.w.high+FPs.w.high+TNs.w.high+FNs.w.high))*200}px, #eeeeee 200px)`
+   				});
+
+ 				d3.select("#calibration #highScore .message:nth-child(5)")
+   			.html(`The correct decision is made for ${(d3.format(".2p")((TPs.b.high+TNs.b.high)/(TPs.b.high+FPs.b.high+TNs.b.high+FNs.b.high)))} of black applicants with high credit scores`);
+   			d3.select("#calibration #highScore .bar:nth-child(4)")
+   				.styles({
+   					display: "block",
+   					width: "200px",
+ 						height: "16px",
+ 						background: `repeating-linear-gradient( to right, #0083eb, #0083eb ${((TPs.b.high+TNs.b.high)/(TPs.b.high+FPs.b.high+TNs.b.high+FNs.b.high))*200}px, #eeeeee ${((TPs.b.high+TNs.b.high)/(TPs.b.high+FPs.b.high+TNs.b.high+FNs.b.high))*200}px, #eeeeee 200px)`
+   				});
+
+   		}
+
+	};
+</script>
+
+</body>
+</html>

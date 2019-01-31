@@ -1,0 +1,1031 @@
+<!doctype html>
+<html class="no-js" lang="">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117177919-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-117177919-1');
+		</script>
+
+		<title>Super teams</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, user-scalable=no">
+		
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@jburnmurdoch">
+		<meta name="twitter:creator" content="@jburnmurdoch">
+		<meta name="twitter:title" content="XXXX">
+		<meta name="twitter:description" content="XXXX">
+		<meta name="twitter:image" content="http://johnburnmurdoch.github.io/projects/super-teams/XXXX.png">
+		<meta property="og:title" content="XXXX" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://johnburnmurdoch.github.io/projects/super-teams/" />
+		<meta property="og:image" content="http://johnburnmurdoch.github.io/projects/goal-lines/super-teams/XXXX.png" />
+
+		<link rel="manifest" href="site.webmanifest">
+		<link rel="apple-touch-icon" href="icon.png">
+		<!-- Place favicon.ico in the root directory -->
+
+		<!-- <script type='text/javascript' src='https://unpkg.com/d3@4'></script>
+		<script type='text/javascript' src='https://unpkg.com/d3-selection-multi'></script>
+		<script type='text/javascript' src='https://unpkg.com/d3-scale-chromatic'></script>
+		<script src="https://npmcdn.com/svg-path-properties/build/path-properties.js"></script> -->
+
+		<script type='text/javascript' src='../d3.min.js'></script>
+		<script type='text/javascript' src='../d3-selection-multi.js'></script>
+		<!-- <script src="../../path-properties.js"></script> -->
+		<!-- <script src="reDraw.js"></script> -->
+
+		<link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
+		<style>
+			body, text{
+				font-family: 'Mplus 1p', Avenir, Helvetica, sans-serif;
+				font-size: 14px;
+			}
+			text{
+				fill: #212121;
+			}
+			#main{
+				margin: 0 auto;
+				width: 100%;
+				max-width: 900px;
+			}
+			#graphic{
+				margin: 0;
+				position: relative;
+			}
+			svg#lines{
+				position: absolute;
+				pointer-events: none;
+				overflow: visible;
+			}
+			canvas{
+				position: absolute;
+				/*cursor: crosshair;*/
+				/*cursor: url("pin.png"), url("pin.cur"), default;*/
+			}
+			#canvasHover{
+				display: none;
+			}
+			#canvasOverlay{
+				pointer-events: none;
+				position: relative;
+			}
+			.voronoi path{
+				fill: none;
+  			pointer-events: all;
+			}
+			.player{
+				pointer-events: none;
+			}
+			#tooltip{
+				pointer-events: none;
+				position: absolute;
+				display: none;
+			}
+			#tooltip .inner{
+				position: absolute;
+				background-color: white;
+				padding: 7px;
+				background-color: white;
+				border: 1px solid hsla(0, 0%, 0%, 0.5);
+			}
+			#tooltip span:nth-child(1){
+				font-weight: 500;
+				font-size: 13px;
+			}
+			#tooltip span:nth-child(3){
+				font-size: 12px;
+			}
+
+			a{
+				color: #0083EB;
+			}
+
+			span a{
+				color: #FF2B4F;
+			}
+
+			#axisToggle_y{
+		    display: inline;
+		    position: relative;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+			}
+
+			#axisToggle_y input{
+				cursor: pointer;
+		    margin-left: 5px;
+		    position: absolute;
+		    opacity: 0;
+			}
+
+			.pseudoCheck {
+		    position: absolute;
+		    margin-left: 5px;
+		    height: 18px;
+		    width: 18px;
+		    background-color: #eee;
+		    cursor: pointer;
+			}
+
+			.pseudoCheck:hover {
+	    	background-color: #ccc;
+			}
+
+			#axisToggle_y input:checked ~ .pseudoCheck {
+			  background-color: #2196F3;
+			}
+
+			.pseudoCheck:after {
+		    content: "";
+		    position: absolute;
+		    display: none;
+			}
+
+			#axisToggle_y input:checked ~ .pseudoCheck:after {
+				display: block;
+			}
+
+			.pseudoCheck:after {
+		    left: 6px;
+		    top: 2px;
+		    width: 4px;
+		    height: 9px;
+		    border: solid white;
+		    border-width: 0 2px 2px 0;
+		    -webkit-transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    transform: rotate(45deg);
+			}
+
+			#axisToggle_x span{
+				padding: 2px 5px;
+				color: #80c6ff;
+				cursor: pointer;
+				border: 1px solid #0083EB;
+			}
+
+			#axisToggle_x span:not(:nth-last-child(1)){
+				border-right: none;
+			}
+
+			#axisToggle_x span:hover{
+				background-color: #80c6ff;
+				color: white;
+			}
+
+			#axisToggle_x span[selected]{
+				background-color: #0083EB;
+				color: white;
+			}
+
+			#search-container{
+				pointer-events: none;
+				position: absolute;
+				left: 45px;
+				top: -1em;
+			}
+
+			#search{
+				background-color: rgba(0,0,0,0.05);
+				pointer-events: all;
+			}
+
+			#search span{
+				width: 10px;
+				opacity: 0.4;
+			}
+
+			div.match{
+				opacity: 0.9;
+				color: rgba(0,0,0,0.5);
+				cursor: pointer;
+				background-color: white;
+				pointer-events: all;
+				padding: 2px 0;
+			}
+
+			div.match:hover{
+				opacity: 1;
+				color: rgba(0,0,0,0.9);
+				background-color: hsl(360,0%,90%);
+			}
+
+			#search input{
+				/*transition: 0.2s;*/
+				font-size: 1rem;
+				border: none;
+				background: none;
+				font-family: 'Mplus 1p', Avenir, Helvetica, sans-serif;
+			}
+
+			#search input.inactive{
+				opacity: 0.4;
+				/*margin-left: 10px;*/
+			}
+
+			.streakGroup{
+				width: 50%;
+				display: inline-table;
+				border-collapse: collapse;
+				padding: 0;
+				margin: 0;
+			}
+
+			.streakGroup:nth-of-type(2) .tick:nth-child(n+6){
+				display: none;
+			}
+
+			th{
+				display: table-row;
+				font-weight: normal; 
+			}
+
+			td{
+				padding: 0;
+				border-bottom: 1px solid #fff;
+			}
+
+			td:nth-child(1){
+				text-align: right;
+				min-width: 150px;
+				padding-right: 2px;
+			}
+
+			td:nth-child(2){
+				text-align: right;
+				min-width: 150px;
+				text-align: left;
+			}
+
+			div.block{
+				box-sizing: border-box;
+				display: inline-block;
+				border-right: 1px solid white;
+			}
+
+			div.block:nth-child(1){
+				border-left: 1px solid #212121;
+			}
+
+			div.tick{
+				box-sizing: border-box;
+				display: inline-block;
+				border-right: 1px solid white;
+				text-align: center;
+			}
+
+			div.tickText{
+				margin-left: -100%;
+			}
+
+			h2{
+				-webkit-margin-after: 0;
+			}
+
+			div.subHed{
+				-webkit-margin-after: 0.83em;
+			}
+
+			@media only screen and (max-width: 768px) {
+				.streakGroup .tick:nth-child(even) div{
+					display: none;
+				}
+			}
+
+			@media only screen and (max-width: 650px) {
+				.streakGroup{
+					width: 100%;
+				}
+				.streakGroup:nth-of-type(2) th{
+					display: none;
+				}
+			}
+
+			@media only screen and (max-width: 500px) {
+		    g.tick:nth-child(odd) :not(.title) {
+	        	display: none;
+		    }
+		    #search input{
+		    	max-width: 220px;
+		    }
+
+			}
+		</style>
+	</head>
+<body>
+<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<div id=main>
+	<h1>Super teams</h1>
+	<div id=graphic>
+		<canvas id=canvas></canvas>
+		<svg id=lines></svg>
+		<canvas id=canvasOverlay></canvas>
+		<div id=search-container>
+			<div id=search>
+				<span> &#x1F50E;</span><input class=inactive type=text value="Search team and season"></input>
+			</div>
+			<div id=search-options></div>
+		</div>
+		<div id=tooltip>
+			<div class=inner></div>
+		</div>
+	</div>
+	<div class=footer>
+		<br>
+		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a></div>
+	</div>
+	<div class=notes>
+		<br>
+		<div>Foo.</div>
+	</div>
+	<br>
+	If you liked this, you might like <span><a href="http://johnburnmurdoch.github.io/projects/goal-lines/CL/" title="The top scorers in Champions League history">The top scorers in Champions League history</a></span>.
+</div>
+
+<script type='text/javascript'>
+	let container = d3.select("#main");
+	let tooltip = d3.select("#tooltip");
+	let offsetY = document.getElementsByTagName("svg")[0].getBoundingClientRect().top * 1.4;
+	let width = container.node().clientWidth,
+		// height = d3.min([700, window.innerHeight-offsetY]),
+		height = d3.min([width, d3.min([700, window.innerHeight-offsetY])]),
+		margin = {top: 10, right: 35, bottom: 30, left: 40},
+		margin2 = {top: 30, right: 35, bottom: 30, left: 140},
+		PR = window.devicePixelRatio || 1,
+		scaledWidth = width*PR,
+		scaledHeight = height*PR,
+		highlightIndex = 4,
+		out,
+		desktop = width > 768;
+
+	let xVar = "GD38",
+		yVar = "pts38",
+		xFormat = d3.format("d");
+
+	function titler(axis, title){
+		if(axis == "x"){
+			d3.selectAll(".axis.x text.title").remove();
+			d3.select(".axis.x .tick:last-of-type text")
+		    .clone()
+		    .attrs({
+		    	class: "title",
+		    	y: -5,
+		    	dy: null,
+		    	"text-anchor": "end",
+		    	"font-weight": "bold"
+		    })
+		    .html(title);
+		}else{
+			d3.selectAll(".axis.y text.title").remove();
+			d3.select(".axis.y .tick:last-of-type text")
+		    .clone()
+		    .attrs({
+		    	class: "title",
+		    	x: 5,
+		    	"text-anchor": "start",
+		    	"font-weight": "bold"
+		    })
+		    .text(title);
+		}
+	}
+
+	function toolTipper(d){
+		return `<span>${d.id}</span><br><span>Points: ${d[yVar]}<br>Goal diff: ${d3.format("+")(d[xVar])}<br>(${d3.format(".0f")(+d["F38"])} for, ${d3.format(".0f")(+d["A38"])} against)</span>`
+	}
+
+	function unAccent(string){
+		return string.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+	}
+
+	function regExMatch(string, regex){
+		return string.match(regex);
+	}
+
+	let svg = container.select("svg#lines")
+		.attrs({
+			width: width,
+			height: height
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let canvas = container.select("#canvas")
+		.attrs({
+			width: scaledWidth,
+			height: scaledHeight
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let context = canvas.node().getContext("2d");
+	context.scale(PR, PR);
+	context.font = "bold 36px Avenir";
+	context.textAlign = "center";
+
+	context.fillStyle = "#ccc";
+	context.fillText("Loading", width/2, height/2);
+
+	let canvasOverlay = container.select("#canvasOverlay")
+		.attrs({
+			width: scaledWidth,
+			height: scaledHeight
+		})
+		.styles({
+			width: `${width}px`,
+			height:  `${height}px`
+		});
+
+	let contextOverlay = canvasOverlay.node().getContext("2d");
+	contextOverlay.scale(PR, PR);
+
+	d3.queue()
+		.defer(d3.csv, "data.csv")
+		.await(render);
+
+	function render(error, data){
+
+		data.forEach(d => {
+			d.id = d.team + " " + ((d.seasonEnd-1).toString().slice(2,4)) + "&#8209;" + d.seasonEnd.slice(2,4);
+			d.team = d.team;
+			d.GD38 = +d.GD38;
+			d.A38 = +d.A38;
+			d.F38 = +d.F38;
+			d.pts38 = +d.pts38;
+			d.lengthF = +d.lengthF;
+			d.lengthA = +d.lengthA;
+			d.defLen = d.A38 < 52 ? (52/(d.A38)):-((d.A38)/52);
+			d.attLen = d.F38 < 50 ? -(50/(d.F38)):((d.F38)/50);
+		 	d.defLen*=10;
+    	d.attLen*=10;
+			// d.defLen = Math.hypot((52-d.A38)*1.5, (52-d.A38)*1.5);
+  	// 	d.defLen = (52-d.A38) > 0 ? d.defLen:-d.defLen;
+  	// 	d.attLen = Math.hypot((50-d.F38)*1.5, (50-d.F38)*1.5);
+   //  	d.attLen = (50-d.A38) > 0 ? d.attLen:-d.attLen;
+   //  	d.defLen/=2;
+   //  	d.attLen/=2;
+		});
+		
+		let x = d3.scaleLinear()
+			// .domain(d3.extent(data, d => +d[xVar]))
+			.domain([40, 95])
+			.range([margin.left, width - margin.right]);
+
+    let y = d3.scaleLinear()
+	    // .domain([0, d3.max(data, d => +d[yVar])])
+	    .domain([75, 108])
+	    .range([height-margin.bottom, margin.top]);
+
+    let plotData = data.filter(d => d[xVar] >= x.domain()[0] && d[xVar] <= x.domain()[1] && d[yVar] >= y.domain()[0] && d[yVar] <= y.domain()[1]);
+
+    let defenceScaleLength = d3.scalePow()
+    	.exponent(1)
+			.domain([0, d3.max(plotData, d => Math.abs(d.alphaA))])
+			.range([0, 40]);
+
+		let attackScaleLength = d3.scalePow()
+    	.exponent(1)
+			.domain([0, d3.max(plotData, d => Math.abs(d.alphaF))])
+			.range([0, 40]);
+
+    let defenceScaleAlpha = d3.scalePow()
+    	.exponent(2)
+			.domain([0, d3.max(plotData, d => Math.abs(d.lengthA))])
+			.range([1, 1]);
+
+		let attackScaleAlpha = d3.scalePow()
+    	.exponent(2)
+			.domain([0, d3.max(plotData, d => Math.abs(d.lengthF))])
+			.range([1, 1]);
+
+    let quadtree = d3.quadtree()
+        .x(d => x(d[xVar]))
+        .y(d => y(d[yVar]))
+        .addAll(plotData);
+
+    let colours = d3.scaleOrdinal()
+    	.domain(["eng-premier-league", "esp-primera-division", "bundesliga", "ita-serie-a", "fra-ligue-1"])
+     .range(["#ff2b4f", "#0083eb", "#fcab27", "#00f1b1", "#00218d"]);
+
+	  svg.append("g")
+	  	.attrs({
+	  		class: "axis x",
+	  		transform: `translate(0,${height - margin.bottom})`
+	  	})
+	    .call(d3.axisBottom(x).ticks(6).tickFormat(xFormat));
+
+	  svg.append("g")
+	  	.attrs({
+	  		class: "axis y",
+	  		transform: `translate(${margin.left}, 0)`
+	  	})
+	    .call(d3.axisLeft(y).ticks(null, ".0f"));
+
+	    titler("x", "Goal difference");
+	    titler("y", "Points");
+
+  	// function highlightPlayer(p){  		
+
+			// 	if(colours.domain().includes(p.lastVal.name)){
+  	// 			if(xVar == "mins"){
+  	// 				contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			// 			let slope = p.lastVal[yVar] / p.lastVal[xVar];
+			// 			contextOverlay.setLineDash([10, 10]);
+			// 			contextOverlay.strokeStyle = "black";
+			// 			contextOverlay.lineWidth = 1;
+			// 			contextOverlay.beginPath();
+			// 			contextOverlay.moveTo(x.range()[0], y.range()[0]);
+			// 			contextOverlay.lineTo(x.range()[1], y(x.domain()[1]*slope));
+			// 			contextOverlay.stroke();
+			// 			contextOverlay.setLineDash([]);
+			// 		}
+			// 	}else{
+			// 		if(colours.domain()[highlightIndex] != "xxx"){
+			// 			out = linesData.filter(l => l.lastVal.name == colours.domain()[highlightIndex])[0];
+			// 			out.colour = "#d1d1d1";
+			// 			out.strokeWidth = 1;
+			// 		}
+
+			// 		let highlightNames = colours.domain();
+			// 		contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			// 		highlightNames[highlightIndex] = p.lastVal.name;
+
+			// 		// let highlightNames = colours.domain();
+			// 		// if(highlightNames.length > 5){
+			// 		// 	highlightNames.pop();
+			// 		// 	out.colour = "#ccc";
+  	// 		// 		out.strokeWidth = 1;
+  	// 		// 		contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			// 		// }
+			// 		// highlightNames.push(p.lastVal.name);
+
+			// 		let highlightCols = colours.range();
+			// 		// if(highlightCols.length > 6){
+			// 		// 	highlightCols.pop();
+			// 		// }
+			// 		// highlightCols.push("#002fbd");
+
+			// 		colours.domain(highlightNames);
+			// 		colours.range(highlightCols);
+
+			// 		p.colour = colours(p.lastVal.name);
+  	// 			p.strokeWidth = 3;
+
+  	// 			init();
+
+  	// 			if(xVar == "mins"){
+			// 			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			// 			let slope = p.lastVal[yVar] / p.lastVal[xVar];
+			// 			contextOverlay.setLineDash([10, 10]);
+			// 			contextOverlay.strokeStyle = "black";
+			// 			contextOverlay.lineWidth = 1;
+			// 			contextOverlay.beginPath();
+			// 			contextOverlay.moveTo(x.range()[0], y.range()[0]);
+			// 			contextOverlay.lineTo(x.range()[1], y(x.domain()[1]*slope));
+			// 			contextOverlay.stroke();
+			// 			contextOverlay.setLineDash([]);
+			// 		}
+
+  	// 			let dout = highlightNames.pop(), rout = highlightCols.pop();
+  	// 			highlightNames.unshift(dout), highlightCols.unshift(rout);
+  	// 			colours.domain(highlightNames);
+			// 		colours.range(highlightCols);
+
+			// 		out = p;
+			// 		// highlightIndex = highlightIndex == 0 ? 5:highlightIndex - 1;
+			// 	}
+  	// }
+
+  	plotData.forEach((d,i) => {
+  		d.colour = colours(d.league);
+  		d.translit = unAccent(d.team);
+  		return d
+  	});
+
+  	d3.select("#search-container")
+  		.styles({
+  			left: `${margin.left + 5}px`,
+  			// top: `${+d3.select(".axis.y .tick:nth-last-child(1)").attr("transform").replace(/.+,|\)/g,"") + 12}px`
+  		});
+
+  	// d3.select("#search input").on("focus", function(){
+  	// 	d3.select(this).node().value = "";
+  	// 	d3.select(this).classed("inactive", 0);
+  	// 	contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+  	// 	tooltip
+			// 	.styles({
+			// 		display: "none"
+			// 	})
+			// 	.select(".inner")
+			// 	.html("");
+			// svg.selectAll(".permaLabel").attrs({display: "block"});
+  	// });
+
+  	// d3.select("#search input").on("input", function(){
+			// let text = d3.select("#search input").node().value;
+  	// 	if(text.length > 1){
+  	// 		let pattern = new RegExp(text, "i");
+  	// 		let options = d3.select("#search-options")
+  	// 			.selectAll("div.match")
+  	// 			.data(linesData.filter(d => regExMatch(d.translit, pattern) != null).slice(0,10), d => d.key);
+			// 	options.exit().remove();
+			// 	options.enter()
+			// 		.append("div")
+  	// 			.attrs({
+  	// 				class: "match"
+  	// 			})
+  	// 			.html(d => d.lastVal.name.replace(/_/g," "));
+			// 	d3.selectAll("div.match").styles({
+			// 		opacity: 1,
+			// 		"pointer-events": "all"
+			// 	});
+
+			// 	d3.selectAll("div.match").on("click", p => {
+
+			// 		highlightPlayer(p);
+					
+			// 		d3.selectAll("div.match").styles({
+			// 			opacity: 0,
+			// 			"pointer-events": "none"
+			// 		});
+			// 		d3.select("#search input").node().value = "Search player name";
+			// 		d3.select("#search input").classed("inactive", 1);
+					
+			// 		svg.selectAll(".permaLabel")
+			// 			.attrs({
+			// 				display: d => d.lastVal.name == p.lastVal.name ? "none":"block"
+			// 			});
+
+			// 		tooltip
+			// 			.styles({
+			// 				left: `${x(p.lastVal[xVar])}px`,
+			// 				top: `${y(p.lastVal[yVar])}px`,
+			// 				display: "block"
+			// 			});
+
+			// 		let absX = tooltip.node().getBoundingClientRect().x;
+			// 		tooltip
+			// 			.select(".inner")
+			// 			.styles({
+			// 				left: absX < 135 ? "5px":"",
+			// 				right: absX < 135 ? "":"5px",
+			// 				bottom: absX < 135 ? "":"5px",
+			// 				top: absX < 135 ? "5px":""
+			// 			})
+			// 			.html(toolTipper(p, yVar));
+
+			// 		// [p].forEach((d,i) => {
+			// 		// 	contextOverlay.strokeStyle = "white";
+			// 		// 	contextOverlay.lineWidth = d.strokeWidth + 6;
+			// 		// 	contextOverlay.beginPath();
+			// 		// 	pathOverlay(d.values);
+			// 		// 	contextOverlay.stroke();
+			// 		// 	contextOverlay.strokeStyle = "#212121";
+			// 		// 	contextOverlay.lineWidth = 5;
+			// 		// 	contextOverlay.beginPath();
+			// 		// 	pathOverlay(d.values);
+			// 		// 	contextOverlay.stroke();
+			// 		// });
+
+			// 		// [p].forEach((d,i) => {
+			// 		// 	contextOverlay.lineWidth = 1;
+			// 		// 	contextOverlay.fillStyle = "#212121";
+			// 		// 	contextOverlay.beginPath();
+			//   //     contextOverlay.arc(x(+d.lastVal[xVar]), y(+d.lastVal[yVar]), 5, 0, Math.PI * 2);
+			//   //     contextOverlay.fill();
+			// 		// });
+			// 	});
+  	// 	}
+  	// });
+
+  	// d3.select("#search input").on("blur", function(){
+  	// 	if(d3.select(this).node().value == ""){
+  	// 		d3.select(this).node().value = "Search player name";
+  	// 	}
+			// d3.select(this).classed("inactive", 1);
+  	// });
+
+  	context.globalAlpha = 1;
+
+		function init(){
+
+  		// data.sort((a,b) => colours.domain().indexOf(a.lastVal.name) - colours.domain().indexOf(b.lastVal.name));
+
+			context.clearRect(0, 0, scaledWidth, scaledHeight);
+
+			let clubDots = plotData.forEach((d,i) => {
+
+				if(desktop){
+
+		      // let def = d.lengthA > 0 ? d.lengthA:-d.lengthA,
+		      	// att = d.lengthF > 0 ? d.lengthF:-d.lengthF;
+
+	      	let def = d.alphaA,
+		      	att = d.alphaF;
+
+	      	context.lineWidth = 2;
+	      	context.setLineDash([4,2]);
+		      context.strokeStyle = "gray";
+		      context.beginPath();
+		      context.moveTo(x(d[xVar]), y(d[yVar]));
+		      // context.lineTo(x(d[xVar]) - defenceScaleLength(def), y(d[yVar]) - defenceScaleLength(def));
+		      context.lineTo(x(d[xVar]) - d.defLen, y(d[yVar]) - d.defLen);
+		      context.globalAlpha = 0.5;
+		      context.stroke();
+		      context.globalAlpha = 1;
+
+		      context.lineWidth = 1;
+					context.setLineDash([]);
+		      context.strokeStyle = "gray";
+		      context.beginPath();
+		      context.moveTo(x(d[xVar]), y(d[yVar]));
+		      // context.lineTo(x(d[xVar]) + attackScaleLength(att), y(d[yVar]) - attackScaleLength(att));
+		      context.lineTo(x(d[xVar]) + d.attLen, y(d[yVar]) - d.attLen);
+		      context.globalAlpha = 0.5;
+		      context.stroke();
+		      context.globalAlpha = 1;
+
+		      context.lineWidth = 1;
+					context.strokeStyle = d.colour;
+					context.fillStyle = d.colour;
+					context.beginPath();
+		      context.arc(x(d[xVar]), y(d[yVar]), 4, 0, Math.PI * 2);
+		      context.globalAlpha = 0.8;
+		      context.fill();
+		      context.globalAlpha = 1;
+		      context.stroke();
+
+		    }else{
+
+		    	context.lineWidth = 1;
+					context.strokeStyle = d.colour;
+					context.fillStyle = d.colour;
+					context.beginPath();
+		      context.arc(x(d[xVar]), y(d[yVar]), 4, 0, Math.PI * 2);
+		      context.globalAlpha = 0.5;
+		      context.fill();
+		      context.globalAlpha = 1;
+		      context.stroke();
+
+		    }
+
+				
+			});
+
+			svg.selectAll("text.permaLabel").remove();
+
+			// let permaLabels = svg.selectAll("text.permaLabel")
+			// 	.data(data.filter(d => colours.domain().includes(d.lastVal.name)))
+			// 	.enter()
+			// 	.append("text")
+			// 	.attrs({
+			// 		transform: d => `translate(${x(+d.lastVal[xVar])}, ${y(+d.lastVal[yVar])})`,
+			// 		class: d => `permaLabel ${d.lastVal.name.replace(/ /g,"")}`,
+			// 		"text-anchor": "middle",
+			// 		y: -8
+			// 	})
+			// 	.styles({
+			// 		fill: "none",
+			// 		stroke: "white",
+			// 		"stroke-width": 5
+			// 	})
+			// 	.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/_/g," "))
+			// 	.clone()
+			// 	.styles({
+			// 		fill: d => d.colour,
+			// 		stroke: "none"
+			// 	})
+			// 	.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/_/g," "));
+
+		}
+
+		init();
+
+		let absX = 300;
+
+		function highlightClub(dp){
+
+			let dataPoint = dp;
+
+			svg.selectAll(".attackLabel").remove();
+			
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+
+			if(dataPoint == undefined){
+				contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+				tooltip
+					.styles({
+						display: "none"
+					})
+					.select(".inner")
+					.html("");
+				svg.selectAll(".permaLabel").attrs({display: "block"});
+				canvas.styles({
+					cursor: `default`
+				});
+			}else{
+			let dataID = dataPoint.id;
+			let dataGroup = plotData.filter(d => d.id == dataID)[0];
+
+			let def = dataPoint.alphaA,
+		      	att = dataPoint.alphaF;
+
+    // 	let defLen = Math.hypot((52-dataPoint.A38)*1.5, (52-dataPoint.A38)*1.5);
+  		// defLen = (52-dataPoint.A38) > 0 ? defLen:-defLen;
+
+  		// let attLen = Math.hypot((50-dataPoint.F38)*1.5, (50-dataPoint.F38)*1.5);
+    // 	attLen = (50-dataPoint.A38) > 0 ? attLen:-attLen;
+
+      contextOverlay.strokeStyle = "white";
+      contextOverlay.lineWidth = 5;
+      contextOverlay.beginPath();
+      contextOverlay.moveTo(x(dataPoint[xVar]), y(dataPoint[yVar]));
+      // contextOverlay.lineTo(x(dataPoint[xVar]) - defenceScaleLength(def), y(dataPoint[yVar]) - defenceScaleLength(def));
+      contextOverlay.lineTo(x(dataPoint[xVar]) - dataPoint.defLen, y(dataPoint[yVar]) - dataPoint.defLen);
+      contextOverlay.globalAlpha = defenceScaleAlpha(dataPoint.lengthA);
+      contextOverlay.stroke();
+      contextOverlay.globalAlpha = 1;
+
+      contextOverlay.strokeStyle = "white";
+      contextOverlay.lineWidth = 5;
+      contextOverlay.beginPath();
+      contextOverlay.moveTo(x(dataPoint[xVar]), y(dataPoint[yVar]));
+      // contextOverlay.lineTo(x(dataPoint[xVar]) + attackScaleLength(att), y(dataPoint[yVar]) - attackScaleLength(att));
+      contextOverlay.lineTo(x(dataPoint[xVar]) + dataPoint.attLen, y(dataPoint[yVar]) - dataPoint.attLen);
+      contextOverlay.globalAlpha = attackScaleAlpha(dataPoint.lengthF);
+      contextOverlay.stroke();
+      contextOverlay.globalAlpha = 1;
+
+      contextOverlay.strokeStyle = "gray";
+      contextOverlay.lineWidth = 3;
+      contextOverlay.setLineDash([4, 2]);
+      contextOverlay.beginPath();
+      contextOverlay.moveTo(x(dataPoint[xVar]), y(dataPoint[yVar]));
+      // contextOverlay.lineTo(x(dataPoint[xVar]) - defenceScaleLength(def), y(dataPoint[yVar]) - defenceScaleLength(def));
+      contextOverlay.lineTo(x(dataPoint[xVar]) - dataPoint.defLen, y(dataPoint[yVar]) - dataPoint.defLen);
+      contextOverlay.globalAlpha = defenceScaleAlpha(dataPoint.lengthA);
+      contextOverlay.stroke();
+      contextOverlay.globalAlpha = 1;
+
+      contextOverlay.setLineDash([]);
+      contextOverlay.strokeStyle = "gray";
+      contextOverlay.lineWidth = 3;
+      contextOverlay.beginPath();
+      contextOverlay.moveTo(x(dataPoint[xVar]), y(dataPoint[yVar]));
+      // contextOverlay.lineTo(x(dataPoint[xVar]) + attackScaleLength(att), y(dataPoint[yVar]) - attackScaleLength(att));
+      contextOverlay.lineTo(x(dataPoint[xVar]) + dataPoint.attLen, y(dataPoint[yVar]) - dataPoint.attLen);
+      contextOverlay.globalAlpha = attackScaleAlpha(dataPoint.lengthF);
+      contextOverlay.stroke();
+      contextOverlay.globalAlpha = 1;
+
+      contextOverlay.lineWidth = 2;
+			contextOverlay.strokeStyle = dataPoint.colour;
+			contextOverlay.fillStyle = dataPoint.colour;
+			contextOverlay.beginPath();
+      contextOverlay.arc(x(dataPoint[xVar]), y(dataPoint[yVar]), 5, 0, Math.PI * 2);
+      contextOverlay.fill();
+      contextOverlay.stroke();
+
+      if(absX > (innerWidth-140)){
+      	let attackLabel = svg.append("g")
+      	.attrs({
+      		class:"attackLabel",
+      		transform: `translate(${x(dataPoint[xVar])}, ${y(dataPoint[yVar])}) rotate(-45)`
+      	})
+      	attackLabel
+      	.append("text")
+      	.attrs({
+      		"text-anchor": "start",
+      		// dx: "-0.5em",
+      		dy: "1.33em",
+      		fill: "none",
+      		stroke: "white",
+      		"stroke-width": 4,
+      		"font-weight": 600
+      	})
+      	.html(`Attack: ${d3.format(".1f")(+dataPoint.attLen/10)}x average`);
+      	attackLabel
+      	.append("text")
+      	.attrs({
+      		"text-anchor": "start",
+      		// dx: "-0.5em",
+      		dy: "1.33em",
+      		"font-weight": 600
+      	})
+      	.html(`Attack: ${d3.format(".1f")(+dataPoint.attLen/10)}x average`);
+      }else{
+				let attackLabel = svg.append("g")
+      	.attrs({
+      		class:"attackLabel",
+      		transform: `translate(${x(dataPoint[xVar]) + dataPoint.attLen}, ${y(dataPoint[yVar]) - dataPoint.attLen}) rotate(-45)`
+      	})
+      	attackLabel
+      	.append("text")
+      	.attrs({
+      		"text-anchor": "start",
+      		dy: "0.33em",
+      		fill: "none",
+      		stroke: "white",
+      		"stroke-width": 4,
+      		"font-weight": 600
+      	})
+      	.html(` Attack: ${d3.format(".1f")(+dataPoint.attLen/10)}x average`);
+      	attackLabel
+      	.append("text")
+      	.attrs({
+      		dy: "0.33em",
+      		"font-weight": 600
+      	})
+      	.html(` Attack: ${d3.format(".1f")(+dataPoint.attLen/10)}x average`);
+      }
+
+      let defenceLabel = svg.append("g")
+      	.attrs({
+      		class:"attackLabel",
+      		transform: `translate(${x(dataPoint[xVar]) - dataPoint.defLen}, ${y(dataPoint[yVar]) - dataPoint.defLen}) rotate(-45)`
+      	});
+      	defenceLabel
+      	.append("text")
+      	.attrs({
+      		dx: dataPoint.defLen < 0 ? "-0.5em":"-0.5em",
+      		dy: dataPoint.defLen < 0 ? "1.0em":"-0.5em",
+      		fill: "none",
+      		stroke: "white",
+      		"stroke-width": 4,
+      		"font-weight": 600
+      	})
+      	.html(`Defence: ${d3.format(".1f")(+dataPoint.defLen/10)}x average`);
+      	defenceLabel
+      	.append("text")
+      	.attrs({
+      		dx: dataPoint.defLen < 0 ? "-0.5em":"-0.5em",
+      		dy: dataPoint.defLen < 0 ? "1.0em":"-0.5em",
+      		"font-weight": 600
+      	})
+      	.html(`Defence: ${d3.format(".1f")(+dataPoint.defLen/10)}x average`);
+
+			tooltip
+				.styles({
+					left: `${x(dataPoint[xVar])}px`,
+					top: `${y(dataPoint[yVar])}px`,
+					display: "block"
+				})
+				.select(".inner")
+				.styles({
+					left: absX < 135 ? "7px":"",
+					right: absX < 135 ? "":"7px",
+					// bottom: absX < 135 ? "":"5px",
+					top: absX < 135 ? "7px":"7px"
+				})
+				.html(toolTipper(dataGroup));
+			}
+		}
+
+		highlightClub(plotData.filter(d => d.id == "Man City 17&#8209;18")[0]);
+
+		canvas.on("mousemove", () => {
+
+			svg.selectAll(".attackLabel").remove();
+			
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+
+			let coords = d3.mouse(canvas.node());
+			absX = d3.event.clientX;
+
+			let dataPoint = quadtree.find((coords[0]), (coords[1]), width/6);
+				highlightClub(dataPoint)
+		});
+
+		canvas.on("mouseout", () => {
+			contextOverlay.clearRect(0, 0, scaledWidth, scaledHeight);
+			tooltip
+				.styles({
+					display: "none"
+				})
+				.select(".inner")
+				.html("");
+			svg.selectAll(".permaLabel").attrs({display: "block"});
+			svg.selectAll(".attackLabel").remove();
+		});
+
+	};
+</script>
+
+</body>
+</html>
