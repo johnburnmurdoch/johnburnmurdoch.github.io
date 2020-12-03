@@ -549,13 +549,17 @@
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Thierry Henry", "Zlatan", "Alan Shearer"])
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Zlatan", "Ronaldo_(BRA)", "Alan Shearer"])
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Gary Lineker", "Jürgen Klinsmann", "xxx"])
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Jürgen Klinsmann", "xxx"])
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Erling Håland", "Alan Shearer", "Kylian Mbappé"])
     	// .range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#FF49EF", "#00F1B1"])
     	// .range(["#FF2B4F", "#0083EB", "#FCAB27", "#FF49EF", "#00F1B1"]);
      .range(["#ff2b4f", "#0083eb", "#fcab27", "#00f1b1", "#00218d"]);
     	// .range(["#4e3da4", "#0071ff", "#75b8ff", "#33f4ff"]);
     	// .range(["#743da4", "#fc50d7", "#ff4609", "#ffaf0f"]);
     	// .range(["#FF2B4F", "#008cfa", "#FCAB27", "#FF49EF", "#00ebab", "#002fbd"]);
+
+  	let textColours = d3.scaleOrdinal()
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Erling Håland", "Alan Shearer", "Kylian Mbappé"])
+     .range(["#ff2b4f", "#0083eb", "#e79004", "#00cc96", "#00218d"]);
 
 	  svg.append("g")
 	  	.attrs({
@@ -662,6 +666,7 @@
   		initialVal.NPG = 0;
   		d.values.unshift(initialVal);
   		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#d1d1d1";
+  		d.text_colour = (colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#d1d1d1").replace(/fcab27/g,"e79004").replace(/00f1b1/g,"00cc96");
   		d.strokeWidth = colours.domain().includes(d.lastVal.name) ? 3:1;
   		d.translit = unAccent(d.lastVal.name);
   		return d
@@ -836,7 +841,8 @@
 				.clone()
 				.styles({
 					fill: d => d.colour,
-					stroke: "none"
+					stroke: "none",
+					"font-weight": 600
 				})
 				.html(d => d.lastVal.name.split(" ").slice(-1)[0].replace(/_/g," "));
 
