@@ -56,6 +56,7 @@
 				margin: 0 auto;
 				width: 100%;
 				max-width: 900px;
+				padding-bottom: 1em;
 			}
 			#graphic{
 				margin: 0;
@@ -110,7 +111,8 @@
 			}
 
 			span a{
-				color: #FF2B4F;
+				/* color: #FF2B4F; */
+				color: #0083EB
 			}
 
 			#axisToggle_y{
@@ -170,7 +172,7 @@
 
 			#axisToggle_x span{
 				padding: 2px 5px;
-				color: #80c6ff;
+				color: #57b3ff;
 				cursor: pointer;
 				border: 1px solid #0083EB;
 			}
@@ -180,7 +182,7 @@
 			}
 
 			#axisToggle_x span:hover{
-				background-color: #80c6ff;
+				background-color: #57b3ff;
 				color: white;
 			}
 
@@ -1060,7 +1062,7 @@
 
     	let streakNames = streakRows.append("td")
     		.styles({
-    			color: d => d.name == "Lionel Messi" ? "#0083eb": d.name == "Cristiano Ronaldo" ? "#ff2b4f":"#666666",
+    			color: d => d.name == "Lionel Messi" ? "#0d9fd9": d.name == "Cristiano Ronaldo" ? "#ff2b4f":"#666666",
     			"font-weight": d => ["Lionel Messi", "Cristiano Ronaldo"].includes(d.name) ? 700:400
     		})
     		.html(d => d.streak);
@@ -1084,7 +1086,7 @@
   			})
     		.styles({
     			width: d => `${d.width}%`,
-    			background: d => d.name == "Lionel Messi" ? "#0083eb": d.name == "Cristiano Ronaldo" ? "#ff2b4f":"#d1d1d1"
+    			background: d => d.name == "Lionel Messi" ? "#18b0e2": d.name == "Cristiano Ronaldo" ? "#ff2b4f":"#d1d1d1"
     		})
     		.html(" ");
 
