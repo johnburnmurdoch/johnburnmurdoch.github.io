@@ -342,7 +342,7 @@
 			<div id=search-options></div>
 		</div>
 		<div id="axisToggle_x">
-			Plot goals against <span value=mins>minutes</span><span value=played>matches</span><span selected value=date>date</span><span value=age>age</span>
+			Plot goals against <span selected value=mins>minutes</span><span value=played>matches</span><span value=age>age</span><span value=date>date</span>
 		</div>
 		<div id=tooltip>
 			<div class=inner></div>
@@ -350,11 +350,11 @@
 	</div>
 	<div class=footer>
 		<br>
-		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a>, updated Dec 3 2020</div>
+		<div>Analysis and graphic by <a href="https://www.twitter.com/jburnmurdoch" target=_blank title="John Burn-Murdoch — Twitter profile">@jburnmurdoch</a><br>Source: <a href="http://www.worldfootball.net" target=_blank title="worldfootball.net">worldfootball.net</a>, updated Oct 8 2022</div>
 	</div>
 	<div class=notes>
 		<br>
-		<div>Figures are for all senior club matches played in a league or cup in England, Spain, Italy, Germany or France, or in international tournaments such as the Champions League, Europa League and Cup Winners’ Cup.<br><br>The 186 players shown are those who have scored at least 20 league goals in any single season of one of Europe’s big five leagues since 1990, and have a career-average goal-scoring rate across senior matches in these five countries of at least 0.4 non-penalty goals per 90 minutes.</div>
+		<div>Figures are for all senior club matches played in a league or cup in England, Spain, Italy, Germany or France, or in international tournaments such as the Champions League, Europa League and Cup Winners’ Cup.<br><br>The 211 players shown are those who have scored at least 20 league goals in any single season of one of Europe’s big five leagues since 1990, and have a career-average goal-scoring rate across senior matches in these five countries of at least 0.4 non-penalty goals per 90 minutes.</div>
 	</div>
 	<div id=streaks>
 		<h2>Top 40 single-year* goalscoring performances since 1980</h2>
@@ -510,9 +510,9 @@
 
 	function render(error, data, streaksData){
 
-		let xVar = "date",
+		let xVar = "mins",
 			yVar = "G",
-			xFormat = d3.timeFormat("%Y");					
+			xFormat = d3.format(",.0f");
 
 		data.forEach(d => {
 			d.name = d.name.replace(/Zlatan Ibrahimović/g,"Zlatan").replace(/^Ronaldo$/g,"Ronaldo_(BRA)").replace(/Di /g,"Di_").replace(/van /g,"van_").replace(/Le /g,"Le_").replace(/Del /g,"Del_");
@@ -529,9 +529,9 @@
 			d.date = d3.timeParse("%Y-%m-%d")(d.date);
 		});
 		
-		let x = d3.scaleTime()
-			.domain([new Date(1970,0,1), new Date()])
-			.range([margin.left, width - margin.right]);
+		let x = d3.scaleLinear()
+	    .domain([0, 80000])
+	    .range([margin.left, width - margin.right]);
 
     let y = d3.scaleLinear()
 	    .domain([0, d3.max(data, d => +d.G)])
@@ -549,16 +549,17 @@
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Raúl", "Thierry Henry", "Zlatan", "Alan Shearer"])
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Zlatan", "Ronaldo_(BRA)", "Alan Shearer"])
     	// .domain(["Cristiano Ronaldo", "Lionel Messi", "Alan Shearer", "Gary Lineker", "Jürgen Klinsmann", "xxx"])
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Erling Håland", "Alan Shearer", "Kylian Mbappé"])
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Erling Haaland", "Alan Shearer", "Kylian Mbappé"])
     	// .range(["#00218D", "#0083EB", "#FF2B4F", "#FCAB27", "#FF49EF", "#00F1B1"])
     	// .range(["#FF2B4F", "#0083EB", "#FCAB27", "#FF49EF", "#00F1B1"]);
-     .range(["#ff2b4f", "#0083eb", "#fcab27", "#00f1b1", "#00218d"]);
+     .range(["#ff2b4f", "#18b0e2", "#00218d", "#00d199", "#fb9c04"]);
+	//  .range(["#ff2b4f", "#0083eb", "#fcab27", "#00f1b1", "#00218d"]);
     	// .range(["#4e3da4", "#0071ff", "#75b8ff", "#33f4ff"]);
     	// .range(["#743da4", "#fc50d7", "#ff4609", "#ffaf0f"]);
     	// .range(["#FF2B4F", "#008cfa", "#FCAB27", "#FF49EF", "#00ebab", "#002fbd"]);
 
   	let textColours = d3.scaleOrdinal()
-    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Erling Håland", "Alan Shearer", "Kylian Mbappé"])
+    	.domain(["Cristiano Ronaldo", "Lionel Messi", "Erling Haaland", "Alan Shearer", "Kylian Mbappé"])
      .range(["#ff2b4f", "#0083eb", "#e79004", "#00cc96", "#00218d"]);
 
 	  svg.append("g")
@@ -575,14 +576,48 @@
 	  	})
 	    .call(d3.axisLeft(y).ticks(null, ".0f"));
 
-	    titler("x", "");
+		titler("x", "Minutes");
 	    titler("y", "Goals");
 
     let linesData = d3.nest()
     	.key(d => d.id)
     	.entries(data);
 
-  	function highlightPlayer(p){  		
+	
+
+	linesData.forEach((d,i) => {
+  		d.lastVal = d.values.slice(-1)[0];
+  		d.firstVal = d.values.slice(0)[0];  		
+  		let initialVal = Object.assign({}, d.firstVal);
+  		initialVal.mins = 0;
+  		initialVal.played = 0;
+  		initialVal.G = 0;
+  		initialVal.NPG = 0;
+  		d.values.unshift(initialVal);
+  		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#d1d1d1";
+  		d.text_colour = (colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#d1d1d1").replace(/fcab27/g,"e79004").replace(/00f1b1/g,"00cc96");
+  		d.strokeWidth = colours.domain().includes(d.lastVal.name) ? 3:1;
+  		d.translit = unAccent(d.lastVal.name);
+  		return d
+  	});
+
+	let pathVoronoi;
+
+	let path = d3.line()
+		// .curve(d3.curveStepAfter)
+		.x(d => x(d[xVar]))
+		.y(d => y(d[yVar]))
+		.context(context);
+
+	let pathOverlay = d3.line()
+		// .curve(d3.curveStepAfter)
+		.x(d => x(d[xVar]))
+		.y(d => y(d[yVar]))
+		.context(contextOverlay);
+
+	init();
+
+  	function highlightPlayer(p){
 
 				if(colours.domain().includes(p.lastVal.name)){
   				if(xVar == "mins"){
@@ -655,22 +690,6 @@
   	}
 
 		// console.log(linesData)
-
-  	linesData.forEach((d,i) => {
-  		d.lastVal = d.values.slice(-1)[0];
-  		d.firstVal = d.values.slice(0)[0];  		
-  		let initialVal = Object.assign({}, d.firstVal);
-  		initialVal.mins = 0;
-  		initialVal.played = 0;
-  		initialVal.G = 0;
-  		initialVal.NPG = 0;
-  		d.values.unshift(initialVal);
-  		d.colour = colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#d1d1d1";
-  		d.text_colour = (colours.domain().includes(d.lastVal.name) ? colours(d.lastVal.name):"#d1d1d1").replace(/fcab27/g,"e79004").replace(/00f1b1/g,"00cc96");
-  		d.strokeWidth = colours.domain().includes(d.lastVal.name) ? 3:1;
-  		d.translit = unAccent(d.lastVal.name);
-  		return d
-  	});
 
   	d3.select("#search-container")
   		.styles({
@@ -774,20 +793,6 @@
   		}
 			d3.select(this).classed("inactive", 1);
   	});
-
-		let pathVoronoi;
-
-		let path = d3.line()
-			// .curve(d3.curveStepAfter)
-			.x(d => x(d[xVar]))
-			.y(d => y(d[yVar]))
-			.context(context);
-
-		let pathOverlay = d3.line()
-			// .curve(d3.curveStepAfter)
-			.x(d => x(d[xVar]))
-			.y(d => y(d[yVar]))
-			.context(contextOverlay);
 
 		function init(){
 
@@ -966,7 +971,7 @@
 
     });
 
-		d3.selectAll('#axisToggle_x span').data(["mins", "played", "date", "age"])
+		d3.selectAll('#axisToggle_x span').data(["mins", "played", "age", "date"])
 			.on('click', function(){
 	    	
 	    	let newX = d3.select(this).attr("value"), x1, xFormat1, y1=y;
